@@ -6,7 +6,7 @@ README:
 
 3. Breve descripción de los integrantes del equipo:
 
-   Gastón Balatti:
+   Gastón Balatti: tengo 23 años, soy de Capital Federal. Soy periodista, tengo una banda (Trago Amargo en spotify, si alguien quiere escuchar...) e hincha de Boca.
 
    Nicolás Gleiberman: Músico. Futbolista frustrado. Diseñador. Hincha de San Lorenzo. Ariano, con todo lo que conlleva.
 
