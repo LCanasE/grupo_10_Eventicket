@@ -10,7 +10,7 @@ README:
 
     Nicolás Gleiberman: Músico. Futbolista frustrado. Diseñador. Hincha de San Lorenzo. Ariano, con todo lo que conlleva.
 
-    Tomás Agustín Lovey:
+    Tomás Agustín Lovey: Hola, buenos días! Gamer, con ganas de ser programador senior algún día.
 
     William Nieto: Colombiano, de 29 años, profesional en Marketing y Negocios Internacionales. Altualmente labora como Administrador de Proyectos en el sector de construcción.
     Hobbies: Le gusta al Squash, hacer ejercicio, ir al mar a nadar, hacer trekking y estudiar idiomas.
