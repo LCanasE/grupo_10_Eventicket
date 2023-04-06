@@ -6,25 +6,24 @@ README:
 
 3. Breve descripción de los integrantes del equipo:
 
-    Gastón Balatti:
+   Gastón Balatti:
 
-    Nicolás Gleiberman:
+   Nicolás Gleiberman: Músico. Futbolista frustrado. Diseñador. Hincha de San Lorenzo. Ariano, con todo lo que conlleva.
 
-    Tomás Agustín Lovey:
+   Tomás Agustín Lovey:
 
-    William Nieto:
+   William Nieto:
 
-    Liliana Cañas Eastman:
-
+   Liliana Cañas Eastman:
 
 4. Listado de al menos 5 sitios de referencia:
 
-    https://www.viagogo.com/:
+   https://www.viagogo.com/:
 
-    https://www.passline.com/home: 
-    
-    https://tuboleta.com/:
-    
-    https://www.stubhub.com/:
+   https://www.passline.com/home:
 
-    https://www.viagogo.com/:
+   https://tuboleta.com/:
+
+   https://www.stubhub.com/:
+
+   https://www.viagogo.com/:
