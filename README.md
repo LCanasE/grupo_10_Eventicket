@@ -6,18 +6,16 @@ README:
 
 3. Breve descripción de los integrantes del equipo:
 
-   Gastón Balatti: tengo 23 años, soy de Capital Federal. Soy periodista, tengo una banda (Trago Amargo en spotify, si alguien quiere escuchar...) e hincha de Boca.
+    Gastón Balatti: tengo 23 años, soy de Capital Federal. Soy periodista, tengo una banda (Trago Amargo en spotify, si alguien quiere escuchar...) e hincha de Boca.
 
-   Nicolás Gleiberman: Músico. Futbolista frustrado. Diseñador. Hincha de San Lorenzo. Ariano, con todo lo que conlleva.
+    Nicolás Gleiberman: Músico. Futbolista frustrado. Diseñador. Hincha de San Lorenzo. Ariano, con todo lo que conlleva.
 
-   Tomás Agustín Lovey:
+    Tomás Agustín Lovey:
 
     William Nieto: Colombiano, de 29 años, profesional en Marketing y Negocios Internacionales. Altualmente labora como Administrador de Proyectos en el sector de construcción.
     Hobbies: Le gusta al Squash, hacer ejercicio, ir al mar a nadar, hacer trekking y estudiar idiomas.
 
-    Liliana Cañas Eastman:
-
-   Liliana Cañas Eastman:
+    Liliana Cañas Eastman: Ingeniera de proesos, Colombiana, trabajo como analista de operaciones de la atención virtual de IPS Sura para pacientes afiliados a los aseguradores de Sura Colombia. Me encanta jugar softbol, los gatos, bailar, cantar y sonreir =)
 
 4. Listado de al menos 5 sitios de referencia:
 
