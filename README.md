@@ -19,7 +19,7 @@ README:
 
 4. Listado de al menos 5 sitios de referencia:
 
-   https://www.viagogo.com/:
+   https://www.viagogo.com/: William "Al buscar tiquetes de conciertos de mis cantantes favoritos, el navegador siempre me arroja esta opción. Por lo que desconozco de alguna otra opción. Considero que es algo lenta y algo confusa, pero cumple.
 
    https://www.passline.com/home:
 
