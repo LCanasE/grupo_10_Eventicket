@@ -12,7 +12,8 @@ README:
 
     Tomás Agustín Lovey:
 
-    William Nieto:
+    William Nieto: Colombiano, de 29 años, profesional en Marketing y Negocios Internacionales. Altualmente labora como Administrador de Proyectos en el sector de construcción.
+    Hobbies: Le gusta al Squash, hacer ejercicio, ir al mar a nadar, hacer trekking y estudiar idiomas.
 
     Liliana Cañas Eastman:
 
