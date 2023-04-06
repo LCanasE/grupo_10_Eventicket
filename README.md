@@ -12,7 +12,10 @@ README:
 
     Tomás Agustín Lovey:
 
+    William Nieto:
+
     Liliana Cañas Eastman:
+
 
 4. Listado de al menos 5 sitios de referencia:
 
