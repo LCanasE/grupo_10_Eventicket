@@ -27,4 +27,4 @@ README:
 
    https://www.stubhub.com/:
 
-   https://www.ticketek.com.ar/: Es una página simple de utilizar, la misma se adapta al cliente, dandole esa facilidad de uso. Elegimos esta opción ya que es una de las grandes referentes que se tienen hoy en día en Argentina. Como se puede apreciar es una página que no es visualmente la mejor de todas, si no que cuenta con las herramientas justas y necesarias.
+   https://www.ticketek.com.ar/: Es una página simple de utilizar, la misma se adapta al cliente, dándole esa facilidad de uso. Elegimos esta opción ya que es una de las grandes referentes que se tienen hoy en día en Argentina. Como se puede apreciar es una página que no es visualmente la mejor de todas, si no que cuenta con las herramientas justas y necesarias.
