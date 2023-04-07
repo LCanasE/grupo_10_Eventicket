@@ -23,7 +23,7 @@ README:
 
    https://www.passline.com/home:
 
-   https://tuboleta.com/:
+   https://tuboleta.com/: Es muy completa y expone fácil de ver y seleccionar los tickets que se están ofreciendo. Los colores son amigables y no es una página muy llena de cosas.
 
    https://www.stubhub.com/:
 
