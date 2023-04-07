@@ -1,1 +1,5 @@
 Logo
+
+- Para la creación del logotipo se utilizó como base la tipografía Uni Neue en su variante Bold Italic, a la que le modifiqué detalles de algunas letras. La primera E la hice apenas más alta, para dar impresión de mayúscula, pese a no serlo. Luego levanté una de las patas de la V, modifiqué un detallito en la "serifa" (entre comillas porque no lo es exactamente) de la N y levanté un poquito la primera T.
+- Para el isologo se pensó en un dibujo de ticket.
+- El color utilizado es el #313D55 (Azul).
