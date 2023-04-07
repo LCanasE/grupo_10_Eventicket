@@ -19,9 +19,9 @@ README:
 
 4. Listado de al menos 5 sitios de referencia:
 
-   https://www.viagogo.com/:
+   https://www.viagogo.com/: William "Al buscar tiquetes de conciertos de mis cantantes favoritos, el navegador siempre me arroja esta opción. Por lo que desconozco de alguna otra opción. Considero que es algo lenta y algo confusa, pero cumple.
 
-   https://www.passline.com/home:
+   https://www.passline.com/home: Es una página muy fácil de usar. La experiencia de usuario es muy buena porque te va llevando solo a realizar la compra de la entrada. El usuario no tiene que entender como funciona la página para usarla. Al mismo tiempo, el diseño de la página ayuda a su navegabilidad. El orden de los productos y su información es muy clara y desde la home, el usuario ya cuenta con la información necesaria para el evento (fecha, precio y lugar). Ahora bien, a la hora de realizar una compra se presentan algunos inconvenientes, principalmente detalles. El tamaño de letra para completar el formulario de compra es chico, el nombre de usuario en la barra de navegación se corta y una opción de la barra de navegación no se entiende por sí sola ("Kioscos"). De todos modos, considero que es un buen ejemplo para tomar como referencia ya que los elementos están bien ordenados y es fácil de usar.
 
    https://tuboleta.com/: Es muy completa y expone fácil de ver y seleccionar los tickets que se están ofreciendo. Los colores son amigables y no es una página muy llena de cosas.
 
