@@ -1,1 +1,5 @@
 Colores
+
+- El color primario utilizado es el #313D55 (Azul).
+- El color secundario utilizado es el #FFFFFF (Blanco).
+- Como color terciario se utiliza el #F4F4F4 (Gris).
