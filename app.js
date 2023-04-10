@@ -20,16 +20,16 @@ app.listen(3000, () => console.log('Servidor corriendo en el puerto 3000')) // P
     
     // Rutas a los archivos HTML: Se puede usar .resolve o .join
     // Home:
-    app.get('/', (req,res) => res.sendFile(path.resolve(__dirname, './views/home.html')));
+    app.get('/', (req,res) => res.sendFile(path.join(__dirname, './views/home.html')));
 
     // Login:
-    app.get('/login', (req,res) => res.sendFile(path.resolve(__dirname, './views/login.html')));
+    app.get('/login', (req,res) => res.sendFile(path.join(__dirname, './views/login.html')));
 
     // Registro:
-    app.get('/registro', (req,res) => res.sendFile(path.resolve(__dirname, './views/registro.html')));
+    app.get('/registro', (req,res) => res.sendFile(path.join(__dirname, './views/registro.html')));
 
     // Detalle de productos:
-    app.get('/productos', (req,res) => res.sendFile(path.resolve(__dirname, './views/productos.html')));
+    app.get('/productos', (req,res) => res.sendFile(path.join(__dirname, './views/productos.html')));
 
     // Carrito de compras:
-    app.get('/carrito', (req,res) => res.sendFile(path.resolve(__dirname, './views/carrito.html')));
+    app.get('/carrito', (req,res) => res.sendFile(path.join(__dirname, './views/carrito.html')));
