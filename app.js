@@ -9,6 +9,8 @@ const app = express();
 // 4. Levantar servidor web:
 app.listen(3000, () => console.log('Servidor corriendo')) // Para acceder al servidor: Entrar en el navegador a localhost:3000 - o el puerto mencionado en esta línea
 
+// Para levantar el servidor y que actualice cambios automáticamente: Ejecutar en la terminal: nodemon app.js
+
 // 5. Indicar las rutas de respuesta a las solicitudes al servidor:
     // Home:
     app.get('/', (req,res) => res.send('Servidor Instanciado - Home'));
