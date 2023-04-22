@@ -27,8 +27,9 @@ header nav button {
 
 .registro-form {
   display: block;
-  margin: 0;
+  margin-top: 15vh;
   text-align: center;
+  justify-content: space-between;
   width: 100vw;
   border: solid 1px #313d55;
 }
@@ -43,7 +44,6 @@ header nav button {
 
 #registro-nombre,
 #registro-apellido {
-  justify-content: space-between;
   width: 48%;
   margin-left: 0;
 }
@@ -81,7 +81,7 @@ header nav button {
     border: none;
     color: #313d55;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 18px;
     background: none;
     padding: 20px;
   }
@@ -106,5 +106,6 @@ header nav button {
     width: 60vw;
     text-align: center;
     margin: auto;
+    padding: 25px;
   }
 }
