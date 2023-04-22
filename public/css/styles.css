@@ -11,10 +11,15 @@ body {
   padding: 0%;
 }
 
+header {
+  padding: 5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
 .menu-burger {
   width: 40px;
   color: #313d55;
-  text-align: right;
   display: inline-block;
 }
 
@@ -24,7 +29,12 @@ body {
 }
 
 header nav button {
-  visibility: hidden;
+  display: none;
+}
+
+.main-registro {
+  display: flex;
+  justify-content: center;
 }
 
 .registro-form {
@@ -81,18 +91,21 @@ header nav button {
 
 @media (min-width: 1024px) {
   header {
-    display: block;
+    display: flex;
     width: 100vw;
+    justify-content: space-between;
   }
 
   header nav {
+    display: inline-block;
+    margin-right: 0%;
     text-align: right;
   }
   .menu-burger {
-    visibility: hidden;
+    display: none;
   }
   header nav button {
-    visibility: visible;
+    display: inline-block;
     text-align: center;
     border: none;
     color: #313d55;
