@@ -15,19 +15,25 @@ header {
   padding: 5vh 5vh 0vh 5vh;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10vh;
 }
 
 .menu-burger {
   width: 40px;
   color: #313d55;
+  position: absolute;
+  right: 6vh;
 }
 
 .logo-eventicket {
   width: 100px;
+  position: absolute;
+  left: 6vh;
 }
 
 header nav button {
   font-family: "Montserrat", "sans-serif";
+  font-weight: bold;
   display: none;
 }
 
@@ -48,6 +54,7 @@ header nav button {
 
 .registro-form h2 {
   font-size: 16px;
+  font-weight: 900;
 }
 
 .registro-form input {
@@ -71,15 +78,17 @@ header nav button {
   background-color: #313d55;
   color: #fff;
   font-size: 18px;
+  font-weight: 500;
 }
 
 #registrate-google {
   background-color: #f4f4f4;
   color: #313d55;
   font-size: 18px;
+  font-weight: 500;
 }
 
-/* PRIMER BREAKPOINT */
+/* ------------------ PRIMER BREAKPOINT 480px ------------------ */
 @media (min-width: 480px) {
   .registro-form {
     margin-top: 6vh;
@@ -91,14 +100,18 @@ header nav button {
 
   .menu-burger {
     width: 50px;
+    position: absolute;
+    right: 10vh;
   }
 
   .logo-eventicket {
     width: 120px;
+    position: absolute;
+    left: 10vh;
   }
 }
 
-/* SEGUNDO BREAKPOINT */
+/* ------------------ SEGUNDO BREAKPOINT 720px ------------------ */
 @media (min-width: 720px) {
   .registro-form {
     margin-top: 10vh;
@@ -128,14 +141,16 @@ header nav button {
 @media (min-width: 1024px) {
   header {
     display: flex;
-    width: 100vw;
     justify-content: space-between;
+    margin-bottom: 20vh;
   }
 
   header nav {
     display: inline-block;
     margin-right: 0%;
     text-align: right;
+    position: absolute;
+    right: 10vh;
   }
   .menu-burger {
     display: none;
@@ -151,6 +166,12 @@ header nav button {
     padding: 20px;
   }
 
+  header nav button:hover {
+    background-color: #f4f4f4;
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+
   header .logo-eventicket {
     width: 150px;
     margin-bottom: 0px;
@@ -164,11 +185,13 @@ header nav button {
     border: solid 1px #313d55;
     border-radius: 10px;
     -webkit-transition: 1s;
+    transition: 1s;
   }
 
   .nav-login:hover {
     background-color: #f4f4f4;
     -webkit-transition: 1s;
+    transition: 1s;
   }
 
   .nav-registro {
@@ -177,11 +200,13 @@ header nav button {
     border-radius: 10px;
     border: solid 1px #313d55;
     -webkit-transition: 1s;
+    transition: 1s;
   }
   .nav-registro:hover {
     background-color: #f4f4f4;
     color: #313d55;
     -webkit-transition: 1s;
+    transition: 1s;
   }
 
   .registro-form {
