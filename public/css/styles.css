@@ -12,7 +12,7 @@ body {
 }
 
 header {
-  padding: 5vh;
+  padding: 5vh 5vh 0vh 5vh;
   display: flex;
   justify-content: space-between;
 }
@@ -20,15 +20,14 @@ header {
 .menu-burger {
   width: 40px;
   color: #313d55;
-  display: inline-block;
 }
 
 .logo-eventicket {
   width: 100px;
-  display: inline-block;
 }
 
 header nav button {
+  font-family: "Montserrat", "sans-serif";
   display: none;
 }
 
@@ -43,19 +42,27 @@ header nav button {
   text-align: center;
   width: 90vw;
   border: solid 1px #313d55;
+  padding: 20px;
+  padding-bottom: 30px;
+}
+
+.registro-form h2 {
+  font-size: 16px;
 }
 
 .registro-form input {
   background-color: #f4f4f4;
   border: solid 1px #c0c0c0;
-  width: 100%;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 16px;
+  width: 96%;
   margin-top: 2%;
   padding: 2%;
 }
 
 #registro-nombre,
 #registro-apellido {
-  width: 48%;
+  width: 47.5%;
   margin-left: 0;
 }
 
@@ -67,7 +74,7 @@ header nav button {
 }
 
 #registrate-google {
-  background-color: #c0c0c0;
+  background-color: #f4f4f4;
   color: #313d55;
   font-size: 18px;
 }
@@ -75,7 +82,11 @@ header nav button {
 /* PRIMER BREAKPOINT */
 @media (min-width: 480px) {
   .registro-form {
-    margin-top: 10vh;
+    margin-top: 6vh;
+  }
+
+  .registro-form h2 {
+    font-size: 20px;
   }
 
   .menu-burger {
@@ -84,6 +95,31 @@ header nav button {
 
   .logo-eventicket {
     width: 120px;
+  }
+}
+
+/* SEGUNDO BREAKPOINT */
+@media (min-width: 720px) {
+  .registro-form {
+    margin-top: 10vh;
+  }
+
+  .registro-form h2 {
+    font-size: 24px;
+  }
+
+  .menu-burger {
+    width: 60px;
+  }
+
+  .logo-eventicket {
+    width: 150px;
+  }
+
+  #registro-nombre,
+  #registro-apellido {
+    width: 47.8%;
+    margin-left: 0;
   }
 }
 
@@ -109,7 +145,7 @@ header nav button {
     text-align: center;
     border: none;
     color: #313d55;
-    font-weight: 600;
+    font-weight: 300;
     font-size: 18px;
     background: none;
     padding: 20px;
@@ -119,14 +155,20 @@ header nav button {
     width: 150px;
     margin-bottom: 0px;
   }
+
+  .main-registro {
+    margin-top: 10vh;
+  }
+
   .nav-login {
     border: solid 1px #313d55;
     border-radius: 10px;
+    -webkit-transition: 1s;
   }
 
   .nav-login:hover {
-    background-color: #c0c0c0;
-    transition: 1s;
+    background-color: #f4f4f4;
+    -webkit-transition: 1s;
   }
 
   .nav-registro {
@@ -134,11 +176,12 @@ header nav button {
     color: #fff;
     border-radius: 10px;
     border: solid 1px #313d55;
+    -webkit-transition: 1s;
   }
   .nav-registro:hover {
-    background-color: #c0c0c0;
+    background-color: #f4f4f4;
     color: #313d55;
-    transition: 1s;
+    -webkit-transition: 1s;
   }
 
   .registro-form {
@@ -146,5 +189,8 @@ header nav button {
     text-align: center;
     margin: auto;
     padding: 25px;
+  }
+  .registro-form h2 {
+    font-size: 24px;
   }
 }
