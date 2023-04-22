@@ -15,10 +15,12 @@ body {
   width: 40px;
   color: #313d55;
   text-align: right;
+  display: inline-block;
 }
 
 .logo-eventicket {
   width: 100px;
+  display: inline-block;
 }
 
 header nav button {
@@ -26,11 +28,10 @@ header nav button {
 }
 
 .registro-form {
-  display: block;
-  margin-top: 15vh;
+  display: inline-block;
+  margin-top: 5vh;
   text-align: center;
-  justify-content: space-between;
-  width: 100vw;
+  width: 90vw;
   border: solid 1px #313d55;
 }
 
@@ -59,6 +60,21 @@ header nav button {
   background-color: #c0c0c0;
   color: #313d55;
   font-size: 18px;
+}
+
+/* PRIMER BREAKPOINT */
+@media (min-width: 480px) {
+  .registro-form {
+    margin-top: 10vh;
+  }
+
+  .menu-burger {
+    width: 50px;
+  }
+
+  .logo-eventicket {
+    width: 120px;
+  }
 }
 
 /* DESKTOP */
@@ -95,11 +111,21 @@ header nav button {
     border-radius: 10px;
   }
 
+  .nav-login:hover {
+    background-color: #c0c0c0;
+    transition: 1s;
+  }
+
   .nav-registro {
     background-color: #313d55;
     color: #fff;
     border-radius: 10px;
     border: solid 1px #313d55;
+  }
+  .nav-registro:hover {
+    background-color: #c0c0c0;
+    color: #313d55;
+    transition: 1s;
   }
 
   .registro-form {
