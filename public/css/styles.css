@@ -70,6 +70,7 @@ header {
   border: solid 1px #313d55;
   padding: 20px;
   padding-bottom: 30px;
+  border-radius: 15px;
 }
 
 .registro-form h2 {
@@ -85,6 +86,17 @@ header {
   width: 96%;
   margin-top: 2%;
   padding: 2%;
+  border-radius: 15px;
+}
+
+.registro-form input:focus {
+  background-color: #f4f4f4;
+  transition: 1s;
+  outline: 0px;
+}
+
+.registro-form input:active {
+  outline: 0px;
 }
 
 #registro-nombre,
@@ -99,6 +111,7 @@ header {
   color: #fff;
   font-size: 18px;
   font-weight: 500;
+  border-radius: 15px;
 }
 
 #registrate-google {
@@ -106,6 +119,7 @@ header {
   color: #313d55;
   font-size: 18px;
   font-weight: 500;
+  border-radius: 15px;
 }
 
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ */
@@ -189,12 +203,16 @@ header {
     padding: 20px;
     text-decoration: none;
     list-style: none;
+    border-radius: 15px;
   }
 
   .nav-bar li:hover {
-    background-color: #f4f4f4;
     -webkit-transition: 1s;
     transition: 1s;
+  }
+
+  .nav-enlaces:hover {
+    font-weight: bolder;
   }
 
   .logo-eventicket {
@@ -208,7 +226,6 @@ header {
 
   .nav-bar .nav-login {
     border: solid 1px #313d55;
-    border-radius: 10px;
     -webkit-transition: 1s;
     transition: 1s;
   }
@@ -222,7 +239,6 @@ header {
   .nav-bar .nav-registro {
     background-color: #313d55;
     color: #fff;
-    border-radius: 10px;
     border: solid 1px #313d55;
     -webkit-transition: 1s;
     transition: 1s;
