@@ -11,6 +11,20 @@ body {
   padding: 0%;
 }
 
+.menu-burger {
+  width: 40px;
+  color: #313d55;
+  text-align: right;
+}
+
+.logo-eventicket {
+  width: 100px;
+}
+
+header nav button {
+  visibility: hidden;
+}
+
 .registro-form {
   display: block;
   margin: 0;
@@ -34,12 +48,22 @@ body {
   margin-left: 0;
 }
 
-/* DESKTOP */
-
-@media (min-width: 421px) {
+#registrate {
+  border: solid 1px #313d55;
+  background-color: #313d55;
+  color: #fff;
+  font-size: 18px;
 }
 
-@media (min-width: 720px) {
+#registrate-google {
+  background-color: #c0c0c0;
+  color: #313d55;
+  font-size: 18px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 1024px) {
   header {
     display: block;
     width: 100vw;
@@ -48,7 +72,11 @@ body {
   header nav {
     text-align: right;
   }
+  .menu-burger {
+    visibility: hidden;
+  }
   header nav button {
+    visibility: visible;
     text-align: center;
     border: none;
     color: #313d55;
@@ -75,6 +103,8 @@ body {
   }
 
   .registro-form {
-    width: 50vw;
+    width: 60vw;
+    text-align: center;
+    margin: auto;
   }
 }
