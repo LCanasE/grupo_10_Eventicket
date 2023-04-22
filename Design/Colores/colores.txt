@@ -1,0 +1,9 @@
+Colores
+
+- El color primario utilizado es el #313D55 (Azul).
+- El color secundario utilizado es el #FFFFFF (Blanco).
+- Como color terciario se utiliza el #F4F4F4 (Gris).
+
+- Usados en el texto detalle del producto:
+	Gris Osucro #646464
+	Amarillo #FFB700
