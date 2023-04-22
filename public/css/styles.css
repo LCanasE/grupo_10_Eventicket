@@ -122,24 +122,23 @@ header {
   border-radius: 15px;
 }
 
-footer{
+footer {
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #313d55;
   border: 1px solid black;
-  width: 100vw;
-  position: absolute;
-  bottom: 0;
+  width: 100%;
+  bottom: 0px;
   height: 50px;
 }
 
 footer p {
-  display: none; 
+  display: none;
 }
 
-.logo-eventicket-blanco{
+.logo-eventicket-blanco {
   width: 70px;
 }
 
@@ -167,7 +166,7 @@ footer p {
 
   footer p {
     display: inline-block;
-    color: #ffff; 
+    color: #ffff;
     font-size: 12px;
   }
 }
@@ -206,6 +205,10 @@ footer p {
     margin-bottom: 20vh;
   }
 
+  main {
+    padding-bottom: 6vh;
+  }
+
   .menu-burger {
     display: none;
   }
@@ -231,6 +234,7 @@ footer p {
     text-decoration: none;
     list-style: none;
     border-radius: 15px;
+    cursor: pointer;
   }
 
   .nav-bar li:hover {
@@ -286,4 +290,10 @@ footer p {
   .registro-form h2 {
     font-size: 24px;
   }
+}
+
+footer {
+  padding-left: 6vw;
+  padding-right: 6vw;
+  bottom: 0px;
 }
