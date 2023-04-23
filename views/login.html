@@ -11,50 +11,73 @@
       type="image/x-icon"
     />
     <title>Login | Eventicket</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <header>
-      <img
-        class="logo-eventicket"
-        src="/Logo/LOGOTIPO EVENTICKET.svg"
-        alt="Eventicket"
-      />
+      <a href="/"
+        ><img
+          class="logo-eventicket"
+          src="/Logo/LOGOTIPO EVENTICKET.svg"
+          alt="Eventicket"
+      /></a>
       <img class="menu-burger" src="/css/svg/menu-burger.svg" alt="" />
       <nav>
         <ul class="nav-bar">
-          <li class="nav-inicio nav-enlaces">Inicio</li>
-          <li class="nav-eventos nav-enlaces">Eventos</li>
-          <li class="nav-crear nav-enlaces">Crear Evento</li>
-          <li class="nav-registro">Registrarse</li>
-          <li class="nav-login">Iniciar Sesión</li>
+          <a class="nav-inicio nav-enlaces" href="/"
+            ><li class="nav-inicio nav-enlaces">Inicio</li></a
+          >
+
+          <a class="nav-eventos nav-enlaces" href="">
+            <li class="nav-eventos nav-enlaces">Eventos</li></a
+          >
+
+          <a class="nav-crear nav-enlaces" href=""
+            ><li class="nav-crear nav-enlaces">Crear Evento</li></a
+          >
+
+          <a class="nav-registro-a" href="/registro"
+            ><li class="nav-registro">Registrarse</li></a
+          >
+
+          <a href="/login"><li class="nav-login">Iniciar Sesión</li></a>
         </ul>
       </nav>
     </header>
     <main>
       <h1>Login</h1>
       <h2>Cuenta de usuario</h2>
-        <input type="text" name="nombreUsuario">
-        
-        <h2>Contraseña</h2>
-        <input type="text" name="contraseña"> <br>
+      <input type="text" name="nombreUsuario" />
 
-        <input type="checkbox" name="recuerdame">
-        <strong>Recuerdame</strong> <br>
-       
-        <input type="checkbox" name="terminos">
-        <strong>Acepto los terminos y condiciones felizmente</strong>
-        
-        <p>olvidaste la contraseña? <a href="" target="_blank">Click aqui </a></p>
+      <h2>Contraseña</h2>
+      <input type="text" name="contraseña" /> <br />
+
+      <input type="checkbox" name="recuerdame" />
+      <strong>Recuerdame</strong> <br />
+
+      <input type="checkbox" name="terminos" />
+      <strong>Acepto los terminos y condiciones felizmente</strong>
+
+      <p>olvidaste la contraseña? <a href="" target="_blank">Click aqui </a></p>
     </main>
     <footer>
-      <img class="logo-eventicket-blanco" src="/Logo/EVENTICKET-blanco.svg" alt="Eventicket" />
-    <p>Todos los derechos reservados</p>
-    <div class="redes">
-      <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
-      <i class="fa-brands fa-twitter" style="color: #ffffff;"></i>
-      <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
-    </div>
+      <img
+        class="logo-eventicket-blanco"
+        src="/Logo/EVENTICKET-blanco.svg"
+        alt="Eventicket"
+      />
+      <p>Todos los derechos reservados</p>
+      <div class="redes">
+        <i class="fa-brands fa-instagram" style="color: #ffffff"></i>
+        <i class="fa-brands fa-twitter" style="color: #ffffff"></i>
+        <i class="fa-brands fa-facebook" style="color: #ffffff"></i>
+      </div>
     </footer>
   </body>
 </html>

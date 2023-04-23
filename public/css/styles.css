@@ -44,6 +44,12 @@ header {
   list-style: none;
 }
 
+.nav-bar li a {
+  text-decoration: none;
+  list-style: none;
+  color: #fff;
+}
+
 .menu-burger {
   width: 40px;
   color: #313d55;
@@ -112,6 +118,7 @@ header {
   font-size: 18px;
   font-weight: 500;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 #registrate-google {
@@ -120,6 +127,15 @@ header {
   font-size: 18px;
   font-weight: 500;
   border-radius: 15px;
+  cursor: pointer;
+}
+
+#registrate:hover,
+#registrate-google:hover {
+  background-color: #f4f4f4;
+  color: #313d55;
+  -webkit-transition: 1s;
+  transition: 0.5s;
 }
 
 footer {
@@ -128,7 +144,7 @@ footer {
   align-items: center;
   justify-content: space-between;
   background-color: #313d55;
-  border: 1px solid black;
+  /*   border: 1px solid black; */
   width: 100%;
   bottom: 0px;
   height: 50px;
@@ -226,7 +242,6 @@ footer p {
     display: inline-block;
     text-align: center;
     border: none;
-    color: #313d55;
     font-weight: 300;
     font-size: 18px;
     background: none;
@@ -237,13 +252,18 @@ footer p {
     cursor: pointer;
   }
 
-  .nav-bar li:hover {
-    -webkit-transition: 1s;
-    transition: 1s;
+  .nav-bar .nav-enlaces {
+    color: #313d55;
+  }
+
+  .nav-bar .nav-login {
+    color: #313d55;
   }
 
   .nav-enlaces:hover {
     font-weight: bolder;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
   }
 
   .logo-eventicket {
@@ -257,28 +277,26 @@ footer p {
 
   .nav-bar .nav-login {
     border: solid 1px #313d55;
-    -webkit-transition: 1s;
-    transition: 1s;
   }
 
   .nav-bar .nav-login:hover {
     background-color: #f4f4f4;
-    -webkit-transition: 1s;
-    transition: 1s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
 
   .nav-bar .nav-registro {
     background-color: #313d55;
     color: #fff;
     border: solid 1px #313d55;
-    -webkit-transition: 1s;
-    transition: 1s;
   }
+
   .nav-bar .nav-registro:hover {
     background-color: #f4f4f4;
+    border: solid 1px #313d55;
     color: #313d55;
-    -webkit-transition: 1s;
-    transition: 1s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
 
   .registro-form {
