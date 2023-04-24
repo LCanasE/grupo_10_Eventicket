@@ -1,3 +1,318 @@
 /* Archivo de estilos */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-/* @import url(**Link**) */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", "sans-serif";
+  margin: 0;
+  padding: 0%;
+}
+
+header {
+  padding: 5vh 5vh 0vh 5vh;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10vh;
+}
+
+.nav-bar {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: -100vw;
+  background-color: #313d55;
+  top: 90px;
+  font-family: "Montserrat", "sans-serif";
+  font-weight: bold;
+  color: #fff;
+  border: none;
+}
+
+.nav-bar li {
+  display: block;
+  text-align: left;
+  border: none;
+  color: #fff;
+  font-weight: 300;
+  font-size: 24px;
+  background: none;
+  padding: 25px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav-bar li a {
+  text-decoration: none;
+  list-style: none;
+  color: #fff;
+}
+
+.menu-burger {
+  width: 40px;
+  color: #313d55;
+  position: absolute;
+  right: 6vh;
+}
+
+.logo-eventicket {
+  width: 100px;
+  position: absolute;
+  left: 6vh;
+}
+
+.main-registro {
+  display: flex;
+  justify-content: center;
+}
+
+.registro-form {
+  display: inline-block;
+  margin-top: 5vh;
+  text-align: center;
+  width: 90vw;
+  border: solid 1px #313d55;
+  padding: 20px;
+  padding-bottom: 30px;
+  border-radius: 15px;
+}
+
+.registro-form h2 {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.registro-form input {
+  background-color: #fff;
+  border: solid 1px #c0c0c0;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 16px;
+  width: 96%;
+  margin-top: 2%;
+  padding: 2%;
+  border-radius: 15px;
+}
+
+.registro-form input:focus {
+  background-color: #f4f4f4;
+  transition: 1s;
+  outline: 0px;
+}
+
+.registro-form input:active {
+  outline: 0px;
+}
+
+#registro-nombre,
+#registro-apellido {
+  width: 47.5%;
+  margin-left: 0;
+}
+
+#registrate {
+  border: solid 1px #313d55;
+  background-color: #313d55;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#registrate-google {
+  background-color: #f4f4f4;
+  color: #313d55;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#registrate:hover,
+#registrate-google:hover {
+  background-color: #f4f4f4;
+  color: #313d55;
+  -webkit-transition: 1s;
+  transition: 0.5s;
+}
+
+footer {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #313d55;
+  /*   border: 1px solid black; */
+  margin-top: 6vh;
+  width: 100%;
+  bottom: 0px;
+  height: 50px;
+}
+
+footer p {
+  display: none;
+}
+
+.logo-eventicket-blanco {
+  width: 70px;
+}
+
+/* ------------------ PRIMER BREAKPOINT 480px ------------------ */
+@media (min-width: 480px) {
+  .registro-form {
+    margin-top: 6vh;
+  }
+
+  .registro-form h2 {
+    font-size: 20px;
+  }
+
+  .menu-burger {
+    width: 50px;
+    position: absolute;
+    right: 10vh;
+  }
+
+  .logo-eventicket {
+    width: 120px;
+    position: absolute;
+    left: 10vh;
+  }
+
+  footer p {
+    display: inline-block;
+    color: #ffff;
+    font-size: 12px;
+  }
+}
+
+/* ------------------ SEGUNDO BREAKPOINT 720px ------------------ */
+@media (min-width: 720px) {
+  .registro-form {
+    margin-top: 10vh;
+  }
+
+  .registro-form h2 {
+    font-size: 24px;
+  }
+
+  .menu-burger {
+    width: 60px;
+  }
+
+  .logo-eventicket {
+    width: 150px;
+  }
+
+  #registro-nombre,
+  #registro-apellido {
+    width: 47.8%;
+    margin-left: 0;
+  }
+}
+
+/* ------------------ DESKTOP 1024 ------------------ */
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20vh;
+  }
+
+  main {
+    padding-bottom: 6vh;
+  }
+
+  .menu-burger {
+    display: none;
+  }
+  .nav-bar {
+    position: absolute;
+    left: -6vw;
+    height: 100px;
+    background: none;
+    display: inline-block;
+    text-align: right;
+    top: 5vh;
+    margin-right: 6vw;
+  }
+  .nav-bar li {
+    display: inline-block;
+    text-align: center;
+    border: none;
+    font-weight: 300;
+    font-size: 18px;
+    background: none;
+    padding: 20px;
+    text-decoration: none;
+    list-style: none;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .nav-bar .nav-enlaces {
+    color: #313d55;
+  }
+
+  .nav-bar .nav-login {
+    color: #313d55;
+  }
+
+  .nav-enlaces:hover {
+    font-weight: bolder;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+  }
+
+  .logo-eventicket {
+    width: 150px;
+    margin-bottom: 0px;
+  }
+
+  .main-registro {
+    margin-top: 10vh;
+  }
+
+  .nav-bar .nav-login {
+    border: solid 1px #313d55;
+  }
+
+  .nav-bar .nav-login:hover {
+    background-color: #f4f4f4;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  .nav-bar .nav-registro {
+    background-color: #313d55;
+    color: #fff;
+    border: solid 1px #313d55;
+  }
+
+  .nav-bar .nav-registro:hover {
+    background-color: #f4f4f4;
+    border: solid 1px #313d55;
+    color: #313d55;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  .registro-form {
+    width: 60vw;
+    text-align: center;
+    margin: auto;
+    padding: 25px;
+  }
+  .registro-form h2 {
+    font-size: 24px;
+  }
+}
+
+footer {
+  padding-left: 6vw;
+  padding-right: 6vw;
+  bottom: 0px;
+}
