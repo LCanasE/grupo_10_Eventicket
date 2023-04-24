@@ -28,3 +28,11 @@ README:
    https://www.stubhub.com/: Es una web sencilla, con secciones bien definidas y que permite, mediante tu ubicación, ofrecerte eventos que se estén por suceder en tus cercanías. Te brinda las opciones de crear un usuario medio o de "vender", es decir, registrarte como el productor de los eventos.
 
    https://www.ticketek.com.ar/: Es una página simple de utilizar, la misma se adapta al cliente, dándole esa facilidad de uso. Elegimos esta opción ya que es una de las grandes referentes que se tienen hoy en día en Argentina. Como se puede apreciar es una página que no es visualmente la mejor de todas, si no que cuenta con las herramientas justas y necesarias.
+
+5. Link al repositorio remoto:
+
+   https://github.com/LCanasE/grupo_10_Eventicket.git
+
+6. Link al tablero de Trello: 
+   
+   https://trello.com/invite/b/YUTTjptH/ATTIae11d8ab0e221dd54d6734e4ff58a5d4C510711B/eventicket-tablero-de-trabajo 
