@@ -51,6 +51,8 @@ header {
 }
 
 .menu-burger {
+  transition: 1s;
+  -webkit-transition: 1s;
   width: 40px;
   color: #313d55;
   position: absolute;
@@ -58,6 +60,8 @@ header {
 }
 
 .logo-eventicket {
+  transition: 1s;
+  -webkit-transition: 1s;
   width: 100px;
   position: absolute;
   left: 6vh;
@@ -170,12 +174,16 @@ footer p {
   }
 
   .menu-burger {
+    transition: 1s;
+    -webkit-transition: 1s;
     width: 50px;
     position: absolute;
     right: 10vh;
   }
 
   .logo-eventicket {
+    transition: 1s;
+    -webkit-transition: 1s;
     width: 120px;
     position: absolute;
     left: 10vh;
@@ -203,6 +211,8 @@ footer p {
   }
 
   .logo-eventicket {
+    transition: 1s;
+    -webkit-transition: 1s;
     width: 150px;
   }
 
