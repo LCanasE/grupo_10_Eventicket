@@ -163,6 +163,146 @@ footer p {
   width: 70px;
 }
 
+/* ESTILOS HOME.HTML */
+
+.main-home{
+  background-color: whitesmoke;
+  /* height: 120vh; */
+}
+
+.main-home section{
+  position: relative;
+}
+
+.gallery-container{
+  height: 40vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-btn{
+  position: absolute;
+  color: #ffff;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+
+.search-home{
+  width: 90%;
+  margin: 5% auto;
+  display: flex;
+  box-shadow: 1px 1px 10px gray;
+  border-radius: 12px;
+}
+
+.search-home input{
+  padding: 3%;
+  border: none;
+}
+
+.search-bar{
+  width: 70%;
+  border-radius: 12px 0px 0px 12px;
+}
+
+.search-btn {
+  width: 30%;
+  border-radius: 0px 12px 12px 0px;
+  background-color: #313D55;
+  color: #ffff;
+}
+
+.product{
+  border-radius: 12px;
+  border: 1px solid #ebebeb;
+  display: flex;
+  justify-content: space-around;
+  width: 80vw;
+  height: 20vh;
+  max-height: 135px;
+  max-width: 305px;
+  margin: 0 auto 2% auto;
+}
+
+.product:hover{
+  box-shadow: 1px 1px 5px black;
+  border: none;
+}
+
+.product-img{
+  width: 50%;
+  position: relative;
+}
+
+.product-img img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px 0 0 12px;
+}
+
+.product-info{
+  height: 100%;
+  width: 50%;
+  background-color: #ffff;
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.product-info h3{
+  height: 25%;
+  margin: 0;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 2% 0 0 4%;
+}
+
+.product h3 {
+  border-bottom: 1px solid #ebebeb;
+}
+
+.product-info .product-info-description{
+  font-size: 0.8rem;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.product-info .product-info-description p{
+  margin: 0px;
+  padding-left: 4%;
+}
+
+.product-info form input{
+  border-radius: 0 0 12px 0;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #ffff;
+  background-color: #313D55;
+  padding: 2%;
+}
+
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ */
 @media (min-width: 480px) {
   .registro-form {
@@ -194,6 +334,46 @@ footer p {
     color: #ffff;
     font-size: 12px;
   }
+
+
+  .search-home{
+    max-width: 600px;
+  }
+  .search-home input{
+    font-size: .9rem;
+  }
+  .products{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product{
+    flex-direction: column;
+    width: 60vw;
+    height: 80vh;
+    max-width: 336px;
+    max-height: none;
+  }
+
+  .product-img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-img img {
+    border-radius: 12px 12px 0px 0px;
+  }
+
+  .product-info{
+    width: 100%;
+    height: 50%;
+    border-radius: 0px 0px 12px 12px;
+  }
+
+  .product-info form input{
+    border-radius: 0 0 12px 12px;
+    padding: 4%;
+  }
 }
 
 /* ------------------ SEGUNDO BREAKPOINT 720px ------------------ */
@@ -220,6 +400,25 @@ footer p {
   #registro-apellido {
     width: 47.8%;
     margin-left: 0;
+  }
+
+
+  .search-home{
+    max-width: 700px;
+  }
+
+  .products{
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    max-width: 700px;
+  }
+
+  .product{
+    width: 40vw;
+    height: 80vh;
+    max-width: 320px;
   }
 }
 
@@ -318,6 +517,24 @@ footer p {
   }
   .registro-form h2 {
     font-size: 24px;
+  }
+  .search-home{
+    max-width: 900px;
+  }
+
+  .search-home input{
+    font-size: 1.1rem;
+    padding: 2.5%;
+  }
+  .products{
+    max-width: none;
+    width: 90%;
+    flex-wrap: wrap;
+  }
+
+  .product{
+    height: 60vh;
+    width: 20vw;
   }
 }
 
