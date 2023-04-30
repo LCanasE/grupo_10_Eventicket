@@ -55,26 +55,53 @@
         <h2>Regístrate y asiste a tus eventos favoritos</h2>
         <form action="" method="post">
           <article class="registro-datos">
-            <input id="registro-nombre" type="text" placeholder="Nombre" />
-            <input id="registro-apellido" type="text" placeholder="Apellido" />
+            <input
+              id="registro-nombre"
+              type="text"
+              placeholder="Nombre"
+              name="nombreRegForm"
+              required
+            />
+            <input
+              id="registro-apellido"
+              type="text"
+              placeholder="Apellido"
+              name="apellidoRegForm"
+              required
+            />
           </article>
           <article id="registro-email">
-            <input type="email" placeholder="Correo electrónico" />
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              name="emailRegForm"
+              required
+            />
           </article>
           <article class="registro-password">
-            <input type="password" placeholder="Contraseña" />
-            <input type="password" placeholder="Confirmar contraseña" />
+            <input
+              type="password"
+              placeholder="Contraseña"
+              name="passRegForm"
+              required
+            />
+            <input
+              type="password"
+              placeholder="Confirmar contraseña"
+              name="checkPassRegForm"
+              required
+            />
           </article>
           <article class="registro-botones">
             <input
               type="submit"
-              name="Registrate"
+              name="registrate"
               id="registrate"
               value="Regístrate"
             />
             <input
               type="submit"
-              name="Registrate"
+              name="registrateGoogle"
               id="registrate-google"
               value="Regístrate con tu cuenta de Google"
             />
