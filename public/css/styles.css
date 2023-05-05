@@ -17,6 +17,7 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 150px;
+
 }
 
 .nav-bar {
@@ -308,8 +309,174 @@ footer p {
   padding: 2%;
 }
 
+
+/* ESTILOS CARRITO.HTML */
+.header-search{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  border-radius: 20px;
+  padding-right: 280px ;
+  padding-top: 30px;
+  
+}
+.header-search input{
+  height: 30px;
+  border-radius: 60px;
+  outline: none;
+  border: rgb(53, 53, 53) solid thin;
+  font-size: 300%;
+  background-color: #f4f4f4;
+  padding-left: 10px;
+}
+
+
+.header-search a{
+  color: black;
+  border: 1px solid #ebebeb;
+  position: relative;
+  left: 850px;
+  height: 100%;
+  font-size: 250%;
+  outline: none;
+}
+
+html{
+font-size: 50%;
+}
+.container{
+width: 100%;
+height: 100%;
+}
+.container nav{
+width: 100%;
+height: 100%;
+padding: 15px;
+background-color: #f4f4f4;
+margin-bottom: 25px;
+color: #313d55;
+}
+
+.box , .articulos{
+  border-bottom: 1px solid  #615f5f;
+  width: 50%;
+border-radius: 10px;
+position: relative;
+display: block;
+}
+.grid{
+position: relative;
+display: contents;
+margin: 25px;
+}
+
+.articulos img{
+  position: absolute;
+  left: 3.5%;
+  top: 49%;
+  transform: translate(-3.5%,-45%) ;
+width: 70;
+height: 70px;
+}
+h1{
+  position: relative;
+text-align: left;
+margin-bottom: 20px;
+font-size: 3rem;
+color: #222;
+justify-content: left;
+padding-left: 50px;
+}
+
+.info {
+padding: 15px;
+}
+.info h3 {
+font-size: 1.6rem;
+position: relative;
+left: 95px;
+top: 44px ;
+}
+.info p{
+font-size: 1.8rem;
+}
+.info h3,
+.info p{
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.precio{
+  position: absolute;
+  left: 480px;
+display: flex;
+justify-content: space-between;
+font-weight: bolder;
+position: relative;
+right: 50px;
+}
+
+.precio p{
+font-size: 1.5rem;
+}
+.info button{
+  position: relative;
+  left: 750px;
+  bottom: 30px;
+  padding: 1rem;
+  width: 10%;
+  border: none;
+  outline: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+.info button:hover{
+background-color: #313D55;
+transition: all .3s;
+transform: translateX(2px);
+}
+ 
+.metodo-de-pagos{
+  display: inline-block;
+  position: relative;
+  padding-top: 80px;
+  left: 850px;
+}
+
+.metodo-de-pagos img {
+width: 150px;
+height: 70px;
+left: 370px;
+top: -450px;
+position: relative;
+background-color: white;
+border-radius: 17px;
+margin-right: 10px;
+border-bottom: 1px solid grey;
+}
+.metodo-de-pagos img:hover{
+  transition: all .2s;
+  opacity: 50%;
+
+}
+.carrito{
+  position: relative;
+padding-top: 25px;
+font-size: 300%;
+}
+.carrito:hover{
+  transition: all .3s;
+  opacity: 60%;
+}
+
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ */
 @media (min-width: 480px) {
+
   .registro-form {
     margin-top: 6vh;
   }
@@ -379,6 +546,7 @@ footer p {
   }
 }
 
+
 /* ------------------ SEGUNDO BREAKPOINT 720px ------------------ */
 @media (min-width: 720px) {
   .registro-form {
@@ -423,7 +591,25 @@ footer p {
     height: 80vh;
     max-width: 320px;
   }
+  .header-search{
+    position: relative;
+    width: 100%;
+  }
+  .header-search input{
+    width: 100%;
+  }
+  .header-search a {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+    padding: 5px;
+    border: none;
+    right: 2.5%;
+  }
 }
+
 
 /* ------------------ DESKTOP 1024 ------------------ */
 
