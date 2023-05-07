@@ -1,68 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link
-      rel="shortcut icon"
-      href="/Logo/ISOLOGO EVENTICKET.svg"
-      type="image/x-icon"
-    />
-    <title>Productos | Eventicket</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <header>
-      <a href="/"
-        ><img
-          class="logo-eventicket"
-          src="/Logo/LOGOTIPO EVENTICKET.svg"
-          alt="Eventicket"
-      /></a>
-      <img class="menu-burger" src="/css/svg/menu-burger.svg" alt="" />
-      <nav>
-        <ul class="nav-bar">
-          <a class="nav-inicio nav-enlaces" href="/"
-            ><li class="nav-inicio nav-enlaces">Inicio</li></a
-          >
 
-          <a class="nav-eventos nav-enlaces" href="">
-            <li class="nav-eventos nav-enlaces">Eventos</li></a
-          >
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/styles_productos.css" />
+  <link rel="shortcut icon" href="/Logo/ISOLOGO EVENTICKET.svg" type="image/x-icon" />
+  <title>Productos | Eventicket</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-          <a class="nav-crear nav-enlaces" href=""
-            ><li class="nav-crear nav-enlaces">Crear Evento</li></a
-          >
+<body>
+  <header>
+    <a href="/">
+      <img class="logo-eventicket" src="/Logo/LOGOTIPO EVENTICKET.svg" alt="Eventicket" />
+    </a>
+    <img class="menu-burger" src="/css/svg/menu-burger.svg" alt="" />
+    <nav>
+      <ul class="nav-bar">
+        <a class="nav-inicio nav-enlaces" href="/">
+          <li class="nav-inicio nav-enlaces">Inicio</li>
+        </a>
 
-          <a class="nav-registro-a" href="/registro"
-            ><li class="nav-registro">Registrarse</li></a
-          >
+        <a class="nav-eventos nav-enlaces" href="">
+          <li class="nav-eventos nav-enlaces">Eventos</li>
+        </a>
 
-          <a href="/login"><li class="nav-login">Iniciar Sesión</li></a>
-        </ul>
-      </nav>
-    </header>
-    <main></main>
-    <footer>
-      <img
-        class="logo-eventicket-blanco"
-        src="/Logo/EVENTICKET-blanco.svg"
-        alt="Eventicket"
-      />
-      <p>Todos los derechos reservados</p>
-      <div class="redes">
-        <i class="fa-brands fa-instagram" style="color: #ffffff"></i>
-        <i class="fa-brands fa-twitter" style="color: #ffffff"></i>
-        <i class="fa-brands fa-facebook" style="color: #ffffff"></i>
+        <a class="nav-crear nav-enlaces" href="">
+          <li class="nav-crear nav-enlaces">Crear Evento</li>
+        </a>
+
+        <a class="nav-registro-a" href="/registro">
+          <li class="nav-registro">Registrarse</li>
+        </a>
+
+        <a href="/login">
+          <li class="nav-login">Iniciar Sesión</li>
+        </a>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-home">
+    <div class="gallery-container">
+      <img src="img/amelie-lens-farrago-maderoboardwalk-160560-img.jpeg" alt="" class="gallery-item">
+      <div class="gallery-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        <i class="fa-solid fa-arrow-right"></i>
       </div>
-    </footer>
-  </body>
+    </div>
+    <form action="#" method="GET" class="search-home">
+      <input type="text" placeholder="Buscar envento en Eventicket..." class="search-bar">
+      <input type="submit" value="Buscar" class="search-btn">
+    </form>
+
+    <article class="evento">
+
+      <section class="caja-titulo">
+
+        <h2 class="titulo-evento">Amelie lens & Farrago @Maderoboardwalk (+18)</h2>
+        <h3 class="fecha-evento"><i class="fa-regular fa-calendar-days"></i> Jueves 04 de Mayo 2023 - 20:00 hrs.</h3>
+
+      </section>
+
+      <section class="caja-ubicacion">
+
+        <div class="icono-caja-ubicacion">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+
+        <div class="descripcion-caja-ubicacion">
+          <h3 class="titulo-ubicacion">MADERO BOARDWALK</h3>
+          <h4 class="descripcion-ubicacion">Cecilia greison 322 - Puerto Madero</h4>
+        </div>
+
+      </section>
+
+
+      <section class="caja-tickets">
+
+        <div class="titulos-tabla">
+
+          <h4>Ticket</h4>
+          <h4>Valor</h4>
+          <h4>Cantidad</h4>
+
+        </div>
+
+        <div class="tickets">
+
+          <p>Preventa VIP Standing</p>
+          <p>$ 18,500</p>
+          <div class="caja-cantidad">
+            <p>0</p>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          
+        </div>
+
+        <div class="comprar">
+          <input type="submit" value="Comprar">
+        </div>
+
+
+      </section>
+
+      <div class="caja-imagen-evento">
+
+        <img src="img/amelie-lens-farrago-maderoboardwalk-160560-img.jpeg" alt="" class="imagen-evento">
+
+      </div>
+
+
+
+
+    </article>
+
+
+  </main>
+  <footer>
+    <img class="logo-eventicket-blanco" src="/Logo/EVENTICKET-blanco.svg" alt="Eventicket" />
+    <p>Todos los derechos reservados</p>
+    <div class="redes">
+      <i class="fa-brands fa-instagram" style="color: #ffffff"></i>
+      <i class="fa-brands fa-twitter" style="color: #ffffff"></i>
+      <i class="fa-brands fa-facebook" style="color: #ffffff"></i>
+    </div>
+  </footer>
+</body>
+
 </html>
