@@ -17,7 +17,6 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 150px;
-
 }
 
 .nav-bar {
@@ -247,11 +246,12 @@ footer p {
   max-height: 135px;
   max-width: 305px;
   margin: 0 auto 2% auto;
+  transition: all 450ms;
 }
 
 .product:hover{
   box-shadow: 1px 1px 5px black;
-  border: none;
+  cursor: pointer;
 }
 
 .product-img{
