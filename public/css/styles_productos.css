@@ -6,9 +6,20 @@
     box-sizing: border-box;
 }
 
+.p {
+    text-align: center;
+    align-self: center;
+}
+
+.search-bar {
+    font-size: 24px;
+    background-color: white;
+    color:#313D55
+}
+
 /* Cajas título y ubicación */
 .caja-titulo-ubicacion {
-    border: 3px solid yellowgreen;
+    /* border: 3px solid yellowgreen; */
     display: flex;
     justify-content: space-around;
     margin-bottom: 1%;
@@ -16,30 +27,38 @@
 }
 
 .caja-titulo-ubicacion h2 {
-    font-size: 28px;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px 0px 10px;
     color: #313D55;
 }
 
 .caja-titulo-ubicacion h3 {
     font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0px 5px;
     color: #313D55;
 }
 
 .descripcion-ubicacion {
-    font-size: 18px;
+    font-size: 16px;
+    margin: 5px 0px 5px;
     color: #313D55;
 }
 
 .caja-titulo {
-    border: 3px solid red;
-    padding: 5px;
+    border: 2px solid #313D55;
+    padding: 15px;
+    margin: 10px;
     border-radius: 15px;
+    width: 88%;
     display: inline-block;
 }
 
 .caja-ubicacion {
-    border: 3px solid blue;
-    padding: 5px;
+    border: 2px solid #313D55 ;
+    padding: 15px;
+    margin: 10px;
     border-radius: 15px;
     display: inline-block;
 }
@@ -52,7 +71,7 @@
 
 /* Cajas tickets e imagen */
 .tickets-imagen {
-    border: 3px solid black;
+    /* border: 3px solid black; */
     display: flex;
     /* height: 50vh; */
     width: 100%;
@@ -62,36 +81,32 @@
 .titulos-tabla h4 {
     font-size: 18px;
     color: #313D55;
-    display: inline-block
+    display: inline-block;
+    text-align: center;
+    align-self: center;
 }
 
 .caja-tickets {
-    border: 3px solid green;
-    width: 65%;
+    border: 2px solid #313D55;
+    width: 80%;
     display: inline-block;
+    border-radius: 3%;
+    margin: 10px;
 
 
 }
 
-/* .caja-imagen-evento {
-    border: 3px solid purple;
-    display: inline-block;
-    width: 30vw;
-    align-items: center;
-    justify-content: center;
-} */
-
 .imagen-evento {
-    width: 29vw;
-    border: 3px solid purple;
+    width: 25vw;
+    /* border: 3px solid purple; */
     border-radius: 15px;
     display: inline-block;
-    margin-right: 1.2vw;
+    margin: 10px;
 }
 
 
 .tickets {
-    border: 3px solid orange;
+    /* border: 3px solid orange; */
     display: inline-block;
     width: 100%;
 }
@@ -110,7 +125,7 @@
 }
 
 .comprar {
-    border: 3px solid yellow;
+    /* border: 3px solid yellow; */
     width: 100%;
     height: 7vh;
     display: inline-block;
@@ -121,21 +136,25 @@
 }
 
 .titulos-tabla {
-    border: 3px solid grey;
+    border-bottom: solid 3px #313D55;
     display: flex;
-    width: 100%;
+    width: 97%;
+    margin: 10px;
     justify-content: space-around;
+
+    align-items: center;
+
 }
 
 .linea-ticket {
-    border: 3px solid red;
+    /* border: 3px solid red; */
     display: flex;
     width: 100%;
     justify-content: space-around;
 }
 
 .caja-cantidad {
-    border: 1px dashed blue;
+    border: 2px solid #313D55;
     display: flex;
     justify-content: center;
     width: 11vw;
@@ -153,7 +172,8 @@
     font-size: 16px;
     color: #313D55;
     margin: 10px;
-    align-items: center;
+    text-align: center;
+    align-self: center;
 }
 
 .ticket-titulo-tabla {
