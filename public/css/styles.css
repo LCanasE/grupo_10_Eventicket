@@ -487,7 +487,7 @@ margin: auto;
   width: 90%;
   margin: 5% auto;
   display: flex;
-  box-shadow: 1px 1px 10px gray;
+  box-shadow: 1px 1px 10px #615f5f;
   border-radius: 12px;
   color: #ebebeb;
 }
@@ -581,8 +581,79 @@ margin: auto;
     border-radius: 0 0 12px 12px;
     padding: 4%;
   }
+  .botones-container{
+    display: flex;
+    align-items: center ;
+    width: 96vw;
+    margin: auto;
+
+    }
+
+    .botones-container button{
+      font-family: "Montserrat", "sans-serif";
+      margin: 15px;
+      padding: 17px;
+      width: 96vw;
+    }
+    .carrito{
+      position: relative;
+      padding-top: 10px;
+    font-size: 250%;
+    }
+    .metodo-de-pagos img {
+      width: 55px;
+      height: 35px;
+    position: relative;
+    left: 200px;
+    bottom: 20px;
+      }
+      .precio{
+      position: relative;
+     left: 115px;
+     top: 18px;
+      }
+      .precio p{
+        font-size: 0.8rem;
+        }
+      .info {
+        padding: 15px;
+        }
+        .info h3 {
+        font-size: 0.7rem;
+        position: relative;
+        left: 33px;
+        top: 50px ;
+        }
+        .articulos img{
+  position: absolute;
+  left: 3.5%;
+  top: 60%;
+  transform: translate(-3.5%,-45%) ;
+width: 40px;
+height: 40px;
+}
+h1{
+  position: relative;
+text-align: left;
+margin-bottom: 3px;
+font-size: 1.5rem;
+color: #222;
+justify-content: left;
+padding-left: 20px;
 }
 
+.info button{
+  position: relative;
+  left: 150px;
+  bottom: 10px;
+  padding: 0.8rem;
+  width: 18%;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+}
 
 /* ------------------ SEGUNDO BREAKPOINT 720px ------------------ */
 @media (min-width: 720px) {
@@ -645,6 +716,78 @@ margin: auto;
     border: none;
     right: 2.5%;
   }
+  .botones-container{
+    display: flex;
+    align-items: center ;
+    width: 96vw;
+    margin: auto;
+
+    }
+
+    .botones-container button{
+      font-family: "Montserrat", "sans-serif";
+      margin: 15px;
+      padding: 17px;
+      width: 96vw;
+    }
+    .carrito{
+      position: relative;
+      padding-top: 10px;
+    font-size: 250%;
+    }
+    .metodo-de-pagos img {
+      width: 75px;
+      height: 40px;
+    position: relative;
+    left: 160px;
+    bottom: 35px;
+      }
+      .precio{
+      position: relative;
+     left: 175px;
+     top: 18px;
+      }
+      .precio p{
+        font-size: 1rem;
+        }
+      .info {
+        padding: 15px;
+        }
+        .info h3 {
+        font-size: 0.9rem;
+        position: relative;
+        left: 37px;
+        top: 50px ;
+        }
+        .articulos img{
+  position: absolute;
+  left: 3.5%;
+  top: 60%;
+  transform: translate(-3.5%,-45%) ;
+width: 45px;
+height: 45px;
+}
+h1{
+  position: relative;
+text-align: left;
+margin-bottom: 3px;
+font-size: 2rem;
+color: #222;
+justify-content: left;
+padding-left: 20px;
+}
+
+.info button{
+  position: relative;
+  left: 220px;
+  bottom: 10px;
+  padding: 0.8rem;
+  width: 18%;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  cursor: pointer;
+}
 }
 
 
@@ -761,10 +904,99 @@ margin: auto;
     height: 60vh;
     width: 20vw;
   }
+    
+    .articulos img{
+      position: absolute;
+      left: 3.5%;
+      top: 60%;
+      transform: translate(-3.5%,-45%) ;
+    width: 60px;
+    height: 60px;
+    }
+    h1{
+      position: relative;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    color: #222;
+    justify-content: left;
+    padding-left: 50px;
+    }
+    
+    .info {
+    padding: 15px;
+    }
+    .info h3 {
+    font-size: 1.6rem;
+    position: relative;
+    left: 60px;
+    top: 59px;
+    }
+    .info p{
+    font-size: 1.6rem;
+    }
+    .precio{
+      position: absolute;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    position: relative;
+    left: 330px;
+    }
+    
+    .precio p{
+    font-size: 1.6rem;
+    }
+    .info button{
+      position: relative;
+      left: 399px;
+      bottom: 17px;
+      padding: 1rem;
+      width: 10%;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      border-radius: 5px;
+    
+    }
+  
+    .metodo-de-pagos{
+      display: inline-block;
+      position: absolute;
+      right: 200px;
+      top: 200px;
+    }
+    
+    .metodo-de-pagos img {
+    width: 120px;
+    height: 50px;
+    background-color: white;
+    border-radius: 17px;
+    margin-right: 10px;
+    border-bottom: 1px solid grey;
+    }
+    
+    .carrito{
+      position: relative;
+    padding-top: 25px;
+    font-size: 300%;
+    right: -23px;
+    }
+  
+    .botones-container{
+    align-items: center ;
+    padding: 40px;
+    width: 45vw;
+    margin: auto;
+    }
+    .botones-container button{
+      font-family: "Montserrat", "sans-serif";
+      padding: 17px;
+    }
+    
 }
-
 footer {
   padding-left: 6vw;
   padding-right: 6vw;
   bottom: 0px;
 }
+
