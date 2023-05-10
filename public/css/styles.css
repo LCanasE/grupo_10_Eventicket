@@ -215,7 +215,7 @@ footer p {
   margin: 5% auto;
   display: flex;
   box-shadow: 1px 1px 10px #615f5f;
-  border-radius: 5px;
+  border-radius: 12px;
   color: #ebebeb;
   overflow: hidden;
 }
@@ -227,12 +227,12 @@ footer p {
 }
 
 .search-bar {
-  width: 70%;
+  width: 80%;
   background-color: #ffff;
 }
 
 .search-btn {
-  width: 30%;
+  width: 20%;
   background-color: #313D55;
   color: #ffff;
 }
@@ -666,10 +666,6 @@ h1 {
     margin-bottom: 2%;
   }
 
-  .search-home {
-    max-width: 600px;
-  }
-
   .search-bar {
     font-size: 2.5vw;
   }
@@ -902,10 +898,11 @@ h1 {
   }
   .search-home .search-btn{
     padding: 0px;
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
 
   .products {
+    width: 85%;
     margin: auto;
     font-size: 16px;
   }
@@ -914,24 +911,37 @@ h1 {
     /* aspect-ratio: 4/5; */
     margin: 5px;
     flex-basis: calc(25% - 15px);
-    height: calc(35vw);
+    height: calc(28vw);
+  }
+
+  .information-product{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
   }
 
   .product-info .information-product h2 {
-    font-size: 2vw;
-  }
-
-  .product-info .information-product .date,
-  .product-info .information-product .place {
     font-size: 1.5vw;
-  }
+}
 
-  .price p {
-    font-size: 1.8vw;
-  }
+.product-info .information-product .date, .product-info .information-product .place{
+  font-size: 1vw;
+}
+
+.product-info .information-product .date{
+  padding: 0 0 0 10%;
+}
+
+.product-info .information-product .place{
+  padding: 0 0 5% 10%;
+}
+
+.price p {
+  font-size: 1vw;
+}
 
   .buy form button{
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
 
   .header-search {
@@ -1143,7 +1153,6 @@ h1 {
 
   .search-home .search-bar, .search-home .search-btn {
     font-size: 1vw;
-    padding: 2.5%;
   }
 
   .articulos img {
@@ -1154,6 +1163,7 @@ h1 {
     width: 60px;
     height: 60px;
   }
+
 
   h1 {
     position: relative;
