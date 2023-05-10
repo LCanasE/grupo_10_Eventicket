@@ -14,11 +14,10 @@ body {
 }
 
 header {
-  padding: 5vh 5vh 5vh 5vh;
+  padding: 2vh 5vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 150px;
   background-color: #ffff;
 }
 
@@ -214,8 +213,12 @@ footer p {
   background-color: rgba(255, 255, 255, 0);
   color: #ffff;
   font-size: 2rem;
+  transition: all 450ms ease;
 }
 
+.gallery-btn button:hover{
+  cursor: pointer;
+}
 .search-home {
   width: 90%;
   margin: 5% auto;
@@ -841,6 +844,7 @@ html {
 
 @media (min-width: 1200px) {
   header {
+    height: 150px;
     display: flex;
     justify-content: space-between;
   }
