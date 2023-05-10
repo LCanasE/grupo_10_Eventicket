@@ -10,6 +10,9 @@
       href="/Logo/ISOLOGO EVENTICKET.svg"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Login | Eventicket</title>
     <link
       rel="stylesheet"
@@ -51,21 +54,25 @@
         </ul>
       </nav>
     </header>
-    <main>
-      <h1>Login</h1>
-      <h2>Cuenta de usuario</h2>
-      <input type="text" name="nombreUsuario" />
+    <main class="login-main">
+      <section class="login-cuadro">
+      <h1 class="login-h1">Login</h1>
+      <form action="" method="">
+      <h2 class="login-h2">Cuenta de usuario</h2>
+      <input class="login-input-texto" type="text" name="nombreUsuario" placeholder="Digite su cuenta de usuario"/>
 
-      <h2>Contraseña</h2>
-      <input type="text" name="contraseña" /> <br />
+      <h2 class="login-h2">Contraseña</h2>
+      <input class="login-input-texto" type="text" name="contraseña" placeholder="Digite su contraseña"/> <br />
 
-      <input type="checkbox" name="recuerdame" />
-      <strong>Recuerdame</strong> <br />
+      <input class="login-checkbox" type="checkbox" name="recuerdame" />
+      <p class="login-p">Recuerdame</p>
 
-      <input type="checkbox" name="terminos" />
-      <strong>Acepto los terminos y condiciones felizmente</strong>
+      <input class="login-checkbox" type="checkbox" name="terminos" />
+      <p class="login-p">Acepto los terminos y condiciones felizmente</p>
 
       <p>olvidaste la contraseña? <a href="" target="_blank">Click aqui </a></p>
+    </form>
+    </section>
     </main>
     <footer>
       <img
