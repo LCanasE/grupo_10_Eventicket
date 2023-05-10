@@ -370,102 +370,46 @@ footer p {
   margin: 0px;
 }
 
-/* ESTILOS CARRITO.HTML */
+
 
 html {
   font-size: 50%;
 }
+/* ESTILOS CARRITO.HTML */
 
-.container-carrito {
-  width: 100vw;
-  margin: 0 px;
-  position: relative;
+.container-carrito{
+  width: 90%;
+  margin: auto;
+
 }
-
-.container-carrito nav {
+.container-carrito h1{
+  text-align: center;
+}
+.articulos{
   width: 100%;
-  height: 100%;
-  padding: 15px;
-  background-color: #f4f4f4;
-  margin-bottom: 25px;
-  color: #313d55;
-}
-
-.box,
-.articulos {
-  border-bottom: 1px solid #615f5f;
-  width: 50%;
-  border-radius: 10px;
-  position: relative;
-  display: block;
-}
-
-.grid {
-  position: relative;
-  display: contents;
-  margin: 25px;
+  display: flex;
+  background-color: #ffff;
+  margin: 10px 0;
+  border-radius: 12px;
+  
+  overflow: hidden;
 }
 
 .articulos img {
-  position: absolute;
-  left: 3.5%;
-  top: 49%;
-  transform: translate(-3.5%, -45%);
-  width: 70;
-  height: 70px;
+  height: 100px;
+  width: 30%;
 }
-
-h1 {
-  position: relative;
-  text-align: left;
-  margin-bottom: 20px;
-  font-size: 3rem;
-  color: #222;
-  justify-content: left;
-  padding-left: 50px;
+.articulos .info{
+  width: 70%;
+  padding: 10px 0px 5px 10px;
 }
-
-.info {
-  padding: 15px;
-}
-
-.info h3 {
-  font-size: 1.6rem;
-  position: relative;
-  left: 95px;
-  top: 44px;
-}
-
-.info p {
-  font-size: 1.8rem;
-}
-
-.info h3,
-.info p {
-  color: #222;
-  margin-bottom: 15px;
-}
-
-.precio {
-  position: absolute;
-  left: 480px;
-  display: flex;
-  justify-content: space-between;
-  font-weight: bolder;
-  position: relative;
-  right: 50px;
-}
-
-.precio p {
-  font-size: 1.5rem;
+.metodo-de-pagos img{
+height: 100px;
 }
 
 .info button {
-  position: relative;
-  left: 750px;
-  bottom: 30px;
   padding: 1rem;
-  width: 10%;
+  width: 15%;
   border: none;
   outline: none;
   color: #fff;
@@ -476,59 +420,21 @@ h1 {
   margin-bottom: 5px;
   background-color: #615f5f;
 }
-
 .info button:hover {
   background-color: #313D55;
   transition: all .3s;
   transform: translateX(2px);
-}
-
-.metodo-de-pagos {
-  display: inline-block;
-  position: absolute;
-  right: 200px;
-  top: 150px;
-}
-
-.metodo-de-pagos img {
-  width: 140px;
-  height: 70px;
-  background-color: white;
-  border-radius: 17px;
-  margin-right: 10px;
-  border-bottom: 1px solid grey;
-}
-
-.metodo-de-pagos img:hover {
-  transition: all .2s;
-  opacity: 50%;
-}
-
-.carrito {
-  position: relative;
-  padding-top: 25px;
-  font-size: 300%;
-}
-
-.carrito:hover {
-  transition: all .3s;
-  opacity: 60%;
-}
-
-.botones-container {
+} 
+.botones-container{
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 50px;
-  width: 25vw;
+  justify-content: space-around;
+  width: 70%;
   margin: auto;
 }
-
-.botones-container button {
-  font-family: "Montserrat", "sans-serif";
+.botones-container button{
   padding: 18px;
 }
-
 .finalizar-compra {
   background-color: #313d55;
   color: #fff;
@@ -560,7 +466,32 @@ h1 {
   color: #f4f4f4;
 }
 
+.seleccionar-metodo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.seleccionar-metodo h3{
+  font-size: 1.5rem;
+}
+.metodo-de-pagos{
+  display: flex;
+  justify-content: center;
+}
+.metodo-de-pagos img{
+  width: 20%;
+  height: 20%;
+}
+.metodo-de-pagos img:hover {
+  transition: all .2s;
+  opacity: 50%;
+}
 
+.metodo-de-pagos .mastercard{
+  width: 12%;
+}
 /* ------------------ ESTILOS LOGIN  ------------------ */
 .login-main {
   display: flex;
@@ -622,6 +553,8 @@ h1 {
   font-size: 14px;
   margin: 15px 10px;
 }
+
+
 
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ */
 @media (min-width: 480px) {
@@ -783,88 +716,26 @@ h1 {
     padding: 4%;
   }
 
-  .botones-container {
-    display: flex;
-    align-items: center;
-    width: 96vw;
-    margin: auto;
+/* ESTILOS CARRITO.HTML */
 
-  }
-
-  .botones-container button {
-    font-family: "Montserrat", "sans-serif";
-    margin: 15px;
-    padding: 17px;
-    width: 96vw;
-  }
-
-  .carrito {
-    position: relative;
-    padding-top: 10px;
-    font-size: 250%;
-  }
-
-  .metodo-de-pagos img {
-    width: 55px;
-    height: 35px;
-    position: relative;
-    left: 200px;
-    bottom: 20px;
-  }
-
-  .precio {
-    position: relative;
-    left: 115px;
-    top: 18px;
-  }
-
-  .precio p {
-    font-size: 0.8rem;
-  }
-
-  .info {
-    padding: 15px;
-  }
-
-  .info h3 {
-    font-size: 0.7rem;
-    position: relative;
-    left: 33px;
-    top: 50px;
-  }
-
-  .articulos img {
-    position: absolute;
-    left: 3.5%;
-    top: 60%;
-    transform: translate(-3.5%, -45%);
-    width: 40px;
-    height: 40px;
-  }
-
-  h1 {
-    position: relative;
-    text-align: left;
-    margin-bottom: 3px;
-    font-size: 1.5rem;
-    color: #222;
-    justify-content: left;
-    padding-left: 20px;
-  }
-
-  .info button {
-    position: relative;
-    left: 150px;
-    bottom: 10px;
-    padding: 0.8rem;
-    width: 18%;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    cursor: pointer;
-  }
+.container-articulo-metodos-de-pago{
+  display: flex;
+  align-items: center;
 }
-
+.articulos{
+  width: 100%;
+}
+.articulos-container{
+  width: 50%;
+}
+.seleccionar-metodo{
+  width: 45%;
+  height: 60%;
+}
+.container-carrito{
+  width: 95%;
+}
+}
 /* ------------------ SEGUNDO BREAKPOINT 720px ------------------ */
 @media (min-width: 768px) {
   .registro-form {
@@ -953,90 +824,7 @@ h1 {
     border: none;
     right: 2.5%;
   }
-
-  .botones-container {
-    display: flex;
-    align-items: center;
-    width: 96vw;
-    margin: auto;
-
-  }
-
-  .botones-container button {
-    font-family: "Montserrat", "sans-serif";
-    margin: 15px;
-    padding: 17px;
-    width: 96vw;
-  }
-
-  .carrito {
-    position: relative;
-    padding-top: 10px;
-    font-size: 250%;
-  }
-
-  .metodo-de-pagos img {
-    width: 75px;
-    height: 40px;
-    position: relative;
-    left: 160px;
-    bottom: 35px;
-  }
-
-  .precio {
-    position: relative;
-    left: 175px;
-    top: 18px;
-  }
-
-  .precio p {
-    font-size: 1rem;
-  }
-
-  .info {
-    padding: 15px;
-  }
-
-  .info h3 {
-    font-size: 0.9rem;
-    position: relative;
-    left: 37px;
-    top: 50px;
-  }
-
-  .articulos img {
-    position: absolute;
-    left: 3.5%;
-    top: 60%;
-    transform: translate(-3.5%, -45%);
-    width: 45px;
-    height: 45px;
-  }
-
-  h1 {
-    position: relative;
-    text-align: left;
-    margin-bottom: 3px;
-    font-size: 2rem;
-    color: #222;
-    justify-content: left;
-    padding-left: 20px;
-  }
-
-  .info button {
-    position: relative;
-    left: 220px;
-    bottom: 10px;
-    padding: 0.8rem;
-    width: 18%;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 1rem;
-    cursor: pointer;
-  }
 }
-
-
 /* ------------------ DESKTOP 1024 ------------------ */
 
 @media (min-width: 1200px) {
@@ -1145,105 +933,13 @@ h1 {
     font-size: 1vw;
     padding: 2.5%;
   }
-
-  .articulos img {
-    position: absolute;
-    left: 3.5%;
-    top: 60%;
-    transform: translate(-3.5%, -45%);
-    width: 60px;
-    height: 60px;
-  }
-
-  h1 {
-    position: relative;
-    text-align: left;
-    margin-bottom: 20px;
-    font-size: 3rem;
-    color: #222;
-    justify-content: left;
-    padding-left: 50px;
-  }
-
-  .info {
-    padding: 15px;
-  }
-
-  .info h3 {
-    font-size: 1.6rem;
-    position: relative;
-    left: 60px;
-    top: 59px;
-  }
-
-  .info p {
-    font-size: 1.6rem;
-  }
-
-  .precio {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    font-weight: bolder;
-    position: relative;
-    left: 330px;
-  }
-
-  .precio p {
-    font-size: 1.6rem;
-  }
-
-  .info button {
-    position: relative;
-    left: 399px;
-    bottom: 17px;
-    padding: 1rem;
-    width: 10%;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    border-radius: 5px;
-
-  }
-
-  .metodo-de-pagos {
-    display: inline-block;
-    position: absolute;
-    right: 200px;
-    top: 200px;
-  }
-
-  .metodo-de-pagos img {
-    width: 120px;
-    height: 50px;
-    background-color: white;
-    border-radius: 17px;
-    margin-right: 10px;
-    border-bottom: 1px solid grey;
-  }
-
-  .carrito {
-    position: relative;
-    padding-top: 25px;
-    font-size: 300%;
-    right: -23px;
-  }
-
-  .botones-container {
-    align-items: center;
-    padding: 40px;
-    width: 45vw;
-    margin: auto;
-  }
-
-  .botones-container button {
-    font-family: "Montserrat", "sans-serif";
-    padding: 17px;
-  }
-
-}
-
 footer {
   padding-left: 6vw;
   padding-right: 6vw;
   bottom: 0px;
+}
+/* ESTILOS CARRITO.HTML */
+.articulos-container .articulos img{
+  width: 25%;
+}
 }
