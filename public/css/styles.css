@@ -1146,17 +1146,6 @@ h1 {
     padding: 2.5%;
   }
 
-  .products {
-    max-width: none;
-    width: 90%;
-    flex-wrap: wrap;
-  }
-
-  .product {
-    height: 60vh;
-    width: 20vw;
-  }
-
   .articulos img {
     position: absolute;
     left: 3.5%;
