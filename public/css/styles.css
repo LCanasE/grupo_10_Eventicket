@@ -110,6 +110,22 @@ header {
   outline: 0px;
 }
 
+.registro-tyc {
+  width: 90%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 2%;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 12px;
+}
+
+.registro-tyc input {
+  margin: 0%;
+  margin-right: 5px;
+  width: auto;
+}
+
 #registro-nombre,
 #registro-apellido {
   width: 47.5%;
@@ -216,7 +232,7 @@ footer p {
   transition: all 450ms ease;
 }
 
-.gallery-btn button:hover{
+.gallery-btn button:hover {
   cursor: pointer;
 }
 .search-home {
