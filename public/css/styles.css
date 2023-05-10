@@ -215,7 +215,7 @@ footer p {
   margin: 5% auto;
   display: flex;
   box-shadow: 1px 1px 10px #615f5f;
-  border-radius: 5px;
+  border-radius: 12px;
   color: #ebebeb;
   overflow: hidden;
 }
@@ -227,12 +227,12 @@ footer p {
 }
 
 .search-bar {
-  width: 70%;
+  width: 80%;
   background-color: #ffff;
 }
 
 .search-btn {
-  width: 30%;
+  width: 20%;
   background-color: #313D55;
   color: #ffff;
 }
@@ -599,10 +599,6 @@ height: 100px;
     margin-bottom: 2%;
   }
 
-  .search-home {
-    max-width: 600px;
-  }
-
   .search-bar {
     font-size: 2.5vw;
   }
@@ -773,10 +769,11 @@ height: 100px;
   }
   .search-home .search-btn{
     padding: 0px;
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
 
   .products {
+    width: 85%;
     margin: auto;
     font-size: 16px;
   }
@@ -785,24 +782,37 @@ height: 100px;
     /* aspect-ratio: 4/5; */
     margin: 5px;
     flex-basis: calc(25% - 15px);
-    height: calc(35vw);
+    height: calc(28vw);
+  }
+
+  .information-product{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
   }
 
   .product-info .information-product h2 {
-    font-size: 2vw;
-  }
-
-  .product-info .information-product .date,
-  .product-info .information-product .place {
     font-size: 1.5vw;
-  }
+}
 
-  .price p {
-    font-size: 1.8vw;
-  }
+.product-info .information-product .date, .product-info .information-product .place{
+  font-size: 1vw;
+}
+
+.product-info .information-product .date{
+  padding: 0 0 0 10%;
+}
+
+.product-info .information-product .place{
+  padding: 0 0 5% 10%;
+}
+
+.price p {
+  font-size: 1vw;
+}
 
   .buy form button{
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
 
   .header-search {
@@ -931,8 +941,108 @@ height: 100px;
 
   .search-home .search-bar, .search-home .search-btn {
     font-size: 1vw;
-    padding: 2.5%;
   }
+<<<<<<< HEAD
+=======
+
+  .articulos img {
+    position: absolute;
+    left: 3.5%;
+    top: 60%;
+    transform: translate(-3.5%, -45%);
+    width: 60px;
+    height: 60px;
+  }
+
+
+  h1 {
+    position: relative;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    color: #222;
+    justify-content: left;
+    padding-left: 50px;
+  }
+
+  .info {
+    padding: 15px;
+  }
+
+  .info h3 {
+    font-size: 1.6rem;
+    position: relative;
+    left: 60px;
+    top: 59px;
+  }
+
+  .info p {
+    font-size: 1.6rem;
+  }
+
+  .precio {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    position: relative;
+    left: 330px;
+  }
+
+  .precio p {
+    font-size: 1.6rem;
+  }
+
+  .info button {
+    position: relative;
+    left: 399px;
+    bottom: 17px;
+    padding: 1rem;
+    width: 10%;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    border-radius: 5px;
+
+  }
+
+  .metodo-de-pagos {
+    display: inline-block;
+    position: absolute;
+    right: 200px;
+    top: 200px;
+  }
+
+  .metodo-de-pagos img {
+    width: 120px;
+    height: 50px;
+    background-color: white;
+    border-radius: 17px;
+    margin-right: 10px;
+    border-bottom: 1px solid grey;
+  }
+
+  .carrito {
+    position: relative;
+    padding-top: 25px;
+    font-size: 300%;
+    right: -23px;
+  }
+
+  .botones-container {
+    align-items: center;
+    padding: 40px;
+    width: 45vw;
+    margin: auto;
+  }
+
+  .botones-container button {
+    font-family: "Montserrat", "sans-serif";
+    padding: 17px;
+  }
+
+}
+
+>>>>>>> dbefa3c31767302ba4bf3127b865c7698dfffcd5
 footer {
   padding-left: 6vw;
   padding-right: 6vw;
