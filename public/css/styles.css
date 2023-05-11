@@ -526,10 +526,11 @@ html {
   border-radius: 15px;
   box-shadow: 1px 1px 5px #000;
   text-align: center;
-  width: 40%;
+  width: 90vw;
   display: flex;
   flex-direction: column;
   font-size: 2em;
+  margin-top: 10vh;
 }
 
 .login-h1 {
@@ -545,10 +546,36 @@ html {
 }
 
 .login-input-texto {
-  margin: auto;
   border-radius: 15px;
-  border: 1px solid #313d55;
-  padding: 10px;
+  border: 1px solid #c0c0c0;
+  padding: 2%;
+  margin: 2% 0%;
+  width: 96%;
+  font-size: 16px;
+}
+
+#login-button {
+  border: solid 1px #313d55;
+  background-color: #313d55;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 96%
+  ;
+}
+.login-contraseña-olvidada{
+  font-size: 12px;
+}
+.login-click-aqui{
+  text-decoration: none;
+  color: black;
+  transition: all 1s;
+}
+
+.login-click-aqui:hover{
+color: rgb(110, 3, 105);
 }
 
 .login-input-texto:hover {
@@ -855,7 +882,17 @@ html {
     border: none;
     right: 2.5%;
   }
+  /*------ESTILOS LOGIN------*/
+
+  .registro-tyc{
+    font-size: 2rem;
+  }
+  #login-button{
+    padding: 2%;
+  }
 }
+
+
 /* ------------------ DESKTOP 1024 ------------------ */
 
 @media (min-width: 1200px) {
