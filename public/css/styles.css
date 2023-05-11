@@ -1011,10 +1011,10 @@ color: rgb(110, 3, 105);
     font-size: 24px;
   }
   /* ------ESTILOS HOME------ */
-  .main-home .search-home {
-    /* margin: 2% auto; */
-    /* width: 100%; */
-  }
+  /* .main-home .search-home {
+    margin: 2% auto;
+    width: 100%;
+  } */
 
   .search-home .search-bar,
   .search-home .search-btn {
