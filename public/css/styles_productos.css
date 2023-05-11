@@ -228,7 +228,8 @@
     }
 
     .caja-tickets {
-        order: 100
+        order: 100;
+        width: 90vw;
     }
 
     .imagen-evento {
@@ -237,7 +238,7 @@
     }
 
     .search-bar {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .caja-titulo-ubicacion h2 {
@@ -295,6 +296,10 @@
 
     }
 
+    .caja-ubicacion {
+        width: 90vw;
+    }
+
     .ticket-titulo-tabla {
         width: 25vw;
     }
@@ -318,7 +323,8 @@
     }
 
     .caja-tickets {
-        order: 100
+        order: 100;
+        width: 90vw;
     }
 
 
@@ -330,7 +336,7 @@
 
 
     .search-bar {
-        font-size: 20px;
+        font-size: 14px;
     }
 
     .caja-titulo-ubicacion h2 {
