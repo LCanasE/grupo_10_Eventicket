@@ -14,7 +14,7 @@
 .search-bar {
     font-size: 24px;
     background-color: white;
-    color:#313D55
+    color: #313D55
 }
 
 /* Cajas título y ubicación */
@@ -56,7 +56,7 @@
 }
 
 .caja-ubicacion {
-    border: 2px solid #313D55 ;
+    border: 2px solid #313D55;
     padding: 15px;
     margin: 10px;
     border-radius: 15px;
@@ -112,16 +112,17 @@
 }
 
 .boton-comprar {
+    font-size: 16px;
     background-color: #FFB700;
     color: #313D55;
     padding: 7px;
     border-radius: 8px;
     border-color: #FFB700;
-    font-size: 16px;
     font-weight: bold;
     position: absolute;
     bottom: 13px;
     right: 30px;
+    animation: cambiar-fondo 2s infinite alternate-reverse ;
 }
 
 .comprar {
@@ -189,6 +190,183 @@
 }
 
 .precio-ticket-p {
-    width: 7vw;
+    width: 12vw;
     justify-content: center;
+}
+
+.linea-ticket:hover {
+    font-weight: bold;
+}
+
+.caja-titulo:hover, .caja-ubicacion:hover, .imagen-evento:hover, .caja-tickets:hover {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+@keyframes cambiar-fondo {
+    0% {background-color: #FFB700;
+        border-color: #FFB700;
+    }
+
+    100% {background-color: #ff6600;
+           border-color: #ff6600;
+    }
+}
+
+/* Media quierie para tablet */
+
+@media (max-width: 768px) {
+
+    .tickets-imagen {
+        display: flex;
+        flex-wrap: wrap;
+        justify-items: center;
+
+    }
+
+    .caja-titulo {
+        width: 90vw;
+    }
+
+    .caja-tickets {
+        order: 100
+    }
+
+    .imagen-evento {
+        /* order: -100; */
+        width: 90vw;
+    }
+
+    .search-bar {
+        font-size: 20px;
+    }
+
+    .caja-titulo-ubicacion h2 {
+        font-size: 19px;
+    }
+
+    .caja-titulo-ubicacion h3 {
+        font-size: 16px;
+
+    }
+
+    .descripcion-ubicacion {
+        font-size: 10px;
+    }
+
+    .fa-location-dot,
+    .fa-calendar-days {
+        font-size: 26px;
+    }
+
+    .titulos-tabla h4 {
+        font-size: 14px;
+    }
+
+
+    .boton-comprar {
+        font-size: 12px;
+    }
+
+
+    .fa-chevron-down {
+        font-size: 14px;
+    }
+
+    .linea-ticket p {
+        font-size: 12px;
+    }
+
+    .precio-ticket-p {
+        width: 20vw;
+        margin: 8px
+
+    }
+    
+}
+
+
+/* Media quierie para mobile */
+@media (max-width: 480px) {
+
+    .caja-titulo-ubicacion {
+        display: flex;
+        flex-wrap: wrap;
+        justify-items: center;
+
+    }
+
+    .ticket-titulo-tabla {
+        width: 25vw;
+    }
+
+    .precio-ticket-p {
+        width: 12vw;
+        margin: 8px
+
+    }
+
+    .caja-cantidad {
+        margin: 8px;
+        width: 15vw;
+    }
+
+    .tickets-imagen {
+        display: flex;
+        flex-wrap: wrap;
+        justify-items: center;
+
+    }
+
+    .caja-tickets {
+        order: 100
+    }
+
+
+
+    .imagen-evento {
+        /* order: -100; */
+        width: 90vw;
+    }
+
+
+    .search-bar {
+        font-size: 20px;
+    }
+
+    .caja-titulo-ubicacion h2 {
+        font-size: 19px;
+    }
+
+    .caja-titulo-ubicacion h3 {
+        font-size: 16px;
+
+    }
+
+    .descripcion-ubicacion {
+        font-size: 10px;
+    }
+
+    .fa-location-dot,
+    .fa-calendar-days {
+        font-size: 26px;
+    }
+
+    .titulos-tabla h4 {
+        font-size: 14px;
+    }
+
+
+    .boton-comprar {
+        font-size: 12px;
+    }
+
+
+    .fa-chevron-down {
+        font-size: 14px;
+    }
+
+    .linea-ticket p {
+        font-size: 12px;
+    }
+
 }
