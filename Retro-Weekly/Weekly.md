@@ -4,13 +4,14 @@ REGISTRO DE WEEKLY
     ¿Qué impedimento se encontró?
     ¿Qué se va a hacer esta semana?
 
-1. 2023/04/09 PRIMER WEEKLY:
+1. 2023/05/14 1° WEEKLY:
 
     CONSIDERACIONES:
 
-    - Vamos en el 1er sprint. 
-    - Fecha de entrega 3er sprint: 2023/04/19
-
+    - Terminamos el 2° sprint.
+    - Iniciamos el 3° sprint. 
+    - Fecha de entrega 3° sprint: 2023/05/24
+    
     - Entregables:
         1. Readme                                               Pendiente
         2. Wireframes
