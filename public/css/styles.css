@@ -178,6 +178,21 @@ footer {
   height: 100px;
 }
 
+.redes{
+  display: flex;
+  justify-content: flex-end;
+  border: solid 1px yellow;
+
+
+}
+
+.fa-facebook, .fa-instagram, .fa-twitter{
+  font-size: 2.5vw;
+  border: solid 2px red;
+  padding: 20px;
+  font-size: 20px;
+}
+
 footer p {
   display: none;
 }
@@ -562,8 +577,13 @@ html {
   font-weight: 500;
   border-radius: 15px;
   cursor: pointer;
-  width: 96%
-  ;
+  width: 96%;
+  transition: all 1s;
+}
+
+#login-button:hover{
+  background-color:#f4f4f4;
+  color: #313d55;
 }
 .login-contraseña-olvidada{
   font-size: 12px;
@@ -604,7 +624,7 @@ color: rgb(110, 3, 105);
   margin: 15px 10px;
 }
 
-/* ------------------ PRIMER BREAKPOINT 480px ------------------ */
+/* ------------------ PRIMER BREAKPOINT 480px ------------------ ----------------------------------------------------------*/
 @media (min-width: 480px) {
   .registro-form {
     margin-top: 6vh;
@@ -628,12 +648,13 @@ color: rgb(110, 3, 105);
     width: 120px;
   }
 
+  
   footer p {
     display: inline-block;
     color: #ffff;
     font-size: 16px;
   }
-
+  
   /*------ESTILOS HOME------*/
 
   .tickets-agotados {
@@ -779,7 +800,7 @@ color: rgb(110, 3, 105);
     width: 95%;
   }
 }
-/* ------------------ SEGUNDO BREAKPOINT 720px ------------------ */
+/* ------------------ SEGUNDO BREAKPOINT 768px ----------------------------------------------------------------------------------- */
 @media (min-width: 768px) {
   .registro-form {
     margin-top: 10vh;
@@ -805,6 +826,25 @@ color: rgb(110, 3, 105);
     margin-left: 0;
   }
 
+  .redes{
+    display: flex;
+    justify-content: flex-end;
+    border: solid 1px yellow;
+    
+  }
+  
+  .fa-facebook, .fa-instagram, .fa-twitter{
+    border: solid 2px red;
+    padding: 30px;
+    font-size: 30px;
+  }
+
+  .logo-eventicket-blanco {
+    width: 110px;
+  margin-right: 10%;
+  }
+
+  
   /*------ESTILOS HOME------*/
   .search-home {
     margin: 2% auto;
@@ -893,7 +933,7 @@ color: rgb(110, 3, 105);
 }
 
 
-/* ------------------ DESKTOP 1024 ------------------ */
+/* ------------------ DESKTOP 1200 ------------------ */
 
 @media (min-width: 1200px) {
   header {
