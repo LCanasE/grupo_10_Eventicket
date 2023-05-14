@@ -216,6 +216,14 @@ footer p {
   flex-direction: column;
 }
 
+.product-link-detail{
+  text-decoration: none;
+  color: #000;
+  display: flex;
+    width: 100%;
+    align-items: center;
+}
+
 .gallery-container {
   height: calc(20vw);
   position: relative;
@@ -280,10 +288,13 @@ footer p {
 
 .product {
   width: 80%;
+  /* 
+  ESTAS LÍNEAS JUNTO CON EL WIDTH FUNCIONABAN ANTES DE 
+  QUE .PRODUCT-LINK-DETAIL ENVOLVIERA A LOS ARTICULOS
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: row; */
   position: relative;
   border: 1px solid #ebebeb;
   background-color: #ffff;
@@ -680,8 +691,15 @@ color: rgb(110, 3, 105);
   .product {
     width: 300px;
     height: 420px;
-    flex-direction: column;
+    /* flex-direction: column; */
     margin: 2% 2% 1% 2%;
+  }
+
+  .product-link-detail{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .product-img {
@@ -1033,10 +1051,10 @@ color: rgb(110, 3, 105);
     font-size: 24px;
   }
   /* ------ESTILOS HOME------ */
-  .main-home .search-home {
-    /* margin: 2% auto; */
-    /* width: 100%; */
-  }
+  /* .main-home .search-home {
+    margin: 2% auto;
+    width: 100%;
+  } */
 
   .search-home .search-bar,
   .search-home .search-btn {
