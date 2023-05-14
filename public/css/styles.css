@@ -180,18 +180,20 @@ footer {
 
 .redes{
   display: flex;
-  justify-content: flex-end;
-  border: solid 1px yellow;
-
-
+  justify-content: space-around;
+  width: 25%;
 }
 
-.fa-facebook, .fa-instagram, .fa-twitter{
+.redes i{
+  font-size: 22px;
+}
+
+/* .fa-facebook, .fa-instagram, .fa-twitter{
   font-size: 2.5vw;
   border: solid 2px red;
   padding: 20px;
   font-size: 20px;
-}
+} */
 
 footer p {
   display: none;
@@ -201,11 +203,11 @@ footer p {
   width: 90px;
 }
 
-.fa-instagram,
+/* .fa-instagram,
 .fa-twitter,
 .fa-facebook {
   width: 20px;
-}
+} */
 
 /* ESTILOS HOME.HTML */
 
@@ -663,7 +665,7 @@ color: rgb(110, 3, 105);
   footer p {
     display: inline-block;
     color: #ffff;
-    font-size: 16px;
+    font-size: 14px;
   }
   
   /*------ESTILOS HOME------*/
@@ -817,6 +819,10 @@ color: rgb(110, 3, 105);
   .container-carrito {
     width: 95%;
   }
+
+  .redes{
+    width: 20%;
+  }
 }
 /* ------------------ SEGUNDO BREAKPOINT 768px ----------------------------------------------------------------------------------- */
 @media (min-width: 768px) {
@@ -844,18 +850,18 @@ color: rgb(110, 3, 105);
     margin-left: 0;
   }
 
+  footer p {
+    font-size: 16px;
+}
   .redes{
-    display: flex;
-    justify-content: flex-end;
-    border: solid 1px yellow;
-    
+    width: 15%;
   }
   
-  .fa-facebook, .fa-instagram, .fa-twitter{
+  /* .fa-facebook, .fa-instagram, .fa-twitter{
     border: solid 2px red;
     padding: 30px;
     font-size: 30px;
-  }
+  } */
 
   .logo-eventicket-blanco {
     width: 110px;
