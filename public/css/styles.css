@@ -13,7 +13,7 @@ body {
   background-color: #ebebeb;
 }
 
-.login-rg{
+.login-register{
   background-image: url(../img/Fondo-login.png);
   background-size: cover;
   background-position: center center;
@@ -85,12 +85,12 @@ header {
   display: inline-block;
   text-align: center;
   width: 90vw;
-  border: solid 1px #313d55;
+  /* border: solid 1px #313d55; */
   padding: 20px;
   padding-bottom: 30px;
   border-radius: 15px;
   box-shadow: 1px 1px 5px #000;
-  background-color: #ebebeb;
+  background-color: rgba(235, 235, 235, 0.8);
 }
 
 .registro-form h2, .login-h1 {
@@ -586,7 +586,6 @@ footer p {
 }
 
 .login-cuadro {
-  /* border: solid 1px #313d55; */
   border-radius: 15px;
   box-shadow: 1px 1px 5px #000;
   text-align: center;
@@ -596,7 +595,7 @@ footer p {
   font-size: 2em;
   margin-top: 6vh;
   padding: 20px;
-  background-color: #ebebeb;
+  background-color: rgba(235, 235, 235, 0.8);
 }
 
 /* .login-h1 {
