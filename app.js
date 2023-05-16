@@ -14,9 +14,9 @@ app.listen(3000, () => console.log("Servidor corriendo en el puerto 3000"));
 
 app.use(mainRoutes);
 
-app.use(productRoutes);
+app.use('/products', productRoutes);
 
-app.use(userRoutes);
+app.use('/users', userRoutes);
 
 
 
