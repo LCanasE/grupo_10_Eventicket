@@ -11,10 +11,13 @@ body {
   margin: 0;
   padding: 0%;
   background-color: #ebebeb;
-  /* background-image: url(../img/amelie-lens-farrago-maderoboardwalk-160560-img.jpg);
+}
+
+.login-rg{
+  background-image: url(../img/Fondo-login.png);
   background-size: cover;
   background-position: center center;
-  backdrop-filter: blur(15px); */
+  backdrop-filter: blur(10px);
 }
 
 header {
