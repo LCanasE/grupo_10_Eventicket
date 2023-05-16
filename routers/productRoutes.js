@@ -11,4 +11,8 @@ router.get("/carrito", productControllers.getCarrito);
 
 router.get("/eventos", productControllers.getEventos);
 
+router.get("/creacionEventos", productControllers.getCrearEventos);
+
+router.get("/edicionEventos", productControllers.getEditarEventos);
+
 module.exports = router;
