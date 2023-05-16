@@ -11,6 +11,10 @@ body {
   margin: 0;
   padding: 0%;
   background-color: #ebebeb;
+  /* background-image: url(../img/amelie-lens-farrago-maderoboardwalk-160560-img.jpg);
+  background-size: cover;
+  background-position: center center;
+  backdrop-filter: blur(15px); */
 }
 
 header {
@@ -71,7 +75,7 @@ header {
 .main-registro {
   display: flex;
   justify-content: center;
-  margin-top: 6vh
+  margin-top: 6vh;
 }
 
 .registro-form {
@@ -83,6 +87,7 @@ header {
   padding-bottom: 30px;
   border-radius: 15px;
   box-shadow: 1px 1px 5px #000;
+  background-color: #ebebeb;
 }
 
 .registro-form h2, .login-h1 {
@@ -287,6 +292,12 @@ footer p {
   width: 20%;
   background-color: #313d55;
   color: #ffff;
+  transition: all 450ms ease-in-out;
+}
+
+.search-btn:hover{
+  cursor: pointer;
+  background-color: #1c2330;
 }
 
 .product {
