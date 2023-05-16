@@ -178,13 +178,13 @@ footer {
   height: 100px;
 }
 
-.redes{
+.redes {
   display: flex;
   justify-content: space-around;
   width: 25%;
 }
 
-.redes i{
+.redes i {
   font-size: 22px;
 }
 
@@ -218,12 +218,12 @@ footer p {
   flex-direction: column;
 }
 
-.product-link-detail{
+.product-link-detail {
   text-decoration: none;
   color: #000;
   display: flex;
-    width: 100%;
-    align-items: center;
+  width: 100%;
+  align-items: center;
 }
 
 .gallery-container {
@@ -424,9 +424,9 @@ footer p {
   margin: 0px;
 }
 
-html {
+/* html {
   font-size: 50%;
-}
+} */
 /* ESTILOS CARRITO.HTML */
 
 .container-carrito {
@@ -442,34 +442,50 @@ html {
   background-color: #ffff;
   margin: 10px 0;
   border-radius: 12px;
-
+  height: 150px;
   overflow: hidden;
 }
 
-.articulos img {
-  height: 100px;
+.carrito-titulo {
+  margin: 0%;
+}
+
+
+.carrito-img {
+  height: 100%;
   width: 30%;
 }
+
+.carrito-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .articulos .info {
   width: 70%;
-  padding: 10px 0px 5px 10px;
+  padding: 10px;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 .metodo-de-pagos img {
   height: 100px;
 }
 
 .info button {
-  padding: 1rem;
+  padding: 5px;
   width: 15%;
   border: none;
   outline: none;
-  color: #fff;
+  color: #313d55;
   text-transform: uppercase;
   font-size: 1.1rem;
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 5px;
-  background-color: #615f5f;
+  background-color: #c0c0c0;
 }
 .info button:hover {
   background-color: #313d55;
@@ -480,13 +496,17 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 70%;
-  margin: auto;
+  width: 90%;
+  margin: 5%;
 }
 .botones-container button {
-  padding: 18px;
+  font-family: "Montserrat", "sans-serif";
+  padding: 2%;
+  font-size: 18px;
+  width: 45%;
 }
 .finalizar-compra {
+  font-family: "Montserrat", "sans-serif";
   background-color: #313d55;
   color: #fff;
   border-radius: 12px;
@@ -495,6 +515,7 @@ html {
 }
 
 .eliminar-productos {
+  font-family: "Montserrat", "sans-serif";
   background: none;
   border: solid 1px #313d55;
   background-color: #ebebeb;
@@ -594,21 +615,21 @@ html {
   transition: all 1s;
 }
 
-#login-button:hover{
-  background-color:#f4f4f4;
+#login-button:hover {
+  background-color: #f4f4f4;
   color: #313d55;
 }
-.login-contraseña-olvidada{
+.login-contraseña-olvidada {
   font-size: 12px;
 }
-.login-click-aqui{
+.login-click-aqui {
   text-decoration: none;
   color: black;
   transition: all 1s;
 }
 
-.login-click-aqui:hover{
-color: rgb(110, 3, 105);
+.login-click-aqui:hover {
+  color: rgb(110, 3, 105);
 }
 
 .login-input-texto:hover {
@@ -661,13 +682,12 @@ color: rgb(110, 3, 105);
     width: 120px;
   }
 
-  
   footer p {
     display: inline-block;
     color: #ffff;
     font-size: 14px;
   }
-  
+
   /*------ESTILOS HOME------*/
 
   .tickets-agotados {
@@ -697,7 +717,7 @@ color: rgb(110, 3, 105);
     margin: 2% 2% 1% 2%;
   }
 
-  .product-link-detail{
+  .product-link-detail {
     width: 100%;
     height: 100%;
     display: flex;
@@ -803,15 +823,14 @@ color: rgb(110, 3, 105);
   /* ESTILOS CARRITO.HTML */
 
   .container-articulo-metodos-de-pago {
-    display: flex;
     align-items: center;
   }
   .articulos {
     width: 100%;
   }
   .articulos-container {
-    width: 50%;
-  }
+    width: 100%;
+
   .seleccionar-metodo {
     width: 45%;
     height: 60%;
@@ -820,7 +839,7 @@ color: rgb(110, 3, 105);
     width: 95%;
   }
 
-  .redes{
+  .redes {
     width: 20%;
   }
 }
@@ -852,11 +871,11 @@ color: rgb(110, 3, 105);
 
   footer p {
     font-size: 16px;
-}
-  .redes{
+  }
+  .redes {
     width: 15%;
   }
-  
+
   /* .fa-facebook, .fa-instagram, .fa-twitter{
     border: solid 2px red;
     padding: 30px;
@@ -865,10 +884,9 @@ color: rgb(110, 3, 105);
 
   .logo-eventicket-blanco {
     width: 110px;
-  margin-right: 10%;
+    margin-right: 10%;
   }
 
-  
   /*------ESTILOS HOME------*/
   .search-home {
     margin: 2% auto;
@@ -948,14 +966,35 @@ color: rgb(110, 3, 105);
   }
   /*------ESTILOS LOGIN------*/
 
-  .registro-tyc{
-    font-size: 2rem;
+  .registro-tyc {
+    font-size: 12px;
   }
-  #login-button{
+  #login-button {
     padding: 2%;
   }
+  .articulos {
+    height: 200px;
+
+  }
+
+  .carrito-btn {
+    width: 100%;
+  }
+
+.articulos .info {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
+.articulos .info p {
+  font-size: 22px;
+  color: #313d55;
+  font-weight: 400;
+}
+
+}
 
 /* ------------------ DESKTOP 1200 ------------------ */
 
@@ -1067,13 +1106,12 @@ color: rgb(110, 3, 105);
     font-size: 1vw;
   }
 
+  /* ESTILOS CARRITO.HTML */
+
   footer {
     padding-left: 6vw;
     padding-right: 6vw;
     bottom: 0px;
   }
-  /* ESTILOS CARRITO.HTML */
-  .articulos-container .articulos img {
-    width: 25%;
-  }
+}
 }

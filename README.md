@@ -1,8 +1,12 @@
 README:
 
-1. Descripción de la oferta de productos y/o servicios: Eventicket es una plataforma de venta de tickets para eventos de interés general, como pueden ser conciertos, teatro, cine, eventos deportivos, etc. Cualquiera que quiera crear un evento puede hacerlo.
+1. Descripción de la oferta de productos y/o servicios: 
 
-2. Descripción del público al que apunta el sitio: La plataforma está dirigida a cualquier persona que tenga interés en asistir a un evento en particular o crear un evento.
+   Eventicket es una plataforma de venta de tickets para eventos de interés general, como pueden ser conciertos, teatro, cine, eventos deportivos, etc. Cualquiera que quiera crear un evento puede hacerlo.
+
+2. Descripción del público al que apunta el sitio:
+
+   La plataforma está dirigida a cualquier persona que tenga interés en asistir a un evento en particular o crear un evento.
 
 3. Breve descripción de los integrantes del equipo:
 
