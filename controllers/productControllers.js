@@ -4,13 +4,13 @@ const path = require('path');
 const productControllers = {
 
     getDetalleEventos: (req, res) =>
-    res.sendFile(path.join(__dirname, "../views/detalleEventos.html")),
+    res.sendFile(path.join(__dirname, "../views/products/detalleEventos.html")),
 
     getCarrito: (req, res) =>
-    res.sendFile(path.join(__dirname, "../views/carrito.html")),
+    res.sendFile(path.join(__dirname, "../views/products/carrito.html")),
 
     getEventos: (req, res) =>
-    res.sendFile(path.join(__dirname, "../views/eventos.html"))
+    res.sendFile(path.join(__dirname, "../views/products/eventos.html"))
 
 }
 
