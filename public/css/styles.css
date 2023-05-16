@@ -71,6 +71,7 @@ header {
 .main-registro {
   display: flex;
   justify-content: center;
+  margin-top: 6vh
 }
 
 .registro-form {
@@ -84,7 +85,7 @@ header {
   box-shadow: 1px 1px 5px #000;
 }
 
-.registro-form h2 {
+.registro-form h2, .login-h1 {
   font-size: 16px;
   font-weight: 900;
 }
@@ -579,16 +580,16 @@ footer p {
   display: flex;
   flex-direction: column;
   font-size: 2em;
-  margin-top: 10vh;
+  margin-top: 6vh;
+  padding: 20px;
 }
 
-.login-h1 {
+/* .login-h1 {
   display: flex;
   justify-content: center;
-
   padding: 15px;
   font-weight: 900;
-}
+} */
 
 .login-h2 {
   font-size: 1em;
@@ -598,7 +599,7 @@ footer p {
   border-radius: 15px;
   border: 1px solid #c0c0c0;
   padding: 2%;
-  margin: 2% 0%;
+  margin-top: 2%;
   width: 96%;
   font-size: 16px;
 }
@@ -613,6 +614,8 @@ footer p {
   cursor: pointer;
   width: 96%;
   transition: all 1s;
+  padding: 2%;
+  margin-top: 2%;
 }
 
 #login-button:hover {
@@ -660,11 +663,16 @@ footer p {
 
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ ----------------------------------------------------------*/
 @media (min-width: 480px) {
+
+  .main-registro {
+    margin-top: 0vh;
+  }
+
   .registro-form {
     margin-top: 6vh;
   }
 
-  .registro-form h2 {
+  .registro-form h2, .login-h1 {
     font-size: 20px;
   }
 
@@ -845,11 +853,7 @@ footer p {
 }
 /* ------------------ SEGUNDO BREAKPOINT 768px ----------------------------------------------------------------------------------- */
 @media (min-width: 768px) {
-  .registro-form {
-    margin-top: 10vh;
-  }
-
-  .registro-form h2 {
+  .registro-form h2, .login-h1 {
     font-size: 24px;
   }
 
@@ -1095,11 +1099,11 @@ footer p {
   .registro-form h2 {
     font-size: 24px;
   }
+
+  .login-main .login-cuadro{
+    width: 60vw;
+  }
   /* ------ESTILOS HOME------ */
-  /* .main-home .search-home {
-    margin: 2% auto;
-    width: 100%;
-  } */
 
   .search-home .search-bar,
   .search-home .search-btn {
