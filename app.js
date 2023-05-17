@@ -1,7 +1,8 @@
-
 const express = require("express");
 
 const app = express();
+
+
 
 const mainRoutes = require('./routers/mainRoutes');
 const productRoutes = require('./routers/productRoutes');
@@ -11,6 +12,7 @@ app.use(express.static("public"));
 
 app.listen(3000, () => console.log("Servidor corriendo en el puerto 3000"));
 
+app.set('view wngine', 'ejs');
 
 app.use(mainRoutes);
 
