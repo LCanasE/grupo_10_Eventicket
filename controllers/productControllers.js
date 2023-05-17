@@ -12,10 +12,10 @@ const productControllers = {
     getEventos: (req, res) =>
     res.sendFile(path.join(__dirname, "../views/products/eventos.html")),
 
-    getCrearEventos: (req, res) =>
+    getCrearEvento: (req, res) =>
     res.sendFile(path.join(__dirname, "../views/products/creacionEventos.html")),
 
-    getEditarEventos: (req, res) =>
+    getEditarEvento: (req, res) =>
     res.sendFile(path.join(__dirname, "../views/products/edicionEventos.html")),
 
 }
