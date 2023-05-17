@@ -13,6 +13,10 @@ body {
   background-color: #ebebeb;
 }
 
+main {
+  height: 80%;
+}
+
 .login-register{
   background-image: url(../img/Fondo-login.png);
   background-size: cover;
@@ -78,7 +82,6 @@ header {
 .main-registro {
   display: flex;
   justify-content: center;
-  margin-top: 6vh;
 }
 
 .registro-form {
@@ -181,7 +184,7 @@ footer {
   justify-content: space-between;
   background-color: #313d55;
   /*   border: 1px solid black; */
-  margin-top: 6vh;
+/*   margin-top: 6vh; */
   width: 100%;
   bottom: 0px;
   height: 100px;
@@ -594,6 +597,7 @@ footer p {
   flex-direction: column;
   font-size: 2em;
   margin-top: 6vh;
+  margin-bottom: 6vh;
   padding: 20px;
   background-color: rgba(235, 235, 235, 0.8);
 }
@@ -675,16 +679,14 @@ footer p {
   margin: 15px 10px;
 }
 
+.registro-form {
+  margin-top: 6vh;
+  margin-bottom: 6vh;
+}
+
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ ----------------------------------------------------------*/
 @media (min-width: 480px) {
 
-  .main-registro {
-    margin-top: 0vh;
-  }
-
-  .registro-form {
-    margin-top: 6vh;
-  }
 
   .registro-form h2, .login-h1 {
     font-size: 20px;
@@ -1075,10 +1077,6 @@ footer p {
     margin-bottom: 0px;
   }
 
-  .main-registro {
-    margin-top: 10vh;
-  }
-
   .nav-bar .nav-login {
     border: solid 1px #313d55;
   }
@@ -1106,7 +1104,6 @@ footer p {
   .registro-form {
     width: 60vw;
     text-align: center;
-    margin: auto;
     padding: 25px;
   }
 
