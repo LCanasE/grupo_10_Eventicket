@@ -576,18 +576,23 @@ footer p {
 }
 .seleccionar-metodo h3 {
   font-size: 1.5rem;
+  text-align: center;
+  width: 80%;
 }
 .metodo-de-pagos {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
 }
 .metodo-de-pagos img {
   width: 20%;
   height: 20%;
+  transition: all 0.2s ease;
 }
 .metodo-de-pagos img:hover {
-  transition: all 0.2s;
+  
   opacity: 50%;
+  cursor: pointer;
 }
 
 .metodo-de-pagos .mastercard {
@@ -1133,6 +1138,30 @@ footer p {
   }
 
   /* ESTILOS CARRITO.HTML */
+  .articulos-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .articulos{
+    height: 300px;
+    width: 70vw;
+  }
+
+  .seleccionar-metodo h3{
+    font-size: 2rem;
+  }
+
+  .metodo-de-pagos{
+    width: 60vw;
+  }
+
+  .botones-container{
+    width: 60%;
+    padding: 2%;
+    margin: auto;
+  }
 
   footer {
     padding-left: 6vw;
