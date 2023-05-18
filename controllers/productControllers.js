@@ -5,23 +5,23 @@ const productControllers = {
 
     getDetalleEventos: (req, res) =>
     //res.sendFile(path.join(__dirname, "../views/products/detalleEventos.html")),
-    res.render('./products/detalleEventos.ejs'),
+    res.render('detalleEventos'),
 
     getCarrito: (req, res) =>
     //res.sendFile(path.join(__dirname, "../views/products/carrito.html")),
-    res.render('./products/carrito.ejs'),
+    res.render('carrito'),
 
     getEventos: (req, res) =>
     //res.sendFile(path.join(__dirname, "../views/products/eventos.html")),
-    res.render('./products/eventos.ejs'),
+    res.render('eventos'),
 
     getCrearEvento: (req, res) =>
     //res.sendFile(path.join(__dirname, "../views/products/creacionEventos.html")),
-    res.render('./products/creacionEventos.ejs'),
+    res.render('creacionEventos'),
 
     getEditarEvento: (req, res) =>
     //res.sendFile(path.join(__dirname, "../views/products/edicionEventos.html")),
-    res.render('./products/edicionEventos.ejs'),
+    res.render('edicionEventos'),
 }
 
 module.exports = productControllers;
