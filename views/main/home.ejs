@@ -7,47 +7,14 @@
 
 <body>
   <header>
-    <a class="link-logos" href="/"
-      ><img
-        class="logo-eventicket"
-        src="/Logo/LOGOTIPO EVENTICKET.svg"
-        alt="Eventicket"
-    /></a>
-    <img class="menu-burger" src="/css/svg/menu-burger.svg" alt="" />
-    <nav>
-      <ul class="nav-bar">
-        <a class="nav-inicio nav-enlaces" href="/"
-          ><li class="nav-inicio nav-enlaces">Inicio</li></a
-        >
-
-        <a class="nav-eventos nav-enlaces" href="./products/eventos">
-          <li class="nav-eventos nav-enlaces">Eventos</li></a
-        >
-
-        <a class="nav-crear nav-enlaces" href=""
-          ><li class="nav-crear nav-enlaces">Crear Evento</li></a
-        >
-
-        <a class="nav-registro-a" href="./users/registro"
-          ><li class="nav-registro">Registrarse</li></a
-        >
-
-        <a href="./users/login"><li class="nav-login">Iniciar Sesión</li></a>
-      </ul>
-    </nav>
+    <%- include('../partials/header') %>
   </header>
   <main class="main-home">
-    <div class="gallery-container">
-      <img src="img/peces-raros-2da-funcion-158913-img.jpeg" alt="" class="gallery-item">
-      <div class="gallery-btn">
-        <button><i class="fa-solid fa-arrow-left"></i></button>
-        <button><i class="fa-solid fa-arrow-right"></i></button>
-      </div>
-    </div>
-    <form action="#" method="GET" class="search-home">
-      <input type="text" placeholder="Buscar envento en Eventicket..." class="search-bar">
-      <input type="submit" value="Buscar" class="search-btn">
-    </form>
+
+    <%- include('../partials/banner') %>
+
+    <%- include('../partials/barraNavegacion') %>
+    
     <section class="products">
       <article class="product">
         <a href="/productos" class="product-link-detail">
@@ -246,13 +213,7 @@
     </section>
   </main>
   <footer>
-    <img class="logo-eventicket-blanco" src="/Logo/EVENTICKET-blanco.svg" alt="Eventicket" />
-    <p>Todos los derechos reservados</p>
-    <div class="redes">
-      <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram" style="color: #ffffff"></i></a>
-        <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter" style="color: #ffffff"></i></a>
-        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook" style="color: #ffffff"></i></a>
-    </div>
+    <%- include('../partials/footer') %>
   </footer>
 </body>
 
