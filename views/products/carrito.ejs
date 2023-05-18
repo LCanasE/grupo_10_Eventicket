@@ -1,164 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link
-      rel="shortcut icon"
-      href="/Logo/ISOLOGO EVENTICKET.svg"
-      type="image/x-icon"
-    />
-    <title>Carrito | Eventicket</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
 
-  <body>
-    <header>
-      <a href="/"
-        ><img
-          class="logo-eventicket"
-          src="/Logo/LOGOTIPO EVENTICKET.svg"
-          alt="Eventicket"
-      /></a>
-      <img class="menu-burger" src="/css/svg/menu-burger.svg" alt="" />
-      <nav>
-        <ul class="nav-bar">
-          <a class="nav-inicio nav-enlaces" href="/"
-            ><li class="nav-inicio nav-enlaces">Inicio</li></a
-          >
+<head>
+  <%- include('../partials/head') %>
+</head>
 
-          <a class="nav-eventos nav-enlaces" href="eventos">
-            <li class="nav-eventos nav-enlaces">Eventos</li></a
-          >
+<body>
+  <header>
+    <a href="/"><img class="logo-eventicket" src="/Logo/LOGOTIPO EVENTICKET.svg" alt="Eventicket" /></a>
+    <img class="menu-burger" src="/css/svg/menu-burger.svg" alt="" />
+    <nav>
+      <ul class="nav-bar">
+        <a class="nav-inicio nav-enlaces" href="/">
+          <li class="nav-inicio nav-enlaces">Inicio</li>
+        </a>
 
-          <a class="nav-crear nav-enlaces" href=""
-            ><li class="nav-crear nav-enlaces">Crear Evento</li></a
-          >
+        <a class="nav-eventos nav-enlaces" href="eventos">
+          <li class="nav-eventos nav-enlaces">Eventos</li>
+        </a>
 
-          <a class="nav-registro-a" href="../users/registro"
-            ><li class="nav-registro">Registrarse</li></a
-          >
+        <a class="nav-crear nav-enlaces" href="">
+          <li class="nav-crear nav-enlaces">Crear Evento</li>
+        </a>
 
-          <a href="../users/login"><li class="nav-login">Iniciar Sesión</li></a>
-        </ul>
-      </nav>
+        <a class="nav-registro-a" href="../users/registro">
+          <li class="nav-registro">Registrarse</li>
+        </a>
 
-    </header>
-    <main>
-      <form action="#" method="GET" class="search-home">
-        <input type="text" placeholder="Buscar envento en Eventicket..." class="search-bar">
-        <input type="submit" value="Buscar" class="search-btn">
-      </form>
-      <div class="container-carrito">
-        <h1>Eventos Seleccionados</h1>
-        <div class="container-articulo-metodos-de-pago">
+        <a href="../users/login">
+          <li class="nav-login">Iniciar Sesión</li>
+        </a>
+      </ul>
+    </nav>
+
+  </header>
+  <main>
+    <form action="#" method="GET" class="search-home">
+      <input type="text" placeholder="Buscar envento en Eventicket..." class="search-bar">
+      <input type="submit" value="Buscar" class="search-btn">
+    </form>
+    <div class="container-carrito">
+      <h1>Eventos Seleccionados</h1>
+      <div class="container-articulo-metodos-de-pago">
         <div class="articulos-container">
-  <div class="articulos">
-    <div class="carrito-img">
-    <img src="../img/amelie-lens-farrago-maderoboardwalk-160560-img.jpeg" ></div>
-  <div class="info">
-    <h3 class="carrito-titulo">Entradas para ver a "Amelie Lens"</h3>
-    <div class="precio">
-      <p>$3000</p>
-    </div>
-    <article class="carrito-btn">
-    <button class="flecha-arriba">
-      <i class="fa-solid fa-arrow-up"></i>
-    </button>
-    <button class="flecha-abajo">
-      <i class="fa-solid fa-arrow-down"></i>
-    </button>
-    <button>
-      <i class="fa-regular fa-trash-can"></i>
-    </button>
-  </article>
-</div>
-</div>
-<div class="articulos">
-  <div class="carrito-img">
-<img src="../img/la-kermesse-en-ballester-img.jpeg" ></div>
-  <div class="info">
-    <h3 class="carrito-titulo">Entradas para ver a "La Kermesse"</h3>
-    <div class="precio">
-      <p>$3500</p>
-    </div>
-    <article class="carrito-btn">
-    <button class="flecha-arriba">
-      <i class="fa-solid fa-arrow-up"></i>
-    </button>
-    <button class="flecha-abajo">
-      <i class="fa-solid fa-arrow-down"></i>
-    </button>
-    <button>
-      <i class="fa-regular fa-trash-can"></i>
-    </button>
-  </article>
-  </div>
-</div>
-  <div class="articulos">
-    <div class="carrito-img">
-    <img src="../img/babasonicos-en-lanus-img.jpeg" >
-    </div>
-    <div class="info">
-      <h3 class="carrito-titulo">Entradas para ver a "Babasonicos"</h3>
-      <div class="precio">
-        <p>$2500</p>
-      </div>
-      <article class="carrito-btn">
-      <button class="flecha-arriba">
-        <i class="fa-solid fa-arrow-up"></i>
-      </button>
-      <button class="flecha-abajo">
-        <i class="fa-solid fa-arrow-down"></i>
-      </button>
-      <button>
-        <i class="fa-regular fa-trash-can"></i>
-      </button>
-    </article>
-    </div>
-  </div>
-</div>
-<div class="seleccionar-metodo">
-  <h3 >Seleccione un método de pago</h3>
-  <div class="metodo-de-pagos">
-    <img src="../img/VISA-Logo.png" alt="Visa">
-    <img class="mastercard" src="../img/mastercard.png" alt="Mastercard">
-    <img src="../img/PAYPAL.jpg" alt="Paypal">
-    </div>
-  </div>
-</div>
-</div>
-      </div>
-        <div class="botones-container">
-          <button class="eliminar-productos">
-            Eliminar todo
-                    </button>
-          <button class="finalizar-compra">
-            Finalizar Compra
-          </button>
+          <div class="articulos">
+            <div class="carrito-img">
+              <img src="../img/amelie-lens-farrago-maderoboardwalk-160560-img.jpeg">
+            </div>
+            <div class="info">
+              <h3 class="carrito-titulo">Entradas para ver a "Amelie Lens"</h3>
+              <div class="precio">
+                <p>$3000</p>
+              </div>
+              <article class="carrito-btn">
+                <button class="flecha-arriba">
+                  <i class="fa-solid fa-arrow-up"></i>
+                </button>
+                <button class="flecha-abajo">
+                  <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button>
+                  <i class="fa-regular fa-trash-can"></i>
+                </button>
+              </article>
+            </div>
+          </div>
+          <div class="articulos">
+            <div class="carrito-img">
+              <img src="../img/la-kermesse-en-ballester-img.jpeg">
+            </div>
+            <div class="info">
+              <h3 class="carrito-titulo">Entradas para ver a "La Kermesse"</h3>
+              <div class="precio">
+                <p>$3500</p>
+              </div>
+              <article class="carrito-btn">
+                <button class="flecha-arriba">
+                  <i class="fa-solid fa-arrow-up"></i>
+                </button>
+                <button class="flecha-abajo">
+                  <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button>
+                  <i class="fa-regular fa-trash-can"></i>
+                </button>
+              </article>
+            </div>
+          </div>
+          <div class="articulos">
+            <div class="carrito-img">
+              <img src="../img/babasonicos-en-lanus-img.jpeg">
+            </div>
+            <div class="info">
+              <h3 class="carrito-titulo">Entradas para ver a "Babasonicos"</h3>
+              <div class="precio">
+                <p>$2500</p>
+              </div>
+              <article class="carrito-btn">
+                <button class="flecha-arriba">
+                  <i class="fa-solid fa-arrow-up"></i>
+                </button>
+                <button class="flecha-abajo">
+                  <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button>
+                  <i class="fa-regular fa-trash-can"></i>
+                </button>
+              </article>
+            </div>
+          </div>
         </div>
-    </main>
-    <footer>
-      <img
-        class="logo-eventicket-blanco"
-        src="/Logo/EVENTICKET-blanco.svg"
-        alt="Eventicket"
-      />
-      <p>Todos los derechos reservados</p>
-      <div class="redes">
-        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram" style="color: #ffffff"></i></a>
-        <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter" style="color: #ffffff"></i></a>
-        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook" style="color: #ffffff"></i></a>
+        <div class="seleccionar-metodo">
+          <h3>Seleccione un método de pago</h3>
+          <div class="metodo-de-pagos">
+            <img src="../img/VISA-Logo.png" alt="Visa">
+            <img class="mastercard" src="../img/mastercard.png" alt="Mastercard">
+            <img src="../img/PAYPAL.jpg" alt="Paypal">
+          </div>
+        </div>
       </div>
-    </footer>
- 
-  </body>
+    </div>
+    </div>
+    <div class="botones-container">
+      <button class="eliminar-productos">
+        Eliminar todo
+      </button>
+      <button class="finalizar-compra">
+        Finalizar Compra
+      </button>
+    </div>
+  </main>
+  <footer>
+    <img class="logo-eventicket-blanco" src="/Logo/EVENTICKET-blanco.svg" alt="Eventicket" />
+    <p>Todos los derechos reservados</p>
+    <div class="redes">
+      <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"
+          style="color: #ffffff"></i></a>
+      <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter" style="color: #ffffff"></i></a>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"
+          style="color: #ffffff"></i></a>
+    </div>
+  </footer>
+
+</body>
+
 </html>
