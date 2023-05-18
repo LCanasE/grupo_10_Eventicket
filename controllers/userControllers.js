@@ -5,11 +5,11 @@ const userControllers = {
 
     getLogin: (req, res) =>
     //res.sendFile(path.join(__dirname, "../views/users/login.html")),
-    res.render('./users/login.ejs'),
+    res.render('login'),
 
     getRegistro: (req, res) =>
     //res.sendFile(path.join(__dirname, "../views/users/registro.html"))
-    res.render('./users/registro.ejs')
+    res.render('registro')
 }
 
 module.exports = userControllers;
