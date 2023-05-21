@@ -9,7 +9,31 @@
     <header>
         <%- include('../partials/header') %>
     </header>
-    <h1>Creción de eventos</h1>
+    <main class="main-registro login-register">
+        <section class="registro-form">
+            <h2>Creación de eventos</h2>
+            <form action="" method="">
+                <input type="text" placeholder="Título del Evento">
+                <input type="datetime-local">
+                <input type="text" placeholder="Lugar">
+                <input type="text" placeholder="Precio">
+                <select name="" id="" class="creacion-evento-categorias">
+                    <option disabled selected>Selecciona la categoria</option>
+                    <option value="Deportes" name="Deportes">Deportes</option>
+                    <option value="Recitales" name="Recitales">Recital</option>
+                    <option value="ObrasTeatro" name="ObrasTeatro">Obra de teatro</option>
+                    <option value="StandUp" name="StandUp">Stand Up</option>
+                    <option value="ConferenciasAcademicas" name="ConferenciasAcademicas">Conferencia</option>
+                </select>
+                <div class="input-grupo-cargar-imagen-evento">
+                    <label for="">Imagen del Evento</label>
+                    <input type="file">
+                    <input type="submit" value="Cargar evento" class="enviar-evento">
+                </div>
+            </form>
+        </section>
+
+    </main>
     <footer>
         <%- include('../partials/footer') %>
     </footer>
