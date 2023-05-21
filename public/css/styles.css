@@ -17,11 +17,11 @@ main {
   height: 80%;
 }
 
-.login-register{
+.login-register {
   position: relative;
 }
 
-.login-register::before{
+.login-register::before {
   content: "";
   position: absolute;
   top: 0;
@@ -107,7 +107,8 @@ header {
   background-color: rgba(235, 235, 235, 0.8);
 }
 
-.registro-form h2, .login-h1 {
+.registro-form h2,
+.login-h1 {
   font-size: 16px;
   font-weight: 900;
 }
@@ -195,7 +196,7 @@ footer {
   justify-content: space-between;
   background-color: #313d55;
   /*   border: 1px solid black; */
-/*   margin-top: 6vh; */
+  /*   margin-top: 6vh; */
   width: 100%;
   bottom: 0px;
   height: 100px;
@@ -283,6 +284,7 @@ footer p {
 .gallery-btn button:hover {
   cursor: pointer;
 }
+
 .search-home {
   width: 90%;
   margin: 5% auto;
@@ -312,7 +314,7 @@ footer p {
   transition: all 450ms ease-in-out;
 }
 
-.search-btn:hover{
+.search-btn:hover {
   cursor: pointer;
   background-color: #1c2330;
 }
@@ -463,9 +465,11 @@ footer p {
   width: 90%;
   margin: auto;
 }
+
 .container-carrito h1 {
   text-align: center;
 }
+
 .articulos {
   width: 100%;
   display: flex;
@@ -500,6 +504,7 @@ footer p {
   justify-content: space-around;
   flex-direction: column;
 }
+
 .metodo-de-pagos img {
   height: 100px;
 }
@@ -517,11 +522,13 @@ footer p {
   margin-bottom: 5px;
   background-color: #c0c0c0;
 }
+
 .info button:hover {
   background-color: #313d55;
   transition: all 0.3s;
   transform: translateX(2px);
 }
+
 .botones-container {
   display: flex;
   align-items: center;
@@ -529,12 +536,14 @@ footer p {
   width: 90%;
   margin: 5%;
 }
+
 .botones-container button {
   font-family: "Montserrat", "sans-serif";
   padding: 2%;
   font-size: 18px;
   width: 45%;
 }
+
 .finalizar-compra {
   font-family: "Montserrat", "sans-serif";
   background-color: #313d55;
@@ -575,23 +584,27 @@ footer p {
   align-items: center;
   justify-content: center;
 }
+
 .seleccionar-metodo h3 {
   font-size: 1.5rem;
   text-align: center;
   width: 80%;
 }
+
 .metodo-de-pagos {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
 .metodo-de-pagos img {
   width: 20%;
   height: 20%;
   transition: all 0.2s ease;
 }
+
 .metodo-de-pagos img:hover {
-  
+
   opacity: 50%;
   cursor: pointer;
 }
@@ -599,6 +612,7 @@ footer p {
 .metodo-de-pagos .mastercard {
   width: 12%;
 }
+
 /* ------------------ ESTILOS LOGIN  ------------------ */
 .login-main {
   display: flex;
@@ -657,9 +671,11 @@ footer p {
   background-color: #f4f4f4;
   color: #313d55;
 }
+
 .login-contraseña-olvidada {
   font-size: 12px;
 }
+
 .login-click-aqui {
   text-decoration: none;
   color: black;
@@ -701,11 +717,95 @@ footer p {
   margin-bottom: 6vh;
 }
 
+/* CREACIÓN DE EVENTO */
+
+.input-grupo-cargar-imagen-evento {
+  margin-top: 2%;
+}
+
+.input-grupo-cargar-imagen-evento label {
+  font-size: 14px;
+}
+
+.input-grupo-cargar-imagen-evento .seleccionar-imagen {
+  width: 80%;
+  background: none;
+  border: none;
+  margin: auto;
+}
+
+.input-grupo-cargar-imagen-evento .enviar-evento {
+  color: white;
+  background-color: #313d55;
+}
+
+.creacion-evento-categorias {
+  background-color: #fff;
+  border: solid 1px #c0c0c0;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 16px;
+  width: 96%;
+  margin-top: 2%;
+  padding: 2%;
+  border-radius: 15px;
+  color: gray;
+}
+
+.agregar-input-precio-evento {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 96%;
+  margin: 2% auto;
+}
+
+.agregar-input-precio-evento label{
+  width: 100%;
+}
+
+.agregar-input-precio-evento .precio-crear-evento {
+  width: 45%;
+  margin-right: 2%;
+}
+
+.agregar-tipo-entrada {
+  margin-top: 2%;
+  height: 30px;
+  border-radius: 50%;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c0c0c0;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.agregar-tipo-entrada:hover{
+  background-color: #313d55;
+  color: #fff;
+}
+
+.agregar-input-precio-evento .tipo-entrada-evento{
+  background-color: #fff;
+  border: solid 1px #c0c0c0;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 16px;
+  width: 40%;
+  margin-top: 2%;
+  padding: 2%;
+  border-radius: 15px;
+  color: gray;
+}
+
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ ----------------------------------------------------------*/
 @media (min-width: 480px) {
 
 
-  .registro-form h2, .login-h1 {
+  .registro-form h2,
+  .login-h1 {
     font-size: 20px;
   }
 
@@ -737,6 +837,7 @@ footer p {
     transform: none;
     border-radius: 0px;
   }
+
   .search-home {
     margin-bottom: 2%;
   }
@@ -866,16 +967,20 @@ footer p {
   .container-articulo-metodos-de-pago {
     align-items: center;
   }
+
   .articulos {
     width: 100%;
   }
+
   .articulos-container {
     width: 100%;
+  }
 
   .seleccionar-metodo {
     width: 45%;
     height: 60%;
   }
+
   .container-carrito {
     width: 95%;
   }
@@ -883,10 +988,36 @@ footer p {
   .redes {
     width: 20%;
   }
+
+  /* CREACION EVENTOS */
+  .input-grupo-cargar-imagen-evento {
+    display: flex;
+    flex-wrap: wrap;
+    width: 96%;
+    margin: 2% auto;
+    align-items: center;
+  }
+
+  .input-grupo-cargar-imagen-evento label {
+    margin-left: 1%;
+  }
+
+  .input-grupo-cargar-imagen-evento .seleccionar-imagen {
+    margin: 0;
+    width: 60%;
+    margin-left: 1%;
+  }
+
+  .input-grupo-cargar-imagen-evento .enviar-evento {
+    width: 100%;
+  }
 }
+
 /* ------------------ SEGUNDO BREAKPOINT 768px ----------------------------------------------------------------------------------- */
 @media (min-width: 768px) {
-  .registro-form h2, .login-h1 {
+
+  .registro-form h2,
+  .login-h1 {
     font-size: 24px;
   }
 
@@ -909,6 +1040,7 @@ footer p {
   footer p {
     font-size: 16px;
   }
+
   .redes {
     width: 15%;
   }
@@ -929,10 +1061,12 @@ footer p {
     margin: 2% auto;
     width: 70%;
   }
+
   .search-home .search-bar {
     font-size: 1.8vw;
     padding: 2%;
   }
+
   .search-home .search-btn {
     padding: 0px;
     font-size: 1.5vw;
@@ -1001,14 +1135,17 @@ footer p {
     border: none;
     right: 2.5%;
   }
+
   /*------ESTILOS LOGIN------*/
 
   .registro-tyc {
     font-size: 12px;
   }
+
   #login-button {
     padding: 2%;
   }
+
   .articulos {
     height: 200px;
 
@@ -1018,18 +1155,23 @@ footer p {
     width: 100%;
   }
 
-.articulos .info {
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-}
+  .articulos .info {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
 
-.articulos .info p {
-  font-size: 22px;
-  color: #313d55;
-  font-weight: 400;
-}
+  .articulos .info p {
+    font-size: 22px;
+    color: #313d55;
+    font-weight: 400;
+  }
+
+  /* CREACION EVENTOS */
+  .input-grupo-cargar-imagen-evento label {
+    font-size: 16px;
+  }
 
 }
 
@@ -1128,9 +1270,10 @@ footer p {
     font-size: 24px;
   }
 
-  .login-main .login-cuadro{
+  .login-main .login-cuadro {
     width: 60vw;
   }
+
   /* ------ESTILOS HOME------ */
 
   .search-home .search-bar,
@@ -1139,26 +1282,26 @@ footer p {
   }
 
   /* ESTILOS CARRITO.HTML */
-  .articulos-container{
+  .articulos-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .articulos{
+  .articulos {
     height: 300px;
     width: 70vw;
   }
 
-  .seleccionar-metodo h3{
+  .seleccionar-metodo h3 {
     font-size: 2rem;
   }
 
-  .metodo-de-pagos{
+  .metodo-de-pagos {
     width: 60vw;
   }
 
-  .botones-container{
+  .botones-container {
     width: 60%;
     padding: 2%;
     margin: auto;
@@ -1171,24 +1314,20 @@ footer p {
   }
 
   /* CREACION EVENTOS */
-  .input-grupo-cargar-imagen-evento{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 98%;
-    margin-top: 2%;
+  .input-grupo-cargar-imagen-evento {
+    justify-content: space-between;
   }
 
-  .input-grupo-cargar-imagen-evento label{
+  .input-grupo-cargar-imagen-evento label {
     width: 25%;
   }
-  .input-grupo-cargar-imagen-evento input{
+
+  .input-grupo-cargar-imagen-evento .seleccionar-imagen {
     margin: 0;
     width: 40%;
-    background: none;
-    border: none;
   }
-  .input-grupo-cargar-imagen-evento .enviar-evento{
+
+  .input-grupo-cargar-imagen-evento .enviar-evento {
     border: solid 1px #313d55;
     background-color: #313d55;
     color: #fff;
@@ -1197,9 +1336,10 @@ footer p {
     border-radius: 15px;
     cursor: pointer;
     width: 30%;
+    margin: 0;
   }
 
-  .creacion-evento-categorias{
+  .creacion-evento-categorias {
     background-color: #fff;
     border: solid 1px #c0c0c0;
     font-family: "Montserrat", "sans-serif";
@@ -1209,5 +1349,4 @@ footer p {
     padding: 2%;
     border-radius: 15px;
   }
-}
 }

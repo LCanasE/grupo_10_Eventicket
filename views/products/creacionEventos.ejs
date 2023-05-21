@@ -12,13 +12,28 @@
     <main class="main-registro login-register">
         <section class="registro-form">
             <h2>Creación de eventos</h2>
-            <form action="" method="">
+            <form action="" method="POST">
                 <input type="text" placeholder="Título del Evento">
                 <input type="datetime-local">
                 <input type="text" placeholder="Lugar">
-                <input type="text" placeholder="Precio">
+                <div class="agregar-input-precio-evento">
+                    <label for="">Tipo de entrada</label>
+                    <select name="" id="" class="tipo-entrada-evento">
+                        <option disabled selected>Tipo</option>
+                        <option value="general">General</option>
+                        <option value="campo">Campo</option>
+                        <option value="campo-vip">Campo VIP</option>
+                        <option value="platea-baja">Platea baja</option>
+                        <option value="platea-media">Platea media</option>
+                        <option value="platea-alta">Platea alta</option>
+                    </select>
+                    <input type="number" placeholder="$1000 (Precio)" class="precio-crear-evento">
+                    <button class="agregar-tipo-entrada">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
                 <select name="" id="" class="creacion-evento-categorias">
-                    <option disabled selected>Selecciona la categoria</option>
+                    <option disabled selected>Categoría</option>
                     <option value="Deportes" name="Deportes">Deportes</option>
                     <option value="Recitales" name="Recitales">Recital</option>
                     <option value="ObrasTeatro" name="ObrasTeatro">Obra de teatro</option>
@@ -27,7 +42,7 @@
                 </select>
                 <div class="input-grupo-cargar-imagen-evento">
                     <label for="">Imagen del Evento</label>
-                    <input type="file">
+                    <input type="file" class="seleccionar-imagen">
                     <input type="submit" value="Cargar evento" class="enviar-evento">
                 </div>
             </form>
