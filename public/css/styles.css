@@ -783,7 +783,8 @@ footer p {
   transition: all 0.3s ease-in-out;
 }
 
-.agregar-tipo-entrada:hover{
+.agregar-tipo-entrada:hover,
+.btn-editar-eventos:hover{
   background-color: #313d55;
   color: #fff;
 }
@@ -798,6 +799,32 @@ footer p {
   padding: 2%;
   border-radius: 15px;
   color: gray;
+}
+
+.btn-editar-eventos{
+  height: 40px;
+  border-radius: 50%;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c0c0c0;
+  background-color: #fff;
+  cursor: pointer;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 2%;
+}
+
+.btn-editar-eventos i{
+  font-size: 1.2rem;
+}
+
+.titulo-editar-eventos{
+  text-align: center;
 }
 
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ ----------------------------------------------------------*/
