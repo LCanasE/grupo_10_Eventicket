@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+</head>
+
+<body>
+
+    <header>
+        <%- include('../partials/header') %>
+    </header>
+    <main>
+        <h1 class="titulo-editar-eventos">Edición de eventos</h1>
+        <section class="products">
+            <article class="product-edition">
+                <a href="edicionEventos" class="product-link-detail">
+                    <div class="product-img">
+                        <img src="../img/amelie-lens-farrago-maderoboardwalk-160560-img.jpeg" alt="">
+                    </div>
+                    <div class="product-info">
+                        <div class="information-product">
+                            <h2>Amelie Lens</h2>
+                            <p class="date">1 de junio - 22 horas</p>
+                            <p class="place">Boliche Jet Costanera</p>
+                        </div>
+                        <div class="price-buy">
+                            <div class="price">
+                                <p>Desde $3000</p>
+                            </div>
+                            <div class="buy">
+                                <form action="">
+                                    <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <p class="tickets-agotados">Agotado</p> -->
+                    </a>
+                    <a href="edicionEventos">
+                    <button class="btn-editar-eventos">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                    </a>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <%- include('../partials/footer') %>
+    </footer>
+</body>
+
+</html>

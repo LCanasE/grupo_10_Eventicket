@@ -22,6 +22,10 @@ const productControllers = {
     getEditarEvento: (req, res) =>
     //res.sendFile(path.join(__dirname, "../views/products/edicionEventos.html")),
     res.render('edicionEventos'),
+
+    getDetalleEventoAdmin: (req, res) =>
+    //res.sendFile(path.join(__dirname, "../views/products/edicionEventos.html")),
+    res.render('detalleEventosAdmin'),
 }
 
 module.exports = productControllers;
