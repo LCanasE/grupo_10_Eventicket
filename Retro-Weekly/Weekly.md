@@ -64,3 +64,4 @@ REGISTRO DE WEEKLY
         - Inicio del sprint 4.
 
         - Agregar CRUD 1 al proyecto.
+        
