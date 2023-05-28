@@ -5,7 +5,7 @@ const productControllers = require('../controllers/productControllers');
 const router = express.Router();
 
 
-router.get("/detalleEventos", productControllers.getDetalleEventos);
+router.get("/:id/detalleEventos", productControllers.getDetalleEventos);
 
 router.get("/carrito", productControllers.getCarrito);
 

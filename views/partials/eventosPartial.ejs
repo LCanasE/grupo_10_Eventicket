@@ -1,0 +1,34 @@
+<% eventos.forEach(evento=> { %>
+    <article class="product">
+        <a href="/products/<%= evento.id %>/detalleEventos" class="product-link-detail">
+            <div class="product-img">
+                <img src=<%=evento.img %> alt="">
+            </div>
+            <div class="product-info">
+                <div class="information-product">
+                    <h2>
+                        <%= evento.name %>
+                    </h2>
+                    <p class="date">
+                        <%= evento.date %>
+                    </p>
+                    <p class="place">
+                        <%= evento.place %>
+                    </p>
+                </div>
+                <div class="price-buy">
+                    <div class="price">
+                        <p>Desde $<%= evento.price %>
+                        </p>
+                    </div>
+                    <div class="buy">
+                        <form action="/">
+                            <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- <p class="tickets-agotados">Agotado</p> -->
+        </a>
+    </article>
+    <% }); %>
