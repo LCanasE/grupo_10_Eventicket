@@ -39,8 +39,7 @@ REGISTRO DE WEEKLY
 
 2. 2023/05/21 2° WEEKLY:
 
-    CONSIDERACIONES:
-
+    CONSIDERACIONES
     - Terminamos el 3° sprint.
     - Iniciamos el 4° sprint. 
     - Fecha de entrega 4° sprint: 2023/06/12
