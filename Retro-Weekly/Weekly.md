@@ -37,4 +37,30 @@ REGISTRO DE WEEKLY
         - Separar los componentes repetidos en archivos parciales.
 
 
+2. 2023/05/21 2° WEEKLY:
 
+    CONSIDERACIONES
+    - Terminamos el 3° sprint.
+    - Iniciamos el 4° sprint. 
+    - Fecha de entrega 4° sprint: 2023/06/12
+
+    1. ¿QUÉ SE HIZO HASTA AHORA?
+
+        - Terminamos el 3° sprint, incluímos formulario de creción de eventos localhost:3000/products/creacionEventos y edición de eventos localhost:3000/products/edicionEventos
+
+        - Se incluyó la página localhost:3000/products/detalleEventosAdmin para listar los eventos del usuario administrador y desde allí se accede a edición de eventos, desde un evento en particular.
+
+        - En la página /products/detalleEventos, que se accede desde la tarjeta de cada evento, se incluyó el botón para acceder al formulario de edición de eventos.
+
+
+    2.  ¿IMPEDIMENTOS?
+
+        - En el detalleEventos, el link se aplica a todo el contenedor del botón "comprar" (Arreglado).
+
+
+    3. ¿QUÉ SE HARÁ ESTA SEMANA?
+
+        - Inicio del sprint 4.
+
+        - Agregar CRUD 1 al proyecto.
+        
