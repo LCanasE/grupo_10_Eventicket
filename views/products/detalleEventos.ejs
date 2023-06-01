@@ -20,8 +20,8 @@
         <section class="caja-titulo-ubicacion">
           <div class="caja-titulo">
 
-            <h2 class="titulo-evento">Amelie lens & Farrago @Maderoboardwalk (+18)</h2>
-            <h3 class="fecha-evento"><i class="fa-regular fa-calendar-days"></i> Jueves 04 de Mayo 2023 - 20:00 hrs.
+            <h2 class="titulo-evento"><%= productoBuscado.nombre %> @<%=productoBuscado.ubicacion%> (+18)</h2>
+            <h3 class="fecha-evento"><i class="fa-regular fa-calendar-days"></i><%= productoBuscado.fecha %>
             </h3>
 
             <a href="edicionEventos">
@@ -38,7 +38,7 @@
 
 
             <div class="descripcion-caja-ubicacion">
-              <h3 class="titulo-ubicacion"><i class="fa-solid fa-location-dot"></i> MADERO BOARDWALK</h3>
+              <h3 class="titulo-ubicacion"><i class="fa-solid fa-location-dot"></i> <%=productoBuscado.ubicacion%></h3>
               <h4 class="descripcion-ubicacion">Cecilia greison 322 - Puerto Madero</h4>
             </div>
           </div>
@@ -60,7 +60,7 @@
 
               <div class="linea-ticket">
                 <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ 18,500</p>
+                <p class="precio-ticket-p">$ <%=productoBuscado.precio%></p>
                 <select class="caja-cantidad">
                   <option value="0" name="0"> 0 </option>
                   <option value="1" name="1"> 1 </option>
@@ -77,7 +77,7 @@
               </div>
               <div class="linea-ticket">
                 <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ 18,500</p>
+                <p class="precio-ticket-p">$ <%=productoBuscado.precio%></p>
                 <select class="caja-cantidad">
                   <option value="0" name="0"> 0 </option>
                   <option value="1" name="1"> 1 </option>
@@ -94,7 +94,7 @@
               </div>
               <div class="linea-ticket">
                 <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ 18,500</p>
+                <p class="precio-ticket-p">$ <%=productoBuscado.precio%></p>
                 <select class="caja-cantidad">
                   <option value="0" name="0"> 0 </option>
                   <option value="1" name="1"> 1 </option>

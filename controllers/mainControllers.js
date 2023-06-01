@@ -1,11 +1,13 @@
 // Controladores páginas principales
 const path = require("path");
+let modelProductos = require('../models/productos');
 
 const mainControllers = {
 
-    getIndex:(req, res) =>
-    //res.sendFile(path.join(__dirname, "../views/home.html"))
-    res.render('home')
+    getIndex:(req, res) => {
+        let productos = modelProductos.findAll()
+        res.render('home', {productos}) 
+    }
 }
 
 module.exports = mainControllers;
