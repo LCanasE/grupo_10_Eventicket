@@ -15,24 +15,15 @@ app.set('views', [
     path.join(__dirname, './views/users')
 ]), 
 
-// Middlewares (para usar los datos que llegan de los formularios)
-app.use(express.urlencoded({extended: true}));
-
-// Para leer archivos .JSON
-app.use(express.json());
-
-// Para usar @PUT y @DELETE
-app.use(methodOverride('_method'));
-
-
-
+// MIDDLEWARES 
+app.use(express.urlencoded({extended: true})); // para usar los datos que llegan de los formularios
+app.use(express.json()); // Para leer archivos .JSON
+app.use(methodOverride('_method')); // Para usar @PUT y @DELETE
 app.use(express.static("public"));
 
+// ROUTES
 app.use(mainRoutes);
-
 app.use('/products', productRoutes);
-
 app.use('/users', userRoutes);
-
 
 app.listen(3000, () => console.log("Servidor corriendo en el puerto 3000"));
