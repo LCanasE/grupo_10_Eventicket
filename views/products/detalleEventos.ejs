@@ -19,6 +19,18 @@
         <div class="caja-titulo">
           <h2 class="titulo-evento"><%= evento.name %></h2>
           <h3 class="fecha-evento"><i class="fa-regular fa-calendar-days"></i> <%= evento.date %></h3>
+          <div class="btn-editar-borrar-grupo">
+            <a href="/products/<%= evento.id %>/edicionEventos">
+            <button class="btn-editar-eventos">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            </a>
+            <form action="/products/<%= evento.id %>/detalleEventos?_method=delete" method="POST">
+            <button class="btn-borrar-eventos">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+            </form>
+        </div>
         </div>
         <div class="caja-ubicacion">
           <div class="descripcion-caja-ubicacion">
@@ -99,7 +111,7 @@
         </a>
         </div>
         <div class="caja-imagen-evento">
-          <img src=<%= evento.img %> alt="" class="imagen-evento">
+          <img src="/../<%= evento.img %>" alt="" class="imagen-evento">
         </div>
 
       </section>

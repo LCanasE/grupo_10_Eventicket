@@ -258,9 +258,9 @@ footer p {
 }
 
 .gallery-item {
+  object-fit: cover;
+  height: 100%;
   width: 100%;
-  position: absolute;
-  top: 0;
 }
 
 .gallery-btn {
@@ -802,7 +802,15 @@ footer p {
   color: gray;
 }
 
-.btn-editar-eventos{
+.btn-editar-borrar-grupo{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+}
+
+.btn-editar-eventos,
+.btn-borrar-eventos{
   height: 40px;
   border-radius: 50%;
   width: 40px;
@@ -812,16 +820,19 @@ footer p {
   border: 1px solid #c0c0c0;
   background-color: #fff;
   cursor: pointer;
-  position: absolute;
   transition: all 0.3s ease-in-out;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 2%;
+  margin: 10px 5px;
 }
 
-.btn-editar-eventos i{
+.btn-editar-eventos i,
+.btn-borrar-eventos i{
   font-size: 1.2rem;
+}
+
+.agregar-tipo-entrada:hover,
+.btn-borrar-eventos:hover{
+  background-color: #313d55;
+  color: #fff;
 }
 
 .titulo-editar-eventos{

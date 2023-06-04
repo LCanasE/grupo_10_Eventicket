@@ -37,11 +37,18 @@
                     </div>
                     <!-- <p class="tickets-agotados">Agotado</p> -->
                     </a>
+                    <div class="btn-editar-borrar-grupo">
                     <a href="edicionEventos">
                     <button class="btn-editar-eventos">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
                     </a>
+                    <form action="/products/detalleEventosAdmin?_method=delete" method="POST">
+                    <button class="btn-borrar-eventos">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                    </form>
+                </div>
             </article>
         </section>
     </main>

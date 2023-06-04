@@ -1,8 +1,9 @@
-
 <div class="gallery-container">
-    <img src="../img/peces-raros-2da-funcion-158913-img.jpeg" alt="" class="gallery-item">
+    <% eventos.forEach(evento => { %>
+      <img src= "/../<%= evento.img %>" alt= "<% evento.name %>" class="gallery-item">
+    <% }); %>
     <div class="gallery-btn">
-      <button><i class="fa-solid fa-arrow-left"></i></button>
-      <button><i class="fa-solid fa-arrow-right"></i></button>
+      <button id="gallery-btn-left"><i class="fa-solid fa-arrow-left"></i></button>
+      <button id="gallery-btn-right"><i class="fa-solid fa-arrow-right"></i></button>
     </div>
   </div>
