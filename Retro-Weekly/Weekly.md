@@ -67,16 +67,30 @@ REGISTRO DE WEEKLY
 
     CONSIDERACIONES
 
+    - Se inició ya la implementación de los requerimientos del sprint 4.
+    - Fecha de entrega 4° sprint: 2023/06/12
 
     1. ¿QUÉ SE HIZO HASTA AHORA?
 
-       
+        - Comenzamos la implementación del CRUD,
+
+        - Comenzamos la corrección de los términos en español. Todo pasa al inglés menos las variables.
+
+        - El detalle de producto y el carrito traen el detalle del producto seleccionado.
+
+        - EL formulario de edición de eventos se accede desde el botón de edición de producto desde cada detalle de producto.
 
     2.  ¿IMPEDIMENTOS?
-.
 
+        - Hasta ahora ninguno considerable.
 
     3. ¿QUÉ SE HARÁ ESTA SEMANA?
+
+        - Traer el detalle del producto al formulario de edición de eventos.
+
+        - Guardar los datos del evento nuevo a partir de los datos guardados en el formulario de creación de eventos.
+
+        - Implementar botón de eliminación del evento y guardar el nuevo JSON de productos sin el producto eliminado.
 
 
 2. 2023/06/11 4° WEEKLY:

@@ -66,20 +66,22 @@ RETROALIMENTACIÓN "Starfish"
 
 1. KEEP DOING:
 
-    - 
+    - Comunicación entre los miembros del equipo.
+
+    - Organización para el planteamiento de los entregables y desarrollo de los mismos.
 
 2. LESS OF:
 
-    - 
+    - No hemos identificado hasta ahora una práctica que nos haya impedido avanzar en el proyecto.
 
 3. MORE OF:
 
-    - 
+    - Utilización de nombres para los archivos y estructuras en inglés.
 
 4. STOP DOING:
 
-    - 
+    - No hemos identificado hasta ahora una práctica que nos haya impedido avanzar en el proyecto.
 
 5. START DOING:
 
-    - 
+    - Utilizar el tablero trello para seguimiento de las actividades y asignación de las mismas.
