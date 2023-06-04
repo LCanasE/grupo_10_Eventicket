@@ -1,8 +1,10 @@
-
 <div class="gallery-container">
-    <img src="../img/peces-raros-2da-funcion-158913-img.jpeg" alt="" class="gallery-item">
-    <div class="gallery-btn">
+  <% productos.forEach(producto=> {%>
+    <img src="../<%= producto.img %>" alt="" class="gallery-item">
+        <% }) %>
+        <div class="gallery-btn">
       <button><i class="fa-solid fa-arrow-left"></i></button>
       <button><i class="fa-solid fa-arrow-right"></i></button>
     </div>
-  </div>
+
+</div>

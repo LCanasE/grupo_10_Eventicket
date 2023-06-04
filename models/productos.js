@@ -17,6 +17,34 @@ let productos = {
             productoBuscado = null;
         }
         return productoBuscado;
+    },
+
+    createOne: function (newProduct) {
+        let productos = this.findAll();
+        newProduct.id = productos[productos.length - 1 ].id + 1;
+        productos.push(newProduct);
+        const productsJSON = JSON.stringify(productos);
+        fs.writeFileSync(path.join(__dirname, this.routes), productsJSON)
+    },
+
+    deleteByID: function (id) {
+        let productos = this.findAll();
+        productos = productos.filter(producto => producto.id !== id);
+        const productsJSON = JSON.stringify(productos);
+        fs.writeFileSync(path.join(__dirname, this.routes), productsJSON)
+        return productos;
+    },
+
+    updateById: function (id, newData) {
+        let productos = this.findAll();
+        const indice = productos.findIndex(producto => producto.id === id);
+        const {nombre, fecha, ubicacion, precio, categoria, img, eliminado, agotado} = newData;
+        productos[indice] = {id:productos[indice].id, nombre, fecha, ubicacion, precio, categoria, img, eliminado, agotado};
+
+        const productsJSON = JSON.stringify(productos);
+        fs.writeFileSync(path.join(__dirname, this.routes), productsJSON)
+        return productos;
+
     }
 
 

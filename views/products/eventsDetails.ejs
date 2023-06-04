@@ -20,11 +20,14 @@
         <section class="caja-titulo-ubicacion">
           <div class="caja-titulo">
 
-            <h2 class="titulo-evento"><%= productoBuscado.nombre %> @<%=productoBuscado.ubicacion%> (+18)</h2>
-            <h3 class="fecha-evento"><i class="fa-regular fa-calendar-days"></i><%= productoBuscado.fecha %>
+            <h2 class="titulo-evento">
+              <%= productoBuscado.nombre %> @<%=productoBuscado.ubicacion%> (+18)
+            </h2>
+            <h3 class="fecha-evento"><i class="fa-regular fa-calendar-days"></i>
+              <%= productoBuscado.fecha %>
             </h3>
 
-            <a href="edicionEventos">
+            <a href="/products/<%=productoBuscado.id%>/edicionEventos">
               <button class="btn-editar-eventos">
                 <i class="fa-solid fa-pen-to-square"></i>
               </button>
@@ -38,7 +41,9 @@
 
 
             <div class="descripcion-caja-ubicacion">
-              <h3 class="titulo-ubicacion"><i class="fa-solid fa-location-dot"></i> <%=productoBuscado.ubicacion%></h3>
+              <h3 class="titulo-ubicacion"><i class="fa-solid fa-location-dot"></i>
+                <%=productoBuscado.ubicacion%>
+              </h3>
               <h4 class="descripcion-ubicacion">Cecilia greison 322 - Puerto Madero</h4>
             </div>
           </div>
@@ -60,7 +65,44 @@
 
               <div class="linea-ticket">
                 <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ <%=productoBuscado.precio%></p>
+                <p class="precio-ticket-p">$ <%=productoBuscado.precio%>
+                </p>
+                <select class="caja-cantidad">
+                  <option value="0" name="0"> 0 </option>
+                  <option value="1" name="1"> 1 </option>
+                  <option value="2" name="2"> 2 </option>
+                  <option value="3" name="3"> 3 </option>
+                  <option value="4" name="4"> 4 </option>
+                  <option value="5" name="5"> 5 </option>
+                  <option value="6" name="6"> 6 </option>
+                  <option value="7" name="7"> 7 </option>
+
+                </select>
+
+
+              </div>
+              <div class="linea-ticket">
+                <p>Preventa VIP Standing</p>
+                <p class="precio-ticket-p">$ <%=productoBuscado.precio%>
+                </p>
+                <select class="caja-cantidad">
+                  <option value="0" name="0"> 0 </option>
+                  <option value="1" name="1"> 1 </option>
+                  <option value="2" name="2"> 2 </option>
+                  <option value="3" name="3"> 3 </option>
+                  <option value="4" name="4"> 4 </option>
+                  <option value="5" name="5"> 5 </option>
+                  <option value="6" name="6"> 6 </option>
+                  <option value="7" name="7"> 7 </option>
+
+                </select>
+
+
+              </div>
+              <div class="linea-ticket">
+                <p>Preventa VIP Standing</p>
+                <p class="precio-ticket-p">$ <%=productoBuscado.precio%>
+                </p>
                 <select class="caja-cantidad">
                   <option value="0" name="0"> 0 </option>
                   <option value="1" name="1"> 1 </option>
@@ -78,40 +120,6 @@
               <div class="linea-ticket">
                 <p>Preventa VIP Standing</p>
                 <p class="precio-ticket-p">$ <%=productoBuscado.precio%></p>
-                <select class="caja-cantidad">
-                  <option value="0" name="0"> 0 </option>
-                  <option value="1" name="1"> 1 </option>
-                  <option value="2" name="2"> 2 </option>
-                  <option value="3" name="3"> 3 </option>
-                  <option value="4" name="4"> 4 </option>
-                  <option value="5" name="5"> 5 </option>
-                  <option value="6" name="6"> 6 </option>
-                  <option value="7" name="7"> 7 </option>
-
-                </select>
-
-
-              </div>
-              <div class="linea-ticket">
-                <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ <%=productoBuscado.precio%></p>
-                <select class="caja-cantidad">
-                  <option value="0" name="0"> 0 </option>
-                  <option value="1" name="1"> 1 </option>
-                  <option value="2" name="2"> 2 </option>
-                  <option value="3" name="3"> 3 </option>
-                  <option value="4" name="4"> 4 </option>
-                  <option value="5" name="5"> 5 </option>
-                  <option value="6" name="6"> 6 </option>
-                  <option value="7" name="7"> 7 </option>
-
-                </select>
-
-
-              </div>
-              <div class="linea-ticket">
-                <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ 18,500</p>
                 <select class="caja-cantidad">
                   <option value="0" name="0"> 0 </option>
                   <option value="1" name="1"> 1 </option>
@@ -128,18 +136,22 @@
               </div>
 
             </div>
-            
-              <div class="comprar">
-                <a href="carrito"><input type="submit" value="Comprar" class="boton-comprar"> </a>
-              </div>
-           
+
+            <div class="comprar">
+              <form action="/products/cart" method="POST">
+                <input type="hidden" name="id" value=<%= productoBuscado.id %>>
+
+                <input type="submit" value="Comprar" class="boton-comprar">
+              </form>
+            </div>
+
 
 
           </div>
 
           <div class="caja-imagen-evento">
 
-            <img src="../img/amelie-lens-farrago-maderoboardwalk-160560-img.jpeg" alt="" class="imagen-evento">
+            <img src="../<%= productoBuscado.img %>" alt="" class="imagen-evento">
 
           </div>
 
