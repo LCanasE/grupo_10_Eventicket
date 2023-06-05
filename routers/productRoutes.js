@@ -17,14 +17,14 @@ router.post("/cart", productControllers.getCart);
 // @GET /products/events
 router.get("/events", productControllers.getEvents);
 
-// @GET /products/creacionEventos
-router.get("/creacionEventos", productControllers.getCrearEvento);
+// @GET /products/createEvents
+router.get("/createEvents", productControllers.getCreateEvent);
 
 // @GET /products/:id/edicionEventos
-router.get("/:id/edicionEventos", productControllers.getEditarEvento);
+router.get("/:id/editEvents", productControllers.getEditEvent);
 
 // @POST /products/edicionEventos
-router.post("/:id/edicionEventos", productControllers.getEditarEvento);
+router.post("/:id/edicionEventos", productControllers.getEditEvent);
 
 // @GET /products/detalleEventos
 router.get("/detalleEventosAdmin", productControllers.getDetalleEventoAdmin);

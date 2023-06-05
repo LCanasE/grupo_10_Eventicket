@@ -24,16 +24,16 @@ const productControllers = {
     res.render('events', {productos})
     },
 
-    getCrearEvento: (req, res) =>
-    res.render('creacionEventos'),
+    getCreateEvent: (req, res) =>
+    res.render('createEvents'),
 
-    getEditarEvento: (req, res) => {
+    getEditEvent: (req, res) => {
     let id = Number(req.params.id);
     let productoBuscado = modelProductos.findById(id);
     if (!productoBuscado) {
         return res.send('id inválido');
     }
-    res.render('edicionEventos', {productoBuscado})
+    res.render('editEvents', {productoBuscado})
     },
 
 
