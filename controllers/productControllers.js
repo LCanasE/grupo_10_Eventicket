@@ -38,8 +38,8 @@ const productControllers = {
 
 
 
-    getDetalleEventoAdmin: (req, res) =>
-    res.render('detalleEventosAdmin'),
+    getAdminEventsDetail: (req, res) =>
+    res.render('adminEventsDetail'),
 }
 
 module.exports = productControllers;

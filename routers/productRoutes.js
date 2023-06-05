@@ -20,17 +20,17 @@ router.get("/events", productControllers.getEvents);
 // @GET /products/createEvents
 router.get("/createEvents", productControllers.getCreateEvent);
 
-// @GET /products/:id/edicionEventos
+// @GET /products/:id/editEvents
 router.get("/:id/editEvents", productControllers.getEditEvent);
 
-// @POST /products/edicionEventos
-router.post("/:id/edicionEventos", productControllers.getEditEvent);
+// @POST /products/editEvents
+router.post("/:id/editEvents", productControllers.getEditEvent);
 
-// @GET /products/detalleEventos
-router.get("/detalleEventosAdmin", productControllers.getDetalleEventoAdmin);
+// @GET /products/adminEventsDetail
+router.get("/adminEventsDetail", productControllers.getAdminEventsDetail);
 
-// @POST /products/detalleEventosAdmin
-router.post("/detalleEventosAdmin", productControllers.getDetalleEventoAdmin);
+// @POST /products/adminEventsDetail
+router.post("/adminEventsDetail", productControllers.getAdminEventsDetail);
 
 
 
