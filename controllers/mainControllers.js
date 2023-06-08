@@ -1,14 +1,13 @@
 // Controladores páginas principales
 const path = require("path");
-const productsModel = require('../models/productsModel');
+let modelProductos = require('../models/productos');
 
 const mainControllers = {
 
     getIndex:(req, res) => {
-    let eventos = productsModel.findAll();
-
-    res.render('home', {title: 'Inicio', eventos});
-},
+        let productos = modelProductos.findAll()
+        res.render('home', {productos}) 
+    }
 }
 
 module.exports = mainControllers;

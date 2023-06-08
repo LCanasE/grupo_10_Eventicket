@@ -462,6 +462,10 @@ footer p {
 } */
 /* ESTILOS CARRITO.HTML */
 
+.articulos-container .articulos{
+  width: 60%;
+}
+
 .container-carrito {
   width: 90%;
   margin: auto;

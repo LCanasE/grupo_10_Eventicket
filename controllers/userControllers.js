@@ -7,9 +7,9 @@ const userControllers = {
     //res.sendFile(path.join(__dirname, "../views/users/login.html")),
     res.render('login', { title: 'Inicio de sesión'}),
 
-    getRegistro: (req, res) =>
+    getRegister: (req, res) =>
     //res.sendFile(path.join(__dirname, "../views/users/registro.html"))
-    res.render('registro', { title: 'Registrarse'})
+    res.render('register')
 }
 
 module.exports = userControllers;

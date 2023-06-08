@@ -1,90 +1,49 @@
 // Controlador de productos
 const path = require('path');
-const productsModel = require('../models/productsModel');
+let modelProductos = require('../models/productos')
 
 const productControllers = {
 
-    getDetalleEventos: (req, res) => {
-        const eventos = productsModel.findAll();
-        const id = Number(req.params.id);
-
-        const eventoAMostrar = productsModel.findById(id);
-
-        res.render('detalleEventos', { title: 'Detalle', evento: eventoAMostrar, eventos });
+    getEventsDetails: (req, res) => {
+    let id = Number(req.params.id);
+    let productos = modelProductos.findAll()
+    let productoBuscado = modelProductos.findById(id);
+    
+    res.render('eventsDetails', {productoBuscado, productos})
     },
 
-    deleteEvento: (req, res) => {
-        const id = Number(req.params.id);
-
-        productsModel.deleteById(id);
-
-        res.redirect('/');
+    getCart: (req, res) => {
+    let id = Number(req.body.id);
+    console.log(req.body);
+    let productoBuscado = modelProductos.findById(id);
+    res.render('cart', {productoBuscado})
+    },
+   
+    getEvents: (req, res) => {
+    let productos = modelProductos.findAll()
+    res.render('events', {productos})
     },
 
-    getCarrito: (req, res) =>{
-        const id = Number(req.params.id);
-        
-        const eventoCarrito = productsModel.findById(id);
+    getCreateEvent: (req, res) =>
+    res.render('createEvents'),
 
-        res.render('carrito', { title: 'Carrito', eventoCarrito });
-    },
-
-    getEventos: (req, res) => {
-        let eventos = productsModel.findAll();
-
-        res.render('eventos', {
-            title: 'Eventos',
-            eventos
-        })},
-
-    getCrearEvento: (req, res) =>{
-
-        res.render('creacionEventos', { title: 'Crear' })
-    },
-
-    postCrearEvento: (req, res) => {
-        let datos = req.body;
-        datos.price = Number(datos.price);
-        datos.img = '../img/' + req.file.filename;
-        console.log(datos);
-        console.log(req.file.filename);
-
-        productsModel.createOne(datos);
-        
-        res.redirect('/');
-    },
-
-    getEditarEvento: (req, res) => {
-        const eventos = productsModel.findAll();
-        const id = Number(req.params.id);
-
-        const eventoAMostrar = productsModel.findById(id);
-
-        if(!eventoAMostrar){return res.send('Id invalido')}
-        res.render('edicionEventos', { title: 'Editar', evento: eventoAMostrar });
-    },
-
-    putEditarEvento: (req, res) => {
-        const id = Number(req.params.id);
-        const newData = req.body;
-        
-        productsModel.updateById(id, newData);
-
-        res.redirect('/');
-    },
-
-    getDetalleEventoAdmin: (req, res) => {
-
-        res.render('detalleEventosAdmin', { title: 'Editar Evento'})
-    },
-
-    deleteDetalleEventoAdmin: (req, res) => {
-        const id = Number(req.body.id);
-
-        productsModel.deleteById(id);
-
-        res.redirect('/');
+    getEditEvent: (req, res) => {
+    let id = Number(req.params.id);
+    let productoBuscado = modelProductos.findById(id);
+    if (!productoBuscado) {
+        return res.send('id inválido');
     }
+    res.render('editEvents', {productoBuscado})
+    },
+
+
+    getEditarEvento: (req, res) =>
+    //res.sendFile(path.join(__dirname, "../views/products/edicionEventos.html")),
+    res.render('edicionEventos'),
+
+    getDetalleEventoAdmin: (req, res) =>
+    //res.sendFile(path.join(__dirname, "../views/products/edicionEventos.html")),
+    res.render('detalleEventosAdmin'),
 }
 
 module.exports = productControllers;

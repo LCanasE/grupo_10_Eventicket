@@ -47,6 +47,7 @@
 }
 
 .caja-titulo {
+    position: relative;
     border: 2px solid #313D55;
     padding: 15px;
     margin: 10px;
