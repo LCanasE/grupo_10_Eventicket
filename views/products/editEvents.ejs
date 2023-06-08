@@ -12,14 +12,14 @@
     <main class="main-registro login-register">
         <section class="registro-form">
             <h2>Edición de eventos</h2>
-            <form action="/products/<%= evento.id %>/edicionEventos?_method=PUT" method="POST">
-                <input type="text" name="name" value="<%= evento.name %>">
-                <input type="datetime-local" name="date" value="<%= evento.date %>">
-                <input type="text" name="place" value="<%= evento.place %>">
+            <form action="/products/<%= productoBuscado.id %>/editEvents?_method=PUT" method="POST">
+                <input type="text" name="nombre" value="<%= productoBuscado.nombre %>">
+                <input type="datetime-local" name="fecha" value="<%= productoBuscado.fecha %>">
+                <input type="text" name="ubicacion" value="<%= productoBuscado.ubicacion %>">
                 <div class="agregar-input-precio-evento">
                     <label for="">Tipo de entrada</label>
                     <input type="text" class="tipo-entrada-evento" name="categoria" placeholder="Tipo de entrada">
-                    <input type="number" name="price" value="$<%= evento.price %>(Precio)" class="precio-crear-evento">
+                    <input type="number" name="precio" value="$<%= productoBuscado.precio %>" class="precio-crear-evento">
                     <button class="agregar-tipo-entrada">
                         <i class="fa-solid fa-plus"></i>
                     </button>

@@ -1,6 +1,6 @@
 // Controlador de productos
 const path = require('path');
-let modelProductos = require('../models/productos')
+let modelProductos = require('../models/productos');
 
 const productControllers = {
 
@@ -9,23 +9,39 @@ const productControllers = {
     let productos = modelProductos.findAll()
     let productoBuscado = modelProductos.findById(id);
     
-    res.render('eventsDetails', {productoBuscado, productos})
+    res.render('eventsDetails', {
+        productoBuscado,
+        productos,
+        title: 'Detalle'})
     },
 
     getCart: (req, res) => {
     let id = Number(req.body.id);
     console.log(req.body);
     let productoBuscado = modelProductos.findById(id);
-    res.render('cart', {productoBuscado})
-    },
-   
-    getEvents: (req, res) => {
-    let productos = modelProductos.findAll()
-    res.render('events', {productos})
+    res.render('cart', {
+        productoBuscado,
+        title: 'Carrito'})
     },
 
-    getCreateEvent: (req, res) =>
-    res.render('createEvents'),
+    getEvents: (req, res) => {
+    let productos = modelProductos.findAll()
+    res.render('events', {
+        productos,
+        title: 'Eventos'})
+    },
+
+    getCreateEvent: (req, res) => {
+    res.render('createEvents',{title: 'Crear'})
+    },
+
+    postCreateEvent: (req, res) => {
+        let eventoNuevo = req.body;
+        eventoNuevo.img = '../img/events/1915.jpg';
+        console.log(eventoNuevo);
+        modelProductos.createOne(eventoNuevo);
+        res.redirect('/');
+    },
 
     getEditEvent: (req, res) => {
     let id = Number(req.params.id);
@@ -33,10 +49,10 @@ const productControllers = {
     if (!productoBuscado) {
         return res.send('id inválido');
     }
-    res.render('editEvents', {productoBuscado})
+    res.render('editEvents', {
+        productoBuscado,
+        title: 'Editar'})
     },
-
-
 
     getAdminEventsDetail: (req, res) =>
     res.render('adminEventsDetail'),

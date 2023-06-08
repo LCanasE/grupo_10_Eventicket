@@ -46,9 +46,6 @@ let productos = {
         return productos;
 
     }
-
-
-
 }
 
 module.exports = productos;

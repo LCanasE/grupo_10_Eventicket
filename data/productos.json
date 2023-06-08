@@ -6,7 +6,7 @@
         "ubicacion": "Maderoboardwalk",
         "precio": 3000,
         "categoria": "Concierto",
-        "img": "../img/amelie-lens-farrago-maderoboardwalk-160560-img.jpeg",
+        "img": "../img/events/amelie-lens-farrago-maderoboardwalk-160560-img.jpg",
         "eliminado": false,
         "agotado": false
     },
@@ -17,7 +17,7 @@
         "ubicacion": "Microestadio Lanus",
         "precio": 2500,
         "categoria": "Concierto",
-        "img": "../img/babasonicos-en-lanus-img.jpeg",
+        "img": "../img/events/babasonicos-en-lanus-img.jpeg",
         "eliminado": false,
         "agotado": false
     },
@@ -28,7 +28,7 @@
         "ubicacion": "Complejo Art Media",
         "precio": 4000,
         "categoria": "Concierto",
-        "img": "../img/peces-raros-2da-funcion-158913-img.jpeg",
+        "img": "../img/events/peces-raros-2da-funcion-158913-img.jpeg",
         "eliminado": false,
         "agotado": false
     },
@@ -39,7 +39,7 @@
         "ubicacion": "Club Alemán",
         "precio": 3500,
         "categoria": "Concierto",
-        "img": "../img/la-kermesse-en-ballester-img.jpeg",
+        "img": "../img/events/la-kermesse-en-ballester-img.jpeg",
         "eliminado": false,
         "agotado": false
     },
@@ -50,7 +50,7 @@
         "ubicacion": "Estadio Vélez",
         "precio": 4500,
         "categoria": "Concierto",
-        "img": "../img/tan-bionica.jpg",
+        "img": "../img/events/tan-bionica.jpg",
         "eliminado": false,
         "agotado": false
     }
