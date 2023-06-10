@@ -2,6 +2,7 @@
 const path = require('path');
 let modelProductos = require('../models/productos');
 
+
 const productControllers = {
 
     getEventsDetails: (req, res) => {
@@ -36,9 +37,24 @@ const productControllers = {
     },
 
     postCreateEvent: (req, res) => {
+
+        let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']; 
+
         let eventoNuevo = req.body;
-        eventoNuevo.img = '../img/events/1915.jpg';
-        console.log(eventoNuevo);
+        let mesDelEvento = Number(eventoNuevo.fecha.split('-')[1]);
+        let diaEvento = eventoNuevo.fecha.split('T')[0].split('-')[2];
+        let indiceMes = mesDelEvento - 1;
+        let nombreMes = meses[indiceMes];
+        let horario = eventoNuevo.fecha.split('T')[1].split(':')[0];
+
+        Number(diaEvento.split('')[0]) === 0 ? diaEvento = diaEvento.split('')[1] : diaEvento;
+        Number(horario.split('')[0]) === 0 ? horario = horario.split('')[1] : horario;
+
+        eventoNuevo.img = '../img/events/' + req.file.filename;
+        eventoNuevo.eliminado = false;
+        eventoNuevo.agotado = false;
+        eventoNuevo.fecha = `${diaEvento} de ${nombreMes} - ${horario} horas`;
+
         modelProductos.createOne(eventoNuevo);
         res.redirect('/');
     },

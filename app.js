@@ -30,4 +30,8 @@ app.use(mainRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
 
+app.use((req, res, next) => {
+    res.status(404).render('error404');
+})
+
 app.listen(3000, () => console.log("Servidor corriendo en el puerto 3000"));

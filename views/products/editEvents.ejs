@@ -38,6 +38,9 @@
                     <input type="submit" value="Guardar cambios" class="enviar-evento">
                 </div>
             </form>
+            <form action="/products/<%= productoBuscado.id %>/editEvents?_method=DELETE" method="POST">
+                <input type="submit" value="Eliminar">
+            </form>
         </section>
 
     </main>
