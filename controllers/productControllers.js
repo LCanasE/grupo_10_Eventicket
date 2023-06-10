@@ -50,7 +50,29 @@ const productControllers = {
         Number(diaEvento.split('')[0]) === 0 ? diaEvento = diaEvento.split('')[1] : diaEvento;
         Number(horario.split('')[0]) === 0 ? horario = horario.split('')[1] : horario;
 
-        eventoNuevo.img = '../img/events/' + req.file.filename;
+        let imageRoute = '../img/events/';
+        switch(req.body.categoria){
+            case 'Recital':
+                imageRoute += 'recitales';
+                break;
+            case 'Deportes':
+                imageRoute += 'deportes';
+                break;
+            case 'Stand Up':
+                imageRoute += 'standUp';
+                break;
+            case 'Obra de teatro':
+                imageRoute += 'obraTeatro';
+                break;
+            case 'Conferencia':
+                imageRoute += 'conferencias';
+                break;
+            default:
+                imageRoute = '../img/events';
+                break;
+        }
+
+        eventoNuevo.img = `${imageRoute}/${req.file.filename}`;
         eventoNuevo.eliminado = false;
         eventoNuevo.agotado = false;
         eventoNuevo.fecha = `${diaEvento} de ${nombreMes} - ${horario} horas`;

@@ -94,4 +94,22 @@ REGISTRO DE WEEKLY
 
 
 2. 2023/06/11 4° WEEKLY:
-        
+
+    CONSIDERACIONES
+
+    - Se siguió con el trabajo del Sprint 4.
+    - Fecha de entrega 4° sprint: 2023/06/12
+
+    1. ¿QUÉ SE HIZO HASTA AHORA?
+
+        - Correcciones del CRUD aplicado a productos y usuarios,
+
+        - Terminamos las correcciones del Sprint 3
+
+    2.  ¿IMPEDIMENTOS?
+
+        - Hasta ahora ninguno considerable.
+
+    3. ¿QUÉ SE HARÁ ESTA SEMANA?
+
+        - Repaso de las correcciones hechas y detalles para entregar el Sprint 4.

@@ -3,11 +3,30 @@ const path = require('path');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        if(req.body.categoria === 'Recital'){
-            cb(null, './public/img/events/Recitales');
-        } else {
-            cb(null, './public/img/events/');
+
+        let destinationFolder = './public/img/events/';
+
+        switch(req.body.categoria){
+            case 'Recital':
+                destinationFolder += 'recitales';
+                break;
+            case 'Deportes':
+                destinationFolder += 'deportes';
+                break;
+            case 'Stand Up':
+                destinationFolder += 'standUp';
+                break;
+            case 'Obra de teatro':
+                destinationFolder += 'obraTeatro';
+                break;
+            case 'Conferencia':
+                destinationFolder += 'conferencias';
+                break;
+            default:
+                break;
         }
+
+        cb(null, destinationFolder);
     },
     filename: (req, file, cb) => {
         let fileName = `img_${Date.now()}${path.extname(file.originalname)}`
