@@ -146,8 +146,24 @@ header {
   outline: 0px;
 }
 
+.registro-form select {
+  background-color: #fff;
+  border: solid 1px #c0c0c0;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 16px;
+  width: 96%;
+  margin-top: 2%;
+  padding: 2%;
+  border-radius: 15px;
+}
+
+.registro-form select:active {
+  border-radius: 15px;
+}
+
 .registro-tyc {
   width: 90%;
+  height: 25px;
   display: flex;
   justify-content: left;
   align-items: center;
