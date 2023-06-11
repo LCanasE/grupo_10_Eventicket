@@ -84,6 +84,11 @@ header {
   right: 6vh;
 }
 
+.fa-cart-shopping {
+  margin-left: 15px;
+  font-size: 25px;
+}
+
 .logo-eventicket {
   transition: 1s;
   -webkit-transition: 1s;
