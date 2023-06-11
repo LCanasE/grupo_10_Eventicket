@@ -89,6 +89,13 @@ header {
   font-size: 25px;
 }
 
+.fa-cart-shopping:hover {
+  font-size: 27px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
 .logo-eventicket {
   transition: 1s;
   -webkit-transition: 1s;
@@ -1323,6 +1330,8 @@ footer p {
   .logo-eventicket {
     width: 150px;
     margin-bottom: 0px;
+    position: relative;
+    z-index: 1;
   }
 
   .nav-bar .nav-login {
