@@ -30,7 +30,10 @@ router.post("/createEvents", multerMiddleware.single('img'), productControllers.
 router.get("/:id/editEvents", productControllers.getEditEvent);
 
 // @POST /products/editEvents
-router.post("/:id/editEvents", productControllers.getEditEvent);
+router.put("/:id/editEvents", productControllers.putEditEvent);
+
+// @DELETE /products/:id/editEvents
+router.delete('/:id/editEvents', productControllers.deleteEvent);
 
 // @GET /products/adminEventsDetail
 router.get("/adminEventsDetail", productControllers.getAdminEventsDetail);

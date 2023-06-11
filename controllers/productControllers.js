@@ -92,6 +92,26 @@ const productControllers = {
         title: 'Editar'})
     },
 
+    putEditEvent: (req, res) => {
+        let id = Number(req.params.id);
+        let nuevosDatos = req.body;
+
+        // nuevosDatos.eliminado = false;
+        // nuevosDatos.agotado = false;
+
+        modelProductos.updateById(id, nuevosDatos);
+
+        res.redirect('/')
+    },
+
+    deleteEvent: (req, res) => {
+        let id = Number(req.params.id);
+
+        let producto = modelProductos.deleteByID(id);
+        console.log(producto);
+        res.redirect('/');
+    },
+
     getAdminEventsDetail: (req, res) =>
     res.render('adminEventsDetail'),
 }
