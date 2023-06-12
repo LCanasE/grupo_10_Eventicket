@@ -28,14 +28,13 @@ let productos = {
     },
 
     deleteByID: function (id) {
+        if(!id) {return null}
         let productos = this.findAll();
-        let productoBuscado = productos.find(producto => producto.id === id);
-        productoBuscado ? productoBuscado.eliminado = true : productoBuscado = null;
-        return productoBuscado;
-        // productos = productos.filter(producto => producto.id !== id);
-        // const productsJSON = JSON.stringify(productos);
-        // fs.writeFileSync(path.join(__dirname, this.routes), productsJSON)
-        // return productos;
+        productos = productos.filter(producto => producto.id !== id);
+
+        const productsJSON = JSON.stringify(productos);
+        fs.writeFileSync(path.join(__dirname, this.routes), productsJSON);
+        return productos;
     },
 
     updateById: function (id, newData) {

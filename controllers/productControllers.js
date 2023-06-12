@@ -73,8 +73,8 @@ const productControllers = {
         }
 
         eventoNuevo.img = `${imageRoute}/${req.file.filename}`;
-        eventoNuevo.eliminado = false;
-        eventoNuevo.agotado = false;
+        eventoNuevo.eliminado = "false";
+        eventoNuevo.agotado = "false";
         eventoNuevo.fecha = `${diaEvento} de ${nombreMes} - ${horario} horas`;
 
         modelProductos.createOne(eventoNuevo);
@@ -96,9 +96,6 @@ const productControllers = {
         let id = Number(req.params.id);
         let nuevosDatos = req.body;
 
-        // nuevosDatos.eliminado = false;
-        // nuevosDatos.agotado = false;
-
         modelProductos.updateById(id, nuevosDatos);
 
         res.redirect('/')
@@ -107,8 +104,8 @@ const productControllers = {
     deleteEvent: (req, res) => {
         let id = Number(req.params.id);
 
-        let producto = modelProductos.deleteByID(id);
-        console.log(producto);
+        let eleiminar = modelProductos.deleteByID(id);
+
         res.redirect('/');
     },
 
