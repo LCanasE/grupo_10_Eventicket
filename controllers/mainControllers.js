@@ -1,6 +1,6 @@
 // Controladores páginas principales
 const path = require("path");
-let modelProducts = require('../models/productos');
+let modelProducts = require('../models/productsModel');
 
 const mainControllers = {
 

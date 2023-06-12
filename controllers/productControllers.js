@@ -1,6 +1,6 @@
 // Controlador de productos
 const path = require('path');
-let modelProductos = require('../models/productos');
+let modelProductos = require('../models/productsModel');
 
 
 const productControllers = {

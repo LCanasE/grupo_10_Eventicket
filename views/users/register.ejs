@@ -13,7 +13,7 @@
   <main class="main-registro login-register">
     <section class="registro-form">
       <h2>Regístrate y asiste a tus eventos favoritos</h2>
-      <form action="" method="POST">
+      <form action="/users/register" method="POST">
         <article class="registro-datos">
           <input id="registro-nombre" type="text" placeholder="Nombre" name="nombreRegForm" required />
           <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" required />
@@ -41,7 +41,7 @@
           <input type="checkbox" name="tyc" checked required />Acepto los Términos y Condiciones
         </article>
         <article class="registro-botones">
-          <input type="submit" name="registrate" id="registrate" value="Regístrate" />
+          <input type="submit" id="registrate" value="Regístrate" />
           <input type="submit" name="registrateGoogle" id="registrate-google"
             value="Regístrate con tu cuenta de Google" />
         </article>

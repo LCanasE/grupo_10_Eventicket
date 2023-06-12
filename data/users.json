@@ -1,13 +1,35 @@
 [
     {
-    "id": 1,
-    "nombreRegForm": "Ana",
-    "apellidoRegForm": "Maria",
-    "emailRegForm": "ana@gmail.com",
-    "tipoUsuario": "espectador",
-    "passRegForm": "15",
-    "checkPassRegForm": "15",
-    "notificaciones": true,
-    "tyc": true
+        "id": 1,
+        "nombreRegForm": "Ana",
+        "apellidoRegForm": "Maria",
+        "emailRegForm": "ana@gmail.com",
+        "tipoUsuario": "espectador",
+        "passRegForm": "15",
+        "checkPassRegForm": "15",
+        "notificaciones": true,
+        "tyc": true
+    },
+    {
+        "nombreRegForm": "Liliana",
+        "apellidoRegForm": "Cañas Eastman",
+        "emailRegForm": "lcanase@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "123",
+        "checkPassRegForm": "123",
+        "notificaciones": true,
+        "tyc": true,
+        "id": 2
+    },
+    {
+        "nombreRegForm": "Manuela",
+        "apellidoRegForm": "Escobar",
+        "emailRegForm": "a@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "123",
+        "checkPassRegForm": "123",
+        "notificaciones": true,
+        "tyc": true,
+        "id": 3
     }
 ]

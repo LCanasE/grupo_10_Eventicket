@@ -3,7 +3,7 @@ const path = require('path');
 
 const usuarios = {
 
-    route: '../data/usars.json',
+    route: '../data/users.json',
 
 
     findAll: function(){

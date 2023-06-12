@@ -1,5 +1,6 @@
 // Controlador de usuarios
 const path = require('path');
+const usersModel = require('../models/usersModel');
 
 const userControllers = {
 
@@ -12,14 +13,13 @@ const userControllers = {
     postRegister: (req, res) => {
         let newUser = req.body;
 
-        console.log(newUser.tyc);
+        newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
+        newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false
 
-        newUser.tyc = toBoolean(newUser.tyc);
-
-        console.log(newUser.tyc);
+        usersModel.createOne(newUser);
         
+        res.redirect('/');
         }
-   
 }
 
 module.exports = userControllers;
