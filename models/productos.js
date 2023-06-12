@@ -28,27 +28,29 @@ let productos = {
     },
 
     deleteByID: function (id) {
+        if(!id) {return null}
         let productos = this.findAll();
-        productos = productos.filter(producto => producto.id !== id);
+        let indice = productos.findIndex(producto => producto.id === id);
+
+        productos[indice].eliminado = true;
+
         const productsJSON = JSON.stringify(productos);
-        fs.writeFileSync(path.join(__dirname, this.routes), productsJSON)
+
+        fs.writeFileSync(path.join(__dirname, this.routes), productsJSON);
+
         return productos;
     },
 
     updateById: function (id, newData) {
         let productos = this.findAll();
         const indice = productos.findIndex(producto => producto.id === id);
-        const {nombre, fecha, ubicacion, precio, categoria, img, eliminado, agotado} = newData;
-        productos[indice] = {id:productos[indice].id, nombre, fecha, ubicacion, precio, categoria, img, eliminado, agotado};
+        const {nombre, fecha, ubicacion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado} = newData;
+        productos[indice] = {id:productos[indice].id, nombre, fecha, ubicacion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado};
 
         const productsJSON = JSON.stringify(productos);
         fs.writeFileSync(path.join(__dirname, this.routes), productsJSON)
         return productos;
-
     }
-
-
-
 }
 
 module.exports = productos;

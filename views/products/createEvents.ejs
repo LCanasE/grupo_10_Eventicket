@@ -12,31 +12,34 @@
     <main class="main-registro login-register">
         <section class="registro-form">
             <h2>Creación de eventos</h2>
-            <form action="" method="POST">
-                <input type="text" placeholder="Título del Evento">
-                <input type="datetime-local">
-                <input type="text" placeholder="Lugar">
+            <form action="/products/createEvents" method="POST" enctype="multipart/form-data">
+                <input type="text" name="nombre" placeholder="Título del Evento">
+                <input type="datetime-local" name="fecha">
+                <input type="text" placeholder="Lugar" name="ubicacion">
                 <div class="agregar-input-precio-evento">
-                    <label for="">Tipo de entrada</label>
-                    <input type="text" class="tipo-entrada-evento" placeholder="Tipo de entrada">
-                    <input type="number" placeholder="$1000 (Precio)" class="precio-crear-evento">
+                    <label for="">Entradas</label>
+                    <input type="text" placeholder="Tipo de entrada" name="tipoEntrada" class="tipo-entrada-evento">
+                    <input type="number" placeholder="$1000 (Precio)" name="precio" class="precio-crear-evento">
+                    <input type="number" placeholder="Cantidad (Número)" name="cantidadEntradas" class="precio-crear-evento">
                     <button class="agregar-tipo-entrada">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </div>
-                <select name="" id="" class="creacion-evento-categorias">
+                <select name="categoria" id="" class="creacion-evento-categorias">
                     <option disabled selected>Categoría</option>
-                    <option value="Deportes" name="Deportes">Deportes</option>
-                    <option value="Recitales" name="Recitales">Recital</option>
-                    <option value="ObrasTeatro" name="ObrasTeatro">Obra de teatro</option>
-                    <option value="StandUp" name="StandUp">Stand Up</option>
-                    <option value="ConferenciasAcademicas" name="ConferenciasAcademicas">Conferencia</option>
+                    <option>Deportes</option>
+                    <option>Recital</option>
+                    <option>Obra de teatro</option>
+                    <option>Stand Up</option>
+                    <option>Conferencia</option>
                 </select>
                 <div class="input-grupo-cargar-imagen-evento">
                     <label for="">Imagen del Evento</label>
-                    <input type="file" class="seleccionar-imagen">
+                    <input type="file" name="img" class="seleccionar-imagen">
                     <input type="submit" value="Cargar evento" class="enviar-evento">
                 </div>
+                <input type="hidden" name="eliminado" value="false">
+                <input type="hidden" name="agotado" value="false">
             </form>
         </section>
 
