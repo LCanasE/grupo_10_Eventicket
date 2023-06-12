@@ -7,11 +7,6 @@ const mainRoutes = require('./routers/mainRoutes');
 const productRoutes = require('./routers/productRoutes');
 const userRoutes = require('./routers/userRoutes');
 
-app.use(express.urlencoded({ extended:true }));
-app.use(express.json());
-app.use(express.static("public"));
-app.use(methodOverride('_method'));
-
 app.set('view engine', 'ejs');
 app.set('views', [
     path.join(__dirname, './views/main'),
