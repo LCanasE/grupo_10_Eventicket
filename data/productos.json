@@ -1,1 +1,80 @@
-[{"id":1,"nombre":"Amelie Lens & Farrago","fecha":"1 de junio - 22 horas","ubicacion":"Maderoboardwalk","precio":"3000","cantidadEntradas":"100","categoria":"Recital","img":"../img/events/recitales/amelie-lens-farrago-maderoboardwalk-160560-img.jpg","eliminado":"false","agotado":"false"},{"id":2,"nombre":"Babasónicos","fecha":"26 de mayo - 21 horas","ubicacion":"Microestadio Lanus","precio":"2500","cantidadEntradas":"100","categoria":"Recital","img":"../img/events/recitales/babasonicos-en-lanus-img.jpeg","eliminado":"true","agotado":"false"},{"id":3,"nombre":"Peces Raros","fecha":"6 de mayo - 20 horas","ubicacion":"Complejo Art Media","precio":"4000","categoria":"Recital","img":"../img/events/recitales/peces-raros-2da-funcion-158913-img.jpeg","eliminado":"false","agotado":"false"},{"id":4,"nombre":"La Kermesse","fecha":"15 de abril - 22 horas","ubicacion":"Club Alemán","precio":"3500","categoria":"Recital","img":"../img/events/recitales/la-kermesse-en-ballester-img.jpeg","eliminado":"false","agotado":"false"}]
+[
+    {
+        "id": 1,
+        "nombre": "Amelie Lens & Farrago",
+        "fecha": "1 de junio - 22 horas",
+        "ubicacion": "Maderoboardwalk",
+        "tipoEntrada": "General",
+        "cantidadEntradas": "10",
+        "precio": 3000,
+        "categoria": "Recital",
+        "img": "../img/events/recitales/amelie-lens-farrago-maderoboardwalk-160560-img.jpg",
+        "eliminado": false,
+        "agotado": false
+    },
+    {
+        "id": 2,
+        "nombre": "Babasónicos",
+        "fecha": "26 de mayo - 21 horas",
+        "ubicacion": "Microestadio Lanus",
+        "tipoEntrada": "General",
+        "cantidadEntradas": "10",
+        "precio": 2500,
+        "categoria": "Recital",
+        "img": "../img/events/recitales/babasonicos-en-lanus-img.jpeg",
+        "eliminado": false,
+        "agotado": false
+    },
+    {
+        "id": 3,
+        "nombre": "Peces Raros",
+        "fecha": "6 de mayo - 20 horas",
+        "ubicacion": "Complejo Art Media",
+        "tipoEntrada": "General",
+        "cantidadEntradas": "10",
+        "precio": 4000,
+        "categoria": "Recital",
+        "img": "../img/events/recitales/peces-raros-2da-funcion-158913-img.jpeg",
+        "eliminado": false,
+        "agotado": false
+    },
+    {
+        "id": 4,
+        "nombre": "La Kermesse",
+        "fecha": "15 de abril - 22 horas",
+        "ubicacion": "Club Alemán",
+        "tipoEntrada": "General",
+        "cantidadEntradas": "10",
+        "precio": 3500,
+        "categoria": "Recital",
+        "img": "../img/events/recitales/la-kermesse-en-ballester-img.jpeg",
+        "eliminado": false,
+        "agotado": false
+    },
+    {
+        "id": 5,
+        "nombre": "Tan Biónica",
+        "fecha": "28 de octubre - 22 horas",
+        "ubicacion": "Estadio Vélez",
+        "tipoEntrada": "General",
+        "precio": 0,
+        "cantidadEntradas": "10",
+        "categoria": "Recital",
+        "img": "../img/events/recitales/tan-bionica.jpg",
+        "eliminado": false,
+        "agotado": false
+    },
+    {
+        "nombre": "Usted Señalemelo",
+        "fecha": "1 de junio - 10 horas",
+        "ubicacion": "Movistar Arena",
+        "tipoEntrada": "General",
+        "precio": 2400,
+        "cantidadEntradas": "10",
+        "categoria": "Recital",
+        "eliminado": true,
+        "agotado": false,
+        "img": "../img/events/recitales/img_1686577822557.jpeg",
+        "id": 6
+    }
+]

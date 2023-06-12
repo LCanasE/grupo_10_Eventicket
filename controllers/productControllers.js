@@ -76,6 +76,11 @@ const productControllers = {
         eventoNuevo.eliminado = "false";
         eventoNuevo.agotado = "false";
         eventoNuevo.fecha = `${diaEvento} de ${nombreMes} - ${horario} horas`;
+        eventoNuevo.precio = Number(eventoNuevo.precio);
+        eventoNuevo.eliminado = eventoNuevo.eliminado === "false" ? false : true;
+        eventoNuevo.agotado = eventoNuevo.agotado === "false" ? false : true;
+
+        console.log(eventoNuevo);
 
         modelProductos.createOne(eventoNuevo);
         res.redirect('/');
@@ -95,7 +100,10 @@ const productControllers = {
     putEditEvent: (req, res) => {
         let id = Number(req.params.id);
         let nuevosDatos = req.body;
-
+        nuevosDatos.img = req.file ? req.file.filename : req.body.originalImg;
+        nuevosDatos.precio = Number(nuevosDatos.precio);
+        nuevosDatos.eliminado = Boolean(nuevosDatos.eliminado)
+        nuevosDatos.agotado = Boolean(nuevosDatos.agotado)
         modelProductos.updateById(id, nuevosDatos);
 
         res.redirect('/')
@@ -104,8 +112,7 @@ const productControllers = {
     deleteEvent: (req, res) => {
         let id = Number(req.params.id);
 
-        let eleiminar = modelProductos.deleteByID(id);
-
+        modelProductos.deleteByID(id);
         res.redirect('/');
     },
 

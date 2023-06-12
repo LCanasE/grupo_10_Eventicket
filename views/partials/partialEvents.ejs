@@ -22,8 +22,11 @@
                     </div>
                 </div>
             </div>
-            <% if (producto.agotado !== "false") {%>
+            <% if (producto.agotado !== false) {%>
             <p class="tickets-agotados">Agotado</p>
+            <% } %>
+            <% if (producto.eliminado === true) {%>
+                <div class="producto-eliminado"></div>
             <% } %>
         </a>
     </article> 

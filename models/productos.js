@@ -30,10 +30,14 @@ let productos = {
     deleteByID: function (id) {
         if(!id) {return null}
         let productos = this.findAll();
-        productos = productos.filter(producto => producto.id !== id);
+        let indice = productos.findIndex(producto => producto.id === id);
+
+        productos[indice].eliminado = true;
 
         const productsJSON = JSON.stringify(productos);
+
         fs.writeFileSync(path.join(__dirname, this.routes), productsJSON);
+
         return productos;
     },
 
@@ -46,7 +50,6 @@ let productos = {
         const productsJSON = JSON.stringify(productos);
         fs.writeFileSync(path.join(__dirname, this.routes), productsJSON)
         return productos;
-
     }
 }
 

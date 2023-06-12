@@ -33,7 +33,7 @@ router.get("/:id/editEvents", productControllers.getEditEvent);
 router.put("/:id/editEvents", productControllers.putEditEvent);
 
 // @DELETE /products/:id/editEvents
-router.delete('/:id/editEvents', productControllers.deleteEvent);
+router.delete('/:id/delete', productControllers.deleteEvent);
 
 // @GET /products/adminEventsDetail
 router.get("/adminEventsDetail", productControllers.getAdminEventsDetail);

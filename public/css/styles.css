@@ -442,6 +442,13 @@ footer p {
   width: 100%;
 }
 
+.producto-eliminado{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.5);
+}
+
 .tickets-agotados {
   position: absolute;
   top: 50%;
