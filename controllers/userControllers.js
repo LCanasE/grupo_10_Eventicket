@@ -1,5 +1,6 @@
 // Controlador de usuarios
 const path = require('path');
+const usersModel = require('../models/usersModel');
 
 const userControllers = {
 
@@ -7,7 +8,18 @@ const userControllers = {
     res.render('login', { title: 'Inicio de sesión'}),
 
     getRegister: (req, res) =>
-    res.render('register', { title: 'Registro' })
+    res.render('register', { title: 'Registro' }),
+
+    postRegister: (req, res) => {
+        let newUser = req.body;
+
+        newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
+        newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false
+
+        usersModel.createOne(newUser);
+        
+        res.redirect('/');
+        }
 }
 
 module.exports = userControllers;

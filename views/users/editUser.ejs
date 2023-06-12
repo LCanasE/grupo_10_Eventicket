@@ -12,8 +12,8 @@
   </header>
   <main class="main-registro login-register">
     <section class="registro-form">
-      <h2>Regístrate y asiste a tus eventos favoritos</h2>
-      <form action="/users/register" method="POST">
+      <h2>Editar información de usuario</h2>
+      <form action="" method="POST">
         <article class="registro-datos">
           <input id="registro-nombre" type="text" placeholder="Nombre" name="nombreRegForm" required />
           <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" required />
@@ -23,10 +23,10 @@
         </article>
 
         <article>
-          <select class="tipo-usuario" name="tipoUsuario" id="" >
+          <select class="tipo-usuario" name="" id="" >
             <option disabled selected>Tipo de Usuario</option>
-            <option>Espectador/a</option>
-            <option>Productor/a</option>
+            <option value="Espectador" name="Espectador">Espectador/a</option>
+            <option value="Productor" name="Productor">Productor/a</option>
         </select>
         </article>
 
@@ -35,13 +35,13 @@
           <input type="password" placeholder="Confirmar contraseña" name="checkPassRegForm" required />
         </article>
         <article class="registro-tyc">
-          <input type="checkbox" name="notificaciones"  checked />Deseo recibir la agenda de eventos próximos
+          <input type="checkbox" checked />Deseo recibir la agenda de eventos próximos
         </article>
         <article class="registro-tyc">
-          <input type="checkbox" name="tyc" checked required />Acepto los Términos y Condiciones
+          <input type="checkbox" checked required />Acepto los Términos y Condiciones
         </article>
         <article class="registro-botones">
-          <input type="submit" id="registrate" value="Regístrate" />
+          <input type="submit" name="registrate" id="registrate" value="Regístrate" />
           <input type="submit" name="registrateGoogle" id="registrate-google"
             value="Regístrate con tu cuenta de Google" />
         </article>
