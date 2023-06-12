@@ -1,0 +1,13 @@
+[
+    {
+    "id": 1,
+    "nombreRegForm": "Ana",
+    "apellidoRegForm": "Maria",
+    "emailRegForm": "ana@gmail.com",
+    "tipoUsuario": "espectador",
+    "passRegForm": "15",
+    "checkPassRegForm": "15",
+    "notificaciones": true,
+    "tyc": true
+    }
+]
