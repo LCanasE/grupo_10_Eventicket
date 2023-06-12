@@ -13,5 +13,7 @@ router.get("/register", userControllers.getRegister);
 // @POST/users/register
 router.post("/register", userControllers.postRegister);
 
+// @GET /users/editUser
+router.get("/editUser", userControllers.getEditUser);
 
 module.exports = router;

@@ -23,6 +23,17 @@ const usuarios = {
         return searched;
     },
 
+    // findByEmail: function(email){
+    //     const users = this.findAll();
+        
+    //     let searched = users.find(userActual => userActual.email === email);
+
+    //     if(!searched){
+    //         searched = null;
+    //     }
+    //     return searched;
+    // },
+
     createOne: function(newUser){
         let users = this.findAll();
         newUser.id = users[users.length-1].id+1;
@@ -43,14 +54,7 @@ const usuarios = {
         let users = this.findAll();
         const indice = users.findIndex(user => user.id === id);
         
-        const {nombreRegForm,
-            apellidoRegForm,
-            emailRegForm,
-            tipoUsuario,
-            passRegForm,
-            checkPassRegForm,
-            notificaciones,
-            tyc} = newUser;
+        const {nombreRegForm, apellidoRegForm, emailRegForm, tipoUsuario, passRegForm, checkPassRegForm, notificaciones, tyc} = newUser;
 
         users[indice] = { 
         id: users[indice].id,
