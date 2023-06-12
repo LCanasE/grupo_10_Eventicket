@@ -3,7 +3,7 @@ const path = require('path');
 
 
 let productos = {
-    routes: '../data/productos.json',
+    routes: '../data/products.json',
 
     findAll: function () {
         let productos = JSON.parse(fs.readFileSync(path.join(__dirname, this.routes),"UTF-8"))
