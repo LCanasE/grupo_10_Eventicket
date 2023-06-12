@@ -3,7 +3,7 @@
     <article class="product">
         <a href="/products/<%= producto.id %>/eventsDetails" class="product-link-detail">
             <div class="product-img">
-                <img src=<%= producto.img %> alt="">
+                <img src=<%= producto.img %> alt="Error">
             </div>
             <div class="product-info">
                 <div class="information-product">
@@ -22,8 +22,11 @@
                     </div>
                 </div>
             </div>
-            <% if (producto.agotado) {%>
+            <% if (producto.agotado !== false) {%>
             <p class="tickets-agotados">Agotado</p>
+            <% } %>
+            <% if (producto.eliminado === true) {%>
+                <div class="producto-eliminado"></div>
             <% } %>
         </a>
     </article> 

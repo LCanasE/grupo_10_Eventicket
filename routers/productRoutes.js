@@ -1,9 +1,12 @@
 // Rutas de productos
 const express = require('express');
+const path = require('path');
+
 const productControllers = require('../controllers/productControllers');
-const multer = require('multer');
+const multerMiddleware = require('../middlewares/multerMiddleware');
 
 const router = express.Router();
+
 
 // @GET /products/:id/eventsDetails
 router.get("/:id/eventsDetails", productControllers.getEventsDetails);
@@ -17,20 +20,26 @@ router.post("/cart", productControllers.getCart);
 // @GET /products/events
 router.get("/events", productControllers.getEvents);
 
-// @GET /products/creacionEventos
-router.get("/creacionEventos", productControllers.getCrearEvento);
+// @GET /products/createEvents
+router.get("/createEvents", productControllers.getCreateEvent);
 
-// @GET /products/:id/edicionEventos
-router.get("/:id/edicionEventos", productControllers.getEditarEvento);
+// @POST /products/createEvents
+router.post("/createEvents", multerMiddleware.single('img'), productControllers.postCreateEvent);
 
-// @POST /products/edicionEventos
-router.post("/:id/edicionEventos", productControllers.getEditarEvento);
+// @GET /products/:id/editEvents
+router.get("/:id/editEvents", productControllers.getEditEvent);
 
-// @GET /products/detalleEventos
-router.get("/detalleEventosAdmin", productControllers.getDetalleEventoAdmin);
+// @POST /products/editEvents
+router.put("/:id/editEvents", productControllers.putEditEvent);
 
-// @POST /products/detalleEventosAdmin
-router.post("/detalleEventosAdmin", productControllers.getDetalleEventoAdmin);
+// @DELETE /products/:id/editEvents
+router.delete('/:id/delete', productControllers.deleteEvent);
+
+// @GET /products/adminEventsDetail
+router.get("/adminEventsDetail", productControllers.getAdminEventsDetail);
+
+// @POST /products/adminEventsDetail
+router.post("/adminEventsDetail", productControllers.getAdminEventsDetail);
 
 
 

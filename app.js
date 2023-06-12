@@ -3,10 +3,14 @@ const path = require('path');
 const app = express();
 const methodOverride = require('method-override');
 
-
 const mainRoutes = require('./routers/mainRoutes');
 const productRoutes = require('./routers/productRoutes');
 const userRoutes = require('./routers/userRoutes');
+
+app.use(express.urlencoded({ extended:true }));
+app.use(express.json());
+app.use(express.static("public"));
+app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 app.set('views', [
@@ -25,5 +29,9 @@ app.use(express.static("public"));
 app.use(mainRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
+
+app.use((req, res, next) => {
+    res.status(404).render('error404');
+})
 
 app.listen(3000, () => console.log("Servidor corriendo en el puerto 3000"));

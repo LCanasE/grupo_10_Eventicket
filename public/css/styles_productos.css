@@ -54,6 +54,7 @@
     border-radius: 15px;
     width: 88%;
     display: inline-block;
+    position: relative;
 }
 
 .caja-ubicacion {
@@ -378,4 +379,4 @@
 
 }
 
-/* Chau */
+/* Rama Gaston */

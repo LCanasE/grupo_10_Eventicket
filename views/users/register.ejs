@@ -13,7 +13,7 @@
   <main class="main-registro login-register">
     <section class="registro-form">
       <h2>Regístrate y asiste a tus eventos favoritos</h2>
-      <form action="" method="post">
+      <form action="" method="POST">
         <article class="registro-datos">
           <input id="registro-nombre" type="text" placeholder="Nombre" name="nombreRegForm" required />
           <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" required />
@@ -21,12 +21,24 @@
         <article id="registro-email">
           <input type="email" placeholder="Correo electrónico" name="emailRegForm" required />
         </article>
+
+        <article>
+          <select class="tipo-usuario" name="" id="" >
+            <option disabled selected>Tipo de Usuario</option>
+            <option value="Espectador" name="Espectador">Espectador/a</option>
+            <option value="Productor" name="Productor">Productor/a</option>
+        </select>
+        </article>
+
         <article class="registro-password">
           <input type="password" placeholder="Contraseña" name="passRegForm" required />
           <input type="password" placeholder="Confirmar contraseña" name="checkPassRegForm" required />
         </article>
         <article class="registro-tyc">
-          <input type="checkbox" />Acepto los Términos y Condiciones
+          <input type="checkbox" checked />Deseo recibir la agenda de eventos próximos
+        </article>
+        <article class="registro-tyc">
+          <input type="checkbox" checked required />Acepto los Términos y Condiciones
         </article>
         <article class="registro-botones">
           <input type="submit" name="registrate" id="registrate" value="Regístrate" />

@@ -85,3 +85,25 @@ RETROALIMENTACIÓN "Starfish"
 5. START DOING:
 
     - Utilizar el tablero trello para seguimiento de las actividades y asignación de las mismas.
+
+2023/06 RETRO SPRINT 3:
+
+1. KEEP DOING:
+
+    - Comunicación entre los miembros del equipo.
+
+2. LESS OF:
+
+    - Mala distribución de las tareas en el equipo. 
+
+3. MORE OF:
+
+    - Al menos agregar una juntada semanal para ver en qué estado de trabajo está cada uno.
+
+4. STOP DOING:
+
+    - No tener reuniones tan largas, sino dividirlas en varias.
+
+5. START DOING:
+
+    - Mejorar el reporte de tareas realizadas por cada uno de los integrantes del equipo.

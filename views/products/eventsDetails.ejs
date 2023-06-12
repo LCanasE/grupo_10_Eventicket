@@ -13,7 +13,7 @@
 
   <%- include('../partials/banner') %>
 
-    <%- include('../partials/barraNavegacion') %>
+    <%- include('../partials/navBar') %>
 
       <article class="evento">
 
@@ -21,13 +21,13 @@
           <div class="caja-titulo">
 
             <h2 class="titulo-evento">
-              <%= productoBuscado.nombre %> @<%=productoBuscado.ubicacion%> (+18)
+              <%= productoBuscado.nombre %> <%=productoBuscado.ubicacion%>
             </h2>
             <h3 class="fecha-evento"><i class="fa-regular fa-calendar-days"></i>
               <%= productoBuscado.fecha %>
             </h3>
 
-            <a href="/products/<%=productoBuscado.id%>/edicionEventos">
+            <a href="/products/<%=productoBuscado.id%>/editEvents">
               <button class="btn-editar-eventos">
                 <i class="fa-solid fa-pen-to-square"></i>
               </button>
@@ -44,7 +44,7 @@
               <h3 class="titulo-ubicacion"><i class="fa-solid fa-location-dot"></i>
                 <%=productoBuscado.ubicacion%>
               </h3>
-              <h4 class="descripcion-ubicacion">Cecilia greison 322 - Puerto Madero</h4>
+              <h4 class="descripcion-ubicacion"><%= productoBuscado.direccion %></h4>
             </div>
           </div>
 
