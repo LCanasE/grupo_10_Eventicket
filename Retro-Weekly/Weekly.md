@@ -95,3 +95,28 @@ REGISTRO DE WEEKLY
 
 2. 2023/06/11 4° WEEKLY:
         
+    CONSIDERACIONES
+
+    - Estamos terminando ya la implementación de los requerimientos del sprint 4.
+    - Fecha de entrega 4° sprint: 2023/06/12
+
+    1. ¿QUÉ SE HIZO HASTA AHORA?
+
+        - Terminamos la implementación del CRUD de productos.
+
+        - Iniciamos la implementación del CRUD de usuarios.
+
+        - Terminamos la corrección de uso de inglés y español en las vistas, controllers y routers.
+
+        - Terminamos la implementación del formularfio de edición y creación de productos.
+
+    2.  ¿IMPEDIMENTOS?
+
+        - Causó algunos errores el uso de "const" para las variables.
+
+    3. ¿QUÉ SE HARÁ ESTA SEMANA?
+
+        - Terminar el CRUD de usuarios.
+
+        - Terminar la implementación de Javascript en las diferentes vistas y formularios para acceder a los datos del evento según ID.
+
