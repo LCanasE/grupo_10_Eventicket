@@ -84,6 +84,18 @@ header {
   right: 6vh;
 }
 
+.fa-user {
+  margin-left: 15px;
+  font-size: 25px;
+}
+
+.fa-user:hover {
+  font-size: 27px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
 .fa-cart-shopping {
   margin-left: 15px;
   font-size: 25px;
