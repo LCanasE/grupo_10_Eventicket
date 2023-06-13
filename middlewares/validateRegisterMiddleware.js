@@ -20,7 +20,7 @@ const validations = [
             }
                 return true})
         .has().number().withMessage('La contraseña debe tener al menos un número'),
-    body('checkPassRegForm')
+    // body('checkPassRegForm')
     //     Validar que la contraseña sea igual a la ingresada en 'passRegForm',
     // body('notificaciones')
     //     ,

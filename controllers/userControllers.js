@@ -1,6 +1,7 @@
 // Controlador de usuarios
 const path = require('path');
 const usersModel = require('../models/usersModel');
+const {validationResult} = require('express-validator');
 
 const userControllers = {
 
@@ -14,6 +15,15 @@ const userControllers = {
         res.render('register', { title: 'Registro' }),
 
     postRegister: (req, res) => {
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0) {
+            return res.render('register',{
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            })
+
+        }
+        
         let newUser = req.body;
 
         newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
