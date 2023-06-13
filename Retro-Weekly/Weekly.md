@@ -120,3 +120,9 @@ REGISTRO DE WEEKLY
 
         - Terminar la implementación de Javascript en las diferentes vistas y formularios para acceder a los datos del evento según ID.
 
+ACLARACIÓN PARA LUCAS:
+
+En la vista de eventos, estamos en modo administrador, por lo que se muestra el evento eliminado. Para la vista de usuario NO se verán los eventos eliminados.
+
+Saludos! =)
+

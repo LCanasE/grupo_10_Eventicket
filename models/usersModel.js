@@ -1,5 +1,7 @@
+// Lógica que se repite
 const fs = require('fs');
 const path = require('path');
+const uuid = require('uuid');
 
 const usuarios = {
 
@@ -36,7 +38,8 @@ const usuarios = {
 
     createOne: function(newUser){
         let users = this.findAll();
-        newUser.id = users[users.length-1].id+1;
+        //newUser.id = users[users.length-1].id+1;
+        newUser.id = uuid.v4();
         users.push(newUser);
         const usersJSON = JSON.stringify(users);
         fs.writeFileSync(path.join(__dirname, this.route), usersJSON);
