@@ -8,6 +8,7 @@
         "tipoEntrada": "General",
         "precio": 3001,
         "cantidadEntradas": "10",
+        "categoria": "Recital",
         "img": "../img/events/recitales/amelie-lens-farrago-maderoboardwalk-160560-img.jpg",
         "eliminado": false,
         "agotado": false
