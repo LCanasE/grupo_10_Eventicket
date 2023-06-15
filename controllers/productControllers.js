@@ -7,12 +7,14 @@ const productControllers = {
 
     getEventsDetails: (req, res) => {
     let id = Number(req.params.id);
-    let productos = modelProductos.findAll()
+    let productos = modelProductos.findAll();
+    let productosSinModificar = modelProductos.findAll();
     let productoBuscado = modelProductos.findById(id);
     
     res.render('eventsDetails', {
         productoBuscado,
         productos,
+        productosSinModificar,
         title: 'Detalle'})
     },
 

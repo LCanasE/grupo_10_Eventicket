@@ -12,12 +12,12 @@ const mainControllers = {
 
         nombreFechaBuscada = nombreFechaBuscada ? nombreFechaBuscada.toLowerCase() : '';
 
-        
+        let productosSinModificar = modelProducts.findAll();
         let productos = modelProducts.findAll();
         
         if(nombreEventoBuscado){
             const nombreEventoBuscadoSinAcentos = unidecode(nombreEventoBuscado);
-            
+
             productos = productos.filter(producto => {
                 const nombreProductoSinAcento = unidecode(producto.nombre);
                 return nombreProductoSinAcento.toLowerCase().includes(nombreEventoBuscadoSinAcentos.toLowerCase());
@@ -36,6 +36,7 @@ const mainControllers = {
 
         res.render('home', {
             productos,
+            productosSinModificar,
             title: 'Home'}) 
     }
 }
