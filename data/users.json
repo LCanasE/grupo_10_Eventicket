@@ -42,5 +42,16 @@
         "notificaciones": true,
         "tyc": true,
         "id": "cebd256e-15c4-4727-a457-de384455bcfc"
+    },
+    {
+        "nombreRegForm": "Gaston",
+        "apellidoRegForm": "Balatti",
+        "emailRegForm": "gaston@balatti.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "123",
+        "checkPassRegForm": "123",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "06e8be1b-4266-40c7-8f3a-ff2e0e96688c"
     }
 ]

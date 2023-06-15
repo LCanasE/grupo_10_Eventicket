@@ -11,7 +11,7 @@ router.get("/login", userControllers.getLogin);
 router.get("/register", userControllers.getRegister);
 
 // @POST/users/register
-router.post("/register", validations, userControllers.postRegister);
+router.post("/register", userControllers.postRegister);
 
 // @GET /users/editUser
 router.get("/editUser", userControllers.getEditUser);

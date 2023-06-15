@@ -31,7 +31,7 @@ const userControllers = {
 
         usersModel.createOne(newUser);
 
-        res.redirect('/');
+        res.redirect('/',);
     },
 
 }

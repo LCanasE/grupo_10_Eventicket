@@ -18,7 +18,6 @@ const productControllers = {
 
     getCart: (req, res) => {
     let id = Number(req.body.id);
-    console.log(req.body);
     let productoBuscado = modelProductos.findById(id);
     res.render('cart', {
         productoBuscado,
