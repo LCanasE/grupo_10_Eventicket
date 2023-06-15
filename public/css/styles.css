@@ -338,14 +338,29 @@ footer p {
 
 .search-home .search-bar,
 .search-home .search-btn {
-  padding: 3%;
+  padding: 3% 0% 3% 2%;
   border: none;
   outline: none;
+  width: 100%;
+}
+
+.search-home select{
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .search-bar {
   width: 80%;
   background-color: #ffff;
+}
+
+.search-bar-buscador {
+  position: relative;
+  border: none;
+  width: 100%;
+  text-align: center;
+  border-left: 1px solid #ebebeb;
+  font-size: 12px;
 }
 
 .search-btn {
@@ -953,6 +968,11 @@ footer p {
   .search-bar {
     font-size: 2.5vw;
   }
+
+  .search-bar-buscador {
+    font-size: 13px;
+  }
+
 
   .products {
     flex-direction: row;

@@ -51,7 +51,7 @@ const productControllers = {
 
         let imageRoute = '../img/events/';
         switch(req.body.categoria){
-            case 'Recital':
+            case 'Recitales':
                 imageRoute += 'recitales';
                 break;
             case 'Deportes':
