@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
         let destinationFolder = './public/img/events/';
 
         switch(req.body.categoria){
-            case 'Recital':
+            case 'Recitales':
                 destinationFolder += 'recitales';
                 break;
             case 'Deportes':

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header') %>
+    </header>
+    <main class="main-registro login-register">
+        <section class="registro-form">
+            <h2>Editar información de usuario</h2>
+            <form action="/users/editUser" method="POST">
+                <!-- <article class="registro-datos">
+                    <input type="email" placeholder="Correo electrónico" name="emailEditForm" required />
+                    <form action="/users/editUser" method="POST">
+                        <article class="registro-botones">
+                            <input type="submit" id="registrate" value="Buscar Usuario" />
+                        </article>
+                    </form>
+                </article> -->
+                <article class="registro-datos">
+                    <input id="registro-nombre" type="text" placeholder="Nombre" name="nombreRegForm" required />
+                    <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" required />
+                </article>
+                <article id="registro-email">
+                    <input type="email" placeholder="Correo electrónico" name="emailRegForm" required />
+                </article>
+
+                <article>
+                    <select class="tipo-usuario" name="" id="">
+                        <option disabled selected>Tipo de Usuario</option>
+                        <option value="Espectador" name="Espectador">Espectador/a</option>
+                        <option value="Productor" name="Productor">Productor/a</option>
+                    </select>
+                </article>
+
+                <article class="registro-password">
+                    <input type="password" placeholder="Contraseña" name="passRegForm" required />
+                    <input type="password" placeholder="Confirmar contraseña" name="checkPassRegForm" required />
+                </article>
+                <article class="registro-tyc">
+                    <input type="checkbox" checked />Deseo recibir la agenda de eventos próximos
+                </article>
+                <article class="registro-tyc">
+                    <input type="checkbox" checked required />Acepto los Términos y Condiciones
+                </article>
+                <article class="registro-botones">
+                    <input type="submit" id="registrate" value="Actualizar" />
+                    <input type="submit" id="registrate-google" value="Eliminar" />
+                </article>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <%- include('../partials/footer') %>
+    </footer>
+</body>
+
+</html>

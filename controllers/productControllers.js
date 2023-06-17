@@ -1,24 +1,25 @@
 // Controlador de productos
 const path = require('path');
-let modelProductos = require('../models/productos');
+let modelProductos = require('../models/productsModel');
 
 
 const productControllers = {
 
     getEventsDetails: (req, res) => {
     let id = Number(req.params.id);
-    let productos = modelProductos.findAll()
+    let productos = modelProductos.findAll();
+    let productosSinModificar = modelProductos.findAll();
     let productoBuscado = modelProductos.findById(id);
     
     res.render('eventsDetails', {
         productoBuscado,
         productos,
+        productosSinModificar,
         title: 'Detalle'})
     },
 
     getCart: (req, res) => {
     let id = Number(req.body.id);
-    console.log(req.body);
     let productoBuscado = modelProductos.findById(id);
     res.render('cart', {
         productoBuscado,
@@ -52,7 +53,7 @@ const productControllers = {
 
         let imageRoute = '../img/events/';
         switch(req.body.categoria){
-            case 'Recital':
+            case 'Recitales':
                 imageRoute += 'recitales';
                 break;
             case 'Deportes':

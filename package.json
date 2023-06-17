@@ -2,8 +2,11 @@
   "dependencies": {
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "express-validator": "^7.0.1",
     "method-override": "^3.0.0",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "unidecode": "^0.1.8",
+    "uuid": "^9.0.0"
   },
   "name": "proyectogrupo10",
   "description": "README:",
