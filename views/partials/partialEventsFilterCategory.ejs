@@ -1,0 +1,229 @@
+<% if (productos.some(producto => producto.categoria === 'Recitales')) { %>
+<h2 style="text-align: center">Recitales</h2>
+<section class="products">
+    <% productos.forEach(producto=> { %>
+        <% if(producto.categoria === 'Recitales' ) {%>
+
+                <article class="product">
+                    <a href="/products/<%= producto.id %>/eventsDetails" class="product-link-detail">
+                        <div class="product-img">
+                            <img src=<%=producto.img %> alt="Error">
+                        </div>
+                        <div class="product-info">
+                            <div class="information-product">
+                                <h2>
+                                    <%= producto.nombre %>
+                                </h2>
+                                <p class="date">
+                                    <%= producto.fecha %>
+                                </p>
+                                <p class="place">
+                                    <%= producto.ubicacion %>
+                                </p>
+                            </div>
+                            <div class="price-buy">
+                                <div class="price">
+                                    <p>Desde $<%= producto.precio %>
+                                    </p>
+                                </div>
+                                <div class="buy">
+                                    <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <% if (producto.agotado !==false) {%>
+                            <p class="tickets-agotados">Agotado</p>
+                            <% } %>
+                                <% if (producto.eliminado===true) {%>
+                                    <div class="producto-eliminado"></div>
+                                    <% } %>
+                    </a>
+                </article>
+                <% } %>
+                <% }); %>
+</section>
+<% } %>
+
+<% if (productos.some(producto => producto.categoria === 'Deportes')) { %>
+<h2 style="text-align: center">Eventos Deportivos</h2>
+<section class="products">
+                <% productos.forEach(producto=> { %>
+                    <% if(producto.categoria === 'Deportes' ) {%>
+            
+                            <article class="product">
+                                <a href="/products/<%= producto.id %>/eventsDetails" class="product-link-detail">
+                                    <div class="product-img">
+                                        <img src=<%=producto.img %> alt="Error">
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="information-product">
+                                            <h2>
+                                                <%= producto.nombre %>
+                                            </h2>
+                                            <p class="date">
+                                                <%= producto.fecha %>
+                                            </p>
+                                            <p class="place">
+                                                <%= producto.ubicacion %>
+                                            </p>
+                                        </div>
+                                        <div class="price-buy">
+                                            <div class="price">
+                                                <p>Desde $<%= producto.precio %>
+                                                </p>
+                                            </div>
+                                            <div class="buy">
+                                                <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% if (producto.agotado !==false) {%>
+                                        <p class="tickets-agotados">Agotado</p>
+                                        <% } %>
+                                            <% if (producto.eliminado===true) {%>
+                                                <div class="producto-eliminado"></div>
+                                                <% } %>
+                                </a>
+                            </article>
+                            <% } %>
+                            <% }); %>
+</section>
+<% } %>
+
+<% if (productos.some(producto => producto.categoria === 'Stand Up')) { %>
+<h2 style="text-align: center">Stand Up</h2>
+<section class="products">
+                            <% productos.forEach(producto=> { %>
+                                <% if(producto.categoria === 'Stand Up' ) {%>
+                        
+                                        <article class="product">
+                                            <a href="/products/<%= producto.id %>/eventsDetails" class="product-link-detail">
+                                                <div class="product-img">
+                                                    <img src=<%=producto.img %> alt="Error">
+                                                </div>
+                                                <div class="product-info">
+                                                    <div class="information-product">
+                                                        <h2>
+                                                            <%= producto.nombre %>
+                                                        </h2>
+                                                        <p class="date">
+                                                            <%= producto.fecha %>
+                                                        </p>
+                                                        <p class="place">
+                                                            <%= producto.ubicacion %>
+                                                        </p>
+                                                    </div>
+                                                    <div class="price-buy">
+                                                        <div class="price">
+                                                            <p>Desde $<%= producto.precio %>
+                                                            </p>
+                                                        </div>
+                                                        <div class="buy">
+                                                            <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% if (producto.agotado !==false) {%>
+                                                    <p class="tickets-agotados">Agotado</p>
+                                                    <% } %>
+                                                        <% if (producto.eliminado===true) {%>
+                                                            <div class="producto-eliminado"></div>
+                                                            <% } %>
+                                            </a>
+                                        </article>
+                                        <% } %>
+                                        <% }); %>
+</section>
+<% } %>
+
+<% if (productos.some(producto => producto.categoria === 'Obras de teatro')) { %>
+<h2 style="text-align: center">Obras de teatro</h2>
+<section class="products">
+                                        <% productos.forEach(producto=> { %>
+                                            <% if(producto.categoria === 'Obras de teatro' ) {%>
+                                    
+                                                    <article class="product">
+                                                        <a href="/products/<%= producto.id %>/eventsDetails" class="product-link-detail">
+                                                            <div class="product-img">
+                                                                <img src=<%=producto.img %> alt="Error">
+                                                            </div>
+                                                            <div class="product-info">
+                                                                <div class="information-product">
+                                                                    <h2>
+                                                                        <%= producto.nombre %>
+                                                                    </h2>
+                                                                    <p class="date">
+                                                                        <%= producto.fecha %>
+                                                                    </p>
+                                                                    <p class="place">
+                                                                        <%= producto.ubicacion %>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="price-buy">
+                                                                    <div class="price">
+                                                                        <p>Desde $<%= producto.precio %>
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="buy">
+                                                                        <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <% if (producto.agotado !==false) {%>
+                                                                <p class="tickets-agotados">Agotado</p>
+                                                                <% } %>
+                                                                    <% if (producto.eliminado===true) {%>
+                                                                        <div class="producto-eliminado"></div>
+                                                                        <% } %>
+                                                        </a>
+                                                    </article>
+                                                    <% } %>
+                                                    <% }); %>
+</section>
+<% } %>
+
+<% if (productos.some(producto => producto.categoria === 'Conferencias')) { %>
+<h2 style="text-align: center">Conferencias</h2>
+<section class="products">
+                                                    <% productos.forEach(producto=> { %>
+                                                        <% if(producto.categoria === 'Conferencias' ) {%>
+                                                
+                                                                <article class="product">
+                                                                    <a href="/products/<%= producto.id %>/eventsDetails" class="product-link-detail">
+                                                                        <div class="product-img">
+                                                                            <img src=<%=producto.img %> alt="Error">
+                                                                        </div>
+                                                                        <div class="product-info">
+                                                                            <div class="information-product">
+                                                                                <h2>
+                                                                                    <%= producto.nombre %>
+                                                                                </h2>
+                                                                                <p class="date">
+                                                                                    <%= producto.fecha %>
+                                                                                </p>
+                                                                                <p class="place">
+                                                                                    <%= producto.ubicacion %>
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="price-buy">
+                                                                                <div class="price">
+                                                                                    <p>Desde $<%= producto.precio %>
+                                                                                    </p>
+                                                                                </div>
+                                                                                <div class="buy">
+                                                                                    <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <% if (producto.agotado !==false) {%>
+                                                                            <p class="tickets-agotados">Agotado</p>
+                                                                            <% } %>
+                                                                                <% if (producto.eliminado===true) {%>
+                                                                                    <div class="producto-eliminado"></div>
+                                                                                    <% } %>
+                                                                    </a>
+                                                                </article>
+                                                                <% } %>
+                                                                <% }); %>
+</section>
+<% } %>

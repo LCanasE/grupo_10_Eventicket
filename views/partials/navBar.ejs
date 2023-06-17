@@ -1,5 +1,7 @@
 <form action="" method="GET" class="search-home" name="navBar">
+
   <input type="text" name="buscadorTexto" placeholder="Buscar evento en Eventicket..." class="search-bar">
+
   <select name="buscadorCategoria" id="" class="search-bar-buscador">
     <option disabled selected>Categoría</option>
     <% let categorias = ['Deportes', 'Recitales', 'Obras de teatro', 'Stand Up', 'Conferencias'] %>
@@ -7,6 +9,7 @@
       <option> <%= categoria %> </option>
     <% }); %>
   </select>
+
   <select name="buscadorFecha" id="" class="search-bar-buscador">
     <option disabled selected>Fecha</option>
     <% let meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'] %>
@@ -14,5 +17,7 @@
       <option><%= mes %></option>
     <% }); %>
   </select>
+
   <input type="submit" value="Buscar" class="search-btn">
+  
 </form>

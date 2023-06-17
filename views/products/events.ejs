@@ -11,11 +11,13 @@
     </header>
     <main>
         <%- include('../partials/navBar') %>
+        <% const texto = 'Los eventos del mes' %>
+        <h2 style="text-align: center"><%= texto.toUpperCase() %></h2>
         <section class="products">
-           
-            <%- include('../partials/partialEvents') %>        
+            <%- include('../partials/partialEventsFilterMonth') %>        
 
         </section>
+        <%- include('../partials/partialEventsFilterCategory') %>   
     </main>
     <footer>
         <%- include('../partials/footer') %>
