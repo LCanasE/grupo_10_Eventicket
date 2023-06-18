@@ -1,5 +1,7 @@
 // Controlador de productos
 const path = require('path');
+const { validationResult } = require('express-validator');
+
 let modelProductos = require('../models/productsModel');
 
 
@@ -26,6 +28,10 @@ const productControllers = {
         title: 'Carrito'})
     },
 
+    postCart: (req, res) => {
+        console.log(req.body)
+    },
+
     getEvents: (req, res) => {
     let productos = modelProductos.findAll()
     res.render('events', {
@@ -34,14 +40,27 @@ const productControllers = {
     },
 
     getCreateEvent: (req, res) => {
-    res.render('createEvents',{title: 'Crear'})
+    res.render('createEvents', { title: 'Crear', errors: [], oldData: {} })
     },
 
     postCreateEvent: (req, res) => {
+        let validation = validationResult(req);
+
+
+        // eventoNuevo.img = '';
+        if(validation.errors.length > 0){
+            console.log(req.body);
+            console.log(validation.errors);
+            return res.render('createEvents', { errors: validation.errors, oldData: req.body, title: 'Crear'  })
+        };
+
+        if(!req.body.fecha){
+            return res.render('createEvents', {title:'Crear'});
+        } else {
 
         let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']; 
-
         let eventoNuevo = req.body;
+
         let mesDelEvento = Number(eventoNuevo.fecha.split('-')[1]);
         let diaEvento = eventoNuevo.fecha.split('T')[0].split('-')[2];
         let indiceMes = mesDelEvento - 1;
@@ -50,6 +69,7 @@ const productControllers = {
 
         Number(diaEvento.split('')[0]) === 0 ? diaEvento = diaEvento.split('')[1] : diaEvento;
         Number(horario.split('')[0]) === 0 ? horario = horario.split('')[1] : horario;
+
 
         let imageRoute = '../img/events/';
         switch(req.body.categoria){
@@ -85,6 +105,7 @@ const productControllers = {
 
         modelProductos.createOne(eventoNuevo);
         res.redirect('/');
+        }
     },
 
     getEditEvent: (req, res) => {

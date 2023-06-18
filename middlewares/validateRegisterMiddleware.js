@@ -16,7 +16,7 @@ const validations = [
         .isLength({min:6}).withMessage('La contraseña debe tener al menos 6 caracteres')
         .custom(value => {
             if (!value.match(/^(?=.*[A-Z])/)) {
-              throw new Error('La contraseña debe contener al menos una letra mayúscula');
+            throw new Error('La contraseña debe contener al menos una letra mayúscula');
             }
                 return true})
         // .has().number().withMessage('La contraseña debe tener al menos un número'),

@@ -922,6 +922,26 @@ footer p {
     cursor: pointer;
   }
 
+  .error-product,
+  .error-product-tickets,
+  .error-product-img{
+    margin: auto;
+    text-align: left;
+    color: red;
+  }
+
+  .error-product{
+    width: 95%;
+  }
+
+.error-product-tickets{
+  width: 30%;
+}
+
+  .error-product-img{
+    width: 94%;
+  }
+
 
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ ----------------------------------------------------------*/
 @media (min-width: 480px) {

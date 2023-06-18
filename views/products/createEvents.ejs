@@ -12,22 +12,29 @@
     <main class="main-registro login-register">
         <section class="registro-form">
             <h2>Creación de eventos</h2>
+            <% errors.forEach(error => { %>
+                    <p class="error-product"><%= error.msg %></p>
+                <% }); %>
             <form action="/products/createEvents" method="POST" enctype="multipart/form-data">
-                <input type="text" name="nombre" placeholder="Título del Evento">
-                <input type="datetime-local" name="fecha">
-                <input type="text" placeholder="Lugar" name="ubicacion">
-                <input type="text" placeholder="Direccion" name="direccion">
+                <input type="text" name="nombre" value="<%= oldData.nombre %>" placeholder="Título del Evento">
+                <input type="datetime-local" name="fecha" value="<%= oldData.fecha %>">
+                <input type="text" placeholder="Lugar" name="ubicacion" value="<%= oldData.ubicacion %>">
+                <input type="text" placeholder="Direccion" name="direccion" value="<%= oldData.direccion %>">
                 <div class="agregar-input-precio-evento">
                     <label for="">Entradas</label>
-                    <input type="text" placeholder="Tipo de entrada" name="tipoEntrada" class="tipo-entrada-evento">
-                    <input type="number" placeholder="$1000 (Precio)" name="precio" class="precio-crear-evento">
-                    <input type="number" placeholder="Cantidad (Número)" name="cantidadEntradas" class="precio-crear-evento">
+                    <input type="text" placeholder="Tipo de entrada" name="tipoEntrada" class="tipo-entrada-evento" value="<%= oldData.tipoEntrada %>">
+                    <input type="number" placeholder="$1000 (Precio)" name="precio" class="precio-crear-evento" value="<%= oldData.precio %>">
+                    <input type="number" placeholder="Cantidad (Número)" name="cantidadEntradas" class="precio-crear-evento" value="<%= oldData.cantidadEntradas %>">
                     <button class="agregar-tipo-entrada">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </div>
                 <select name="categoria" id="" class="creacion-evento-categorias">
+                    <% if (!oldData.categoria) {%>
                     <option disabled selected>Categoría</option>
+                    <% } else {%> 
+                        <option disabled selected><%= oldData.categoria %></option>
+                    <% } %>
                     <option>Deportes</option>
                     <option>Recitales</option>
                     <option>Obras de teatro</option>
@@ -36,7 +43,11 @@
                 </select>
                 <div class="input-grupo-cargar-imagen-evento">
                     <label for="">Imagen del Evento</label>
-                    <input type="file" name="img" class="seleccionar-imagen">
+                    <% if(!oldData.img) {%>
+                        <input type="file" name="img" class="seleccionar-imagen" accept=".jpg, .jpeg, .png">
+                    <% } else {%>
+                        <p>Imagen cargada con éxito</p>
+                    <% } %>
                     <input type="submit" value="Cargar evento" class="enviar-evento">
                 </div>
                 <input type="hidden" name="eliminado" value="false">
