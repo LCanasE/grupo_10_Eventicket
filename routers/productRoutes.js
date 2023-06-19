@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 
 const productControllers = require('../controllers/productControllers');
-const multerMiddleware = require('../middlewares/multerMiddleware');
+const { uploadFile, handleMulterError } = require('../middlewares/multerMiddleware');
 const productValidateMiddleware = require('../middlewares/validateProductMiddleware');
 
 const router = express.Router();
@@ -24,7 +24,7 @@ router.get("/events", productControllers.getEvents);
 router.get("/createEvents", productControllers.getCreateEvent);
 
 // @POST /products/createEvents
-router.post("/createEvents", [multerMiddleware.single('img'), productValidateMiddleware.validateCreateProduct], productControllers.postCreateEvent);
+router.post("/createEvents", [uploadFile.single('img'), handleMulterError, productValidateMiddleware.validateCreateProduct], productControllers.postCreateEvent);
 
 // @GET /products/:id/editEvents
 router.get("/:id/editEvents", productControllers.getEditEvent);

@@ -1,7 +1,7 @@
 // Controlador de usuarios
 const path = require('path');
 const usersModel = require('../models/usersModel');
-const {validationResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 
 const userControllers = {
 
@@ -12,26 +12,29 @@ const userControllers = {
         res.render('editUser', { title: 'Edición de usuario' }),
 
     getRegister: (req, res) =>
-        res.render('register', { title: 'Registro' }),
+        res.render('register', { title: 'Registro', oldData: {}, errors: {} }),
 
     postRegister: (req, res) => {
-        const resultValidation = validationResult(req);
-        if (resultValidation.errors.length > 0) {
+        let validation = validationResult(req);
+        if (validation.errors.length > 0) {
+            console.log(validation);
             return res.render('register',{
-                errors: resultValidation.mapped(),
-                oldData: req.body
+                errors: validation.mapped(),
+                oldData: req.body,
+                title: 'Registro'
             })
-
+        } else {
+            return res.redirect('/');
         }
         
-        let newUser = req.body;
+        // let newUser = req.body;
 
-        newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
-        newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false
+        // newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
+        // newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false
 
-        usersModel.createOne(newUser);
+        // usersModel.createOne(newUser);
 
-        res.redirect('/',);
+        // res.redirect('/',);
     },
 
 }

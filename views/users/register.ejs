@@ -15,30 +15,38 @@
       <h2>Regístrate y asiste a tus eventos favoritos</h2>
       <form action="/users/register" method="POST">
         <article class="registro-datos">
-          <input id="registro-nombre" type="text" placeholder="Nombre" name="nombreRegForm" required />
-          <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" required />
+          <input id="registro-nombre" type="text" placeholder="Nombre" name="nombreRegForm" value="<%= oldData.nombreRegForm %>"/>
+          <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" value="<%= oldData.apellidoRegForm %>"/>
+          <div class="errors-nombre-apellido">
+          <% if(errors.nombreRegForm) {%>
+            <p><%= errors.nombreRegForm.msg %></p>
+          <% } %>
+          <% if(errors.apellidoRegForm) {%>
+            <p><%= errors.apellidoRegForm.msg %></p>
+          <% } %>
+        </div>
         </article>
         <article id="registro-email">
-          <input type="email" placeholder="Correo electrónico" name="emailRegForm" required />
+          <input type="email" placeholder="Correo electrónico" name="emailRegForm" value="<%= oldData.emailRegForm %>"/>
         </article>
 
         <article>
-          <select class="tipo-usuario" name="tipoUsuario" id="" >
+          <select class="tipo-usuario" name="tipoUsuario" id="">
             <option disabled selected>Tipo de Usuario</option>
-            <option>Espectador/a</option>
-            <option>Productor/a</option>
+            <option <%= oldData.tipoUsuario === 'Espectador/a' ? 'selected' : '' %>>Espectador/a</option>
+            <option <%= oldData.tipoUsuario === 'Productor/a' ? 'selected' : '' %>>Productor/a</option>
         </select>
         </article>
-
+      
         <article class="registro-password">
-          <input type="password" placeholder="Contraseña" name="passRegForm" required />
-          <input type="password" placeholder="Confirmar contraseña" name="checkPassRegForm" required />
+          <input type="password" placeholder="Contraseña" name="passRegForm" />
+          <input type="password" placeholder="Confirmar contraseña" name="checkPassRegForm" />
         </article>
         <article class="registro-tyc">
           <input type="checkbox" name="notificaciones"  checked />Deseo recibir la agenda de eventos próximos
         </article>
         <article class="registro-tyc">
-          <input type="checkbox" name="tyc" checked required />Acepto los Términos y Condiciones
+          <input type="checkbox" name="tyc" checked />Acepto los Términos y Condiciones
         </article>
         <article class="registro-botones">
           <input type="submit" id="registrate" value="Regístrate" />
