@@ -49,11 +49,13 @@ header {
   height: 100vh;
   display: none;
   background-color: #313d55;
-  top: 90px;
+  top: 75px;
+  left: 0;
   font-family: "Montserrat", "sans-serif";
   font-weight: bold;
   color: #fff;
   border: none;
+  z-index: 1;
 }
 
 .nav-bar li {
@@ -65,7 +67,6 @@ header {
   font-size: 24px;
   background: none;
   padding: 25px;
-  text-decoration: none;
   list-style: none;
 }
 
@@ -75,13 +76,23 @@ header {
   color: #fff;
 }
 
+a:visited {
+  text-decoration-line: none;
+  list-style: none;
+}
 .menu-burger {
+  font-size: 60px;
   transition: 1s;
   -webkit-transition: 1s;
   width: 40px;
   color: #313d55;
   position: absolute;
-  right: 6vh;
+
+}
+
+.menu-burger-container:hover > .nav-bar,
+.menu-burger-container i:hover > .nav-bar {
+  display: block;
 }
 
 .fa-user {
@@ -986,6 +997,10 @@ footer p {
     right: 10vh;
   }
 
+  .nav-bar {
+    top: 85px;
+  }
+
   .logo-eventicket {
     transition: 1s;
     -webkit-transition: 1s;
@@ -1205,6 +1220,10 @@ footer p {
 
   .menu-burger {
     width: 60px;
+  }
+
+  .nav-bar {
+    top: 100px;
   }
 
   .logo-eventicket {
@@ -1437,7 +1456,7 @@ footer p {
     display: inline-block;
     top: 0;
     position: absolute;
-    left:0px;
+    left: 0px;
     padding-top: 50px;
     width: 170px;
     height: 300px;
