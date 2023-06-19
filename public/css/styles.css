@@ -45,9 +45,9 @@ header {
 
 .nav-bar {
   position: fixed;
-  width: 100%;
+  width: 80%;
   height: 100vh;
-  display: none;
+/*   display: none; */
   background-color: #313d55;
   top: 75px;
   left: 0;
@@ -56,6 +56,21 @@ header {
   color: #fff;
   border: none;
   z-index: 1;
+}
+
+#menu-mobile {
+  display: none;
+  text-align: center;
+  &:target{
+    display: block;
+  }
+  
+}
+
+.cerrar-mobile {
+ font-size: 18px;
+ top: 10px;
+ 
 }
 
 .nav-bar li {
@@ -80,19 +95,20 @@ a:visited {
   text-decoration-line: none;
   list-style: none;
 }
+
 .menu-burger {
+  text-decoration: none;
   font-size: 60px;
   transition: 1s;
   -webkit-transition: 1s;
   width: 40px;
   color: #313d55;
   position: absolute;
-
+  cursor: pointer;
 }
 
-.menu-burger-container:hover > .nav-bar,
-.menu-burger-container i:hover > .nav-bar {
-  display: block;
+i:hover > .nav-bar {
+display: block;
 }
 
 .fa-user {
