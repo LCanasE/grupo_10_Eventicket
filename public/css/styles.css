@@ -295,12 +295,48 @@ footer p {
   height: calc(20vw);
   position: relative;
   overflow: hidden;
+  width: 1100%;
+  margin: auto;
+  animation: cambio 15s infinite alternate; 
+  animation-timing-function:ease-in;
+  display: flex;
+}
+
+.gallery-container-ul{
+width: 1100%;
+margin: 0;
+padding: 0;
+display: flex;
+}
+
+.gallery-container-li{
+  width: 100%;
+  list-style: none;
+}
+
+.gallery-container img{
+  width: 100%;
+  height: 100vh;
+}
+
+@keyframes cambio{
+  0% { margin-left: 0;}
+  20% { margin-left: 0;}
+
+  25% { margin-left: -100%;}
+  45% { margin-left: -100%;}
+  
+  50% { margin-left: -200%;}
+  70% { margin-left: -200%;}
+
+  75% { margin-left: -300%;}
+  100% { margin-left: -300%;}
 }
 
 .gallery-item {
   object-fit: cover;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 .gallery-btn {
