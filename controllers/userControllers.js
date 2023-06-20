@@ -20,11 +20,16 @@ const userControllers = {
         
         let newUser = req.body;
         //const user = {...req.body};
+        
 
-        const newPassword = bcrypt.hashSync(newUser.passRegForm, 12);
-        const newCheckPassword = bcrypt.hashSync(newUser.checkPassRegForm, 12);
+        //Hasheo de contraseña
+        const newPassword = bcrypt.hashSync(newUser.passRegForm, 12);    
         newUser.passRegForm = newPassword;
+        
+        //Hasheo de Confirmar Contraseña
+        const newCheckPassword = bcrypt.hashSync(newUser.checkPassRegForm, 12);   
         newUser.checkPassRegForm = newCheckPassword;
+        
         
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
@@ -35,14 +40,12 @@ const userControllers = {
 
         }
         
-        //let newUser = req.body;
-
         newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
         newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false
 
         usersModel.createOne(newUser);
 
-        res.redirect('/',);
+        res.redirect('/users/login',);
     },
 
 }

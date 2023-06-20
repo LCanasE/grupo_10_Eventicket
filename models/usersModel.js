@@ -17,6 +17,7 @@ const usuarios = {
     findById: function(id){
         const users = this.findAll();
         
+        
         let searched = users.find(userActual => userActual.id === id);
 
         if(!searched){

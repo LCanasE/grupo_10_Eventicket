@@ -1,5 +1,6 @@
 const {body} = require('express-validator');
 const path = require('path');
+const userControllers = require('../controllers/userControllers');
 
 const validations = [
 
@@ -14,6 +15,7 @@ const validations = [
         .notEmpty().withMessage('Por favor seleccione el tipo de usuario'),
     body('passRegForm')
         .isLength({min:6}).withMessage('La contraseña debe tener al menos 6 caracteres')
+
         .custom(value => {
             if (!value.match(/^(?=.*[A-Z])/)) {
               throw new Error('La contraseña debe contener al menos una letra mayúscula');
