@@ -4,9 +4,9 @@ const path = require('path');
 
 const productControllers = require('../controllers/productControllers');
 const multerMiddleware = require('../middlewares/multerMiddleware');
+const validateProduct = require('../middlewares/validateProductsMilddeware');
 
 const router = express.Router();
-
 
 // @GET /products/:id/eventsDetails
 router.get("/:id/eventsDetails", productControllers.getEventsDetails);
@@ -24,7 +24,7 @@ router.get("/events", productControllers.getEvents);
 router.get("/createEvents", productControllers.getCreateEvent);
 
 // @POST /products/createEvents
-router.post("/createEvents", multerMiddleware.single('img'), productControllers.postCreateEvent);
+router.post("/createEvents", [multerMiddleware.single('img'), validateProduct], productControllers.postCreateEvent);
 
 // @GET /products/:id/editEvents
 router.get("/:id/editEvents", productControllers.getEditEvent);

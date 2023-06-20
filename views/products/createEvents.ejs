@@ -13,27 +13,75 @@
         <section class="registro-form">
             <h2>Creación de eventos</h2>
             <form action="/products/createEvents" method="POST" enctype="multipart/form-data">
-                <input type="text" name="nombre" placeholder="Título del Evento">
-                <input type="datetime-local" name="fecha">
-                <input type="text" placeholder="Lugar" name="ubicacion">
-                <input type="text" placeholder="Direccion" name="direccion">
+                <input type="text" name="nombre" placeholder="Título del Evento" value="<%= oldData.nombre %>">
+                <% errors.forEach(error => { %>
+                    <% if(error.path === 'nombre') {%>
+                    <p class="error-msg"><%= error.msg %></p>
+                    <% } %>
+                <% }); %>
+                <input type="datetime-local" name="fecha" value="<%= oldData.fecha %>">
+                <% errors.forEach(error => { %>
+                    <% if(error.path === 'fecha') {%>
+                    <p class="error-msg"><%= error.msg %></p>
+                    <% } %>
+                <% }); %>
+                <input type="text" placeholder="Lugar" name="ubicacion" value="<%= oldData.ubicacion %>">
+                <% errors.forEach(error => { %>
+                    <% if(error.path === 'ubicacion') {%>
+                    <p class="error-msg"><%= error.msg %></p>
+                    <% } %>
+                <% }); %>
+                <input type="text" placeholder="Direccion" name="direccion" value="<%= oldData.direccion %>">
+                <% errors.forEach(error => { %>
+                    <% if(error.path === 'direccion') {%>
+                    <p class="error-msg"><%= error.msg %></p>
+                    <% } %>
+                <% }); %>
                 <div class="agregar-input-precio-evento">
                     <label for="">Entradas</label>
-                    <input type="text" placeholder="Tipo de entrada" name="tipoEntrada" class="tipo-entrada-evento">
-                    <input type="number" placeholder="$1000 (Precio)" name="precio" class="precio-crear-evento">
-                    <input type="number" placeholder="Cantidad (Número)" name="cantidadEntradas" class="precio-crear-evento">
+                    <input type="text" placeholder="Tipo de entrada" name="tipoEntrada" class="tipo-entrada-evento" value="<%= oldData.tipoEntrada %>">
+                    <input type="number" placeholder="$1000 (Precio)" name="precio" class="precio-crear-evento" value="<%= oldData.precio %>">
+                    <input type="number" placeholder="Cantidad (Número)" name="cantidadEntradas" class="precio-crear-evento" value="<%= oldData.cantidadEntradas %>">
                     <button class="agregar-tipo-entrada">
                         <i class="fa-solid fa-plus"></i>
                     </button>
+                    <% errors.forEach(error => { %>
+                        <% if(error.path === 'tipoEntrada') {%>
+                        <p class="error-msg"><%= error.msg %></p>
+                        <% } %>
+                    <% }); %>
+                    <% errors.forEach(error => { %>
+                        <% if(error.path === 'precio') {%>
+                        <p class="error-msg"><%= error.msg %></p>
+                        <% } %>
+                    <% }); %>
+                    <% errors.forEach(error => { %>
+                        <% if(error.path === 'cantidadEntradas') {%>
+                        <p class="error-msg"><%= error.msg %></p>
+                        <% } %>
+                    <% }); %>
                 </div>
                 <select name="categoria" id="" class="creacion-evento-categorias">
+                    <% let options = ['Deportes', 'Recialtes', 'Obras de teatro', 'Stand Up', 'Conferencias'] %>
                     <option disabled selected>Categoría</option>
-                    <option>Deportes</option>
+                    <% options.forEach(option => { %>
+                        <% if(oldData.categoria === options[option]) {%>
+                            <option selected><%= oldData.categoria %></option>
+                            <% } else {%>
+                            <option><%= option %></option>
+                            <% } %>
+                    <% }); %>
+                    <!-- <option>Deportes</option>
                     <option>Recitales</option>
                     <option>Obras de teatro</option>
                     <option>Stand Up</option>
-                    <option>Conferencias</option>
+                    <option>Conferencias</option> -->
                 </select>
+                <% errors.forEach(error => { %>
+                    <% if(error.path === 'categoria') {%>
+                    <p class="error-msg"><%= error.msg %></p>
+                    <% } %>
+                <% }); %>
                 <div class="input-grupo-cargar-imagen-evento">
                     <label for="">Imagen del Evento</label>
                     <input type="file" name="img" class="seleccionar-imagen">

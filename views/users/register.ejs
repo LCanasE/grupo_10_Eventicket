@@ -19,7 +19,7 @@
           <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" value="<%= oldData.apellidoRegForm %>"/>
           <% errors.forEach(error => { %>
             <% if(error.path === 'apellidoRegForm') {%>
-              <p><%= error.msg %></p>
+              <p class="error-msg"><%= error.msg %></p>
               <% } %>
           <% }); %>
         </article>
@@ -27,7 +27,7 @@
           <input type="email" placeholder="Correo electrónico" name="emailRegForm"  value="<%= oldData.emailRegForm %>"/>
           <% errors.forEach(error => { %>
             <% if(error.path === 'emailRegForm') {%>
-              <p><%= error.msg %></p>
+              <p class="error-msg"><%= error.msg %></p>
               <% } %>
           <% }); %>
         </article>
@@ -46,13 +46,12 @@
                 <option>Espectador/a</option>
                 <% } %>
               <% } %>
-              
-              <% if (oldData.tipoUsuario !== 'Espectador/a' && oldData.tipoUsuario !== 'Productor/a') { %>
-                <% errors.forEach(error => { %>
-                    <p><%= error.msg %></p>
-                <% }); %>
-              <% } %>
         </select>
+        <% errors.forEach(error => { %>
+          <% if(error.path === 'tipoUsuario') {%>
+          <p class="error-msg"><%= error.msg %></p>
+          <% } %>
+      <% }); %>
         </article>
 
         <article class="registro-password">
