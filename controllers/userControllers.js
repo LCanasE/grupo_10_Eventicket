@@ -22,7 +22,9 @@ const userControllers = {
         //const user = {...req.body};
 
         const newPassword = bcrypt.hashSync(newUser.passRegForm, 12);
+        const newCheckPassword = bcrypt.hashSync(newUser.checkPassRegForm, 12);
         newUser.passRegForm = newPassword;
+        newUser.checkPassRegForm = newCheckPassword;
         
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {

@@ -86,5 +86,16 @@
         "notificaciones": true,
         "tyc": true,
         "id": "9df2bf10-6206-404e-8cdf-dfd7457853e4"
+    },
+    {
+        "nombreRegForm": "willy",
+        "apellidoRegForm": "nieto",
+        "emailRegForm": "wl@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "$2b$12$Cm3oKjES9mptvBSmJ7v7JO9Ya62Ri9B67/afFvYZ8knqgh4GtRJ4u",
+        "checkPassRegForm": "$2b$12$u1KL36aISTykgyKNFc4cVe/7Cor9rkXfGOFx5I20dgZK4eYin/PyG",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "17c31c9a-016c-4e15-b49f-256685903123"
     }
 ]
