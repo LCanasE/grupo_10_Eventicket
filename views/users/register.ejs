@@ -18,11 +18,6 @@
           <input id="registro-nombre" type="text" placeholder="Nombre" name="nombreRegForm" value="<%= oldData.nombreRegForm %>" />
           <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" value="<%= oldData.apellidoRegForm %>"/>
           <% errors.forEach(error => { %>
-            <% if(error.path === 'nombreRegForm') {%>
-              <p><%= error.msg %></p>
-              <% } %>
-          <% }); %>
-          <% errors.forEach(error => { %>
             <% if(error.path === 'apellidoRegForm') {%>
               <p><%= error.msg %></p>
               <% } %>
@@ -51,11 +46,12 @@
                 <option>Espectador/a</option>
                 <% } %>
               <% } %>
-            <% errors.forEach(error => { %>
-              <% if(error.path === 'tipoUsuario' && error.value === 'Tipo de Usuario') {%>
-                <p><%= error.msg %></p>
-                <% } %>
-            <% }); %>
+              
+              <% if (oldData.tipoUsuario !== 'Espectador/a' && oldData.tipoUsuario !== 'Productor/a') { %>
+                <% errors.forEach(error => { %>
+                    <p><%= error.msg %></p>
+                <% }); %>
+              <% } %>
         </select>
         </article>
 

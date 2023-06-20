@@ -34,6 +34,7 @@ const userControllers = {
                 title: 'Crear'
             });
         }
+        console.log('USUARIO: ' + newUser);
         
         //let newUser = req.body;
 
