@@ -13,11 +13,7 @@
   <main class="main-registro login-register">
     <section class="registro-form">
       <h2>Regístrate y asiste a tus eventos favoritos</h2>
-      <% errors.forEach(error => { %>
-        <% if(error.path === 'nombreRegForm') {%>
-          <p><%= error.msg %></p>
-        <% } %>
-      <% }); %>
+        <% if(errors.nombreRegForm){%><p><%= errors.msg %></p> <% }; %>
       <form action="/users/register" method="POST">
         <article class="registro-datos">
           <input id="registro-nombre" type="text" placeholder="Nombre" name="nombreRegForm" value="<%= oldData.nombreRegForm %>" />

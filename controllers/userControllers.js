@@ -14,7 +14,7 @@ const userControllers = {
         res.render('editUser', { title: 'Edición de usuario' }),
 
     getRegister: (req, res) =>
-        res.render('register', { title: 'Registro', errors: [], oldData: {} }),
+        res.render('register', { title: 'Registro', errors: {}, oldData: {} }),
 
     postRegister: (req, res) => {
         
@@ -29,7 +29,7 @@ const userControllers = {
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
             return res.render('register',{
-                errors: resultValidation.errors,
+                errors: resultValidation.errors.mapped(),
                 oldData: req.body,
                 title: 'Crear'
             });
