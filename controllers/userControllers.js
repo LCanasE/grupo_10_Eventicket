@@ -4,11 +4,14 @@ const usersModel = require('../models/usersModel');
 const bcrypt = require ('bcrypt');
 
 const {validationResult} = require('express-validator');
+const { isContext } = require('vm');
 
 const userControllers = {
 
-    getLogin: (req, res) =>
-        res.render('login', { title: 'Inicio de sesión' }),
+    getLogin: (req, res) =>{
+        const error = req.query.error || '';
+
+        res.render('login', { title: 'Inicio de sesión', error })},
 
     getEditUser: (req, res) =>
         res.render('editUser', { title: 'Edición de usuario' }),
@@ -19,9 +22,7 @@ const userControllers = {
     postRegister: (req, res) => {
         
         let newUser = req.body;
-        //const user = {...req.body};
         
-
         //Hasheo de contraseña
         const newPassword = bcrypt.hashSync(newUser.passRegForm, 12);    
         newUser.passRegForm = newPassword;
@@ -48,6 +49,27 @@ const userControllers = {
         res.redirect('/users/login',);
     },
 
+        // El POST para hacer el logeo validando la contraseña hasheado y si existe el usuario buscado.
+        //Aun tengo que checkear del porque dejó de funcionar.
+    postLogin: (req,res) => {
+        const searchedUser = usersModel.findByEmail(req.body.emailLogin);
+     
+        if (!searchedUser) {
+            console.log(searchedUser);
+            return res.redirect('/users/login');
+            
+        }
+            const {passRegForm: hashedPassword} = searchedUser;
+            const isCorrect = bcrypt.compareSync(req.body.passRegForm, hashedPassword);
+
+           if (isCorrect) {
+            res.send('Acaba de iniciar sesion');
+           } else {
+            return res.redirect('/users/login?error=El email o la contraseña es invalido');
+           }
+        
+    }
+
 }
 
-module.exports = userControllers;
+module.exports = userControllers; 

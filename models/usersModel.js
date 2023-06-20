@@ -26,7 +26,7 @@ const usuarios = {
         return searched;
     },
 
-    /* 
+    // Se usa este findByEmail para  hacer el logeo 
     findByEmail: function(email){
          const users = this.findAll();
         
@@ -37,7 +37,7 @@ const usuarios = {
          }
          return searched;
      },
-     */
+
 
     createOne: function(newUser){
         let users = this.findAll();
