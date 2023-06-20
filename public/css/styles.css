@@ -47,7 +47,7 @@ header {
   position: fixed;
   width: 80%;
   height: 100vh;
-/*   display: none; */
+  /*   display: none; */
   background-color: #313d55;
   top: 75px;
   left: 0;
@@ -60,17 +60,17 @@ header {
 
 #menu-mobile {
   display: none;
-  text-align: center;
-  &:target{
+  text-align: right;
+  &:target {
     display: block;
   }
-  
 }
 
 .cerrar-mobile {
- font-size: 18px;
- top: 10px;
- 
+  font-size: 30px;
+  position: absolute;
+  text-align: right;
+  right: 5vw;
 }
 
 .nav-bar li {
@@ -102,13 +102,11 @@ a:visited {
   transition: 1s;
   -webkit-transition: 1s;
   width: 40px;
+  right: 10vw;
+  top: 2vh;
   color: #313d55;
   position: absolute;
   cursor: pointer;
-}
-
-i:hover > .nav-bar {
-display: block;
 }
 
 .fa-user {
@@ -1010,7 +1008,8 @@ footer p {
     -webkit-transition: 1s;
     width: 50px;
     position: absolute;
-    right: 10vh;
+    right: 5vw;
+    top: 3.5vh;
   }
 
   .nav-bar {
@@ -1234,10 +1233,6 @@ footer p {
     font-size: 24px;
   }
 
-  .menu-burger {
-    width: 60px;
-  }
-
   .nav-bar {
     top: 100px;
   }
@@ -1427,7 +1422,7 @@ footer p {
 
   .nav-bar {
     position: absolute;
-    left: -6vw;
+    /*     left: -6vw; */
     height: 100px;
     background: none;
     display: inline-block;
