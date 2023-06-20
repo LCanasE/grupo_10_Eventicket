@@ -3,7 +3,7 @@ const path = require('path');
 const usersModel = require('../models/usersModel');
 const bcrypt = require ('bcrypt');
 
-const {validationResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 
 const userControllers = {
 
@@ -14,7 +14,7 @@ const userControllers = {
         res.render('editUser', { title: 'Edición de usuario' }),
 
     getRegister: (req, res) =>
-        res.render('register', { title: 'Registro' }),
+        res.render('register', { title: 'Registro', errors: [], oldData: {} }),
 
     postRegister: (req, res) => {
         
@@ -29,20 +29,20 @@ const userControllers = {
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
             return res.render('register',{
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            })
-
+                errors: resultValidation.errors,
+                oldData: req.body,
+                title: 'Crear'
+            });
         }
         
         //let newUser = req.body;
 
-        newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
-        newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false
+        // newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
+        // newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false
 
-        usersModel.createOne(newUser);
+        // usersModel.createOne(newUser);
 
-        res.redirect('/',);
+        // res.redirect('/',);
     },
 
 }
