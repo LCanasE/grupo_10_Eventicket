@@ -1,6 +1,8 @@
 // Controlador de usuarios
 const path = require('path');
 const usersModel = require('../models/usersModel');
+const bcrypt = require ('bcrypt');
+
 const {validationResult} = require('express-validator');
 
 const userControllers = {
@@ -15,6 +17,15 @@ const userControllers = {
         res.render('register', { title: 'Registro' }),
 
     postRegister: (req, res) => {
+        
+        let newUser = req.body;
+        //const user = {...req.body};
+
+        const newPassword = bcrypt.hashSync(newUser.passRegForm, 12);
+        const newCheckPassword = bcrypt.hashSync(newUser.checkPassRegForm, 12);
+        newUser.passRegForm = newPassword;
+        newUser.checkPassRegForm = newCheckPassword;
+        
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
             return res.render('register',{
@@ -24,7 +35,7 @@ const userControllers = {
 
         }
         
-        let newUser = req.body;
+        //let newUser = req.body;
 
         newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
         newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false

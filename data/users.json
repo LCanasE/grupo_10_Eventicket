@@ -1,1 +1,101 @@
-[{"id":1,"nombreRegForm":"Ana","apellidoRegForm":"Maria","emailRegForm":"ana@gmail.com","tipoUsuario":"espectador","passRegForm":"15","checkPassRegForm":"15","notificaciones":true,"tyc":true},{"nombreRegForm":"Liliana","apellidoRegForm":"Cañas Eastman","emailRegForm":"lcanase@gmail.com","tipoUsuario":"Espectador/a","passRegForm":"123","checkPassRegForm":"123","notificaciones":true,"tyc":true,"id":2},{"nombreRegForm":"Manuela","apellidoRegForm":"Escobar","emailRegForm":"a@gmail.com","tipoUsuario":"Espectador/a","passRegForm":"123","checkPassRegForm":"123","notificaciones":true,"tyc":true,"id":3},{"nombreRegForm":"Liliana","apellidoRegForm":"Cañas Eastman","emailRegForm":"lcanase@gmail.com","tipoUsuario":"Productor/a","passRegForm":"234","checkPassRegForm":"234","notificaciones":true,"tyc":true,"id":"cebd256e-15c4-4727-a457-de384455bcfc"},{"nombreRegForm":"Gaston","apellidoRegForm":"Balatti","emailRegForm":"gaston@balatti.com","tipoUsuario":"Espectador/a","passRegForm":"123","checkPassRegForm":"123","notificaciones":true,"tyc":true,"id":"06e8be1b-4266-40c7-8f3a-ff2e0e96688c"},{"nombreRegForm":"Tomas ","apellidoRegForm":"Lovey","emailRegForm":"samotyevo0l1@gmail.com","tipoUsuario":"Espectador/a","passRegForm":"123","checkPassRegForm":"123","notificaciones":true,"tyc":true,"id":"af19e59c-b1ab-449d-878f-ede913e8b5a7"}]
+[
+    {
+        "id": 1,
+        "nombreRegForm": "Ana",
+        "apellidoRegForm": "Maria",
+        "emailRegForm": "ana@gmail.com",
+        "tipoUsuario": "espectador",
+        "passRegForm": "15",
+        "checkPassRegForm": "15",
+        "notificaciones": true,
+        "tyc": true
+    },
+    {
+        "nombreRegForm": "Liliana",
+        "apellidoRegForm": "Cañas Eastman",
+        "emailRegForm": "lcanase@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "123",
+        "checkPassRegForm": "123",
+        "notificaciones": true,
+        "tyc": true,
+        "id": 2
+    },
+    {
+        "nombreRegForm": "Manuela",
+        "apellidoRegForm": "Escobar",
+        "emailRegForm": "a@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "123",
+        "checkPassRegForm": "123",
+        "notificaciones": true,
+        "tyc": true,
+        "id": 3
+    },
+    {
+        "nombreRegForm": "Liliana",
+        "apellidoRegForm": "Cañas Eastman",
+        "emailRegForm": "lcanase@gmail.com",
+        "tipoUsuario": "Productor/a",
+        "passRegForm": "234",
+        "checkPassRegForm": "234",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "cebd256e-15c4-4727-a457-de384455bcfc"
+    },
+    {
+        "nombreRegForm": "Gaston",
+        "apellidoRegForm": "Balatti",
+        "emailRegForm": "gaston@balatti.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "123",
+        "checkPassRegForm": "123",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "06e8be1b-4266-40c7-8f3a-ff2e0e96688c"
+    },
+    {
+        "nombreRegForm": "Tomas ",
+        "apellidoRegForm": "Lovey",
+        "emailRegForm": "samotyevo0l1@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "123",
+        "checkPassRegForm": "123",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "af19e59c-b1ab-449d-878f-ede913e8b5a7"
+    },
+    {
+        "nombreRegForm": "f",
+        "apellidoRegForm": "fg",
+        "emailRegForm": "a@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "fdg",
+        "checkPassRegForm": "dfg",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "5761e1e8-7495-4f28-83d2-e31568c618a8"
+    },
+    {
+        "nombreRegForm": "willaim",
+        "apellidoRegForm": "n",
+        "emailRegForm": "w@gmail.com",
+        "tipoUsuario": "Productor/a",
+        "passRegForm": "$2b$12$1Zg4JOfc6m1hPNC46UvUnut7T2GsWrxdSvYXYDDjbwIMht2OrEZIG",
+        "checkPassRegForm": "trial",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "9df2bf10-6206-404e-8cdf-dfd7457853e4"
+    },
+    {
+        "nombreRegForm": "willy",
+        "apellidoRegForm": "nieto",
+        "emailRegForm": "wl@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "$2b$12$Cm3oKjES9mptvBSmJ7v7JO9Ya62Ri9B67/afFvYZ8knqgh4GtRJ4u",
+        "checkPassRegForm": "$2b$12$u1KL36aISTykgyKNFc4cVe/7Cor9rkXfGOFx5I20dgZK4eYin/PyG",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "17c31c9a-016c-4e15-b49f-256685903123"
+    }
+]
