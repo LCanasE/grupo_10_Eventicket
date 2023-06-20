@@ -28,6 +28,9 @@
         </article>
         <article id="registro-email">
           <input type="email" placeholder="Correo electrónico" name="emailRegForm" value="<%= oldData.emailRegForm %>"/>
+          <% if(errors.emailRegForm) {%>
+            <p><%= errors.emailRegForm.msg %></p>
+          <% } %>
         </article>
 
         <article>
@@ -36,6 +39,9 @@
             <option <%= oldData.tipoUsuario === 'Espectador/a' ? 'selected' : '' %>>Espectador/a</option>
             <option <%= oldData.tipoUsuario === 'Productor/a' ? 'selected' : '' %>>Productor/a</option>
         </select>
+        <% if(errors.tipoUsuario){%>
+          <p><%= errors.tipoUsuario.msg %></p>
+          <% } %>
         </article>
       
         <article class="registro-password">

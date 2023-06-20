@@ -17,7 +17,8 @@ const userControllers = {
     postRegister: (req, res) => {
         let validation = validationResult(req);
         if (validation.errors.length > 0) {
-            console.log(validation);
+            console.log(validation.mapped());
+            console.log(req.body);
             return res.render('register',{
                 errors: validation.mapped(),
                 oldData: req.body,
