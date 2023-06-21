@@ -5,45 +5,38 @@
   <%- include('../partials/head') %>
 </head>
 
-  <body>
-    
-    <header>
-      <%- include('../partials/header') %>
-    </header>
-    <main class="login-main login-register">
-      <section class="login-cuadro">
+<body>
+
+  <header>
+    <%- include('../partials/header') %>
+  </header>
+  <main class="login-main login-register">
+    <section class="login-cuadro">
       <h1 class="login-h1">Login</h1>
-      <form action="" method="">
-      <input class="login-input-texto" 
-      type="text" 
-      name="nombreUsuario" 
-      placeholder="Usuario"
-      required/>
+      <form action="/users/login" method="POST">
+        <input class="login-input-texto" type="text" name="nombreUsuario" placeholder="Usuario" required />
 
-      <input class="login-input-texto" 
-      type="password" 
-      name="contraseña" 
-      placeholder="Contraseña"
-      required/> <br />
+        <input class="login-input-texto" type="password" name="password" placeholder="Contraseña" required /> <br />
+        <article class="registro-tyc">
+          <input type="checkbox" checked name="sesionIniciada">
+          <label for="">Mantener sesion iniciada</label>
+        </article>
+        <article class="registro-tyc">
+          
+          <input type="checkbox" />Recuérdame
+        </article>
+        <article class="registro-botones">
 
-      <article class="registro-tyc">
-        <input type="checkbox" />Recuérdame
-      </article>
-      <article class="registro-botones">
-
-        <input
-          type="submit"
-          name="registrate"
-          id="login-button"
-          value="Login"
-        />
-      </article>
-      <p class="login-contraseña-olvidada">¿Olvidaste la contraseña? <a class="login-click-aqui" href="/users/registro" target="_blank">Click aqui </a></p>
-    </form>
+          <input type="submit" id="login-button"/>
+        </article>
+        <p class="login-contraseña-olvidada">¿Olvidaste la contraseña? <a class="login-click-aqui"
+            href="/users/registro" target="_blank">Click aqui </a></p>
+      </form>
     </section>
-    </main>
-    <footer>
-      <%- include('../partials/footer') %>
-    </footer>
-  </body>
+  </main>
+  <footer>
+    <%- include('../partials/footer') %>
+  </footer>
+</body>
+
 </html>

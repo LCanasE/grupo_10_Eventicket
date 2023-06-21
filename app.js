@@ -2,6 +2,8 @@ const express = require("express");
 const path = require('path');
 const app = express();
 const methodOverride = require('method-override');
+const cookieParser = require('cookie-parser');
+const expressSession = require('express-session');
 
 const mainRoutes = require('./routers/mainRoutes');
 const productRoutes = require('./routers/productRoutes');
@@ -20,6 +22,30 @@ app.use(express.urlencoded({extended: true})); // para usar los datos que llegan
 app.use(express.json()); // Para leer archivos .JSON
 app.use(methodOverride('_method')); // Para usar @PUT y @DELETE
 app.use(express.static("public"));
+app.use(cookieParser());
+app.use(expressSession({ 
+        secret: 'Secreto oculto',
+        resave: false,
+        saveUninitialized: false
+    }))
+
+app.use((req, res, next) => {
+    if(req.cookies.email){
+        const usersModel = require('./models/usersModel');
+
+        const user = usersModel.findByEmail(req.cookies.nombreUsuario);
+
+        if(user){
+        delete user.id;
+        delete user.passRegForm;
+        delete user.checkPassRegForm;
+
+        req.session.user = user;
+        }
+    }
+
+    next();
+});
 
 // ROUTES
 app.use(mainRoutes);

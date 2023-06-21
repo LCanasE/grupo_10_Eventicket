@@ -7,6 +7,9 @@ const validations = require('../middlewares/validateRegisterMiddleware');
 // @GET /users/login
 router.get("/login", userControllers.getLogin);
 
+// @POST /post/login
+router.post("/login", userControllers.postLogin);
+
 // @GET /users/register
 router.get("/register", userControllers.getRegister);
 

@@ -53,5 +53,16 @@
         "notificaciones": true,
         "tyc": true,
         "id": "06e8be1b-4266-40c7-8f3a-ff2e0e96688c"
+    },
+    {
+        "nombreRegForm": "Gaston",
+        "apellidoRegForm": "Balatti",
+        "emailRegForm": "gaston10@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "$2a$12$5WVrLvW93Z8dGIEdWsJDN.vXlVloYsq5re7F4AY26fy/cQh3.mPeW",
+        "checkPassRegForm": "$2a$12$CxQe7A5h6NnQi0XuNs0l6.QmdrPnndPGp0HEWTTibTlpaRWE/a8bq",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "fc4f1b70-0f36-4766-b6ce-0fa6b2568f18"
     }
 ]
