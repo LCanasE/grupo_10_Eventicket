@@ -3,7 +3,7 @@
 
 <% productos.forEach(producto => { %>
     <% if(producto.fecha.split(' ')[2] === meses[indice]) {%>
-        <article class="product">
+        <article class='product'>
             <a href="/products/<%= producto.id %>/eventsDetails" class="product-link-detail">
                 <div class="product-img">
                     <img src=<%= producto.img %> alt="Error">

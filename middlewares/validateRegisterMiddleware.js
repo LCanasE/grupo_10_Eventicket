@@ -13,18 +13,11 @@ const validations = [
     body('tipoUsuario')
         .notEmpty().withMessage('Por favor seleccione el tipo de usuario'),
     body('passRegForm')
-        .isLength({min:6}).withMessage('La contraseña debe tener al menos 6 caracteres')
-        // .custom(value => {
-        //     if (!value.match(/^(?=.*[A-Z])/)) {
-        //     throw new Error('La contraseña debe contener al menos una letra mayúscula');
-        //     }
-        //         return true})
-        // .has().number().withMessage('La contraseña debe tener al menos un número'),
-    // body('checkPassRegForm')
-    //     Validar que la contraseña sea igual a la ingresada en 'passRegForm',
-    // body('notificaciones')
-    //     
-
+        .notEmpty().withMessage('Ingrese una contraseña').bail()
+        .isLength({min:6}).withMessage('La contraseña debe tener al menos 6 caracteres').bail()
+        .matches(/[a-z]/).withMessage('La contraseña debe tener una minúscula').bail()
+        .matches(/[A-Z]/).withMessage('La contraseña debe tener una mayúscula').bail()
+        .matches(/\d/).withMessage('La contraseña debe tener un número').bail(),
 ]
 
 module.exports = validations

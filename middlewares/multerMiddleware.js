@@ -47,10 +47,14 @@ const fileFilter = (req, file, cb) => {
 const uploadFile = multer({ storage, fileFilter });
 
 const handleMulterError = (err, req, res, next) => {
-    console.log('OBJETO ERR: ' + err);
-    console.log(err.message);
     if (err) {
-        res.render('createEvents', { error: err.message, title: 'Crear', oldData: {}, errors: {}, imageName: {} });
+        req.errorImagen = err.message;
+        res.locals.errorImagen = err.message;
+        res.render('createEvents', { 
+            title: 'Crear',
+            oldData: req.body,
+            errors: {},
+            imageName: {} });
     } else {
         next(err);
     }

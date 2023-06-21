@@ -21,31 +21,15 @@ const validations = {
             .isNumeric().withMessage('El precio debe ser un número'),
         body('categoria')
             .notEmpty().withMessage('Seleccione una categoría'),
-        // body('img').custom((value, { req }) => {
-        //     let file = req.file;
-        //     let acceptedExtensions = ['.jpg', '.jpeg', '.png'];
-        //     if(!file){
-        //         throw new Error('Suba una imagen');
-        //     } else {
-        //         let fileExtension = path.extname(file.originalname);
-        //         if(!acceptedExtensions.includes(fileExtension)) {
-        //             throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`)
-        //         }
-        //         return true;
-        //     }
-        // })
+        body('img').custom((value, { req }) => {
+            let file = req.file;
+            if (!file) {
+                throw new Error('Suba una imagen');
+            }
+            return true;
+            })
+            
     ]
 }
 
     module.exports = validations;
-
-    // nombre
-// fecha
-// ubicacion
-// direccion
-// tipoEntrada
-// precio
-// cantidadEntradas
-// categoria
-// img
-

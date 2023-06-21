@@ -2,6 +2,7 @@
 const path = require('path');
 const usersModel = require('../models/usersModel');
 const { validationResult } = require('express-validator');
+const { bcrypt, hashSync, compareSync } = require('bcryptjs');
 
 const userControllers = {
 
@@ -25,17 +26,29 @@ const userControllers = {
                 title: 'Registro'
             })
         } else {
-            return res.redirect('/');
+            let newUser = req.body;
+            newUser.passRegForm = hashSync(newUser.passRegForm, 12);
+            let check = compareSync(newUser.checkPassRegForm, newUser.passRegForm);
+            console.log(newUser);
+            if(!check) {
+                return res.render('register', {
+                    errors: {
+                        checkPassRegForm: {
+                            msg: 'Las contraseñas no coinciden'
+                        }
+                    },
+                    oldData: req.body,
+                    title: 'Registro'
+                })
+            } else {
+                newUser.checkPassRegForm = hashSync(newUser.passRegForm, 12);
+                newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false;
+                newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false;
+                console.log(req.body);
+                // usersModel.createOne(newUser);
+                return res.redirect('/');
+            }
         }
-        
-        // let newUser = req.body;
-
-        // newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
-        // newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false
-
-        // usersModel.createOne(newUser);
-
-        // res.redirect('/',);
     },
 
 }

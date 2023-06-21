@@ -942,6 +942,11 @@ footer p {
     width: 94%;
   }
 
+  .input-info{
+    margin: 0 auto;
+    font-size: 12px;
+    width: 90%;
+  }
 
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ ----------------------------------------------------------*/
 @media (min-width: 480px) {
@@ -1348,7 +1353,9 @@ footer p {
   .product-edition .buy form button{
     font-size: 1.5vw;
   }
-
+  .input-info{
+    text-align: left;
+  }
 }
 
 /* ------------------ DESKTOP 1200 ------------------ */

@@ -19,17 +19,17 @@
           <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" value="<%= oldData.apellidoRegForm %>"/>
           <div class="errors-nombre-apellido">
           <% if(errors.nombreRegForm) {%>
-            <p><%= errors.nombreRegForm.msg %></p>
+            <p class="error-product"><%= errors.nombreRegForm.msg %></p>
           <% } %>
           <% if(errors.apellidoRegForm) {%>
-            <p><%= errors.apellidoRegForm.msg %></p>
+            <p class="error-product"><%= errors.apellidoRegForm.msg %></p>
           <% } %>
         </div>
         </article>
         <article id="registro-email">
           <input type="email" placeholder="Correo electrónico" name="emailRegForm" value="<%= oldData.emailRegForm %>"/>
           <% if(errors.emailRegForm) {%>
-            <p><%= errors.emailRegForm.msg %></p>
+            <p class="error-product"><%= errors.emailRegForm.msg %></p>
           <% } %>
         </article>
 
@@ -40,13 +40,20 @@
             <option <%= oldData.tipoUsuario === 'Productor/a' ? 'selected' : '' %>>Productor/a</option>
         </select>
         <% if(errors.tipoUsuario){%>
-          <p><%= errors.tipoUsuario.msg %></p>
+          <p class="error-product"><%= errors.tipoUsuario.msg %></p>
           <% } %>
         </article>
       
         <article class="registro-password">
           <input type="password" placeholder="Contraseña" name="passRegForm" />
+          <p class="input-info">Mínimo seis caracteres, una mayuscula, una minuscula y un número</p>
+          <% if(errors.passRegForm){%>
+            <p class="error-product"><%= errors.passRegForm.msg %></p>
+            <% } %>
           <input type="password" placeholder="Confirmar contraseña" name="checkPassRegForm" />
+          <% if(errors.checkPassRegForm) {%>
+            <p class="error-product"><%= errors.checkPassRegForm.msg %></p>
+          <% } %>
         </article>
         <article class="registro-tyc">
           <input type="checkbox" name="notificaciones"  checked />Deseo recibir la agenda de eventos próximos

@@ -40,43 +40,31 @@ const productControllers = {
     },
 
     getCreateEvent: (req, res) => {
-    res.render('createEvents', { title: 'Crear', errors: {}, oldData: {}, imageName: false})
+    res.render('createEvents', { title: 'Crear', errors: {}, oldData: {}, imageName: false, errorImagen: req.errorImagen || '', reqFile: req.file})
     },
 
     postCreateEvent: (req, res) => {
         let validation = validationResult(req);
         let eventoNuevo = req.body;
         console.log(eventoNuevo);
-        eventoNuevo.img = '';
-        console.log(req.file);
-        if (req.file) {
-            eventoNuevo.img = req.file.filename;
-        }
-
-        // if (req.file && (eventoNuevo.nombre === '' || eventoNuevo.fecha === '' || eventoNuevo.ubicacion === '' || eventoNuevo.direccion === '' || eventoNuevo.tipoEntrada === '' || eventoNuevo.precio === '')) {
-        //     let categoria = eventoNuevo.categoria.toLowerCase();
-        //     const categoriaCarpeta = {
-        //     'deportes': 'deportes',
-        //     'recitales': 'recitales',
-        //     'stand up': 'standUp',
-        //     'conferencias': 'conferencias',
-        //     'obras de teatro': 'obrasTeatro'
-        //     };
-        //     let carpeta = categoriaCarpeta[categoria] || '';
-        //     const imagePath = path.join(__dirname, `../public/img/events/${carpeta === '' ? '' : `${carpeta}/`}${req.file.filename}`);
-        //     console.log('RUTA DE LA IMAGEN:' + imagePath);
-        //     fs.unlinkSync(imagePath);
-        // }
+        // eventoNuevo.img = '';
+        // console.log(req.file);
 
         if(validation.errors.length > 0){
-            // console.log(eventoNuevo);
-            // console.log(validation.errors);
+            console.log(eventoNuevo);
+            console.log(validation.errors);
             return res.render('createEvents', { 
                 errors: validation.mapped(),
                 oldData: eventoNuevo,
                 imageName: req.file ? req.file.filename : '',
-                title: 'Crear'  })
+                title: 'Crear',
+                errorImagen: req.errorImagen || '',
+                reqFile: req.file});
         };
+
+        if (req.file) {
+            eventoNuevo.img = req.file.filename;
+        }
 
         if(!req.body.fecha){
             return res.render('createEvents', {title:'Crear'});

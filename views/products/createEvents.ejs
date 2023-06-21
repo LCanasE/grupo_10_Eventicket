@@ -74,8 +74,11 @@
                         <label for="">Vuelva a cargar la imagen</label>
                         <input type="file" name="img" class="seleccionar-imagen">
                     <% } %>
-                    <% if(errors.img) {%>
+                    <% if(errors.img) { %>
                         <p class="error-product"><%= errors.img.msg %></p>
+                    <% } %>
+                    <% if(errorImagen) {%>
+                        <p class="error-product"><%= errorImagen %></p>
                     <% } %>
                     <input type="submit" value="Cargar evento" class="enviar-evento">
                 </div>
