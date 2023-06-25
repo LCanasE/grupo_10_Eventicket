@@ -87,7 +87,7 @@ RETROALIMENTACIÓN "Starfish"
     - Utilizar el tablero trello para seguimiento de las actividades y asignación de las mismas.
 
 
-2023/06 RETRO SPRINT 3:
+2023/06 RETRO SPRINT 4:
 
 1. KEEP DOING:
 
