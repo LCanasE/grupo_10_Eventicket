@@ -11,11 +11,11 @@ const userControllers = {
     getLogin: (req, res) => {
         const error = req.query.error || '';
 
-        res.render('login', { title: 'Inicio de sesión', error, userData: {}})
+        res.render('login', { title: 'Inicio de sesión', error, userData:{}})
     },
 
     getEditUser: (req, res) =>
-        res.render('editUser', { title: 'Edición de usuario' }),
+        res.render('editUser', { title: 'Edición de usuario'}),
 
     getRegister: (req, res) =>
         res.render('register', { title: 'Registro', errors: [], oldData: {} }),
@@ -48,7 +48,7 @@ const userControllers = {
             return res.render('register', {
                 errors: resultValidation.errors,
                 oldData: req.body,
-                title: 'Crear'
+                title: 'Crear', userData: req.session.user
             });
         } else {
             //Hasheo de contraseña
@@ -65,7 +65,7 @@ const userControllers = {
                         }
                     },
                     oldData: req.body,
-                    title: 'Crear'
+                    title: 'Crear', userData: req.session.user
                 })
             } else {
 

@@ -26,14 +26,15 @@
       <li class="nav-crear nav-enlaces">Crear Evento</li></a
     >
 
-    <% if (!userData.nombreRegForm) { %>
-    <a class="nav-registro-a" href="/users/register"
-      ><li class="nav-registro">Registrarse</li></a>
-
-    <a href="/users/login"><li class="nav-login">Iniciar Sesión</li></a>
-      <% } else {%>
+    <% if (locals.isLogged) { %>
+      <li class="nav-inicio nav-enlaces">Hola! <%= locals.user.nombreRegForm %></li>
       
-        <li class="nav-inicio nav-enlaces">Hola! <%= userData.nombreRegForm %></li>
+      <% } else {%>
+        
+        <a class="nav-registro-a" href="/users/register"
+          ><li class="nav-registro">Registrarse</li></a>
+    
+        <a href="/users/login"><li class="nav-login">Iniciar Sesión</li></a>
 
         <% } %>
     <a href="/users/editUser"><i class="fas fa-user" style="color: #313d55"></i></a>

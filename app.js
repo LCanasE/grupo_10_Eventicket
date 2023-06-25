@@ -4,6 +4,7 @@ const app = express();
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 const mainRoutes = require('./routers/mainRoutes');
 const productRoutes = require('./routers/productRoutes');
@@ -16,6 +17,7 @@ app.use(express.static("public"));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(expressSession({ secret: 'Grupo10-Eventicket', resave: false, saveUninitialized: false})),
+app.use(userLoggedMiddleware);
 
 app.set('view engine', 'ejs');
 app.set('views', [
