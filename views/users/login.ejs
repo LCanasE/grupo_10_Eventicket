@@ -13,11 +13,14 @@
     <main class="login-main login-register">
       <section class="login-cuadro">
       <h1 class="login-h1">Login</h1>
-      <form action="" method="">
+
+      <form action="/users/login" method="POST">
+
+        <h1><%= error %></h1>
       <input class="login-input-texto" 
-      type="text" 
-      name="nombreUsuario" 
-      placeholder="Usuario"
+      type="email" 
+      name="emailLogin" 
+      placeholder="Email"
       required/>
 
       <input class="login-input-texto" 

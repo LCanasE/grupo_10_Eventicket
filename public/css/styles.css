@@ -58,7 +58,7 @@ header {
   z-index: 1;
 }
 
-#menu-mobile {
+#menu {
   display: none;
   text-align: right;
   &:target {
@@ -97,7 +97,6 @@ a:visited {
 }
 
 .menu-burger {
-  text-decoration: none;
   font-size: 60px;
   transition: 1s;
   -webkit-transition: 1s;
@@ -1415,14 +1414,24 @@ footer p {
   main {
     padding-bottom: 6vh;
   }
-
+  .cerrar-mobile {
+    display: none;
+  }
   .menu-burger {
     display: none;
   }
 
+  .linkeado-burger {
+    display: none;
+  }
+
+  #menu {
+    display: block;
+  }
+
   .nav-bar {
     position: absolute;
-    /*     left: -6vw; */
+    left: 16vw;
     height: 100px;
     background: none;
     display: inline-block;

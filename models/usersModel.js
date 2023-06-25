@@ -17,6 +17,7 @@ const usuarios = {
     findById: function(id){
         const users = this.findAll();
         
+        
         let searched = users.find(userActual => userActual.id === id);
 
         if(!searched){
@@ -25,16 +26,18 @@ const usuarios = {
         return searched;
     },
 
-    // findByEmail: function(email){
-    //     const users = this.findAll();
+    // Se usa este findByEmail para  hacer el logeo 
+    findByEmail: function(email){
+         const users = this.findAll();
         
-    //     let searched = users.find(userActual => userActual.email === email);
+         let searched = users.find(userActual => userActual.email === email);
 
-    //     if(!searched){
-    //         searched = null;
-    //     }
-    //     return searched;
-    // },
+         if(!searched){
+             searched = null;
+         }
+         return searched;
+     },
+
 
     createOne: function(newUser){
         let users = this.findAll();

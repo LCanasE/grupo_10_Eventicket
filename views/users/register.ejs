@@ -13,32 +13,66 @@
   <main class="main-registro login-register">
     <section class="registro-form">
       <h2>Regístrate y asiste a tus eventos favoritos</h2>
-      <form action="/users/register" method="POST">
+        <form action="/users/register" method="POST">
         <article class="registro-datos">
-          <input id="registro-nombre" type="text" placeholder="Nombre" name="nombreRegForm" required />
-          <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" required />
+          <input id="registro-nombre" type="text" placeholder="Nombre" name="nombreRegForm" value="<%= oldData.nombreRegForm %>" />
+          <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" value="<%= oldData.apellidoRegForm %>"/>
+          <% errors.forEach(error => { %>
+            <% if(error.path === 'apellidoRegForm') {%>
+              <p class="error-msg"><%= error.msg %></p>
+              <% } %>
+          <% }); %>
         </article>
         <article id="registro-email">
-          <input type="email" placeholder="Correo electrónico" name="emailRegForm" required />
+          <input type="email" placeholder="Correo electrónico" name="emailRegForm"  value="<%= oldData.emailRegForm %>"/>
+          <% errors.forEach(error => { %>
+            <% if(error.path === 'emailRegForm') {%>
+              <p class="error-msg"><%= error.msg %></p>
+              <% } %>
+          <% }); %>
         </article>
 
         <article>
-          <select class="tipo-usuario" name="tipoUsuario" id="" >
+          <select class="tipo-usuario" name="tipoUsuario" id="">
+            <% if(!oldData.tipoUsuario) { %>
             <option disabled selected>Tipo de Usuario</option>
             <option>Espectador/a</option>
             <option>Productor/a</option>
+            <% } else {%>
+              <option selected><%= oldData.tipoUsuario %></option>
+              <% if(oldData.tipoUsuario === 'Espectador/a') {%>
+                <option>Productor/a</option>
+              <% } else if(oldData.tipoUsuario === 'Productor/a'){%>
+                <option>Espectador/a</option>
+                <% } %>
+              <% } %>
         </select>
+        <% errors.forEach(error => { %>
+          <% if(error.path === 'tipoUsuario') {%>
+          <p class="error-msg"><%= error.msg %></p>
+          <% } %>
+      <% }); %>
         </article>
 
         <article class="registro-password">
-          <input type="password" placeholder="Contraseña" name="passRegForm" required />
-          <input type="password" placeholder="Confirmar contraseña" name="checkPassRegForm" required />
+          <input type="password" placeholder="Contraseña" name="passRegForm"  />
+          <% errors.forEach(error => { %>
+            <% if(error.path === 'passRegForm') {%>
+              <p><%= error.msg %></p>
+              <% } %>
+          <% }); %>
+          <input type="password" placeholder="Confirmar contraseña" name="checkPassRegForm"  />
+          <% errors.forEach(error => { %>
+            <% if(error.path === 'checkPassRegForm') {%>
+              <p><%= error.msg %></p>
+              <% } %>
+          <% }); %>
         </article>
         <article class="registro-tyc">
           <input type="checkbox" name="notificaciones"  checked />Deseo recibir la agenda de eventos próximos
         </article>
         <article class="registro-tyc">
-          <input type="checkbox" name="tyc" checked required />Acepto los Términos y Condiciones
+          <input type="checkbox" name="tyc" checked  />Acepto los Términos y Condiciones
         </article>
         <article class="registro-botones">
           <input type="submit" id="registrate" value="Regístrate" />
