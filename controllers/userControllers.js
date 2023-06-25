@@ -1,17 +1,18 @@
 // Controlador de usuarios
 const path = require('path');
 const usersModel = require('../models/usersModel');
-const bcrypt = require ('bcrypt');
+const bcrypt = require('bcrypt');
 
-const {validationResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 const { isContext } = require('vm');
 
 const userControllers = {
 
-    getLogin: (req, res) =>{
+    getLogin: (req, res) => {
         const error = req.query.error || '';
 
-        res.render('login', { title: 'Inicio de sesión', error })},
+        res.render('login', { title: 'Inicio de sesión', error })
+    },
 
     getEditUser: (req, res) =>
         res.render('editUser', { title: 'Edición de usuario' }),
@@ -20,54 +21,90 @@ const userControllers = {
         res.render('register', { title: 'Registro', errors: [], oldData: {} }),
 
     postRegister: (req, res) => {
-        
-        let newUser = req.body;
-        
-        //Hasheo de contraseña
-        const newPassword = bcrypt.hashSync(newUser.passRegForm, 12);    
-        newUser.passRegForm = newPassword;
-        
-        //Hasheo de Confirmar Contraseña
-        const newCheckPassword = bcrypt.hashSync(newUser.checkPassRegForm, 12);   
-        newUser.checkPassRegForm = newCheckPassword;
-        
-        
+
+        //Chequear si el email ya existe
+        let searchUser = usersModel.findByEmail(req.body.emailRegForm)
+        if (searchUser){
+            //Devuelve al register si el email ya existe
+            return res.render('register', {
+                errors: {
+                    checkEmail: {
+                        msg: "Este email ya ha sido registrado"
+                    }
+                },
+                oldData: req.body,
+                title: 'Crear'
+            })
+        }
+      
+
+
+
+
+
+
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
-            return res.render('register',{
+            return res.render('register', {
                 errors: resultValidation.errors,
                 oldData: req.body,
                 title: 'Crear'
             });
+        } else {
+            //Hasheo de contraseña
+            let newUser = req.body;
+            const newPassword = bcrypt.hashSync(newUser.passRegForm, 12);
+            newUser.passRegForm = newPassword;
+
+            let checkPassword = bcrypt.compareSync(newUser.checkPassRegForm, newUser.passRegForm)
+            if (!checkPassword) {
+                return res.render('register', {
+                    errors: {
+                        checkPassword: {
+                            msg: "Las contraseñas no coinciden"
+                        }
+                    },
+                    oldData: req.body,
+                    title: 'Crear'
+                })
+            } else {
+
+                //Hasheo de Confirmar Contraseña
+                const newCheckPassword = bcrypt.hashSync(newUser.checkPassRegForm, 12);
+                newUser.checkPassRegForm = newCheckPassword;
+                newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
+                newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false
+
+                usersModel.createOne(newUser);
+
+                //Redirecciona al login para iniciar sesión
+                res.redirect('/users/login',);
+                //Redirecciona al Home ya logueado
+                //res.redirect('/')
+            }
         }
-        
-        newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false
-        newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false
-
-        // usersModel.createOne(newUser);
-
-        res.redirect('/users/login',);
     },
 
-        // El POST para hacer el logeo validando la contraseña hasheado y si existe el usuario buscado.
-        //Aun tengo que checkear del porque dejó de funcionar.
-    postLogin: (req,res) => {
+    // El POST para hacer el logeo validando la contraseña hasheado y si existe el usuario buscado.
+    //Aun tengo que checkear del porque dejó de funcionar.
+    postLogin: (req, res) => {
         const searchedUser = usersModel.findByEmail(req.body.emailLogin);
-     
-        if (!searchedUser) {
-            console.log(searchedUser);
-            return res.redirect('/users/login');
-            
-        }
-            const {passRegForm: hashedPassword} = searchedUser;
-            const isCorrect = bcrypt.compareSync(req.body.passRegForm, hashedPassword);
 
-           if (isCorrect) {
-            res.send('Acaba de iniciar sesion');
-           } else {
+        if (!searchedUser) {
+            return res.redirect('/users/login?error=El email o la contraseña es inválido');
+
+        }
+        const { passRegForm: hashedPassword } = searchedUser;
+        const isCorrect = bcrypt.compareSync(req.body.passwordLogin, hashedPassword);
+
+        if (isCorrect) {
+            return res.redirect('/');
+        } else {
             return res.redirect('/users/login?error=El email o la contraseña es invalido');
-           }
+        }
+
         
+
     }
 
 }

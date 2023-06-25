@@ -30,8 +30,9 @@ const usuarios = {
     findByEmail: function(email){
          const users = this.findAll();
         
-         let searched = users.find(userActual => userActual.email === email);
+         let searched = users.find(userActual => userActual.emailRegForm === email);
 
+        //console.log(searched)
          if(!searched){
              searched = null;
          }
@@ -79,5 +80,5 @@ const usuarios = {
         }
 }
 
-
+//console.log(usuarios.findByEmail('samotyevo0l1@gmail.com'))
 module.exports = usuarios;
