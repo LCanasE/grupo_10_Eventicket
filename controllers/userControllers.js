@@ -11,7 +11,7 @@ const userControllers = {
     getLogin: (req, res) => {
         const error = req.query.error || '';
 
-        res.render('login', { title: 'Inicio de sesión', error })
+        res.render('login', { title: 'Inicio de sesión', error, userData: {}})
     },
 
     getEditUser: (req, res) =>
@@ -24,7 +24,7 @@ const userControllers = {
 
         //Chequear si el email ya existe
         let searchUser = usersModel.findByEmail(req.body.emailRegForm)
-        if (searchUser){
+        if (searchUser) {
             //Devuelve al register si el email ya existe
             return res.render('register', {
                 errors: {
@@ -35,8 +35,8 @@ const userControllers = {
                 oldData: req.body,
                 title: 'Crear'
             })
-        }
-      
+        };
+
 
 
 
@@ -98,15 +98,23 @@ const userControllers = {
         const isCorrect = bcrypt.compareSync(req.body.passwordLogin, hashedPassword);
 
         if (isCorrect) {
+            //Cookie para mantener la sesión iniciada
+            if (!!req.body.rememberme) {
+                res.cookie('email', searchedUser.emailRegForm, {
+                    maxAge: 1000 * 60 * 60 * 24 * 365 * 999
+                });
+            }
+            
+            delete searchedUser.id;
+            delete searchedUser.passRegForm;
+            delete searchedUser.checkPassRegForm;
+            req.session.user = searchedUser;
+            
             return res.redirect('/');
         } else {
             return res.redirect('/users/login?error=El email o la contraseña es invalido');
         }
-
-        
-
     }
-
 }
 
 module.exports = userControllers; 
