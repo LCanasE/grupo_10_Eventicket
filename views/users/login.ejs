@@ -14,7 +14,8 @@
     <section class="login-cuadro">
       <h1 class="login-h1">Login</h1>
       <form action="/users/login" method="POST">
-        <input class="login-input-texto" type="text" name="nombreUsuario" placeholder="Usuario" required />
+        <p style="margin:0; color: red; font-size: 20px;"><%= error %></p>
+        <input class="login-input-texto" type="text" name="nombreUsuario" placeholder="Mail" required />
 
         <input class="login-input-texto" type="password" name="password" placeholder="Contraseña" required /> <br />
         <article class="registro-tyc">

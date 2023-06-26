@@ -50,7 +50,7 @@
                         <i class="fa-solid fa-plus"></i>
                         </button>
                 </div>
-                <select name="categoria" id="" class="creacion-evento-categorias">
+                <select id="categoriaSelect" name="categoria" class="creacion-evento-categorias">
                     <% if (!oldData.categoria) {%>
                     <option disabled selected>Categoría</option>
                     <% } else {%> 
@@ -67,19 +67,17 @@
                     <p class="error-product"><%= errors.categoria.msg %></p>
                 <% } %>
                 <div class="input-grupo-cargar-imagen-evento">
-                    <% if(!imageName) {%>
                         <label for="">Imagen del Evento</label>
-                        <input type="file" name="img" class="seleccionar-imagen">
-                        <% } else {%>
-                        <label for="">Vuelva a cargar la imagen</label>
-                        <input type="file" name="img" class="seleccionar-imagen">
-                    <% } %>
-                    <% if(errors.img) { %>
-                        <p class="error-product"><%= errors.img.msg %></p>
-                    <% } %>
-                    <% if(errorImagen) {%>
-                        <p class="error-product"><%= errorImagen %></p>
-                    <% } %>
+                        <input type="file" name="img" id="imagenInput" class="seleccionar-imagen">
+                        <% if(errorImg.msg) {%>
+                            <p style="color: red;"><%= errorImg.msg %></p>
+                        <% } %>
+                        <% if(errorInput.msg) {%>
+                            <p style="color: red;"><%= errorInput.msg %></p>
+                        <% } %>
+                        <% if(errorExtensionImagen.msg) {%>
+                            <p style="color: red;"><%= errorExtensionImagen.msg %></p>
+                        <% } %>
                     <input type="submit" value="Cargar evento" class="enviar-evento">
                 </div>
                 <input type="hidden" name="eliminado" value="false">
@@ -90,7 +88,7 @@
     </main>
     <footer>
         <%- include('../partials/footer') %>
-    </footer>
+    </footer>      
 </body>
 
 </html>

@@ -21,8 +21,9 @@ const productControllers = {
     },
 
     getCart: (req, res) => {
-    let id = Number(req.body.id);
+    let id = Number(req.params.id);
     let productoBuscado = modelProductos.findById(id);
+    console.log('PRODUCTO BUSCADO', productoBuscado);
     res.render('cart', {
         productoBuscado,
         title: 'Carrito'})
@@ -40,26 +41,30 @@ const productControllers = {
     },
 
     getCreateEvent: (req, res) => {
-    res.render('createEvents', { title: 'Crear', errors: {}, oldData: {}, imageName: false, errorImagen: req.errorImagen || '', reqFile: req.file})
+    res.render('createEvents', {
+        title: 'Crear',
+        errors: {}, 
+        oldData: {}, 
+        imageName: false, 
+        errorExtensionImagen: {}, 
+        reqFile: req.file,
+        errorImg: {},
+        errorInput: {} })
     },
 
     postCreateEvent: (req, res) => {
         let validation = validationResult(req);
         let eventoNuevo = req.body;
-        console.log(eventoNuevo);
-        // eventoNuevo.img = '';
-        // console.log(req.file);
 
         if(validation.errors.length > 0){
-            console.log(eventoNuevo);
-            console.log(validation.errors);
             return res.render('createEvents', { 
                 errors: validation.mapped(),
                 oldData: eventoNuevo,
                 imageName: req.file ? req.file.filename : '',
                 title: 'Crear',
-                errorImagen: req.errorImagen || '',
-                reqFile: req.file});
+                errorExtensionImagen: {},
+                reqFile: req.file,
+                errorImg: {} });
         };
 
         if (req.file) {
@@ -93,10 +98,10 @@ const productControllers = {
             case 'Stand Up':
                 imageRoute += 'standUp';
                 break;
-            case 'Obra de teatro':
+            case 'Obras de teatro':
                 imageRoute += 'obraTeatro';
                 break;
-            case 'Conferencia':
+            case 'Conferencias':
                 imageRoute += 'conferencias';
                 break;
             default:
@@ -112,7 +117,7 @@ const productControllers = {
         eventoNuevo.eliminado = eventoNuevo.eliminado === "false" ? false : true;
         eventoNuevo.agotado = eventoNuevo.agotado === "false" ? false : true;
 
-        console.log(eventoNuevo);
+        // console.log(eventoNuevo);
 
         modelProductos.createOne(eventoNuevo);
         res.redirect('/');

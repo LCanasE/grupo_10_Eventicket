@@ -21,14 +21,6 @@ const validations = {
             .isNumeric().withMessage('El precio debe ser un número'),
         body('categoria')
             .notEmpty().withMessage('Seleccione una categoría'),
-        body('img').custom((value, { req }) => {
-            let file = req.file;
-            if (!file) {
-                throw new Error('Suba una imagen');
-            }
-            return true;
-            })
-            
     ]
 }
 

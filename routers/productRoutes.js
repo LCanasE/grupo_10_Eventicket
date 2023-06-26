@@ -5,17 +5,19 @@ const path = require('path');
 const productControllers = require('../controllers/productControllers');
 const { uploadFile, handleMulterError } = require('../middlewares/multerMiddleware');
 const productValidateMiddleware = require('../middlewares/validateProductMiddleware');
+const validatorImgs = require('../middlewares/validatorImgs');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
 // @GET /products/:id/eventsDetails
 router.get("/:id/eventsDetails", productControllers.getEventsDetails);
 
-// @GET /products/cart
-router.get("/cart", productControllers.getCart);
+// @GET /products/:id/cart
+router.get("/:id/cart", authMiddleware, productControllers.getCart);
 
-// @POST /products/cart
-router.post("/cart", productControllers.postCart);
+// @POST /products/:id/cart
+router.post("/:id/cart", productControllers.postCart);
 
 // @GET /products/events
 router.get("/events", productControllers.getEvents);
@@ -24,7 +26,7 @@ router.get("/events", productControllers.getEvents);
 router.get("/createEvents", productControllers.getCreateEvent);
 
 // @POST /products/createEvents
-router.post("/createEvents", [uploadFile.single('img'), handleMulterError, productValidateMiddleware.validateCreateProduct], productControllers.postCreateEvent);
+router.post("/createEvents", [uploadFile.single('img'), productValidateMiddleware.validateCreateProduct, validatorImgs], productControllers.postCreateEvent);
 
 // @GET /products/:id/editEvents
 router.get("/:id/editEvents", productControllers.getEditEvent);

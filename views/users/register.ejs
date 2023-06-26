@@ -31,6 +31,9 @@
           <% if(errors.emailRegForm) {%>
             <p class="error-product"><%= errors.emailRegForm.msg %></p>
           <% } %>
+          <% if(errors.errorMail) {%>
+            <p class="error-product"><%= errors.errorMail.msg %>. Por favor inicie sesión <a href="/users/login">aquí</a></p>
+          <% } %>
         </article>
 
         <article>
@@ -46,7 +49,7 @@
       
         <article class="registro-password">
           <input type="password" placeholder="Contraseña" name="passRegForm" />
-          <p class="input-info">Mínimo seis caracteres, una mayuscula, una minuscula y un número</p>
+          <p class="input-info">Mínimo seis caracteres, una mayúscula, una minúscula y un número</p>
           <% if(errors.passRegForm){%>
             <p class="error-product"><%= errors.passRegForm.msg %></p>
             <% } %>
@@ -63,6 +66,7 @@
         </article>
         <article class="registro-botones">
           <input type="submit" id="registrate" value="Regístrate" />
+          <p style="font-size: 12px; margin: 0;">¿Ya tienes cuenta? Inicia sesión <a href="/users/login">aquí</a></p>
           <input type="submit" name="registrateGoogle" id="registrate-google"
             value="Regístrate con tu cuenta de Google" />
         </article>
