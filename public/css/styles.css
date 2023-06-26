@@ -601,7 +601,8 @@ footer p {
 /* ESTILOS CARRITO.HTML */
 
 .articulos-container .articulos {
-  width: 60%;
+  width: 70%;
+  height: 50%;
 }
 
 .container-carrito {
@@ -628,8 +629,7 @@ footer p {
 }
 
 .carrito-img {
-  height: 100%;
-  width: 30%;
+  width: 35%;
 }
 
 .carrito-img img {
@@ -642,7 +642,7 @@ footer p {
   width: 70%;
   padding: 10px;
   height: 100%;
-  display: flex;
+  font-size: 0.7rem;
   justify-content: space-around;
   flex-direction: column;
 }
@@ -1361,6 +1361,11 @@ footer p {
     padding: 2%;
   }
 
+ /*------ESTILOS CARRITO------*/
+
+ .articulos-container{
+  width: 80%;
+ }
   .articulos {
     height: 200px;
   }
@@ -1371,7 +1376,7 @@ footer p {
 
   .articulos .info {
     height: 100%;
-    display: flex;
+    font-size: 0.8rem;
     justify-content: space-around;
     flex-direction: column;
   }
@@ -1572,13 +1577,25 @@ footer p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 80%;
   }
 
-  .articulos {
-    height: 300px;
-    width: 70vw;
-  }
+    .articulos .info {
+      height: 100%;
+      font-size: 0.8rem;
+      justify-content: space-around;
+      flex-direction: column;
+    }
+  
+    .articulos .info p {
+      font-size: 22px;
+      color: #313d55;
+      font-weight: 400;
+    }
 
+  .carrito-img{
+    width: 25%;
+  }
   .seleccionar-metodo h3 {
     font-size: 2rem;
   }
