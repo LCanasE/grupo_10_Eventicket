@@ -11,6 +11,9 @@ router.get("/login", guestMiddleware, userControllers.getLogin);
 // @POST /post/login
 router.post("/login", userControllers.postLogin);
 
+// @POST / users/login
+router.post("/login", userControllers.postLogin);
+
 // @GET /users/register
 router.get("/register", guestMiddleware, userControllers.getRegister);
 

@@ -25,10 +25,11 @@ const usuarios = {
         return searched;
     },
 
+    // Se usa este findByEmail para hacer el logeo 
     findByEmail: function(email){
         const users = this.findAll();
         
-        let searched = users.find(user => user.emailRegForm === email);
+        let searched = users.find(userActual => userActual.emailRegForm === email);
 
         if(!searched){
             searched = null;
@@ -76,6 +77,5 @@ const usuarios = {
         }
 }
 
-// console.log(usuarios.findByEmail('lcanase@gmail.com'));
 
 module.exports = usuarios;

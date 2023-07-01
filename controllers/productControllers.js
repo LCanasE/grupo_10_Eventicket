@@ -1,7 +1,6 @@
 // Controlador de productos
 const path = require('path');
 const { validationResult } = require('express-validator');
-const fs = require('fs');
 
 let modelProductos = require('../models/productsModel');
 
@@ -75,6 +74,14 @@ const productControllers = {
             return res.render('createEvents', {title:'Crear'});
         } else {
 
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0) {
+            return res.render('createEvents',{
+                errors: resultValidation.errors,
+                oldData: req.body,
+                title: 'Crear'
+            });
+        }
         let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']; 
 
         let mesDelEvento = Number(eventoNuevo.fecha.split('-')[1]);

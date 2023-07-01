@@ -7,49 +7,13 @@ const { bcrypt, hashSync, compareSync } = require('bcryptjs');
 const userControllers = {
 
     getLogin: (req, res) => {
-        // error contiene el query string (está configurado en postLogin) que se envia en caso de que el usuario no ingrese correctamente su mail o contraseña. Para que no se genere un error a la hora de renderizar la vista del Login sin haber ingresado datos se pasa error como req.query.error o '' (vacío). Es decir que cuando se renderiza la vista por primera vez error = '' entonces no se ve en la vista y no genera error. 
         const error = req.query.error || '';
 
-        res.render('login', { title: 'Inicio de sesión', error });
-        },
-
-    postLogin: (req, res) => {
-        // searchedUser es una variable que contendrá un booleano. Cuando el usuario se loguee e ingrese un mail que esté en la base de datos searchedUser será true, si no está en la base, será false.
-        const searchedUser = usersModel.findByEmail(req.body.nombreUsuario);
-
-        // En caso de que searchedUser sea false, redirije al usuario a la misma vista (/users/login) con un query string que indica que el mail o la contraseña son incorrectos.
-        if(!searchedUser) {
-            return res.redirect('/users/login?error=El mail o la contraseña son incorrectos');
-        }
-
-        // Se compara si la contraseña enviada para iniciar sesión coincide con la contraseña que está en la base de datos.
-            const { passRegForm: hashed } = searchedUser;
-            const isCorrect = compareSync(req.body.password, hashed);
-
-        // Si la contraseña coincide se crea una cookie llamada email que sirve para mantener la sesión iniciada.
-            if(isCorrect){
-                // console.log(searchedUser);
-                if(!!req.body.sesionIniciada){
-                    res.cookie('email', searchedUser.emailRegForm, {
-                        maxAge: 1000 * 60 * 60 * 24 * 360 * 999
-                    });
-                }
-
-                // Se crea la sesión de user con req.session.user que contendrá toda la información del usuario encontrado salvo su contraseña, su confirmación de contraseña y su id. Es decir, quedaría en sesión un usuario con su nombre, apellido, mail y el tipo de usuario.
-                delete searchedUser.passRegForm;
-                delete searchedUser.checkPassRegForm;
-                delete searchedUser.id;
-
-                req.session.user = searchedUser;
-                console.log(req.session.user);
-                res.redirect('/')
-            } else {
-                return res.redirect('login?error=El mail o la contraseña son incorrectos')
-            }
+        res.render('login', { title: 'Inicio de sesión', error, userData:{}})
     },
 
     getEditUser: (req, res) =>
-        res.render('editUser', { title: 'Edición de usuario' }),
+        res.render('editUser', { title: 'Edición de usuario'}),
 
     getRegister: (req, res) =>
         res.render('register', { title: 'Registro', oldData: {}, errors: {} }),
@@ -105,10 +69,41 @@ const userControllers = {
                 newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false;
                 console.log(req.body);
                 usersModel.createOne(newUser);
-                return res.redirect('/');
+                return res.redirect('/users/login');
             }
         }
     },
 
+    // El POST para hacer el logeo validando la contraseña hasheado y si existe el usuario buscado.
+    //Aun tengo que checkear del porque dejó de funcionar.
+    postLogin: (req, res) => {
+        console.log(req.body);
+        const searchedUser = usersModel.findByEmail(req.body.emailLogin);
+
+        if (!searchedUser) {
+            return res.redirect('/users/login?error=El email o la contraseña es inválido');
+
+        }
+        const { passRegForm: hashedPassword } = searchedUser;
+        const isCorrect = compareSync(req.body.passwordLogin, hashedPassword);
+
+        if (isCorrect) {
+            //Cookie para mantener la sesión iniciada
+            if (!!req.body.rememberme) {
+                res.cookie('email', searchedUser.emailRegForm, {
+                    maxAge: 1000 * 60 * 60 * 24 * 365 * 999
+                });
+            }
+            
+            delete searchedUser.id;
+            delete searchedUser.passRegForm;
+            delete searchedUser.checkPassRegForm;
+            req.session.user = searchedUser;
+            
+            return res.redirect('/');
+        } else {
+            return res.redirect('/users/login?error=El email o la contraseña es invalido');
+        }
+    }
 }
 module.exports = userControllers;

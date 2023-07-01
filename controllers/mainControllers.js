@@ -6,11 +6,11 @@ const unidecode = require('unidecode');
 const mainControllers = {
 
     getIndex:(req, res) => {
-        let userData = req.session.user;
-        if(!userData){
-            userData = {}
-        }
-
+        // let userData = req.session.user;
+        // if (!userData){
+        //     userData = {}
+        // }
+        
         let nombreEventoBuscado = req.query.buscadorTexto;
         let nombreCategoriaBuscado = req.query.buscadorCategoria;
         let nombreFechaBuscada = req.query.buscadorFecha;
@@ -42,8 +42,8 @@ const mainControllers = {
         res.render('home', {
             productos,
             productosSinModificar,
-            title: 'Home',
-            userData}) 
+            title: 'Home'
+            }) 
     }
 }
 
