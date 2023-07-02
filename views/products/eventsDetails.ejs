@@ -13,8 +13,6 @@
 
   <%- include('../partials/banner') %>
 
-    <%- include('../partials/navBar') %>
-
       <article class="evento">
 
         <section class="caja-titulo-ubicacion">
@@ -136,15 +134,13 @@
               </div>
 
             </div>
-
             <div class="comprar">
-              <form action="/products/<%= productoBuscado.id %>/cart" method="GET">
+              <form action="/products/cart?id=<%= productoBuscado.id %>" method="GET">
                 <input type="hidden" name="id" value=<%= productoBuscado.id %>>
 
                 <input type="submit" value="Comprar" class="boton-comprar">
               </form>
             </div>
-
 
 
           </div>

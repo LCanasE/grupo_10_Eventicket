@@ -12,12 +12,47 @@ const userControllers = {
         res.render('login', { title: 'Inicio de sesión', error, userData:{}})
     },
 
-    getEditUser: (req, res) =>
-        res.render('editUser', { title: 'Edición de usuario'}),
+    getEditUser: (req, res) => {
+        let email = req.session.user.emailRegForm
+        let searchedUser = usersModel.findByEmail(email);
+        if (!searchedUser) {
+            return res.send('Email inválido');
+        }
+        console.log(searchedUser);
+        let nuevosDatos = req.body;
+        res.render('editUser', { title: 'Edición de usuario', searchedUser});
+    },
 
-    getRegister: (req, res) =>
-        res.render('register', { title: 'Registro', oldData: {}, errors: {} }),
+    putEditUser: (req, res) => {
+        let email = req.session.user.emailRegForm
+        let searchedUser = usersModel.findByEmail(email);
+        if (!searchedUser) {
+            return res.send('Email inválido');
+        }
+        let id = searchedUser.id;
+        let newData = req.body;
+        console.log(searchedUser);
+        console.log(newData);
 
+        const { passRegForm: hashedPassword } = searchedUser;
+        const isCorrect = compareSync(newData.passRegForm, hashedPassword);
+
+        if(isCorrect){
+            newData.passRegForm = hashSync(newData.passRegForm, 12);
+            newData.checkPassRegForm = searchedUser.checkPassRegForm;
+            newData.tyc === "on" ? newData.tyc = true : newData.tyc = false;
+            newData.notificaciones === "on" ? newData.notificaciones = true : newData.notificaciones = false;
+        } else {
+            return res.redirect('/users/editUsers?Error=La contraseña no coincide');
+        }
+
+        usersModel.updateById(id, newData);
+        res.redirect('/');
+    },
+
+    getRegister: (req, res) =>{
+        res.render('register', { title: 'Registro', oldData: {}, errors: {} });
+    }, 
     postRegister: (req, res) => {
         // Primero se estableció una validación específica del campo email para evitar que un usuario se registre dos veces. Se pregunta si el mail que el usuario ingresó en el formulario de registro ya está en la base de datos o no. En caso de que esté, se corta la ejecución y se renderiza la vista 'register' con el errors que dentro tiene errorMail y dentro msg: 'Ya estás registrado'. Luego desde la vista se le agrega la frase 'Por favor inicie sesión aquí', en la que 'aquí' es un href al formulario de login.
         const searchedUser = usersModel.findByEmail(req.body.emailRegForm);

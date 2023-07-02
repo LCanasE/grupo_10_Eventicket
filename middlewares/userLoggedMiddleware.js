@@ -5,7 +5,6 @@ function userLoggedMiddleware(req,res,next) {
         res.locals.isLogged = true
         res.locals.user = req.session.user
     }
-
     next();
 }
 

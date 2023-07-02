@@ -8,12 +8,12 @@
 
 <body>
     <header>
-        <%- include('../partials/headerLog') %>
+        <%- include('../partials/header') %>
     </header>
     <main class="main-registro login-register">
         <section class="registro-form">
             <h2>Editar información de usuario</h2>
-            <form action="/users/editUser" method="POST">
+            <form action="/users/editUser?_method=PUT" method="POST">
                 <!-- <article class="registro-datos">
                     <input type="email" placeholder="Correo electrónico" name="emailEditForm" required />
                     <form action="/users/editUser" method="POST">
@@ -23,37 +23,64 @@
                     </form>
                 </article> -->
                 <article class="registro-datos">
-                    <input id="registro-nombre" type="text" placeholder="Nombre" name="nombreRegForm" required />
-                    <input id="registro-apellido" type="text" placeholder="Apellido" name="apellidoRegForm" required />
+                    <input id="registro-nombre" type="text" value="<%= searchedUser.nombreRegForm %>" name="nombreRegForm" required />
+                    <input id="registro-apellido" type="text" value="<%= searchedUser.apellidoRegForm %>" name="apellidoRegForm" required />
                 </article>
                 <article id="registro-email">
-                    <input type="email" placeholder="Correo electrónico" name="emailRegForm" required />
+                    <input type="email" value="<%= searchedUser.emailRegForm %>" name="emailRegForm" required />
                 </article>
 
                 <article>
-                    <select class="tipo-usuario" name="" id="">
-                        <option disabled selected>Tipo de Usuario</option>
-                        <option value="Espectador" name="Espectador">Espectador/a</option>
-                        <option value="Productor" name="Productor">Productor/a</option>
+                    <select class="tipo-usuario" name="tipoUsuario" id="">
+                        <option disabled>Tipo de usuario</option>
+                        <option <%= searchedUser.tipoUsuario === "Espectador/a" ? "selected" : " " %>>Espectador/a</option>
+                        <option <%= searchedUser.tipoUsuario === "Productor/a" ? "selected" : " " %>>Productor/a</option>
                     </select>
                 </article>
 
                 <article class="registro-password">
-                    <input type="password" placeholder="Contraseña" name="passRegForm" required />
-                    <input type="password" placeholder="Confirmar contraseña" name="checkPassRegForm" required />
+                    <p style="text-align: left; width: 95%; margin: auto;">Ingrese la contraseña para actualizar los datos</p>
+                    <input type="password" placeholder="Contraseña" name="passRegForm" style="margin:0px"  required/>
                 </article>
                 <article class="registro-tyc">
-                    <input type="checkbox" checked />Deseo recibir la agenda de eventos próximos
+                    <input type="checkbox" checked name="notificaciones"/>Deseo recibir la agenda de eventos próximos
                 </article>
                 <article class="registro-tyc">
-                    <input type="checkbox" checked required />Acepto los Términos y Condiciones
+                    <input type="checkbox" checked required name="tyc"/>Acepto los Términos y Condiciones
                 </article>
                 <article class="registro-botones">
                     <input type="submit" id="registrate" value="Actualizar" />
-                    <input type="submit" id="registrate-google" value="Eliminar" />
+                    <form action="/users/<%= searchedUser.id %>/delete?_method=delete" method="POST" id="formDeleteUser">
+                        <button id="delUser" type="submit" class="deleteFormButton">Eliminar</button>
+                    </form>
                 </article>
             </form>
         </section>
+
+        <script>
+
+            const btnDel = document.getElementById('delProd');
+            const formDel = document.getElementById('formDelete');
+    
+            btnDel.addEventListener('click', function(e){
+                e.preventDefault();
+    
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "No hay vuelta atrás",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, quiero eliminarlo!'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        formDel.submit();
+                    }
+                })
+            })
+    
+        </script>
     </main>
     <footer>
         <%- include('../partials/footer') %>

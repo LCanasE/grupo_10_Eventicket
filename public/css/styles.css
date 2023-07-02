@@ -161,7 +161,7 @@ a:visited {
   font-weight: 900;
 }
 
-.registro-form input {
+.registro-form input, .deleteFormButton {
   background-color: #fff;
   border: solid 1px #c0c0c0;
   font-family: "Montserrat", "sans-serif";
@@ -301,7 +301,7 @@ footer p {
 
 .products {
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
   flex-direction: column;
 }
@@ -600,15 +600,15 @@ footer p {
 } */
 /* ESTILOS CARRITO.HTML */
 
-.articulos-container .articulos {
+/* .articulos-container .articulos {
   width: 70%;
   height: 50%;
-}
+} */
 
-.container-carrito {
+/* .container-carrito {
   width: 90%;
   margin: auto;
-}
+} */
 
 .container-carrito h1 {
   text-align: center;
@@ -629,7 +629,7 @@ footer p {
 }
 
 .carrito-img {
-  width: 35%;
+  width: 45%;
 }
 
 .carrito-img img {
@@ -1169,7 +1169,8 @@ footer p {
   }
 
   .articulos-container {
-    width: 100%;
+    width: 60%;
+    margin: auto;
   }
 
   .seleccionar-metodo {
@@ -1178,9 +1179,9 @@ footer p {
     margin: auto;
   }
 
-  .container-carrito {
+  /* .container-carrito {
     width: 95%;
-  }
+  } */
 
   .redes {
     width: 20%;
@@ -1287,6 +1288,7 @@ footer p {
     width: 85%;
     margin: auto;
     font-size: 16px;
+    justify-content: flex-start;
   }
 
   .product {
@@ -1363,9 +1365,9 @@ footer p {
 
  /*------ESTILOS CARRITO------*/
 
- .articulos-container{
+ /* .articulos-container{
   width: 80%;
- }
+ } */
   .articulos {
     height: 200px;
   }
@@ -1404,6 +1406,10 @@ footer p {
   }
   .product-edition .buy form button {
     font-size: 1.5vw;
+  }
+
+  .articulos-container{
+    width: 450px;
   }
 }
 
@@ -1573,12 +1579,12 @@ footer p {
   }
 
   /* ESTILOS CARRITO.HTML */
-  .articulos-container {
+  /* .articulos-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 80%;
-  }
+  } */
 
     .articulos .info {
       height: 100%;
@@ -1593,9 +1599,9 @@ footer p {
       font-weight: 400;
     }
 
-  .carrito-img{
+  /* .carrito-img{
     width: 25%;
-  }
+  } */
   .seleccionar-metodo h3 {
     font-size: 2rem;
   }

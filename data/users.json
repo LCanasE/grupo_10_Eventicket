@@ -88,14 +88,14 @@
         "id": "ad976b2e-f5c1-49c4-9f6e-9c50e1f20d99"
     },
     {
+        "id": "36a485aa-4765-484a-90fa-3d3d01224007",
         "nombreRegForm": "Usuario",
         "apellidoRegForm": "Prueba",
         "emailRegForm": "usuario@prueba.com",
-        "tipoUsuario": "Espectador/a",
-        "passRegForm": "$2a$12$bbe/Q5mfF6eRARPWSaqXhOypsf/zU/i4k/EnY5jPpsk90wOMysiBe",
-        "checkPassRegForm": "$2a$12$taqhFJ7dEuFsReNc5FG1LuiW4kEVVnP.fQY6O8/N1pSqjWaHjN7J6",
-        "notificaciones": true,
+        "tipoUsuario": "Productor/a",
+        "passRegForm": "$2a$12$1SpwODdNn4AExU7JQHBKS.P6NLNpTDiItXVmP0A4ambUqCnw3B.Sa",
+        "checkPassRegForm": "$2a$12$BVCfFKyaBCVt1JHbqwY9vuHrnhJNXI/VwjpopIUiNVZyvWyy1Ohea",
         "tyc": true,
-        "id": "595771f5-1556-493f-89a3-6fd8069c3c07"
+        "notificaciones": true
     }
 ]

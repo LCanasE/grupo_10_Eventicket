@@ -54,11 +54,11 @@ const usuarios = {
         return users;
     },
 
-    updateById: function(id,newUser){
+    updateById: function(id, newUser){
         let users = this.findAll();
         const indice = users.findIndex(user => user.id === id);
         
-        const {nombreRegForm, apellidoRegForm, emailRegForm, tipoUsuario, passRegForm, checkPassRegForm, notificaciones, tyc} = newUser;
+        const {nombreRegForm, apellidoRegForm, emailRegForm, tipoUsuario, passRegForm, checkPassRegForm, tyc, notificaciones} = newUser;
 
         users[indice] = { 
         id: users[indice].id,
@@ -68,11 +68,11 @@ const usuarios = {
             tipoUsuario,
             passRegForm,
             checkPassRegForm,
-            notificaciones,
             tyc,
+            notificaciones
         }
         const usersJSON = JSON.stringify(users);
-        fs.writeFileSync(path.join(__dirname, this,route), usersJSON);
+        fs.writeFileSync(path.join(__dirname, this.route), usersJSON);
         return users;
         }
 }

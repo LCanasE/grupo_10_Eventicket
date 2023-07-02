@@ -17,7 +17,7 @@
                 <% if(errors.nombre) {%>
                     <p class="error-product"><%= errors.nombre.msg %></p>
                 <% } %>
-                <input type="datetime-local" name="fecha" value="<%= oldData.fecha %>">
+                <input type="datetime-local" name="fecha" id="fechaId" value="<%= oldData.fecha %>" min=<%= new Date() %>>
                 <% if(errors.fecha) {%>
                     <p class="error-product"><%= errors.fecha.msg %></p>
                 <% } %>
@@ -84,7 +84,6 @@
                 <input type="hidden" name="agotado" value="false">
             </form>
         </section>
-
     </main>
     <footer>
         <%- include('../partials/footer') %>

@@ -21,13 +21,23 @@
     <a class="nav-eventos nav-enlaces" href="/products/events">
       <li class="nav-eventos nav-enlaces">Eventos</li></a
     >
-
+    
     <a class="nav-crear nav-enlaces" href="/products/createEvents">
       <li class="nav-crear nav-enlaces">Crear Evento</li></a
     >
 
     <% if (locals.isLogged) { %>
-      <li class="nav-inicio nav-enlaces">Hola! <%= locals.user.nombreRegForm %></li>
+      <li class="nav-user">Hola! <%= locals.user.nombreRegForm %>
+      <!-- <li class="nav-inicio nav-enlaces">Hola! <%#= locals.user.nombreRegForm %></li> -->
+      <ul class="nav-bar nav-user-ul">
+        <section class="nav-desplegable">
+          <a class="nav-enlaces" href="/users/editUser"><li>Mi Perfil</li></a>
+          <a class="nav-enlaces" href="/"><li>Mis Eventos</a></a>
+          <a class="nav-enlaces" href="/"><li>Configuración</li></a>
+          <a class="nav-enlaces" href="/"><li>Salir</li></a>
+      </section>
+      </ul>
+    </li>
       
       <% } else {%>
         
@@ -39,8 +49,8 @@
         <% } %>
     <a href="/users/editUser"><i class="fas fa-user" style="color: #313d55"></i></a>
 
-    <!-- <a href="/products/cart"> -->
+    <a href="/products/cart?id=">
     <i class="fa-solid fa-cart-shopping" style="color: #313d55"></i>
-    <!-- </a> -->
+    </a>
   </ul>
 </nav>

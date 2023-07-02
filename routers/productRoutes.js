@@ -7,23 +7,24 @@ const { uploadFile, handleMulterError } = require('../middlewares/multerMiddlewa
 const productValidateMiddleware = require('../middlewares/validateProductMiddleware');
 const validatorImgs = require('../middlewares/validatorImgs');
 const authMiddleware = require('../middlewares/authMiddleware');
+const categoryUser = require('../middlewares/categoryUserMiddleware');
 
 const router = express.Router();
 
 // @GET /products/:id/eventsDetails
 router.get("/:id/eventsDetails", productControllers.getEventsDetails);
 
-// @GET /products/:id/cart
-router.get("/:id/cart", authMiddleware, productControllers.getCart);
+// @GET /products/cart
+router.get("/cart", authMiddleware, productControllers.getCart);
 
-// @POST /products/:id/cart
-router.post("/:id/cart", productControllers.postCart);
+// @POST /products/cart
+router.post("/cart", productControllers.postCart);
 
 // @GET /products/events
 router.get("/events", productControllers.getEvents);
 
 // @GET /products/createEvents
-router.get("/createEvents", productControllers.getCreateEvent);
+router.get("/createEvents", authMiddleware, categoryUser, productControllers.getCreateEvent);
 
 // @POST /products/createEvents
 router.post("/createEvents", [uploadFile.single('img'), productValidateMiddleware.validateCreateProduct, validatorImgs], productControllers.postCreateEvent);
@@ -32,7 +33,7 @@ router.post("/createEvents", [uploadFile.single('img'), productValidateMiddlewar
 router.get("/:id/editEvents", productControllers.getEditEvent);
 
 // @POST /products/editEvents
-router.put("/:id/editEvents", productControllers.putEditEvent);
+router.put("/:id/editEvents", uploadFile.single('img'), productControllers.putEditEvent);
 
 // @DELETE /products/:id/editEvents
 router.delete('/:id/delete', productControllers.deleteEvent);

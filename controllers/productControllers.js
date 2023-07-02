@@ -20,11 +20,13 @@ const productControllers = {
     },
 
     getCart: (req, res) => {
-    let id = Number(req.params.id);
+    let productos = modelProductos.findAll();
+    let id = Number(req.query.id);
     let productoBuscado = modelProductos.findById(id);
     console.log('PRODUCTO BUSCADO', productoBuscado);
     res.render('cart', {
         productoBuscado,
+        productos,
         title: 'Carrito'})
     },
 
@@ -145,12 +147,36 @@ const productControllers = {
     putEditEvent: (req, res) => {
         let id = Number(req.params.id);
         let nuevosDatos = req.body;
-        nuevosDatos.img = req.file ? req.file.filename : req.body.originalImg;
-        nuevosDatos.precio = Number(nuevosDatos.precio);
-        nuevosDatos.eliminado = Boolean(nuevosDatos.eliminado)
-        nuevosDatos.agotado = Boolean(nuevosDatos.agotado)
-        modelProductos.updateById(id, nuevosDatos);
 
+        let imageRoute = '../img/events/';
+        switch(req.body.categoria){
+            case 'Recitales':
+                imageRoute += 'recitales';
+                break;
+            case 'Deportes':
+                imageRoute += 'deportes';
+                break;
+            case 'Stand Up':
+                imageRoute += 'standUp';
+                break;
+            case 'Obras de teatro':
+                imageRoute += 'obraTeatro';
+                break;
+            case 'Conferencias':
+                imageRoute += 'conferencias';
+                break;
+            default:
+                imageRoute = '../img/events';
+                break;
+        }
+
+        nuevosDatos.img = req.file ? `${imageRoute}/${req.file.filename}` : req.body.originalImg;
+        nuevosDatos.precio = Number(nuevosDatos.precio);
+        nuevosDatos.eliminado = nuevosDatos.eliminado === "false" ? false : true;
+        nuevosDatos.agotado = nuevosDatos.agotado === "false" ? false : true;
+        modelProductos.updateById(id, nuevosDatos);
+        console.log(nuevosDatos);
+        console.log(req.file);
         res.redirect('/')
     },
 

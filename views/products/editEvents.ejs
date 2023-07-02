@@ -12,21 +12,22 @@
     <main class="main-registro login-register">
         <section class="registro-form">
             <h2>Edición de eventos</h2>
-            <form action="/products/<%= productoBuscado.id %>/editEvents?_method=PUT" method="POST">
+            <form action="/products/<%= productoBuscado.id %>/editEvents?_method=PUT" method="POST" enctype="multipart/form-data">
                 <input type="text" name="nombre" value="<%= productoBuscado.nombre %>">
                 <input type="text" name="fecha" value="<%= productoBuscado.fecha %>">
                 <input type="text" name="ubicacion" value="<%= productoBuscado.ubicacion %>">
+                <input type="text" name="direccion" value="<%= productoBuscado.direccion %>">
                 <div class="agregar-input-precio-evento">
                     <label for="">Tipo de entrada</label>
-                    <input type="text" class="tipo-entrada-evento" name="tipoEntrada" placeholder="<%= productoBuscado.tipoEntrada %>">
-                    <input type="number" name="precio" placeholder="$<%= productoBuscado.precio %>" class="precio-crear-evento">
-                    <input type="number" placeholder="<%= productoBuscado.cantidadEntradas %>" name="cantidadEntradas" class="precio-crear-evento">
+                    <input type="text" class="tipo-entrada-evento" style="color:black" name="tipoEntrada" value="<%= productoBuscado.tipoEntrada %>">
+                    <input type="number" name="precio" value="<%= productoBuscado.precio %>" class="precio-crear-evento">
+                    <input type="number" value="<%= productoBuscado.cantidadEntradas %>" name="cantidadEntradas" class="precio-crear-evento">
                     <button class="agregar-tipo-entrada">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </div>
                 <select name="categoria" id="" class="creacion-evento-categorias">
-                    <option disabled selected><%= productoBuscado.categoria %></option>
+                    <option selected><%= productoBuscado.categoria %></option>
                     <option>Deportes</option>
                     <option>Recital</option>
                     <option>Obra de teatro</option>
@@ -42,10 +43,35 @@
                 <input type="hidden" name="eliminado" value="<%= productoBuscado.eliminado %>">
                 <input type="hidden" name="agotado" value="<%= productoBuscado.agotado %>">
             </form>
-            <form action="/products/<%= productoBuscado.id %>/delete?_method=delete" method="POST">
-                <input type="submit" value="Eliminar">
+            <form action="/products/<%= productoBuscado.id %>/delete?_method=delete" method="POST" id="formDelete">
+                <button id="delProd" type="submit" class="deleteFormButton">Eliminar</button>
             </form>
         </section>
+
+    <script>
+
+        const btnDel = document.getElementById('delProd');
+        const formDel = document.getElementById('formDelete');
+
+        btnDel.addEventListener('click', function(e){
+            e.preventDefault();
+
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "No hay vuelta atrás",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, quiero eliminarlo!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    formDel.submit();
+                }
+            })
+        })
+
+    </script>
 
     </main>
     <footer>

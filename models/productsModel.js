@@ -44,8 +44,8 @@ let productos = {
     updateById: function (id, newData) {
         let productos = this.findAll();
         const indice = productos.findIndex(producto => producto.id === id);
-        const {nombre, fecha, ubicacion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado} = newData;
-        productos[indice] = {id:productos[indice].id, nombre, fecha, ubicacion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado};
+        const {nombre, fecha, ubicacion, direccion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado} = newData;
+        productos[indice] = {id:productos[indice].id, nombre, fecha, ubicacion, direccion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado};
 
         const productsJSON = JSON.stringify(productos);
         fs.writeFileSync(path.join(__dirname, this.routes), productsJSON)

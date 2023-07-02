@@ -126,3 +126,32 @@ En la vista de eventos, estamos en modo administrador, por lo que se muestra el 
 
 Saludos! =)
 
+2. 2023/07/02 5° WEEKLY:
+        
+    CONSIDERACIONES
+
+    - Terminamos las implementaciones correspondientes al sprint 5.
+    - Fecha de entrega 5° sprint: 2023/05/12
+
+    1. ¿QUÉ SE HIZO HASTA AHORA?
+
+        - Terminamos la implementación del CRUD de usuarios.
+
+        - Armamos permisos para las vistas según el tipo de usuario, es decir, un usuario logueado no puede ingresar al login o al register, por ejemplo.
+
+        - Implementamos nuevas validaciones como que no se puedan crear eventos con fecha pasada.
+
+        - Implementamos una validación distinta de Multer para que se elimine la imagen cargada del usuario en caso de que no complete todos los campos. De esta manera evitamos tener dos imagenes de un mismo evento.
+
+        - Implementamos cookies y session para mantener la sesión del usuario iniciada y al mismo tiempo para poder compartir entre las vistas los datos del usuario y personalizar la navegación.
+
+        - División de eventos por categoria y por mes. 
+
+
+    2.  ¿IMPEDIMENTOS?
+
+        - Todavía no identificamos un impedimento que nos impidiera avanzar, los problemas que fueron surgiendo los pudimos solucionar.
+
+    3. ¿QUÉ SE HARÁ ESTA SEMANA?
+
+        - Dar inicio al Sprint 6.
