@@ -1,36 +1,52 @@
 <% let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];  %>
 <% let indice = new Date().getMonth() %>
 
-<% productos.forEach(producto => { %>
-    <% if(producto.fecha.split(' ')[2] === meses[indice]) {%>
+<div class="owl-carousel owl-theme">
+
+    <% productos.forEach(producto => { %>
+        <% if(producto.fecha.split(' ')[2] === meses[indice]) {%>
+        <div class="item item-owl-container">
+            <a href="/products/<%= producto.id %>/eventsDetails">
+            <img src="<%= producto.img %>" width="100%">
+            </a>
+        </div>
+        <% } %>
+    <%}) %>
+</div>
+
+
+
+
+<!-- <%# productos.forEach(producto => { %>
+    <%# if(producto.fecha.split(' ')[2] === meses[indice]) {%>
         <article class='product'>
-            <a href="/products/<%= producto.id %>/eventsDetails" class="product-link-detail">
+            <a href="/products/<%#= producto.id %>/eventsDetails" class="product-link-detail">
                 <div class="product-img">
-                    <img src=<%= producto.img %> alt="Error">
+                    <img src=<%#= producto.img %> alt="Error">
                 </div>
                 <div class="product-info">
                     <div class="information-product">
-                        <h2><%= producto.nombre %></h2>
-                        <p class="date"><%= producto.fecha %></p>
-                        <p class="place"><%= producto.ubicacion %></p>
+                        <h2><%#= producto.nombre %></h2>
+                        <p class="date"><%#= producto.fecha %></p>
+                        <p class="place"><%#= producto.ubicacion %></p>
                     </div>
                     <div class="price-buy">
                         <div class="price">
-                            <p>Desde $<%= producto.precio %></p>
+                            <p>Desde $<%#= producto.precio %></p>
                         </div>
                         <div class="buy">
                             <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
                         </div>
                     </div>
                 </div>
-                <% if (producto.agotado !== false) {%>
+                <%# if (producto.agotado !== false) {%>
                 <p class="tickets-agotados">Agotado</p>
-                <% } %>
-                <% if (producto.eliminado === true) {%>
+                <%# } %>
+                <%# if (producto.eliminado === true) {%>
                     <div class="producto-eliminado"></div>
-                <% } %>
+                <%# } %>
             </a>
         </article> 
-    <% } %>    
-<% }); %>
+    <%# } %>    
+<%# }); %> -->
 

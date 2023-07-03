@@ -13,6 +13,7 @@ const userControllers = {
     },
 
     getEditUser: (req, res) => {
+        const error = req.query.error || '';
         let email = req.session.user.emailRegForm
         let searchedUser = usersModel.findByEmail(email);
         if (!searchedUser) {
@@ -20,7 +21,7 @@ const userControllers = {
         }
         console.log(searchedUser);
         let nuevosDatos = req.body;
-        res.render('editUser', { title: 'Edición de usuario', searchedUser});
+        res.render('editUser', { title: 'Edición de usuario', searchedUser, error});
     },
 
     putEditUser: (req, res) => {
@@ -43,7 +44,7 @@ const userControllers = {
             newData.tyc === "on" ? newData.tyc = true : newData.tyc = false;
             newData.notificaciones === "on" ? newData.notificaciones = true : newData.notificaciones = false;
         } else {
-            return res.redirect('/users/editUsers?Error=La contraseña no coincide');
+            return res.redirect('/users/editUser?error=La contraseña no coincide');
         }
 
         usersModel.updateById(id, newData);

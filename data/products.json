@@ -8,7 +8,7 @@
         "tipoEntrada": "General",
         "precio": 3000,
         "cantidadEntradas": "10",
-        "categoria": "Recital",
+        "categoria": "Recitales",
         "img": "../img/events/recitales/amelie-lens-farrago-maderoboardwalk-160560-img.jpg",
         "eliminado": false,
         "agotado": false
@@ -22,6 +22,7 @@
         "tipoEntrada": "General",
         "precio": 2000,
         "cantidadEntradas": "20",
+        "categoria": "Recitales",
         "img": "../img/events/recitales/babasonicos-en-lanus-img.jpeg",
         "eliminado": false,
         "agotado": false
@@ -70,7 +71,7 @@
     },
     {
         "nombre": "Usted Señalemelo",
-        "fecha": "1 de junio - 10 horas",
+        "fecha": "1 de julio - 10 horas",
         "ubicacion": "Movistar Arena",
         "direccion": "Humboldt 450",
         "tipoEntrada": "General",
@@ -105,6 +106,7 @@
         "tipoEntrada": "General",
         "precio": 1000,
         "cantidadEntradas": "100",
+        "categoria": "Deportes",
         "img": "../img/events/deportes/1686245834073.jpg",
         "eliminado": false,
         "agotado": false
@@ -132,14 +134,14 @@
         "tipoEntrada": "General",
         "precio": 1000,
         "cantidadEntradas": "10",
-        "categoria": "Conferencia",
+        "categoria": "Conferencias",
         "img": "../img/events/conferencias/1681939923474.jpeg",
         "eliminado": false,
         "agotado": false
     },
     {
         "nombre": "Tootsie",
-        "fecha": "10 de agosto - 22 horas",
+        "fecha": "10 de julio - 22 horas",
         "ubicacion": "Lola Membrives",
         "direccion": "Corrientes 1280",
         "tipoEntrada": "General",

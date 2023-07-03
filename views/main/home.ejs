@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<%- include('../partials/head') %>
+  <%- include('../partials/head') %>
 </head>
 
 <body>
@@ -10,17 +10,15 @@
     <%- include('../partials/header') %>
   </header>
   <main class="main-home">
-
     <%- include('../partials/banner') %>
 
-    <%- include('../partials/navBar') %>
-    
-    <section class="products">
-      <!-- <h1><%#= userData.nombreRegForm %></h1> -->
-      
-      <%- include('../partials/partialEvents') %>
+      <%- include('../partials/navBar') %>
+        <section class="products">
+          <!-- <h1><%#= userData.nombreRegForm %></h1> -->
 
-    </section>
+          <%- include('../partials/partialEvents') %>
+
+        </section>
   </main>
   <footer>
     <%- include('../partials/footer') %>
