@@ -27,6 +27,7 @@ router.get("/editUser", authMiddleware, userControllers.getEditUser);
 // @PUT /users/editUser
 router.put("/editUser", authMiddleware, userControllers.putEditUser);
 
-
+// @GET /users/logout
+router.get("/logout", userControllers.logout);
 
 module.exports = router;

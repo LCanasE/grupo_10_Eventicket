@@ -122,10 +122,10 @@ const userControllers = {
         }
         const { passRegForm: hashedPassword } = searchedUser;
         const isCorrect = compareSync(req.body.passwordLogin, hashedPassword);
-
         if (isCorrect) {
             //Cookie para mantener la sesión iniciada
             if (!!req.body.rememberme) {
+                console.log('Cookie funcionando correctamente');
                 res.cookie('email', searchedUser.emailRegForm, {
                     maxAge: 1000 * 60 * 60 * 24 * 365 * 999
                 });
@@ -140,6 +140,13 @@ const userControllers = {
         } else {
             return res.redirect('/users/login?error=El email o la contraseña es invalido');
         }
+    },
+
+    logout: (req, res) => {
+        res.clearCookie('email');
+        req.session.destroy();
+        res.redirect('/');
+        console.log('Chauuuuuuuu');
     }
 }
 module.exports = userControllers;
