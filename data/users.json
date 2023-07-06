@@ -1,1 +1,101 @@
-[{"id":1,"nombreRegForm":"Ana","apellidoRegForm":"Maria","emailRegForm":"ana@gmail.com","tipoUsuario":"espectador","passRegForm":"15","checkPassRegForm":"15","notificaciones":true,"tyc":true},{"nombreRegForm":"Liliana","apellidoRegForm":"Cañas Eastman","emailRegForm":"lcanase@gmail.com","tipoUsuario":"Espectador/a","passRegForm":"123","checkPassRegForm":"123","notificaciones":true,"tyc":true,"id":2},{"nombreRegForm":"Manuela","apellidoRegForm":"Escobar","emailRegForm":"a@gmail.com","tipoUsuario":"Espectador/a","passRegForm":"123","checkPassRegForm":"123","notificaciones":true,"tyc":true,"id":3},{"nombreRegForm":"Liliana","apellidoRegForm":"Cañas Eastman","emailRegForm":"lcanase@gmail.com","tipoUsuario":"Productor/a","passRegForm":"234","checkPassRegForm":"234","notificaciones":true,"tyc":true,"id":"cebd256e-15c4-4727-a457-de384455bcfc"},{"nombreRegForm":"Gaston","apellidoRegForm":"Balatti","emailRegForm":"gaston@balatti.com","tipoUsuario":"Espectador/a","passRegForm":"123","checkPassRegForm":"123","notificaciones":true,"tyc":true,"id":"06e8be1b-4266-40c7-8f3a-ff2e0e96688c"},{"nombreRegForm":"Tomas ","apellidoRegForm":"Lovey","emailRegForm":"samotyevo0l1@gmail.com","tipoUsuario":"Espectador/a","passRegForm":"123","checkPassRegForm":"123","notificaciones":true,"tyc":true,"id":"af19e59c-b1ab-449d-878f-ede913e8b5a7"},{"nombreRegForm":"willaim","apellidoRegForm":"nieto","emailRegForm":"w@gmail.com","tipoUsuario":"Productor/a","passRegForm":"$2b$12$6TniEE5UN2e9kz/kHiRiruknJyxPlCEORpg3MsCK/cyML0IkBaM4.","checkPassRegForm":"$2b$12$lYLne0o4tU0iPqN47cneROZPKgFguBMUNWVUqON6vJbjb7Oxl3qK2","notificaciones":true,"tyc":true,"id":"17020eb9-2c94-4843-8cab-7ae969f0ac61"},{"nombreRegForm":"Liliana","apellidoRegForm":"Cañas Eastman","emailRegForm":"lcanase@sura.com","tipoUsuario":"Espectador/a","passRegForm":"$2b$12$0.vNVPQmvKBX3HOUoO8S7eTfvmcB/yczSfLbeJjUE2SpzVFifjWMa","checkPassRegForm":"$2b$12$5REf1RTYRW2FqWeJrIeqOOkq2ZL1YyePqwpvLlbXGiBU9y3BetdHy","notificaciones":true,"tyc":true,"id":"ad976b2e-f5c1-49c4-9f6e-9c50e1f20d99"},{"id":"36a485aa-4765-484a-90fa-3d3d01224007","nombreRegForm":"Usuario","apellidoRegForm":"Prueba","emailRegForm":"usuario@prueba.com","tipoUsuario":"Productor/a","passRegForm":"$2a$12$hISegY3L.gpc4uQKyghH7.kxDQvdH3b7kLdC1Vr41a169krMISngi","checkPassRegForm":"$2a$12$BVCfFKyaBCVt1JHbqwY9vuHrnhJNXI/VwjpopIUiNVZyvWyy1Ohea","tyc":true,"notificaciones":true}]
+[
+    {
+        "id": 1,
+        "nombreRegForm": "Ana",
+        "apellidoRegForm": "Maria",
+        "emailRegForm": "ana@gmail.com",
+        "tipoUsuario": "espectador",
+        "passRegForm": "15",
+        "checkPassRegForm": "15",
+        "notificaciones": true,
+        "tyc": true
+    },
+    {
+        "nombreRegForm": "Liliana",
+        "apellidoRegForm": "Cañas Eastman",
+        "emailRegForm": "lcanase@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "123",
+        "checkPassRegForm": "123",
+        "notificaciones": true,
+        "tyc": true,
+        "id": 2
+    },
+    {
+        "nombreRegForm": "Manuela",
+        "apellidoRegForm": "Escobar",
+        "emailRegForm": "a@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "123",
+        "checkPassRegForm": "123",
+        "notificaciones": true,
+        "tyc": true,
+        "id": 3
+    },
+    {
+        "nombreRegForm": "Liliana",
+        "apellidoRegForm": "Cañas Eastman",
+        "emailRegForm": "lcanase@gmail.com",
+        "tipoUsuario": "Productor/a",
+        "passRegForm": "234",
+        "checkPassRegForm": "234",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "cebd256e-15c4-4727-a457-de384455bcfc"
+    },
+    {
+        "nombreRegForm": "Gaston",
+        "apellidoRegForm": "Balatti",
+        "emailRegForm": "gaston@balatti.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "123",
+        "checkPassRegForm": "123",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "06e8be1b-4266-40c7-8f3a-ff2e0e96688c"
+    },
+    {
+        "nombreRegForm": "Tomas ",
+        "apellidoRegForm": "Lovey",
+        "emailRegForm": "samotyevo0l1@gmail.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "123",
+        "checkPassRegForm": "123",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "af19e59c-b1ab-449d-878f-ede913e8b5a7"
+    },
+    {
+        "nombreRegForm": "willaim",
+        "apellidoRegForm": "nieto",
+        "emailRegForm": "w@gmail.com",
+        "tipoUsuario": "Productor/a",
+        "passRegForm": "$2b$12$6TniEE5UN2e9kz/kHiRiruknJyxPlCEORpg3MsCK/cyML0IkBaM4.",
+        "checkPassRegForm": "$2b$12$lYLne0o4tU0iPqN47cneROZPKgFguBMUNWVUqON6vJbjb7Oxl3qK2",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "17020eb9-2c94-4843-8cab-7ae969f0ac61"
+    },
+    {
+        "nombreRegForm": "Liliana",
+        "apellidoRegForm": "Cañas Eastman",
+        "emailRegForm": "lcanase@sura.com",
+        "tipoUsuario": "Espectador/a",
+        "passRegForm": "$2b$12$0.vNVPQmvKBX3HOUoO8S7eTfvmcB/yczSfLbeJjUE2SpzVFifjWMa",
+        "checkPassRegForm": "$2b$12$5REf1RTYRW2FqWeJrIeqOOkq2ZL1YyePqwpvLlbXGiBU9y3BetdHy",
+        "notificaciones": true,
+        "tyc": true,
+        "id": "ad976b2e-f5c1-49c4-9f6e-9c50e1f20d99"
+    },
+    {
+        "id": "36a485aa-4765-484a-90fa-3d3d01224007",
+        "nombreRegForm": "Usuario",
+        "apellidoRegForm": "Prueba",
+        "emailRegForm": "usuario@prueba.com",
+        "tipoUsuario": "Productor/a",
+        "passRegForm": "$2a$12$dVz1yLPmlLJey/JaQOQ7EObAijNHaX22RNxYSEcct3yl.UX/rNu6G",
+        "checkPassRegForm": "$2a$12$BVCfFKyaBCVt1JHbqwY9vuHrnhJNXI/VwjpopIUiNVZyvWyy1Ohea",
+        "tyc": true,
+        "notificaciones": true
+    }
+]
