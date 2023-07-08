@@ -1,6 +1,7 @@
 // Controlador de productos
 const path = require('path');
 const { validationResult } = require('express-validator');
+const { Product } = require('../database/models');
 
 let modelProductos = require('../models/productsModel');
 
@@ -34,7 +35,18 @@ const productControllers = {
         console.log(req.body)
     },
 
-    getEvents: (req, res) => {
+    getEvents: async (req, res) => {
+        try {
+            await Product.findAll({
+                raw: true
+            })
+                .then(products => {
+                    console.log(products);
+                })
+        } catch (error) {
+            console.log(error);
+        }
+
     let productos = modelProductos.findAll()
     res.render('events', {
         productos,

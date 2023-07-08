@@ -27,6 +27,8 @@ router.get("/editUser", authMiddleware, userControllers.getEditUser);
 // @PUT /users/editUser
 router.put("/editUser", authMiddleware, userControllers.putEditUser);
 
+// @GET /users/list
+router.get("/profile", userControllers.listUsers)
 
 
 module.exports = router;

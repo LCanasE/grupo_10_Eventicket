@@ -3,6 +3,7 @@ const path = require('path');
 const usersModel = require('../models/usersModel');
 const { validationResult } = require('express-validator');
 const { bcrypt, hashSync, compareSync } = require('bcryptjs');
+const { User } = require('../database/models');
 
 const userControllers = {
 
@@ -139,6 +140,21 @@ const userControllers = {
         } else {
             return res.redirect('/users/login?error=El email o la contraseña es invalido');
         }
+    },
+
+    listUsers: async (req, res) => {
+        try {
+            User.findAll({
+                raw: true
+            })
+                .then(users => {
+                    console.log(users);
+                    res.send(users)
+                })
+        } catch (error) {
+            console.log(error);
+        }
     }
+
 }
 module.exports = userControllers;
