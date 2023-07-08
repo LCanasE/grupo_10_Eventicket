@@ -20,9 +20,6 @@ module.exports = (sequelize, dataTypes) => {
         addres: {
             type: dataTypes.STRING
         },
-        ticket_type_id: {
-            type: dataTypes.INTEGER
-        },
         category_id: {
             type: dataTypes.INTEGER
         },
