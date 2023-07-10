@@ -2,23 +2,26 @@
 const path = require("path");
 let modelProducts = require('../models/productsModel');
 const unidecode = require('unidecode');
+const { Product } = require('../database/models');
 
 const mainControllers = {
 
-    getIndex:(req, res) => {
+    getIndex: async (req, res) => {
         // let userData = req.session.user;
         // if (!userData){
         //     userData = {}
         // }
         
+        let productosSinModificar = modelProducts.findAll();
+        let productos = modelProducts.findAll();
+
         let nombreEventoBuscado = req.query.buscadorTexto;
         let nombreCategoriaBuscado = req.query.buscadorCategoria;
         let nombreFechaBuscada = req.query.buscadorFecha;
 
         nombreFechaBuscada = nombreFechaBuscada ? nombreFechaBuscada.toLowerCase() : '';
 
-        let productosSinModificar = modelProducts.findAll();
-        let productos = modelProducts.findAll();
+
         
         if(nombreEventoBuscado){
             const nombreEventoBuscadoSinAcentos = unidecode(nombreEventoBuscado);
@@ -38,12 +41,28 @@ const mainControllers = {
         if(productos.length === 0){
             return res.redirect('/');
         }
+        
 
-        res.render('home', {
-            productos,
-            productosSinModificar,
-            title: 'Home'
-            }) 
+        try {
+            await Product.findAll({
+                raw: true,
+            })
+                .then(products => {
+                    console.log(products);
+                    return res.render('home', {
+                        products,
+                        productos,
+                        productosSinModificar,
+                        title: 'Home'});
+                })
+        } catch (error) {
+            console.log(error);
+        }
+        // res.render('home', {
+        //     productos,
+        //     productosSinModificar,
+        //     title: 'Home'
+        //     }) 
     }
 }
 

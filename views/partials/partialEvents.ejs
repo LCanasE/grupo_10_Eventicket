@@ -1,3 +1,39 @@
+<% include('../../utils/dateUtils') %>
+<h2 style="width: 100%">PRODUCTOS BASE DE DATOS</h2>
+<% products.forEach(product => { %>
+    <article class="product">
+        <a href="/products/<%= product.id %>/eventsDetails" class="product-link-detail">
+            <div class="product-img">
+                <img src=<%= product.image %> alt="Error">
+            </div>
+            <div class="product-info">
+                <div class="information-product">
+                    <h2><%= product.name %></h2>
+                    <p class="date">
+                        <%= formateDate(product.date) %>
+                    </p>
+                    <p class="place"><%= product.location %></p>
+                </div>
+                <div class="price-buy">
+                    <div class="price">
+                        <p>Desde $<%= product.price %></p>
+                    </div>
+                    <div class="buy">
+                        <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
+                    </div>
+                </div>
+            </div>
+            <% if (product.sold_out === 1) {%>
+            <p class="tickets-agotados">Agotado</p>
+            <% } %>
+            <% if (product.deleted === 1) {%>
+                <div class="producto-eliminado"></div>
+            <% } %>
+        </a>
+    </article> 
+<% }); %>
+
+<h2 style="width: 100%">PRODUCTOS JSON</h2>
 <% productos.forEach(producto => {%>
 
     <article class="product">
