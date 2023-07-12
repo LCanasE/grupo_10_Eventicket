@@ -1,7 +1,7 @@
 // Controlador de productos
 const path = require('path');
 const { validationResult } = require('express-validator');
-const { Product } = require('../database/models');
+const { Product, Ticket } = require('../database/models');
 
 let modelProductos = require('../models/productsModel');
 
@@ -10,8 +10,19 @@ const productControllers = {
     getEventsDetails: async (req, res) => {
         try {
             const productsBanner = await Product.findAll()
-            await Product.findByPk(req.params.id)
+            await Product.findByPk(req.params.id, {
+                // raw: true,
+                include: [ 
+                    {
+                    model: Ticket,
+                    as: "tickets",
+                    // order: [["price", "ASC"]]
+                    }
+                ],
+            })
                 .then((product) => {
+                    product.tickets.sort((a, b) => a.price - b.price);
+                    console.log(product);
                     res.render('eventsDetails', {
                         product,
                         title: 'Detalle',

@@ -43,7 +43,9 @@ const mainControllers = {
         try {
             const productsBanner = await Product.findAll()
             await Product.findAll({
-                raw: true,
+                // raw:true,
+                nest: true,
+                include: "tickets"
             })
                 .then(products => {
                     console.log(products);
