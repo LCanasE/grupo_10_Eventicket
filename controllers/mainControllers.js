@@ -12,7 +12,7 @@ const mainControllers = {
         //     userData = {}
         // }
         
-        let productosSinModificar = modelProducts.findAll();
+        // let productosSinModificar = modelProducts.findAll();
         let productos = modelProducts.findAll();
 
         let nombreEventoBuscado = req.query.buscadorTexto;
@@ -20,8 +20,6 @@ const mainControllers = {
         let nombreFechaBuscada = req.query.buscadorFecha;
 
         nombreFechaBuscada = nombreFechaBuscada ? nombreFechaBuscada.toLowerCase() : '';
-
-
         
         if(nombreEventoBuscado){
             const nombreEventoBuscadoSinAcentos = unidecode(nombreEventoBuscado);
@@ -42,8 +40,8 @@ const mainControllers = {
             return res.redirect('/');
         }
         
-
         try {
+            const productsBanner = await Product.findAll()
             await Product.findAll({
                 raw: true,
             })
@@ -52,7 +50,7 @@ const mainControllers = {
                     return res.render('home', {
                         products,
                         productos,
-                        productosSinModificar,
+                        productsBanner,
                         title: 'Home'});
                 })
         } catch (error) {

@@ -14,6 +14,7 @@
         <section class="registro-form">
             <h2>Editar información de usuario</h2>
             <form action="/users/editUser?_method=PUT" method="POST">
+                <p style="margin:0; color: red; font-size: 20px;"><%= error %></p>
                 <!-- <article class="registro-datos">
                     <input type="email" placeholder="Correo electrónico" name="emailEditForm" required />
                     <form action="/users/editUser" method="POST">

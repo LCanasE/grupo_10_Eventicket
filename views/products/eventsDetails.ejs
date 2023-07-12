@@ -12,24 +12,26 @@
   </header>
 
   <%- include('../partials/banner') %>
-
+  <% include('../../utils/dateUtils') %>
       <article class="evento">
 
         <section class="caja-titulo-ubicacion">
           <div class="caja-titulo">
 
             <h2 class="titulo-evento">
-              <%= productoBuscado.nombre %> <%=productoBuscado.ubicacion%>
+              <%= product.name %> <%=product.location%>
             </h2>
             <h3 class="fecha-evento"><i class="fa-regular fa-calendar-days"></i>
-              <%= productoBuscado.fecha %>
+              <%= formateDate(product.date) %>
             </h3>
 
-            <a href="/products/<%=productoBuscado.id%>/editEvents">
+            <% if (locals.isLogged && locals.user.tipoUsuario === "Productor/a") { %>
+              <a href="/products/<%=product.id%>/editEvents">
               <button class="btn-editar-eventos">
                 <i class="fa-solid fa-pen-to-square"></i>
               </button>
             </a>
+            <% } %>
 
           </div>
 
@@ -40,9 +42,9 @@
 
             <div class="descripcion-caja-ubicacion">
               <h3 class="titulo-ubicacion"><i class="fa-solid fa-location-dot"></i>
-                <%=productoBuscado.ubicacion%>
+                <%=product.location%>
               </h3>
-              <h4 class="descripcion-ubicacion"><%= productoBuscado.direccion %></h4>
+              <h4 class="descripcion-ubicacion"><%= product.addres %></h4>
             </div>
           </div>
 
@@ -63,7 +65,7 @@
 
               <div class="linea-ticket">
                 <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ <%=productoBuscado.precio%>
+                <p class="precio-ticket-p">$ <%=product.price%>
                 </p>
                 <select class="caja-cantidad">
                   <option value="0" name="0"> 0 </option>
@@ -81,7 +83,7 @@
               </div>
               <div class="linea-ticket">
                 <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ <%=productoBuscado.precio%>
+                <p class="precio-ticket-p">$ <%=product.price%>
                 </p>
                 <select class="caja-cantidad">
                   <option value="0" name="0"> 0 </option>
@@ -99,7 +101,7 @@
               </div>
               <div class="linea-ticket">
                 <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ <%=productoBuscado.precio%>
+                <p class="precio-ticket-p">$ <%=product.price%>
                 </p>
                 <select class="caja-cantidad">
                   <option value="0" name="0"> 0 </option>
@@ -117,7 +119,7 @@
               </div>
               <div class="linea-ticket">
                 <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ <%=productoBuscado.precio%></p>
+                <p class="precio-ticket-p">$ <%=product.price%></p>
                 <select class="caja-cantidad">
                   <option value="0" name="0"> 0 </option>
                   <option value="1" name="1"> 1 </option>
@@ -135,8 +137,8 @@
 
             </div>
             <div class="comprar">
-              <form action="/products/cart?id=<%= productoBuscado.id %>" method="GET">
-                <input type="hidden" name="id" value=<%= productoBuscado.id %>>
+              <form action="/products/cart?id=<%= product.id %>" method="GET">
+                <input type="hidden" name="id" value=<%= product.id %>>
 
                 <input type="submit" value="Comprar" class="boton-comprar">
               </form>
@@ -147,7 +149,7 @@
 
           <div class="caja-imagen-evento">
 
-            <img src="../<%= productoBuscado.img %>" alt="" class="imagen-evento">
+            <img src="../<%= product.image %>" alt="" class="imagen-evento">
 
           </div>
 

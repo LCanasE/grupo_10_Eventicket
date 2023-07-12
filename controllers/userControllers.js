@@ -14,6 +14,7 @@ const userControllers = {
     },
 
     getEditUser: (req, res) => {
+        const error = req.query.error || '';
         let email = req.session.user.emailRegForm
         let searchedUser = usersModel.findByEmail(email);
         if (!searchedUser) {
@@ -21,7 +22,7 @@ const userControllers = {
         }
         console.log(searchedUser);
         let nuevosDatos = req.body;
-        res.render('editUser', { title: 'Edición de usuario', searchedUser});
+        res.render('editUser', { title: 'Edición de usuario', searchedUser, error});
     },
 
     putEditUser: (req, res) => {
@@ -44,7 +45,7 @@ const userControllers = {
             newData.tyc === "on" ? newData.tyc = true : newData.tyc = false;
             newData.notificaciones === "on" ? newData.notificaciones = true : newData.notificaciones = false;
         } else {
-            return res.redirect('/users/editUsers?Error=La contraseña no coincide');
+            return res.redirect('/users/editUser?error=La contraseña no coincide');
         }
 
         usersModel.updateById(id, newData);
@@ -122,10 +123,10 @@ const userControllers = {
         }
         const { passRegForm: hashedPassword } = searchedUser;
         const isCorrect = compareSync(req.body.passwordLogin, hashedPassword);
-
         if (isCorrect) {
             //Cookie para mantener la sesión iniciada
             if (!!req.body.rememberme) {
+                console.log('Cookie funcionando correctamente');
                 res.cookie('email', searchedUser.emailRegForm, {
                     maxAge: 1000 * 60 * 60 * 24 * 365 * 999
                 });
@@ -140,6 +141,13 @@ const userControllers = {
         } else {
             return res.redirect('/users/login?error=El email o la contraseña es invalido');
         }
+    },
+
+    logout: (req, res) => {
+        res.clearCookie('email');
+        req.session.destroy();
+        res.redirect('/');
+        console.log('Chauuuuuuuu');
     },
 
     listUsers: async (req, res) => {

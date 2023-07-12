@@ -7,17 +7,28 @@ let modelProductos = require('../models/productsModel');
 
 const productControllers = {
 
-    getEventsDetails: (req, res) => {
-    let id = Number(req.params.id);
-    let productos = modelProductos.findAll();
-    let productosSinModificar = modelProductos.findAll();
-    let productoBuscado = modelProductos.findById(id);
+    getEventsDetails: async (req, res) => {
+        try {
+            const productsBanner = await Product.findAll()
+            await Product.findByPk(req.params.id)
+                .then((product) => {
+                    res.render('eventsDetails', {
+                        product,
+                        title: 'Detalle',
+                        productsBanner
+                    })});
+        } catch (error) {
+            console.log(error);
+        }
+    // let id = Number(req.params.id);
+    // let productos = modelProductos.findAll();
+    // let productoBuscado = modelProductos.findById(id);
     
-    res.render('eventsDetails', {
-        productoBuscado,
-        productos,
-        productosSinModificar,
-        title: 'Detalle'})
+    // res.render('eventsDetails', {
+    //     // productoBuscado,
+    //     productos,
+    //     // productosSinModificar,
+    //     title: 'Detalle'})
     },
 
     getCart: (req, res) => {

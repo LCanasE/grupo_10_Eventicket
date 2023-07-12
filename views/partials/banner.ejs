@@ -1,11 +1,11 @@
-<div class="gallery-container">
-  <ul class="gallery-container-ul">
-    <% productosSinModificar.forEach(producto=> {%>
-      <li class="gallery-container-li"><img src="../<%= producto.img %>" alt="" class="gallery-item"></li>
-      <% }) %>
-  </ul>
-  <!-- <div class="gallery-btn">
-    <button><i class="fa-solid fa-arrow-left"></i></button>
-    <button><i class="fa-solid fa-arrow-right"></i></button>
-  </div> -->
-</div>
+<div class="banner" >
+  <% productsBanner.forEach(product=> {%>
+    <a href="/products/<%= product.id %>/eventsDetails" class="link-banner">
+    <img src="../<%= product.image %>" alt="Imagen" class="banner-item">
+    </a>
+    <% }) %>
+  </div>
+    <!-- <div class="gallery-btn">
+      <button><i class="fa-solid fa-arrow-left"></i></button>
+      <button><i class="fa-solid fa-arrow-right"></i></button>
+    </div> -->

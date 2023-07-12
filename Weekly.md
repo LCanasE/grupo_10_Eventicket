@@ -63,7 +63,7 @@ REGISTRO DE WEEKLY
         - Agregar CRUD 1 al proyecto.
 
 
-2. 2023/06/04 3° WEEKLY:
+3. 2023/06/04 3° WEEKLY:
 
     CONSIDERACIONES
 
@@ -93,7 +93,7 @@ REGISTRO DE WEEKLY
         - Implementar botón de eliminación del evento y guardar el nuevo JSON de productos sin el producto eliminado.
 
 
-2. 2023/06/11 4° WEEKLY:
+4. 2023/06/11 4° WEEKLY:
         
     CONSIDERACIONES
 
@@ -120,13 +120,15 @@ REGISTRO DE WEEKLY
 
         - Terminar la implementación de Javascript en las diferentes vistas y formularios para acceder a los datos del evento según ID.
 
+
 ACLARACIÓN PARA LUCAS:
 
 En la vista de eventos, estamos en modo administrador, por lo que se muestra el evento eliminado. Para la vista de usuario NO se verán los eventos eliminados.
 
 Saludos! =)
 
-2. 2023/07/02 5° WEEKLY:
+
+5. 2023/07/02 5° WEEKLY:
         
     CONSIDERACIONES
 
@@ -155,3 +157,33 @@ Saludos! =)
     3. ¿QUÉ SE HARÁ ESTA SEMANA?
 
         - Dar inicio al Sprint 6.
+
+6. 2023/07/ 6° WEEKLY:
+        
+    CONSIDERACIONES
+
+    - Inicio de la implementación del Sprint 6.
+    - Fecha de entrega 6° sprint: 2023/08/02
+
+    1. ¿QUÉ SE HIZO HASTA AHORA?
+
+        - 
+
+        - 
+
+        - 
+
+        - 
+
+        - 
+
+        - 
+
+
+    2.  ¿IMPEDIMENTOS?
+
+        - 
+
+    3. ¿QUÉ SE HARÁ ESTA SEMANA?
+
+        - 
