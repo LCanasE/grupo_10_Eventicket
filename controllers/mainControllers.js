@@ -2,6 +2,7 @@
 const path = require("path");
 let modelProducts = require('../models/productsModel');
 const unidecode = require('unidecode');
+const { Op } = require('sequelize');
 const { Product } = require('../database/models');
 
 const mainControllers = {
@@ -41,14 +42,18 @@ const mainControllers = {
         }
         
         try {
+            
             const productsBanner = await Product.findAll()
             await Product.findAll({
                 // raw:true,
                 nest: true,
-                include: "tickets"
+                include: [
+                    {association: "tickets"},
+                    {association: "categories"}
+                ]
             })
                 .then(products => {
-                    console.log(products);
+                    // console.log(products);
                     return res.render('home', {
                         products,
                         productos,
@@ -63,6 +68,52 @@ const mainControllers = {
         //     productosSinModificar,
         //     title: 'Home'
         //     }) 
+    },
+
+    search: async (req, res) => {
+        let { searchName, searchCategory, searchDate } = req.query
+
+        const months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+        try {
+
+            const whereClause = {};
+
+            if (searchName) {
+                whereClause.name = { [Op.like]: `%${searchName}%` }
+            }
+
+            if (searchDate) {
+                const indexMonth = months.indexOf(searchDate.toLowerCase()) + 1;
+                const formattedToSearch = indexMonth < 10 ? `0${indexMonth}` : `${indexMonth}`;
+                whereClause.date = { [Op.substring]: `-${formattedToSearch}-` }
+            }
+
+            if (searchCategory){
+                whereClause.category_id = searchCategory;
+            }
+
+            const productsBanner = await Product.findAll()
+            if(Object.keys(whereClause).length === 0){
+                console.log("VACIO!!");
+                return res.redirect('./');
+            }
+            let productos = modelProducts.findAll();
+            await Product.findAll({
+                where: whereClause,
+                include: [
+                    {association: "tickets"},
+                    {association: "categories"}
+                ]
+            })
+            .then(products => {
+                products.forEach(product => {
+                    console.log(product.dataValues.categories.dataValues.name);
+                })
+                return res.render( 'home', { products, title: 'Eventicket', productsBanner, productos });
+            })
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 

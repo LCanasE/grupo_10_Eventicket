@@ -6,7 +6,10 @@ const mainControllers = require('../controllers/mainControllers');
 const router = express.Router();
 
 
-// @GET /   --> Home
+// @GET / --> Home
 router.get("/", mainControllers.getIndex);
+
+// @GET / --> Home
+router.get("/search", mainControllers.search);
 
 module.exports = router
