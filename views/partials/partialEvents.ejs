@@ -1,5 +1,8 @@
 <% include('../../utils/dateUtils') %>
 <h2 style="width: 100%">PRODUCTOS BASE DE DATOS</h2>
+<% if (error.message) { %>
+    <h3><%= error.message %></h3>
+<% } else { %>
 <% products.forEach(product => { %>
     <article class="product">
         <a href="/products/<%= product.id %>/eventsDetails" class="product-link-detail">
@@ -32,7 +35,7 @@
         </a>
     </article> 
 <% }); %>
-
+<% } %>
 <h2 style="width: 100%">PRODUCTOS JSON</h2>
 <% productos.forEach(producto => {%>
 

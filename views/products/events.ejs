@@ -16,7 +16,9 @@
         <%- include('../partials/header') %>
     </header>
     <main>
-        <%- include('../partials/navBar') %>
+        <form action="/search/events" method="GET" class="search-home" name="navBar">
+            <%- include('../partials/navBar') %>
+        </form>
         <% const texto='Eventos del mes' %>
         <h2 style="text-align: center">
             <%= texto.toUpperCase() %>

@@ -10,6 +10,6 @@ const router = express.Router();
 router.get("/", mainControllers.getIndex);
 
 // @GET / --> Home
-router.get("/search", mainControllers.search);
+router.get("/search/:from", mainControllers.search);
 
 module.exports = router

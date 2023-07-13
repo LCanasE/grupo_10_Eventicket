@@ -1,10 +1,16 @@
-<form action="/search" method="GET" class="search-home" name="navBar">
+
 
   <input type="text" name="searchName" placeholder="Buscar evento en Eventicket..." class="search-bar">
 
   <select name="searchCategory" id="" class="search-bar-buscador">
     <option disabled selected>Categoría</option>
-    <% let categorias = [{id: 1, name: 'Deportes'}, {id: 2, name: 'Recitales'}, {id: 3, name: 'Obras de teatro'}, {id: 4, name: 'Stand Up'}, {id: 5, name: 'Conferencias'}] %>
+    <% let categorias = [
+      {id: 1, name: 'Deportes'},
+      {id: 2, name: 'Recitales'},
+      {id: 3, name: 'Obras de teatro'},
+      {id: 4, name: 'Stand Up'},
+      {id: 5, name: 'Conferencias'}
+    ] %>
     <% categorias.forEach(categoria => { %>
       <option value="<%= categoria.id %>"> <%= categoria.name %> </option>
     <% }); %>
@@ -20,4 +26,3 @@
 
   <input type="submit" value="Buscar" class="search-btn">
   
-</form>
