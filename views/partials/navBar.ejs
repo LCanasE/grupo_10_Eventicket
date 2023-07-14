@@ -3,6 +3,7 @@
   <input type="text" name="searchName" placeholder="Buscar evento en Eventicket..." class="search-bar">
 
   <select name="searchCategory" id="" class="search-bar-buscador">
+
     <option disabled selected>Categoría</option>
     <% let categorias = [
       {id: 1, name: 'Deportes'},
@@ -11,9 +12,10 @@
       {id: 4, name: 'Stand Up'},
       {id: 5, name: 'Conferencias'}
     ] %>
-    <% categorias.forEach(categoria => { %>
+    <% categorias.sort((a, b) => a.name.localeCompare(b.name)).forEach(categoria => { %>
       <option value="<%= categoria.id %>"> <%= categoria.name %> </option>
     <% }); %>
+
   </select>
 
   <select name="searchDate" id="" class="search-bar-buscador">

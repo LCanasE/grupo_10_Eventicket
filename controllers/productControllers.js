@@ -58,21 +58,22 @@ const productControllers = {
     },
 
     getEvents: async (req, res) => {
+        let productos = modelProductos.findAll();
         try {
             await Product.findAll({
-                raw: true
+                nest: true,
+                include: [
+                    {association: 'tickets'},
+                    {association: 'categories'},
+                ]
             })
                 .then(products => {
                     console.log(products);
+                    return res.render('events', { products, title: "Eventos", productos })
                 })
         } catch (error) {
             console.log(error);
         }
-
-    let productos = modelProductos.findAll()
-    res.render('events', {
-        productos,
-        title: 'Eventos'})
     },
 
     getCreateEvent: (req, res) => {

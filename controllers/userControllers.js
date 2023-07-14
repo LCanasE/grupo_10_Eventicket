@@ -9,7 +9,6 @@ const userControllers = {
 
     getLogin: (req, res) => {
         const error = req.query.error || '';
-
         res.render('login', { title: 'Inicio de sesión', error, userData:{}})
     },
 
@@ -55,9 +54,13 @@ const userControllers = {
     getRegister: (req, res) =>{
         res.render('register', { title: 'Registro', oldData: {}, errors: {} });
     }, 
-    postRegister: (req, res) => {
+    postRegister: async (req, res) => {
         // Primero se estableció una validación específica del campo email para evitar que un usuario se registre dos veces. Se pregunta si el mail que el usuario ingresó en el formulario de registro ya está en la base de datos o no. En caso de que esté, se corta la ejecución y se renderiza la vista 'register' con el errors que dentro tiene errorMail y dentro msg: 'Ya estás registrado'. Luego desde la vista se le agrega la frase 'Por favor inicie sesión aquí', en la que 'aquí' es un href al formulario de login.
-        const searchedUser = usersModel.findByEmail(req.body.emailRegForm);
+        const searchedUser = await User.findOne({
+            where: {
+                email: req.body.emailRegForm,
+            }
+        });
         if(searchedUser){
             console.log('Ya estas registrado');
         return res.render('register',{
@@ -82,7 +85,7 @@ const userControllers = {
                 title: 'Registro'
             })
         } else {
-            // Si no hay errores en las validaciones, entonces se hashea la contraseña del usuario con hashSync. Luego se crea la variable check que compara "Confirmar contraseña" con la contraseña hasheada.
+            // Si no hay errores en las validaciones, entonces se hashea la contraseña del usuario con hashSync. Luego se crea la variable check que compara "Confirmar contraseña" con la contraseña hasheada. Y se almacena la información del body en la variable newUser.
             let newUser = req.body;
             newUser.passRegForm = hashSync(newUser.passRegForm, 12);
             let check = compareSync(newUser.checkPassRegForm, newUser.passRegForm);
@@ -99,43 +102,72 @@ const userControllers = {
                     title: 'Registro'
                 })
             } else {
-                // Si las contraseñas coinciden, se hashea "Confirmar contraseña", se le asigna booleanos a "notificaciones" y a "tyc" (términos y condiciones), se crea un nuevo usuario y se redirige al home.
+                // Si las contraseñas coinciden, se hashea "Confirmar contraseña", se le asigna booleanos a "notificaciones" y a "tyc" (términos y condiciones), se pregunta por el tipo de usuario del newUser, en caso de "Espectador/a" se le asigna 1 y en caso de "Productor/a" se le asigna 2, y se redirige al login.
 
                 newUser.checkPassRegForm = hashSync(newUser.passRegForm, 12);
                 newUser.notificaciones === "on" ? newUser.notificaciones = true : newUser.notificaciones = false;
                 newUser.tyc === "on" ? newUser.tyc = true : newUser.tyc = false;
-                console.log(req.body);
-                usersModel.createOne(newUser);
+                newUser.tipoUsuario === "Espectador/a" ? newUser.tipoUsuario = 1 : newUser.tipoUsuario = 2;
+                console.log(newUser);
+                const { nombreRegForm, apellidoRegForm, emailRegForm, tipoUsuario, passRegForm, checkPassRegForm, notificaciones, tyc } = newUser;
+                try {
+                    await User.create({
+                        first_name: nombreRegForm,
+                        last_name: apellidoRegForm,
+                        email: emailRegForm,
+                        user_type_id: tipoUsuario,
+                        password: passRegForm,
+                        check_password: checkPassRegForm,
+                        notifications: notificaciones,
+                        terms_condition: tyc
+                    })
+                } catch (error) {
+                    console.log(error);
+                }
+                // usersModel.createOne(newUser);
                 return res.redirect('/users/login');
             }
         }
     },
 
-    // El POST para hacer el logeo validando la contraseña hasheado y si existe el usuario buscado.
-    //Aun tengo que checkear del porque dejó de funcionar.
-    postLogin: (req, res) => {
-        console.log(req.body);
-        const searchedUser = usersModel.findByEmail(req.body.emailLogin);
-
+    postLogin: async (req, res) => {
+        // Primero se busca el mail que ingresó el usuario en la base de datos para chequear que exista. Si no existe, se lo redirige a la misma vista con el error de que "El mail o la contraseña es inválido".
+        const searchedUser = await User.findOne({
+            raw: true,
+            where: {
+                email: req.body.emailLogin
+            }}
+        );
+        
         if (!searchedUser) {
             return res.redirect('/users/login?error=El email o la contraseña es inválido');
-
+            
         }
-        const { passRegForm: hashedPassword } = searchedUser;
+        // console.log(searchedUser.dataValues);
+        // Se verifica que la contraseña que ingresó el usuario sea la misma almacenada en la base de datos.
+        const { password: hashedPassword } = searchedUser;
         const isCorrect = compareSync(req.body.passwordLogin, hashedPassword);
+
+        // En caso de que la contraseña sea correcta, se crea una cookie siempre y cuando el usuario clickee sobre "Mantener sesión iniciada".
         if (isCorrect) {
             //Cookie para mantener la sesión iniciada
             if (!!req.body.rememberme) {
                 console.log('Cookie funcionando correctamente');
-                res.cookie('email', searchedUser.emailRegForm, {
+                res.cookie('email', searchedUser.email, {
                     maxAge: 1000 * 60 * 60 * 24 * 365 * 999
                 });
             }
             
+            
             delete searchedUser.id;
-            delete searchedUser.passRegForm;
-            delete searchedUser.checkPassRegForm;
+            delete searchedUser.password;
+            // delete searchedUser.passRegForm;
+            delete searchedUser.check_password;
+            // delete searchedUser.checkPassRegForm;
+
+            // Se asigna la información del usuario "searchedUser" a req.session.user para poder compartir la información con las distintas vistas.
             req.session.user = searchedUser;
+            console.log(searchedUser);
             
             return res.redirect('/');
         } else {

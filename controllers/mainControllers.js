@@ -8,6 +8,7 @@ const { Product } = require('../database/models');
 const mainControllers = {
 
     getIndex: async (req, res) => {
+        console.log("CONTROLLER", req.cookies.email);
         // let userData = req.session.user;
         // if (!userData){
         //     userData = {}

@@ -15,7 +15,7 @@ const validations = [
     body('tipoUsuario')
         .notEmpty().withMessage('Por favor seleccione el tipo de usuario'),
     body('passRegForm')
-        .isLength({min:6}).withMessage('La contraseña debe tener al menos 6 caracteres'),
+        .isLength({min:6}).withMessage('La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula y un número'),
 ]
 
 module.exports = validations
