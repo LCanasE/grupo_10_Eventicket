@@ -14,7 +14,7 @@
         <section class="registro-form">
             <h2>Editar información de usuario</h2>
             <form action="/users/editUser?_method=PUT" method="POST">
-                <p style="margin:0; color: red; font-size: 20px;"><%= error %></p>
+                <!-- <p style="margin:0; color: red; font-size: 20px;"><%#= error %></p> -->
                 <!-- <article class="registro-datos">
                     <input type="email" placeholder="Correo electrónico" name="emailEditForm" required />
                     <form action="/users/editUser" method="POST">
@@ -24,11 +24,11 @@
                     </form>
                 </article> -->
                 <article class="registro-datos">
-                    <input id="registro-nombre" type="text" value="<%= searchedUser.nombreRegForm %>" name="nombreRegForm" required />
-                    <input id="registro-apellido" type="text" value="<%= searchedUser.apellidoRegForm %>" name="apellidoRegForm" required />
+                    <input id="registro-nombre" type="text" value="<%= searchedUser.first_name %>" name="nombreRegForm" required />
+                    <input id="registro-apellido" type="text" value="<%= searchedUser.last_name %>" name="apellidoRegForm" required />
                 </article>
                 <article id="registro-email">
-                    <input type="email" value="<%= searchedUser.emailRegForm %>" name="emailRegForm" required />
+                    <input type="email" value="<%= searchedUser.email %>" name="emailRegForm" required />
                 </article>
 
                 <article>
@@ -37,6 +37,9 @@
                         <option <%= searchedUser.tipoUsuario === "Espectador/a" ? "selected" : " " %>>Espectador/a</option>
                         <option <%= searchedUser.tipoUsuario === "Productor/a" ? "selected" : " " %>>Productor/a</option>
                     </select>
+                    <% if(error.errorCategory) { %>
+                        <p style="color:red; margin-top: 0;"><%= error.errorCategory.msg %></p>
+                        <% } %>
                 </article>
 
                 <article class="registro-password">

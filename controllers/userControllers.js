@@ -12,21 +12,29 @@ const userControllers = {
         res.render('login', { title: 'Inicio de sesión', error, userData:{}})
     },
 
-    getEditUser: (req, res) => {
+    getEditUser: async (req, res) => {
         const error = req.query.error || '';
-        let email = req.session.user.emailRegForm
-        let searchedUser = usersModel.findByEmail(email);
+        let email = req.session.user.email
+        let searchedUser = await User.findOne({
+            where: {
+                email: email
+            }
+        });
         if (!searchedUser) {
             return res.send('Email inválido');
         }
         console.log(searchedUser);
         let nuevosDatos = req.body;
-        res.render('editUser', { title: 'Edición de usuario', searchedUser, error});
+        res.render('editUser', { title: 'Edición de usuario', searchedUser, error: {}});
     },
 
-    putEditUser: (req, res) => {
-        let email = req.session.user.emailRegForm
-        let searchedUser = usersModel.findByEmail(email);
+    putEditUser: async (req, res) => {
+        let email = req.session.user.email
+        let searchedUser = await User.findOne({
+            where: {
+                email: email
+            }
+        });
         if (!searchedUser) {
             return res.send('Email inválido');
         }
@@ -35,7 +43,7 @@ const userControllers = {
         console.log(searchedUser);
         console.log(newData);
 
-        const { passRegForm: hashedPassword } = searchedUser;
+        const { password: hashedPassword } = searchedUser;
         const isCorrect = compareSync(newData.passRegForm, hashedPassword);
 
         if(isCorrect){
@@ -43,11 +51,26 @@ const userControllers = {
             newData.checkPassRegForm = searchedUser.checkPassRegForm;
             newData.tyc === "on" ? newData.tyc = true : newData.tyc = false;
             newData.notificaciones === "on" ? newData.notificaciones = true : newData.notificaciones = false;
+            newData.tipoUsuario === "Espectador/a" ? newData.tipoUsuario = 1 : newData.tipoUsuario = 2;
         } else {
             return res.redirect('/users/editUser?error=La contraseña no coincide');
         }
-
-        usersModel.updateById(id, newData);
+        const { nombreRegForm, apellidoRegForm, emailRegForm, tipoUsuario, passRegForm, checkPassRegForm, notificaciones, tyc } = newData
+        User.update(
+            {
+                first_name: nombreRegForm,
+                last_name: apellidoRegForm,
+                email: emailRegForm,
+                user_type_id: tipoUsuario,
+                password: passRegForm,
+                check_password: checkPassRegForm,
+                notifications: notificaciones,
+                terms_condition: tyc},
+            {
+                where: {
+                    id: id
+                }
+            });
         res.redirect('/');
     },
 

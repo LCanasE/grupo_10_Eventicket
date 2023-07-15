@@ -6,7 +6,7 @@ const userLoggedMiddleware = async(req,res,next) => {
 
         let emailInCookie = req.cookies.email;
         if(emailInCookie){
-        console.log("MIDDLEWARE", emailInCookie);
+        // console.log("MIDDLEWARE", emailInCookie);
         let userFromCookie = await User.findOne({
             raw: true,
             where: {
@@ -22,7 +22,7 @@ const userLoggedMiddleware = async(req,res,next) => {
             delete userFromCookie.password;
             delete userFromCookie.check_password;
             req.session.user = userFromCookie;
-            console.log("SESSION MIDDLEWARE", req.session.user);
+            // console.log("SESSION MIDDLEWARE", req.session.user);
         }
     }
     
