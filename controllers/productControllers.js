@@ -1,7 +1,7 @@
 // Controlador de productos
 const path = require('path');
 const { validationResult } = require('express-validator');
-const { Product, Ticket } = require('../database/models');
+const { Product, Ticket, User } = require('../database/models');
 
 let modelProductos = require('../models/productsModel');
 
@@ -76,7 +76,7 @@ const productControllers = {
         }
     },
 
-    getCreateEvent: (req, res) => {
+    getCreateEvent: async(req, res) => {
     res.render('createEvents', {
         title: 'Crear',
         errors: {}, 
@@ -88,7 +88,7 @@ const productControllers = {
         errorInput: {} })
     },
 
-    postCreateEvent: (req, res) => {
+    postCreateEvent: async (req, res) => {
         let validation = validationResult(req);
         let eventoNuevo = req.body;
 
@@ -119,34 +119,40 @@ const productControllers = {
                 title: 'Crear'
             });
         }
-        let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']; 
+        // let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']; 
 
-        let mesDelEvento = Number(eventoNuevo.fecha.split('-')[1]);
-        let diaEvento = eventoNuevo.fecha.split('T')[0].split('-')[2];
-        let indiceMes = mesDelEvento - 1;
-        let nombreMes = meses[indiceMes];
-        let horario = eventoNuevo.fecha.split('T')[1].split(':')[0];
+        // let mesDelEvento = Number(eventoNuevo.fecha.split('-')[1]);
+        // let diaEvento = eventoNuevo.fecha.split('T')[0].split('-')[2];
+        // let indiceMes = mesDelEvento - 1;
+        // let nombreMes = meses[indiceMes];
+        // let horario = eventoNuevo.fecha.split('T')[1].split(':')[0];
 
-        Number(diaEvento.split('')[0]) === 0 ? diaEvento = diaEvento.split('')[1] : diaEvento;
-        Number(horario.split('')[0]) === 0 ? horario = horario.split('')[1] : horario;
+        // Number(diaEvento.split('')[0]) === 0 ? diaEvento = diaEvento.split('')[1] : diaEvento;
+        // Number(horario.split('')[0]) === 0 ? horario = horario.split('')[1] : horario;
 
 
         let imageRoute = '../img/events/';
+        let category_id;
         switch(req.body.categoria){
-            case 'Recitales':
-                imageRoute += 'recitales';
-                break;
             case 'Deportes':
                 imageRoute += 'deportes';
+                category_id = 1;
                 break;
-            case 'Stand Up':
-                imageRoute += 'standUp';
+            case 'Recitales':
+                imageRoute += 'recitales';
+                category_id = 2;
                 break;
             case 'Obras de teatro':
                 imageRoute += 'obraTeatro';
+                category_id = 3;
+                break;
+            case 'Stand Up':
+                imageRoute += 'standUp';
+                category_id = 4;
                 break;
             case 'Conferencias':
                 imageRoute += 'conferencias';
+                category_id = 5;
                 break;
             default:
                 imageRoute = '../img/events';
@@ -154,16 +160,48 @@ const productControllers = {
         }
 
         eventoNuevo.img = `${imageRoute}/${req.file.filename}`;
-        eventoNuevo.eliminado = "false";
-        eventoNuevo.agotado = "false";
-        eventoNuevo.fecha = `${diaEvento} de ${nombreMes} - ${horario} horas`;
+        // eventoNuevo.fecha = `${diaEvento} de ${nombreMes} - ${horario} horas`;
         eventoNuevo.precio = Number(eventoNuevo.precio);
-        eventoNuevo.eliminado = eventoNuevo.eliminado === "false" ? false : true;
-        eventoNuevo.agotado = eventoNuevo.agotado === "false" ? false : true;
+        eventoNuevo.eliminado = eventoNuevo.eliminado === "false" ? 0 : 1;
+        eventoNuevo.agotado = eventoNuevo.agotado === "false" ? 0 : 1;
+        eventoNuevo.categoria = category_id;
 
         // console.log(eventoNuevo);
 
-        modelProductos.createOne(eventoNuevo);
+        const { nombre, fecha, ubicacion, direccion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado } = eventoNuevo;
+
+        try {
+            
+            const user = await User.findOne({
+                where: {
+                    email: req.session.user.email
+                }
+            })
+            
+            let userID = user.dataValues.id;
+
+            const productCreated = await Product.create({
+                name: nombre,
+                date: fecha,
+                location: ubicacion,
+                addres: direccion,
+                category_id: categoria,
+                image: img,
+                deleted: eliminado,
+                sold_out: agotado,
+                user_creator_id: userID
+            })
+            let productCreatedID = productCreated.dataValues.id;
+
+            await Ticket.create({
+                name: tipoEntrada,
+                amount: cantidadEntradas,
+                price: precio,
+                product_id: productCreatedID
+            })
+        } catch (error) {
+            console.log(error);
+        }
         res.redirect('/');
         }
     },
