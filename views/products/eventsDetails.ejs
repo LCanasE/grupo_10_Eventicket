@@ -26,7 +26,7 @@
               <%= formateDate(product.date) %>
             </h3>
 
-            <% if (locals.isLogged && locals.user.tipoUsuario==="Productor/a" ) { %>
+            <% if (locals.isLogged && locals.user.user_type_id === 2 ) { %>
               <a href="/products/<%=product.id%>/editEvents">
                 <button class="btn-editar-eventos">
                   <i class="fa-solid fa-pen-to-square"></i>

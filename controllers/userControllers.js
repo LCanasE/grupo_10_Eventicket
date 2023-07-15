@@ -156,12 +156,17 @@ const userControllers = {
     postLogin: async (req, res) => {
         // Primero se busca el mail que ingresó el usuario en la base de datos para chequear que exista. Si no existe, se lo redirige a la misma vista con el error de que "El mail o la contraseña es inválido".
         const searchedUser = await User.findOne({
-            raw: true,
+            nest: true,
             where: {
                 email: req.body.emailLogin
-            }}
+            },
+            include: [
+                {association: "products"},
+            ]
+        },
+
         );
-        
+        console.log('USUARIO ENCONTRADO LOGIN \n', searchedUser.dataValues.products);
         if (!searchedUser) {
             return res.redirect('/users/login?error=El email o la contraseña es inválido');
             
@@ -176,21 +181,20 @@ const userControllers = {
             //Cookie para mantener la sesión iniciada
             if (!!req.body.rememberme) {
                 console.log('Cookie funcionando correctamente');
-                res.cookie('email', searchedUser.email, {
+                res.cookie('email', searchedUser.dataValues.email, {
                     maxAge: 1000 * 60 * 60 * 24 * 365 * 999
                 });
             }
             
-            
-            delete searchedUser.id;
-            delete searchedUser.password;
+            delete searchedUser.dataValues.id;
+            delete searchedUser.dataValues.password;
             // delete searchedUser.passRegForm;
-            delete searchedUser.check_password;
+            delete searchedUser.dataValues.check_password;
             // delete searchedUser.checkPassRegForm;
 
             // Se asigna la información del usuario "searchedUser" a req.session.user para poder compartir la información con las distintas vistas.
-            req.session.user = searchedUser;
-            console.log(searchedUser);
+            req.session.user = searchedUser.dataValues;
+            console.log('REQ SESSION SEARCHED USER \N', req.session.user);
             
             return res.redirect('/');
         } else {

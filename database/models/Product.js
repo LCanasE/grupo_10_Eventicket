@@ -33,7 +33,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
         },
         user_creator_id: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
+            foreignKey: true,
         },
     }
 
@@ -53,6 +54,11 @@ module.exports = (sequelize, dataTypes) => {
         Product.belongsTo(models.Category, {
             as: "categories",
             foreignKey: "category_id",
+        });
+
+        Product.belongsTo(models.User, {
+            as: "products",
+            foreignKey: "user_creator_id",
         })
     }
 

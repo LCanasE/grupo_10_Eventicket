@@ -8,21 +8,24 @@ const userLoggedMiddleware = async(req,res,next) => {
         if(emailInCookie){
         // console.log("MIDDLEWARE", emailInCookie);
         let userFromCookie = await User.findOne({
-            raw: true,
+            // raw: true,
             where: {
                 email: emailInCookie
-            }
+            },
+            include: [
+                {association: "products"},
+            ]
         })
         // UserNoDb.findByEmail(emailInCookie);
         // console.log("MIDDLEWARE", userFromCookie);
         // console.log("USER FROM COOKIE", userFromCookie);
     
         if(userFromCookie){
-            delete userFromCookie.id;
-            delete userFromCookie.password;
-            delete userFromCookie.check_password;
+            delete userFromCookie.dataValues.id;
+            delete userFromCookie.dataValues.password;
+            delete userFromCookie.dataValues.check_password;
             req.session.user = userFromCookie;
-            // console.log("SESSION MIDDLEWARE", req.session.user);
+            console.log("SESSION MIDDLEWARE", req.session.user.dataValues);
         }
     }
     
