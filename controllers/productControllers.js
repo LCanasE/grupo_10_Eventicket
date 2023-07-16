@@ -22,7 +22,7 @@ const productControllers = {
             })
                 .then((product) => {
                     product.tickets.sort((a, b) => a.price - b.price);
-                    console.log(product);
+                    // console.log(product);
                     res.render('eventsDetails', {
                         product,
                         title: 'Detalle',
@@ -46,7 +46,7 @@ const productControllers = {
     let productos = modelProductos.findAll();
     let id = Number(req.query.id);
     let productoBuscado = modelProductos.findById(id);
-    console.log('PRODUCTO BUSCADO', productoBuscado);
+    // console.log('PRODUCTO BUSCADO', productoBuscado);
     res.render('cart', {
         productoBuscado,
         productos,
@@ -68,7 +68,7 @@ const productControllers = {
                 ]
             })
                 .then(products => {
-                    console.log(products);
+                    // console.log(products);
                     return res.render('events', { products, title: "Eventos", productos })
                 })
         } catch (error) {
@@ -206,57 +206,133 @@ const productControllers = {
         }
     },
 
-    getEditEvent: (req, res) => {
+    getEditEvent: async (req, res) => {
     let id = Number(req.params.id);
-    let productoBuscado = modelProductos.findById(id);
-    if (!productoBuscado) {
-        return res.send('id inválido');
+    try {
+        const searchedProduct = await Product.findOne({
+            where: {
+                id: id
+            },
+            include: [
+                {association: "tickets"},
+                {association: "categories"}
+            ]
+        })
+        if(!searchedProduct){
+            return res.send("No existe ese producto");
+        }
+        // console.log(searchedProduct.dataValues);
+        return res.render('editEvents', {searchedProduct: searchedProduct.dataValues, title: 'Editar'})
+    } catch (error) {
+        console.log(error);
     }
-    res.render('editEvents', {
-        productoBuscado,
-        title: 'Editar'})
+    // let productoBuscado = modelProductos.findById(id);
+    // if (!productoBuscado) {
+    //     return res.send('id inválido');
+    // }
+    // res.render('editEvents', {
+    //     productoBuscado,
+    //     title: 'Editar'})
     },
 
-    putEditEvent: (req, res) => {
+    putEditEvent: async (req, res) => {
         let id = Number(req.params.id);
-        let nuevosDatos = req.body;
+        let newData = req.body;
 
         let imageRoute = '../img/events/';
+        let category_id;
         switch(req.body.categoria){
-            case 'Recitales':
-                imageRoute += 'recitales';
-                break;
             case 'Deportes':
                 imageRoute += 'deportes';
+                category_id = 1;
                 break;
-            case 'Stand Up':
-                imageRoute += 'standUp';
+            case 'Recitales':
+                imageRoute += 'recitales';
+                category_id = 2;
                 break;
             case 'Obras de teatro':
                 imageRoute += 'obraTeatro';
+                category_id = 3;
+                break;
+            case 'Stand Up':
+                imageRoute += 'standUp';
+                category_id = 4;
                 break;
             case 'Conferencias':
                 imageRoute += 'conferencias';
+                category_id = 5;
                 break;
             default:
                 imageRoute = '../img/events';
                 break;
         }
 
-        nuevosDatos.img = req.file ? `${imageRoute}/${req.file.filename}` : req.body.originalImg;
-        nuevosDatos.precio = Number(nuevosDatos.precio);
-        nuevosDatos.eliminado = nuevosDatos.eliminado === "false" ? false : true;
-        nuevosDatos.agotado = nuevosDatos.agotado === "false" ? false : true;
-        modelProductos.updateById(id, nuevosDatos);
-        console.log(nuevosDatos);
-        console.log(req.file);
+        newData.img = req.file ? `${imageRoute}/${req.file.filename}` : req.body.originalImg;
+        newData.precio = Number(newData.precio);
+        newData.eliminado = Number(newData.eliminado)
+        newData.agotado = Number(newData.agotado )
+        newData.categoria = category_id;
+
+        const { nombre, fecha, ubicacion, direccion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado } = newData;
+        console.log("NEW DATA \n", newData);
+        try {
+            await Product.update(
+                {
+                    name: nombre,
+                    date: fecha,
+                    location: ubicacion,
+                    addres: direccion,
+                    category_id: categoria,
+                    image: img,
+                    deleted: eliminado,
+                    sold_out: agotado,
+                },
+                {
+                    where: {
+                        id: id
+                    }
+                }
+            )
+            await Ticket.update(
+                {
+                    name: tipoEntrada,
+                    amount: cantidadEntradas,
+                    price: precio,
+                    product_id: id,
+                },
+                {
+                    where: {
+                        product_id: id
+                    }
+                }
+            )
+        } catch (error) {
+            console.log(error);
+        }
+
+        // modelProductos.updateById(id, newData);
+        // console.log(newData);
+        // console.log(req.file);
         res.redirect('/')
     },
 
-    deleteEvent: (req, res) => {
+    deleteEvent: async (req, res) => {
         let id = Number(req.params.id);
-
-        modelProductos.deleteByID(id);
+        try {
+            const updateProduct = await Product.update(
+                {
+                    deleted: 1
+                },
+                {
+                    where: {
+                        id: id
+                    }
+                }
+            )
+        } catch (error) {
+            console.log(error);
+        }
+        // modelProductos.deleteByID(id);
         res.redirect('/');
     },
 

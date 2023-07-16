@@ -6,28 +6,30 @@
 </head>
 
 <body>
+    <% include('../../utils/dateUtils') %>
     <header>
         <%- include('../partials/header') %>
     </header>
     <main class="main-registro login-register">
         <section class="registro-form">
             <h2>Edición de eventos</h2>
-            <form action="/products/<%= productoBuscado.id %>/editEvents?_method=PUT" method="POST" enctype="multipart/form-data">
-                <input type="text" name="nombre" value="<%= productoBuscado.nombre %>">
-                <input type="text" name="fecha" value="<%= productoBuscado.fecha %>">
-                <input type="text" name="ubicacion" value="<%= productoBuscado.ubicacion %>">
-                <input type="text" name="direccion" value="<%= productoBuscado.direccion %>">
+            <form action="/products/<%= searchedProduct.id %>/editEvents?_method=PUT" method="POST" enctype="multipart/form-data">
+                <input type="text" name="nombre" value="<%= searchedProduct.name %>">
+                <input type="datetime-local" name="fecha" min=<%= new Date() %> value="<%= searchedProduct.date %>" >
+                <!-- <input type="text" name="fecha" value="<%#= formateDate(searchedProduct.date) %>"> -->
+                <input type="text" name="ubicacion" value="<%= searchedProduct.location %>">
+                <input type="text" name="direccion" value="<%= searchedProduct.addres %>">
                 <div class="agregar-input-precio-evento">
                     <label for="">Tipo de entrada</label>
-                    <input type="text" class="tipo-entrada-evento" style="color:black" name="tipoEntrada" value="<%= productoBuscado.tipoEntrada %>">
-                    <input type="number" name="precio" value="<%= productoBuscado.precio %>" class="precio-crear-evento">
-                    <input type="number" value="<%= productoBuscado.cantidadEntradas %>" name="cantidadEntradas" class="precio-crear-evento">
+                    <input type="text" class="tipo-entrada-evento" style="color:black" name="tipoEntrada" value="<%= searchedProduct.tickets[0].dataValues.name %>">
+                    <input type="number" name="precio" value="<%= searchedProduct.tickets[0].dataValues.price %>" class="precio-crear-evento">
+                    <input type="number" value="<%= searchedProduct.tickets[0].dataValues.amount %>" name="cantidadEntradas" class="precio-crear-evento">
                     <button class="agregar-tipo-entrada">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </div>
                 <select name="categoria" id="" class="creacion-evento-categorias">
-                    <option selected><%= productoBuscado.categoria %></option>
+                    <option selected><%= searchedProduct.categories.dataValues.name %></option>
                     <option>Deportes</option>
                     <option>Recital</option>
                     <option>Obra de teatro</option>
@@ -36,14 +38,14 @@
                 </select>
                 <div class="input-grupo-cargar-imagen-evento">
                     <label for="">Imagen del Evento</label>
-                    <input type="hidden" name="originalImg" value="<%= productoBuscado.img %>">
+                    <input type="hidden" name="originalImg" value="<%= searchedProduct.image %>">
                     <input type="file" name="img" class="seleccionar-imagen">
                     <input type="submit" value="Guardar cambios" class="enviar-evento">
                 </div>
-                <input type="hidden" name="eliminado" value="<%= productoBuscado.eliminado %>">
-                <input type="hidden" name="agotado" value="<%= productoBuscado.agotado %>">
+                <input type="hidden" name="eliminado" value="<%= searchedProduct.deleted %>">
+                <input type="hidden" name="agotado" value="<%= searchedProduct.sold_out %>">
             </form>
-            <form action="/products/<%= productoBuscado.id %>/delete?_method=delete" method="POST" id="formDelete">
+            <form action="/products/<%= searchedProduct.id %>/delete?_method=delete" method="POST" id="formDelete">
                 <button id="delProd" type="submit" class="deleteFormButton">Eliminar</button>
             </form>
         </section>
