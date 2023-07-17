@@ -4,7 +4,7 @@
         const formattedDate = new Date(date);
         const day = formattedDate.getDate();
         const month = months[formattedDate.getMonth()];
-        const hour = formattedDate.getUTCHours().toString();
+        const hour = formattedDate.getHours().toString();
         if (hour.length === 1) {
             return `${day} de ${month} - ${hour.split('')[1]} horas`;
         } else {

@@ -2,6 +2,8 @@
 const path = require('path');
 const { validationResult } = require('express-validator');
 const { Product, Ticket, User } = require('../database/models');
+const dayjs = require('dayjs');
+const formateDate = require('../utils/dateUtils');
 
 let modelProductos = require('../models/productsModel');
 
@@ -221,7 +223,6 @@ const productControllers = {
         if(!searchedProduct){
             return res.send("No existe ese producto");
         }
-        // console.log(searchedProduct.dataValues);
         return res.render('editEvents', {searchedProduct: searchedProduct.dataValues, title: 'Editar'})
     } catch (error) {
         console.log(error);
@@ -267,13 +268,16 @@ const productControllers = {
                 break;
         }
 
+        newData.fecha = dayjs(newData.fecha).format('YYYY-MM-DDTHH:mm:ss');
         newData.img = req.file ? `${imageRoute}/${req.file.filename}` : req.body.originalImg;
         newData.precio = Number(newData.precio);
+        newData.cantidadEntradas = Number(newData.cantidadEntradas);
         newData.eliminado = Number(newData.eliminado)
-        newData.agotado = Number(newData.agotado )
+        newData.agotado = Number(newData.agotado)
         newData.categoria = category_id;
 
         const { nombre, fecha, ubicacion, direccion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado } = newData;
+        console.log(fecha);
         console.log("NEW DATA \n", newData);
         try {
             await Product.update(

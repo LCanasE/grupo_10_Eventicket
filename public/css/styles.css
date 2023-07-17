@@ -1077,6 +1077,26 @@ footer p {
   display: flex;
 }
 
+/* .btn-editar-eventos-home{
+  border: 1px solid gray;
+  outline: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: white;
+  right: 0;
+  cursor: pointer;
+  margin: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-editar-eventos-home:hover{
+  background-color: #313d55;
+  color: #ffff;
+} */
+
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ ----------------------------------------------------------*/
 @media (min-width: 480px) {
 
