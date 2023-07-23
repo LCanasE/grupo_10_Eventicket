@@ -13,7 +13,7 @@
                 </div>
                 <div class="price-buy">
                     <div class="price">
-                        <p>Desde $<%= producto.dataValues.tickets[0].price %></p>
+                        <p>Desde $<%= producto.dataValues.tickets.sort((a, b) => a.price - b.price)[0].price %></p>
                     </div>
                     <div class="buy">
                         <button><i class="fa-sharp fa-solid fa-ticket"></i></button>

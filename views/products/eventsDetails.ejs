@@ -62,7 +62,7 @@
             </div>
 
             <div class="tickets">
-              <% productoBuscado.dataValues.tickets.forEach(ticket => { %>
+              <% productoBuscado.dataValues.tickets.sort((a, b) => a.price - b.price).forEach(ticket => { %>
                 <div class="linea-ticket">
                   <p><%= ticket.dataValues.name %></p>
                   <p class="precio-ticket-p">$ <%=ticket.dataValues.price%>
