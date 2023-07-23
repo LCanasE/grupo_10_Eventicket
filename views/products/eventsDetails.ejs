@@ -19,10 +19,10 @@
           <div class="caja-titulo">
 
             <h2 class="titulo-evento">
-              <%= productoBuscado.nombre %> <%=productoBuscado.ubicacion%>
+              <%= productoBuscado.name %> <%=productoBuscado.location%>
             </h2>
             <h3 class="fecha-evento"><i class="fa-regular fa-calendar-days"></i>
-              <%= productoBuscado.fecha %>
+              <%= productoBuscado.date %>
             </h3>
 
             <% if (locals.isLogged && locals.user.tipoUsuario === "Productor/a") { %>
@@ -42,9 +42,9 @@
 
             <div class="descripcion-caja-ubicacion">
               <h3 class="titulo-ubicacion"><i class="fa-solid fa-location-dot"></i>
-                <%=productoBuscado.ubicacion%>
+                <%=productoBuscado.location%>
               </h3>
-              <h4 class="descripcion-ubicacion"><%= productoBuscado.direccion %></h4>
+              <h4 class="descripcion-ubicacion"><%= productoBuscado.addres %></h4>
             </div>
           </div>
 
@@ -62,26 +62,25 @@
             </div>
 
             <div class="tickets">
-
-              <div class="linea-ticket">
-                <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ <%=productoBuscado.precio%>
-                </p>
-                <select class="caja-cantidad">
-                  <option value="0" name="0"> 0 </option>
-                  <option value="1" name="1"> 1 </option>
-                  <option value="2" name="2"> 2 </option>
-                  <option value="3" name="3"> 3 </option>
-                  <option value="4" name="4"> 4 </option>
-                  <option value="5" name="5"> 5 </option>
-                  <option value="6" name="6"> 6 </option>
-                  <option value="7" name="7"> 7 </option>
-
-                </select>
-
-
-              </div>
-              <div class="linea-ticket">
+              <% productoBuscado.dataValues.tickets.forEach(ticket => { %>
+                <div class="linea-ticket">
+                  <p><%= ticket.dataValues.name %></p>
+                  <p class="precio-ticket-p">$ <%=ticket.dataValues.price%>
+                  </p>
+                  <select class="caja-cantidad">
+                    <option value="0" name="0"> 0 </option>
+                    <option value="1" name="1"> 1 </option>
+                    <option value="2" name="2"> 2 </option>
+                    <option value="3" name="3"> 3 </option>
+                    <option value="4" name="4"> 4 </option>
+                    <option value="5" name="5"> 5 </option>
+                    <option value="6" name="6"> 6 </option>
+                    <option value="7" name="7"> 7 </option>
+  
+                  </select>
+                </div>
+              <% }) %>
+              <!-- <div class="linea-ticket">
                 <p>Preventa VIP Standing</p>
                 <p class="precio-ticket-p">$ <%=productoBuscado.precio%>
                 </p>
@@ -133,7 +132,7 @@
                 </select>
 
 
-              </div>
+              </div> -->
 
             </div>
             <div class="comprar">
@@ -149,7 +148,7 @@
 
           <div class="caja-imagen-evento">
 
-            <img src="../<%= productoBuscado.img %>" alt="" class="imagen-evento">
+            <img src="../<%= productoBuscado.image %>" alt="" class="imagen-evento">
 
           </div>
 

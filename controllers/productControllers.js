@@ -1,22 +1,36 @@
 // Controlador de productos
 const path = require('path');
 const { validationResult } = require('express-validator');
+const { Product, Ticket, Category } = require('../database/models');
 
 let modelProductos = require('../models/productsModel');
 
 const productControllers = {
 
-    getEventsDetails: (req, res) => {
+    getEventsDetails: async (req, res) => {
     let id = Number(req.params.id);
     let productos = modelProductos.findAll();
     let productosSinModificar = modelProductos.findAll();
     let productoBuscado = modelProductos.findById(id);
+
+    try {
+        await Product.findByPk(id, {
+            include: "tickets"
+        })
+        .then(searchedProduct => {
+                // .dataValues.tickets.forEach(ticket => {
+                // return ticket.dataValues;
+            return res.render('eventsDetails', {productoBuscado: searchedProduct, title: "Detalle", productosSinModificar,})
+        })
+    } catch (error) {
+        console.log(error);
+    }
     
-    res.render('eventsDetails', {
-        productoBuscado,
-        productos,
-        productosSinModificar,
-        title: 'Detalle'})
+    // res.render('eventsDetails', {
+    //     productoBuscado,
+    //     productos,
+    //     productosSinModificar,
+    //     title: 'Detalle'})
     },
 
     getCart: (req, res) => {
@@ -53,9 +67,10 @@ const productControllers = {
         errorInput: {} })
     },
 
-    postCreateEvent: (req, res) => {
+    postCreateEvent: async (req, res) => {
         let validation = validationResult(req);
         let eventoNuevo = req.body;
+        console.log(eventoNuevo);
 
         if(validation.errors.length > 0){
             return res.render('createEvents', { 
@@ -84,19 +99,20 @@ const productControllers = {
                 title: 'Crear'
             });
         }
-        let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']; 
+        // let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']; 
 
-        let mesDelEvento = Number(eventoNuevo.fecha.split('-')[1]);
-        let diaEvento = eventoNuevo.fecha.split('T')[0].split('-')[2];
-        let indiceMes = mesDelEvento - 1;
-        let nombreMes = meses[indiceMes];
-        let horario = eventoNuevo.fecha.split('T')[1].split(':')[0];
+        // let mesDelEvento = Number(eventoNuevo.fecha.split('-')[1]);
+        // let diaEvento = eventoNuevo.fecha.split('T')[0].split('-')[2];
+        // let indiceMes = mesDelEvento - 1;
+        // let nombreMes = meses[indiceMes];
+        // let horario = eventoNuevo.fecha.split('T')[1].split(':')[0];
 
-        Number(diaEvento.split('')[0]) === 0 ? diaEvento = diaEvento.split('')[1] : diaEvento;
-        Number(horario.split('')[0]) === 0 ? horario = horario.split('')[1] : horario;
+        // Number(diaEvento.split('')[0]) === 0 ? diaEvento = diaEvento.split('')[1] : diaEvento;
+        // Number(horario.split('')[0]) === 0 ? horario = horario.split('')[1] : horario;
 
 
         let imageRoute = '../img/events/';
+        let category_id;
         switch(req.body.categoria){
             case 'Recitales':
                 imageRoute += 'recitales';
@@ -121,14 +137,43 @@ const productControllers = {
         eventoNuevo.img = `${imageRoute}/${req.file.filename}`;
         eventoNuevo.eliminado = "false";
         eventoNuevo.agotado = "false";
-        eventoNuevo.fecha = `${diaEvento} de ${nombreMes} - ${horario} horas`;
+        // eventoNuevo.fecha = `${diaEvento} de ${nombreMes} - ${horario} horas`; 
         eventoNuevo.precio = Number(eventoNuevo.precio);
-        eventoNuevo.eliminado = eventoNuevo.eliminado === "false" ? false : true;
-        eventoNuevo.agotado = eventoNuevo.agotado === "false" ? false : true;
+        eventoNuevo.eliminado = eventoNuevo.eliminado === "false" ? 0 : 1;
+        eventoNuevo.agotado = eventoNuevo.agotado === "false" ? 0 : 1;
 
+        let { nombre, fecha, ubicacion, direccion, tipoEntrada, precio, cantidadEntradas, categoria, eliminado, agotado, img } = eventoNuevo
+
+        try {
+            let searchedCategory = await Category.findOne({
+                where: {
+                    name: categoria
+                }
+            })
+            console.log(searchedCategory);
+            let newProduct = await Product.create({
+                name: nombre,
+                date: fecha,
+                location: ubicacion,
+                addres: direccion,
+                category_id: searchedCategory.dataValues.id,
+                image: img,
+                deleted: eliminado,
+                sold_out: agotado,
+                user_creator_id: req.session.user.id}
+            )
+            let newTicket = await Ticket.create({
+                name: tipoEntrada,
+                amount: cantidadEntradas,
+                price: precio,
+                product_id: newProduct.dataValues.id,
+            })
+        } catch (error) {
+            console.log(error);
+        }
         // console.log(eventoNuevo);
 
-        modelProductos.createOne(eventoNuevo);
+        // modelProductos.createOne(eventoNuevo);
         res.redirect('/');
         }
     },

@@ -77,15 +77,15 @@
         "id": "17020eb9-2c94-4843-8cab-7ae969f0ac61"
     },
     {
+        "id": 6,
         "nombreRegForm": "Liliana",
         "apellidoRegForm": "Cañas Eastman",
         "emailRegForm": "lcanase@sura.com",
-        "tipoUsuario": "Espectador/a",
-        "passRegForm": "$2b$12$0.vNVPQmvKBX3HOUoO8S7eTfvmcB/yczSfLbeJjUE2SpzVFifjWMa",
+        "tipoUsuario": "Productor/a",
+        "passRegForm": "$2a$12$p5gxZOEdvgI15yhjbVpSe.zck9dgbGfZjxJ/riRLipW2K1mbE06/K",
         "checkPassRegForm": "$2b$12$5REf1RTYRW2FqWeJrIeqOOkq2ZL1YyePqwpvLlbXGiBU9y3BetdHy",
-        "notificaciones": true,
         "tyc": true,
-        "id": "ad976b2e-f5c1-49c4-9f6e-9c50e1f20d99"
+        "notificaciones": true
     },
     {
         "id": "36a485aa-4765-484a-90fa-3d3d01224007",

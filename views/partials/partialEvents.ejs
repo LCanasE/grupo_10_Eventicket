@@ -3,27 +3,27 @@
     <article class="product">
         <a href="/products/<%= producto.id %>/eventsDetails" class="product-link-detail">
             <div class="product-img">
-                <img src=<%= producto.img %> alt="Error">
+                <img src=<%= producto.image %> alt="Error">
             </div>
             <div class="product-info">
                 <div class="information-product">
-                    <h2><%= producto.nombre %></h2>
-                    <p class="date"><%= producto.fecha %></p>
-                    <p class="place"><%= producto.ubicacion %></p>
+                    <h2><%= producto.name %></h2>
+                    <p class="date"><%= producto.date %></p>
+                    <p class="place"><%= producto.location %></p>
                 </div>
                 <div class="price-buy">
                     <div class="price">
-                        <p>Desde $<%= producto.precio %></p>
+                        <p>Desde $<%= producto.dataValues.tickets[0].price %></p>
                     </div>
                     <div class="buy">
                         <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
                     </div>
                 </div>
             </div>
-            <% if (producto.agotado !== false) {%>
+            <% if (producto.sold_out === 1) {%>
             <p class="tickets-agotados">Agotado</p>
             <% } %>
-            <% if (producto.eliminado === true) {%>
+            <% if (producto.deleted === 1) {%>
                 <div class="producto-eliminado"></div>
             <% } %>
         </a>
