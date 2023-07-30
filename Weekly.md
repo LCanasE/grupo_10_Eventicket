@@ -149,7 +149,6 @@ Saludos! =)
 
         - División de eventos por categoria y por mes. 
 
-
     2.  ¿IMPEDIMENTOS?
 
         - Todavía no identificamos un impedimento que nos impidiera avanzar, los problemas que fueron surgiendo los pudimos solucionar.
@@ -158,7 +157,8 @@ Saludos! =)
 
         - Dar inicio al Sprint 6.
 
-6. 2023/07/ 6° WEEKLY:
+
+6. 2023/07/09 6° WEEKLY:
         
     CONSIDERACIONES
 
@@ -167,23 +167,88 @@ Saludos! =)
 
     1. ¿QUÉ SE HIZO HASTA AHORA?
 
-        - 
-
-        - 
-
-        - 
-
-        - 
-
-        - 
-
-        - 
-
+        - Se realizó el esquema de tablas del proyecto y sus relaciones y exploramos el funcionamiento de phpMyAdmin para la modificación, creación y eliminación de tablas y relaciones. 
 
     2.  ¿IMPEDIMENTOS?
 
-        - 
+        - Hubo inconvenientes con la instalación y funcionamiento del phpMyAdmin y XAMPP.
 
     3. ¿QUÉ SE HARÁ ESTA SEMANA?
 
-        - 
+        - Llevar a cabo el esquema de tablas en phpMyAdmin y comenzar a implementar el CRUD de productos y usuarios.
+
+
+7. 2023/07/16 7° WEEKLY:
+        
+    CONSIDERACIONES
+
+    - Inicio de la implementación del CRUD de usuarios y productos.
+    - Fecha de entrega 6° sprint: 2023/08/02
+
+    1. ¿QUÉ SE HIZO HASTA AHORA?
+
+        - Se llevó a cabo el esquema de tablas en phpMyAdmin con su implementación con Sequelize en nuestra página y se probó la creción de modelos.
+
+        - Comenzamos a implementar el CRUD de productos.
+
+    2.  ¿IMPEDIMENTOS?
+
+        - No identificamos impedimentos esta semana.
+
+        - Comprobamos que el esquema de relaciones entre tablas que habíamos estructurado estaba correctamente definido.
+
+    3. ¿QUÉ SE HARÁ ESTA SEMANA?
+
+        - Terminar el CRUD de productos y comenzar la implementación del CRUD de usuarios.
+
+8. 2023/07/23 8° WEEKLY:
+        
+    CONSIDERACIONES
+
+    - Fecha de entrega 6° sprint: 2023/08/02
+
+    1. ¿QUÉ SE HIZO HASTA AHORA?
+
+        - Se completó la implementación del CRUD de productos y se probó su funcionamiento.
+
+        - Se inició el CRUD de usuarios.
+
+    2.  ¿IMPEDIMENTOS?
+
+        - No identificamos impedimentos esta semana.
+
+    3. ¿QUÉ SE HARÁ ESTA SEMANA?
+
+        - Completar el CRUD de usuarios y ultimar detalles para la entrega del sprint 6.
+
+
+9. 2023/07/30 9° WEEKLY:
+        
+    CONSIDERACIONES
+
+    - Finalización de entregables el Sprint-6.
+    - Fecha de entrega 6° sprint: 2023/08/02
+
+    1. ¿QUÉ SE HIZO HASTA AHORA?
+
+        - Se completó la implementación del CRUD de usuarios y se probó su funcionamiento.
+
+        - Se terminó de ajustar algunos detalles que se fueron evidenciado a medida que se realizó la implementación.
+
+    2.  ¿IMPEDIMENTOS?
+
+        - No identificamos impedimentos esta semana.
+
+    3. ¿QUÉ SE HARÁ ESTA SEMANA?
+
+        - Evaluación final de funcionamiento de la aplicación.
+
+        - Se iniciará la revisión del Sprint-7.
+
+
+10. 2023/08/06 10° WEEKLY:
+        
+    CONSIDERACIONES
+
+    - Inicio
+    - Fecha de entrega 7° sprint: 2023/08/16.
