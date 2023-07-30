@@ -66,77 +66,16 @@
                   <p class="precio-ticket-p">$ <%= ticket.price %>
                   </p>
                   <select class="caja-cantidad">
-                    <% for (let i = 0; i < 11; i++) { %>
+                    <% for (let i = 0; i <= ticket.amount ; i++) { %>
                       <option value="0" name="<%= i %>"> <%= i %>  </option>
                     <% } %>
-                    <!-- <option value="1" name="1"> 1 </option>
-                    <option value="2" name="2"> 2 </option>
-                    <option value="3" name="3"> 3 </option>
-                    <option value="4" name="4"> 4 </option>
-                    <option value="5" name="5"> 5 </option>
-                    <option value="6" name="6"> 6 </option>
-                    <option value="7" name="7"> 7 </option> -->
                   </select>
                 </div>
                 <% }); %>
             </div>
-            <!--
-                <div class="linea-ticket">
-                <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ <%#=product.price%>
-                </p>
-                <select class="caja-cantidad">
-                  <option value="0" name="0"> 0 </option>
-                  <option value="1" name="1"> 1 </option>
-                  <option value="2" name="2"> 2 </option>
-                  <option value="3" name="3"> 3 </option>
-                  <option value="4" name="4"> 4 </option>
-                  <option value="5" name="5"> 5 </option>
-                  <option value="6" name="6"> 6 </option>
-                  <option value="7" name="7"> 7 </option>
-
-                </select>
-
-
-              </div>
-              <div class="linea-ticket">
-                <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ <%#=product.price%>
-                </p>
-                <select class="caja-cantidad">
-                  <option value="0" name="0"> 0 </option>
-                  <option value="1" name="1"> 1 </option>
-                  <option value="2" name="2"> 2 </option>
-                  <option value="3" name="3"> 3 </option>
-                  <option value="4" name="4"> 4 </option>
-                  <option value="5" name="5"> 5 </option>
-                  <option value="6" name="6"> 6 </option>
-                  <option value="7" name="7"> 7 </option>
-
-                </select>
-
-
-              </div>
-              <div class="linea-ticket">
-                <p>Preventa VIP Standing</p>
-                <p class="precio-ticket-p">$ <%#=product.price%></p>
-                <select class="caja-cantidad">
-                  <option value="0" name="0"> 0 </option>
-                  <option value="1" name="1"> 1 </option>
-                  <option value="2" name="2"> 2 </option>
-                  <option value="3" name="3"> 3 </option>
-                  <option value="4" name="4"> 4 </option>
-                  <option value="5" name="5"> 5 </option>
-                  <option value="6" name="6"> 6 </option>
-                  <option value="7" name="7"> 7 </option>
-
-                </select> -->
-
-
-
                 <form action="/products/cart?id=<%= product.id %>" method="GET">
                   <input type="hidden" name="id" value=<%=product.id %>>
-    
+                  
                   <input type="submit" value="Comprar" class="boton-comprar">
                 </form>
           </div>
