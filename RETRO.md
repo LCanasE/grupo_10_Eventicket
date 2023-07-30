@@ -135,3 +135,5 @@ RETROALIMENTACIÓN "Starfish"
 5. START DOING:
 
     - Intensificar el reporte de tareas realizadas o inconvenientes encontrrados durante el trabajo para darle fluidez al mismo.
+
+** BASE DE DATOS: Está agregada en este repositorio como "BASE DE DATOS Eventicket", del archivo se puede importar directamente en phpMyAdmin

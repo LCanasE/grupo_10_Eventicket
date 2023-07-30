@@ -227,6 +227,7 @@ Saludos! =)
     CONSIDERACIONES
 
     - Finalización de entregables el Sprint-6.
+    - BASE DE DATOS: Está agregada en este repositorio como "BASE DE DATOS Eventicket", del archivo se puede importar directamente en phpMyAdmin
     - Fecha de entrega 6° sprint: 2023/08/02
 
     1. ¿QUÉ SE HIZO HASTA AHORA?
