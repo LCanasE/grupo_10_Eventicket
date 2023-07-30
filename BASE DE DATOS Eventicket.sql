@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 30, 2023 at 06:52 PM
+-- Host: 127.0.0.1
+-- Generation Time: Jul 30, 2023 at 07:36 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -71,23 +71,23 @@ INSERT INTO `products` (`id`, `name`, `date`, `location`, `addres`, `category_id
 (2, 'Trinche', '2023-07-16 20:24:00', 'El Picadero', 'Santos Discépolo 1857', 4, '../img/events/standup/martin-dardik---el-trinche-en-el-picadero.jpg', 0, 0, 1),
 (5, '1915', '2023-07-21 18:14:00', 'Luna Park', 'Av. Eduardo Madero 470', 2, '../img/events/recitales/img_1689444914740.jpg', 0, 0, 2),
 (6, 'Babasónicos', '2023-10-21 01:00:00', 'Complejo Art Media', 'Discépolo 1857', 2, '../img/events/recitales/img_1689444956335.jpeg', 0, 0, 2),
-(7, 'Usted Señalemelo', '2023-10-10 13:00:00', 'CABA', 'Av. Eduardo Madero 470', 2, '../img/events/recitales/img_1690136211891.webp', 0, 0, 6);
+(7, 'Usted Señalemelo', '2023-10-10 13:00:00', 'CABA', 'Av. Eduardo Madero 470', 2, '../img/events/recitales/img_1686577822557.jpeg', 0, 0, 6);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `SequelizeMeta`
+-- Table structure for table `sequelizemeta`
 --
 
-CREATE TABLE `SequelizeMeta` (
+CREATE TABLE `sequelizemeta` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `SequelizeMeta`
+-- Dumping data for table `sequelizemeta`
 --
 
-INSERT INTO `SequelizeMeta` (`name`) VALUES
+INSERT INTO `sequelizemeta` (`name`) VALUES
 ('20230730124121-agregar-columna.js');
 
 -- --------------------------------------------------------
@@ -193,9 +193,9 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `SequelizeMeta`
+-- Indexes for table `sequelizemeta`
 --
-ALTER TABLE `SequelizeMeta`
+ALTER TABLE `sequelizemeta`
   ADD PRIMARY KEY (`name`),
   ADD UNIQUE KEY `name` (`name`);
 
