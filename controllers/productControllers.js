@@ -47,7 +47,7 @@ const productControllers = {
     getCart: async (req, res) => {
         let id = Number(req.query.id);
         try {
-            // let productos = await Product.findAll();
+            let products = await Product.findAll();
             await Product.findByPk(id, {
                 include: [
                     {
@@ -57,10 +57,10 @@ const productControllers = {
                 ]
             })
             .then((searchedProduct) => {
-                console.log(searchedProduct.dataValues.tickets);
+                // console.log(searchedProduct.dataValues.tickets);
             res.render('cart', {
-                searchedProduct: searchedProduct.dataValues,
-                // productos,
+                searchedProduct: searchedProduct ? searchedProduct.dataValues : '',
+                products,
                 title: 'Carrito'})
             })
         } catch (error) {

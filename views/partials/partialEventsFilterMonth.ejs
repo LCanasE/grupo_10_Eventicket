@@ -1,13 +1,14 @@
+<% include('../../utils/dateUtils') %>
 <% let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];  %>
 <% let indice = new Date().getMonth() %>
 
 <div class="owl-carousel owl-theme">
 
-    <% productos.forEach(producto => { %>
-        <% if(producto.fecha.split(' ')[2] === meses[indice]) {%>
+    <% products.forEach(product => { %>
+        <% if(formateDate(product.date).split(' ')[2] === meses[indice]) {%>
         <div class="item item-owl-container">
-            <a href="/products/<%= producto.id %>/eventsDetails">
-            <img src="<%= producto.img %>" width="100%">
+            <a href="/products/<%= product.id %>/eventsDetails">
+            <img src="<%= product.image %>" width="100%">
             </a>
         </div>
         <% } %>
