@@ -2,7 +2,7 @@
 const path = require('path');
 const { validationResult } = require('express-validator');
 const { Product, Ticket, User } = require('../database/models');
-const dayjs = require('dayjs');
+// const dayjs = require('dayjs');
 const formateDate = require('../utils/dateUtils');
 
 let modelProductos = require('../models/productsModel');
