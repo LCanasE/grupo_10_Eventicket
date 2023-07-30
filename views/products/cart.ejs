@@ -17,7 +17,7 @@
   </header>
   <main>
     <div class="container-carrito">
-      <% if (productoBuscado) {%>
+      <% if (searchedProduct) {%>
       <h1>Eventos Seleccionados</h1>
       <% } else {%>
         <h1>No hay eventos seleccionados</h1>
@@ -34,7 +34,7 @@
 
           
         </div>
-        <% if (productoBuscado) {%>
+        <% if (searchedProduct) {%>
         <div class="seleccionar-metodo">
           <h3>Seleccione un método de pago</h3>
           <div class="metodo-de-pagos">
@@ -51,9 +51,11 @@
       <button class="eliminar-productos">
         Eliminar todo
       </button>
-      <button class="finalizar-compra">
-        Finalizar Compra
-      </button>
+      <form action="/products/cart" method="POST">
+        <button class="finalizar-compra">
+          Finalizar Compra
+        </button>
+    </form>
     </div>
     <% } %>
   </main>

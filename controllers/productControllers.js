@@ -44,19 +44,34 @@ const productControllers = {
     //     title: 'Detalle'})
     },
 
-    getCart: (req, res) => {
-    let productos = modelProductos.findAll();
-    let id = Number(req.query.id);
-    let productoBuscado = modelProductos.findById(id);
-    // console.log('PRODUCTO BUSCADO', productoBuscado);
-    res.render('cart', {
-        productoBuscado,
-        productos,
-        title: 'Carrito'})
+    getCart: async (req, res) => {
+        let id = Number(req.query.id);
+        try {
+            // let productos = await Product.findAll();
+            await Product.findByPk(id, {
+                include: [
+                    {
+                    model: Ticket,
+                    as: "tickets"
+                }
+                ]
+            })
+            .then((searchedProduct) => {
+                console.log(searchedProduct.dataValues.tickets);
+            res.render('cart', {
+                searchedProduct: searchedProduct.dataValues,
+                // productos,
+                title: 'Carrito'})
+            })
+        } catch (error) {
+            console.log(error);   
+        }
+    
     },
 
     postCart: (req, res) => {
-        console.log(req.body)
+        let id = Number(req.query.id);
+        console.log(id);
     },
 
     getEvents: async (req, res) => {
