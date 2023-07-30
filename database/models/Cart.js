@@ -16,6 +16,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             foreignKey: true
         },
+        quantity: {
+            type: dataTypes.INTEGER
+        }
     }
 
     let config = {
