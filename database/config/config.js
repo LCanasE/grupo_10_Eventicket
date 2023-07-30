@@ -5,7 +5,8 @@ module.exports = {
     "database": "prueba_eventicket",
     "host": "127.0.0.1",
     "port": "3307",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    dialectModule: require('mysql2'),
   },
   "test": {
     "username": "root",
@@ -13,7 +14,8 @@ module.exports = {
     "database": "database_test",
     "host": "127.0.0.1",
     "port": "3307",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    dialectModule: require('mysql2'),
   },
   "production": {
     "username": "root",
@@ -21,6 +23,7 @@ module.exports = {
     "database": "database_production",
     "host": "127.0.0.1",
     "port": "3307",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    dialectModule: require('mysql2'),
   }
 }

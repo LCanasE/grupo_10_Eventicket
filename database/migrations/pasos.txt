@@ -1,3 +1,3 @@
-npx sequelize-clie migration:generate –name nombre-migracion este comando CREA una migración.
-npx sequelize-cli db:migrate EJECUTA LO QUE SE CODEO EN LOS ARCHIVOS
+npx sequelize-cli migration:generate --name nombre-migracion | este comando CREA una migración.
+npx sequelize-cli db:migrate | EJECUTA LO QUE SE CODEO EN LOS ARCHIVOS
 Las migraciones permiten modificar la estructura de una tabla cuando está en producción o cuando hace falta crearla desde cero.
