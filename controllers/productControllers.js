@@ -86,7 +86,7 @@ const productControllers = {
             })
                 .then(products => {
                     // console.log(products);
-                    return res.render('events', { products, title: "Eventos", productos })
+                    return res.render('events', { products, title: "Eventos", productos, error: {} })
                 })
         } catch (error) {
             console.log(error);

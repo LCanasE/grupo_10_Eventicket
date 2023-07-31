@@ -1,10 +1,16 @@
 <% include('../../utils/dateUtils') %>
 
-    <% const categorias=[ { name: 'Recitales' , title: 'Recitales BASE DE DATOS' }, { name: 'Stand Up' ,
-        title: 'Stand Up BASE DE DATOS' }, { name: 'Eventos Deportivos' , title: 'Eventos Deportivos BASE DE DATOS' }, {
-        name: 'Obras de teatro' , title: 'Obras de teatro BASE DE DATOS' }, { name: 'Conferencias' ,
-        title: 'Conferencias BASE DE DATOS' } ]; %>
+    <% const categorias=[
+        { name: 'Recitales' , title: 'Recitales' },
+        { name: 'Stand Up' , title: 'Stand Up' }, 
+        { name: 'Eventos Deportivos' , title: 'Eventos Deportivos' }, 
+        { name: 'Obras de teatro' , title: 'Obras de teatro' }, 
+        { name: 'Conferencias' , title: 'Conferencias' } 
+    ]; %>
 
+<% if(error.message) {%>
+    <h3><%= error.message %></h3>
+<% } else {%>
         <% categorias.forEach(categoria=> {
             if (products.some(product => product.categories.name === categoria.name)) {
             %>
@@ -52,3 +58,4 @@
                     <% } }); %>
             </section>
             <% } }); %>
+<% } %>
