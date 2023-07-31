@@ -79,6 +79,7 @@ const mainControllers = {
     search: async (req, res) => {
         // Primero se almacena en la constante from, el parametro "from" de la ruta que indica de que vista vino la petición. Esto sirve ya que la barra de búsqueda está implementada tanto en la "home" como en la vista "events".
         const from = req.params.from;
+        console.log(from);
 
         // Se hace una desestructuración de los query strings que vienen de la barra de búsqueda "navBar".
         let { searchName, searchCategory, searchDate } = req.query
@@ -117,7 +118,11 @@ const mainControllers = {
             // Object.keys es una función que se utiliza para extraer todas las "keys" (claves o propiedades) de un objeto. Acá se pregunta si whereClause contiene información o no. En caso de que no, se termina la ejecución con un res.redirect a la página donde está el usuario.
             if(Object.keys(whereClause).length === 0){
                 console.log("VACIO!!");
-                return res.redirect('./');
+                if(from === 'events'){
+                    return res.redirect(`/products/${from}`)
+            } else {
+                return res.redirect('/');
+            }
             }
             let productos = modelProducts.findAll();
 
