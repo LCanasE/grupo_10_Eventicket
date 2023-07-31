@@ -71,7 +71,6 @@ const mainControllers = {
     search: async (req, res) => {
         // Primero se almacena en la constante from, el parametro "from" de la ruta que indica de que vista vino la petición. Esto sirve ya que la barra de búsqueda está implementada tanto en la "home" como en la vista "events".
         const from = req.params.from;
-        console.log(from);
 
         // Se hace una desestructuración de los query strings que vienen de la barra de búsqueda "navBar".
         let { searchName, searchCategory, searchDate } = req.query
