@@ -65,15 +65,7 @@ const mainControllers = {
         } catch (error) {
             console.log(error);
         }
-        // res.render('home', {
-        //     productos,
-        //     productosSinModificar,
-        //     title: 'Home'
-        //     }) 
     },
-
-
-
 
     // Esta es el controller que maneja los pedidos de la barra de búsqueda
     search: async (req, res) => {
@@ -118,6 +110,7 @@ const mainControllers = {
             // Object.keys es una función que se utiliza para extraer todas las "keys" (claves o propiedades) de un objeto. Acá se pregunta si whereClause contiene información o no. En caso de que no, se termina la ejecución con un res.redirect a la página donde está el usuario.
             if(Object.keys(whereClause).length === 0){
                 console.log("VACIO!!");
+                // Como el objeto esta vacío, se pregunta de dónde se ejecutó la búsqueda para redirigir a la misma vista.
                 if(from === 'events'){
                     return res.redirect(`/products/${from}`)
             } else {
