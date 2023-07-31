@@ -40,3 +40,5 @@ README:
 6. Link al tablero de Trello: 
    
    https://trello.com/invite/b/YUTTjptH/ATTIae11d8ab0e221dd54d6734e4ff58a5d4C510711B/eventicket-tablero-de-trabajo 
+
+7. BASE DE DATOS: Está agregada en este repositorio como "BASE DE DATOS Eventicket", del archivo se puede importar directamente en phpMyAdmin
