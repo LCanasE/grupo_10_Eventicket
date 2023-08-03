@@ -1,7 +1,7 @@
 // Controlador de productos
 const path = require('path');
 const { validationResult } = require('express-validator');
-const { Product, Ticket, User } = require('../database/models');
+const { Product, Ticket, User, Cart } = require('../database/models');
 // const dayjs = require('dayjs');
 const formateDate = require('../utils/dateUtils');
 
@@ -70,31 +70,47 @@ const productControllers = {
     
     },
 
-    postCart: (req, res) => {
+    postCart: async (req, res) => {
         let id = Number(req.query.id);
-        console.log(req.body);
+        // console.log(req.body);
 
         let {ticketName, ticketPrice, ticketAmount, idTicket, idProduct} = req.body;
         
         let tickets = {};
-        let ticket = {};
-
+        
         // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
         for (let i = 0; i < ticketName.length; i++) {
+            let ticket = {};
 
             if(ticketAmount[i] > 0){
-                ticket.product_id += Number(req.query.id);
-                ticket.quantity += Number(ticketAmount[i]);
-                ticket.ticket_type_id += Number(idTicket[i]);
-                ticket.price += Number(ticketPrice[i]);
+                ticket.product_id = Number(idProduct);
+                ticket.quantity = Number(ticketAmount[i]);
+                ticket.ticket_type_id = Number(idTicket[i]);
+                ticket.price = Number(ticketPrice[i]);
+                ticket.bought = 0;
             }
+            // console.log(Object.keys(ticket).length > 0);
+            
+            if(Object.keys(ticket).length > 0){
+                try {
+                        await Cart.create({
+                                user_id: req.session.user.id,
+                                product_id: ticket.product_id,
+                                quantity: ticket.quantity,
+                                ticket_type_id: ticket.ticket_type_id,
+                                bought: ticket.bought,
+                            })
+                        } catch (error) {
+                                console.log(error);
+                            }}
+                            
+                            // if(ticketAmount[i] > 0){
+                            //         tickets.push([ticketName[i], ticketPrice[i], ticketAmount[i]]);
+                            //     }
+                }
 
-            // if(ticketAmount[i] > 0){
-            //     tickets.push([ticketName[i], ticketPrice[i], ticketAmount[i]]);
-            // }
-        }
 
-        console.log(ticket);
+        // console.log(ticket);
 
         res.render('cart', {ticketName, ticketPrice, ticketAmount, title: 'Carrito', searchedProduct: {}})
         // console.log(ticketName);

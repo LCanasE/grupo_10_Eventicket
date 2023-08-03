@@ -18,6 +18,12 @@ module.exports = (sequelize, dataTypes) => {
         },
         quantity: {
             type: dataTypes.INTEGER
+        },
+        ticket_type_id: {
+            type: dataTypes.INTEGER
+        },
+        bought: {
+            type: dataTypes.INTEGER
         }
     }
 
