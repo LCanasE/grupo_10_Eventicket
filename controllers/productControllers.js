@@ -23,6 +23,7 @@ const productControllers = {
                 ],
             })
                 .then((product) => {
+                    // console.log(product.tickets);
                     product.tickets.sort((a, b) => a.price - b.price);
                     // console.log(product);
                     res.render('eventsDetails', {
@@ -71,7 +72,40 @@ const productControllers = {
 
     postCart: (req, res) => {
         let id = Number(req.query.id);
-        console.log(id);
+        console.log(req.body);
+
+        let {ticketName, ticketPrice, ticketAmount, idTicket, idProduct} = req.body;
+        
+        let tickets = {};
+        let ticket = {};
+
+        // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
+        for (let i = 0; i < ticketName.length; i++) {
+
+            if(ticketAmount[i] > 0){
+                ticket.product_id += Number(req.query.id);
+                ticket.quantity += Number(ticketAmount[i]);
+                ticket.ticket_type_id += Number(idTicket[i]);
+                ticket.price += Number(ticketPrice[i]);
+            }
+
+            // if(ticketAmount[i] > 0){
+            //     tickets.push([ticketName[i], ticketPrice[i], ticketAmount[i]]);
+            // }
+        }
+
+        console.log(ticket);
+
+        res.render('cart', {ticketName, ticketPrice, ticketAmount, title: 'Carrito', searchedProduct: {}})
+        // console.log(ticketName);
+        // console.log(ticketPrice);
+        // console.log(ticketAmount);
+        // let ticketName = req.body.ticketName;
+        // let ticketPrice = req.body.ticketPrice;
+        // let ticketAmount = req.body.ticketAmount;
+
+        // res.send(req.body);
+        // console.log(id);
     },
 
     getEvents: async (req, res) => {

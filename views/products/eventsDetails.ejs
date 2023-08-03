@@ -49,6 +49,7 @@
 
         <section class="tickets-imagen">
           <div class="caja-tickets">
+          <form action="/products/cart?id=<%= product.id %>" method="POST">
             <div class="titulos-tabla">
               <h4 class="ticket-titulo-tabla"> Ticket</h4>
               <h4>Valor</h4>
@@ -58,23 +59,25 @@
               <% product.tickets.forEach(ticket=> { %>
                 <div class="linea-ticket">
                   <p><%= ticket.name %></p>
+                  <input type="hidden" name="ticketName" value="<%=ticket.name%>">
                   <p class="precio-ticket-p">$ <%= ticket.price %>
                   </p>
-                  <select class="caja-cantidad">
+                  <input type="hidden" name="ticketPrice" value=<%= ticket.price%>>
+                  <select class="caja-cantidad" name="ticketAmount">
                     <% let ticketsToShow = 0; %>
                     <% ticket.amount > 10 ? ticketsToShow = 10 : ticketsToShow = ticket.amount %>
                     <% for (let i = 0; i <= ticketsToShow ; i++) { %>
-                      <option value="0" name="<%= i %>"> <%= i %>  </option>
-                    <% } %>
+                      <option value="<%= i %>"> <%= i %>  </option>
+                      <% } %>
                   </select>
+                  <input type="hidden" name="idTicket" value= <%= ticket.id %>>
                 </div>
+                
                 <% }); %>
             </div>
-                <form action="/products/cart?id=<%= product.id %>" method="GET">
-                  <input type="hidden" name="id" value=<%=product.id %>>
-                  
+                  <input type="hidden" name="idProduct" value=<%=product.id %>>
                   <input type="submit" value="Comprar" class="boton-comprar">
-                </form>
+              </form>
           </div>
             
 
