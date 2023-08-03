@@ -1590,6 +1590,10 @@ footer p {
     color: #313d55;
   }
 
+  .nav-enlaces {
+    display: inline-block;
+  }
+
   .nav-user {
     position: relative;
     align-items: center;
@@ -1637,12 +1641,31 @@ footer p {
     color: #313d55;
   }
 
-  .nav-enlaces:hover,
-  .nav-user:hover,
-  .nav-user li:hover {
-    font-weight: bolder;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
+  /* Cambio de position para que funcione el sub */
+  .nav-btn-sub {
+    position: relative;
+  }
+  /* ::before para el subrayado */
+  .nav-btn-sub::before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 5%;
+    width: 0;
+    height: 2px;
+    background-color: #313d55; /* Puedes cambiar el color del subrayado aquí */
+  }
+
+  /* Estilo para el hover con animación */
+  .nav-btn-sub:hover::before {
+    animation: subrayarAnimacion 0.5s forwards; /* 1 segundos de duración */
+  }
+
+  /* Animación para el subrayado */
+  @keyframes subrayarAnimacion {
+    to {
+      width: 90%; /* La línea de subrayado crece de izquierda a derecha */
+    }
   }
 
   .logo-eventicket {
