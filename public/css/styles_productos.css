@@ -2,381 +2,382 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 * {
-    font-family: "Montserrat", "sans-serif";
-    box-sizing: border-box;
+  font-family: "Montserrat", "sans-serif";
+  box-sizing: border-box;
 }
 
 .p {
-    text-align: center;
-    align-self: center;
+  text-align: center;
+  align-self: center;
 }
 
 .search-bar {
-    font-size: 24px;
-    background-color: white;
-    color: #313D55
+  font-size: 16px;
+  background-color: white;
+  color: #313d55;
 }
 
 /* Cajas título y ubicación */
 .caja-titulo-ubicacion {
-    /* border: 3px solid yellowgreen; */
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1%;
-
+  /* border: 3px solid yellowgreen; */
+  display: flex;
+  width: 100%;
+  padding: 10px 20px;
+  justify-content: space-around;
+  margin-bottom: 1%;
+  background-color: #313d55;
 }
 
 .caja-titulo-ubicacion h2 {
-    font-size: 25px;
-    font-weight: bold;
-    margin: 5px 0px 10px;
-    color: #313D55;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 5px 0px 10px;
+  color: #fff;
 }
 
-.caja-titulo-ubicacion h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 5px 0px 5px;
-    color: #313D55;
+.caja-titulo h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.titulo-ubicacion {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 5px 0px 10px;
+  color: #fff;
 }
 
 .descripcion-ubicacion {
-    font-size: 16px;
-    margin: 5px 0px 5px;
-    color: #313D55;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 18px 0px 10px 24px;
+  color: #fff;
 }
 
 .caja-titulo {
-    position: relative;
-    border: 2px solid #313D55;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 15px;
-    width: 88%;
-    display: inline-block;
-    position: relative;
+  position: relative;
+
+  border-radius: 15px;
+  width: 80%;
+  display: inline-block;
+  position: relative;
 }
 
 .caja-ubicacion {
-    border: 2px solid #313D55;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 15px;
-    display: inline-block;
+  width: 50vh;
+  border-radius: 15px;
+  display: inline-block;
 }
 
 .fa-location-dot,
 .fa-calendar-days {
-    font-size: 30px;
-    color: #FFB700;
+  font-size: 24px;
+  color: #a1823d;
 }
-
 /* Cajas tickets e imagen */
+
 .tickets-imagen {
-    /* border: 3px solid black; */
-    display: flex;
-    /* height: 50vh; */
-    width: 100%;
-    justify-content: space-around;
+  /* border: 3px solid black; */
+  display: flex;
+  /* height: 50vh; */
+  width: 100%;
+  justify-content: space-around;
+  background-color: #fff;
 }
 
 .titulos-tabla h4 {
-    font-size: 18px;
-    color: #313D55;
-    display: inline-block;
-    text-align: center;
-    align-self: center;
+  font-size: 16px;
+  color: #313d55;
+  display: inline-block;
+  text-align: center;
+  align-self: center;
 }
 
 .caja-tickets {
-    border: 2px solid #313D55;
-    width: 80%;
-    display: inline-block;
-    border-radius: 15px;
-    margin: 10px;
-    position: relative;
+  border: 1px solid #eee;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  position: relative;
+}
 
+.form-caja {
+  width: 100%;
 }
 
 .imagen-evento {
-    width: 25vw;
-    /* border: 3px solid purple; */
-    border-radius: 15px;
-    display: inline-block;
-    margin: 10px;
+  width: 25vw;
+  /* border: 3px solid purple; */
+  border-radius: 15px;
+  display: inline-block;
+  margin: 10px;
 }
 
-
 .tickets {
-    /* border: 3px solid orange; */
-    display: inline-block;
-    width: 100%;
+  /* border: 3px solid orange; */
+  display: inline-block;
+  margin: 12px 0px;
+  width: 100%;
 }
 
 .boton-comprar {
-    font-size: 16px;
-    background-color: #FFB700;
-    color: #313D55;
-    padding: 7px;
-    border-radius: 8px;
-    border-color: #FFB700;
-    font-weight: bold;
-    position: absolute;
-    bottom: 13px;
-    right: 30px;
-    animation: cambiar-fondo 2s infinite alternate-reverse ;
+  border: solid 1px #313d55;
+  background-color: #a1823d;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.4s;
+  margin-top: 15px;
+  padding: 2%;
+}
+
+.boton-comprar:hover {
+  background-color: #f4f4f4;
+  color: #313d55;
 }
 
 .comprar {
-    /* border: 3px solid yellow; */
-    width: 100%;
-    height: 7vh;
-    display: inline-block;
-    align-items: center;
+  /* border: 3px solid yellow; */
+  width: 100%;
+  height: 7vh;
+  display: inline-block;
+  align-items: center;
 
-    position: relative;
-
+  position: relative;
 }
 
 .titulos-tabla {
-    border-bottom: solid 3px #313D55;
-    display: flex;
-    width: 97%;
-    margin: 10px;
-    justify-content: space-around;
-
-    align-items: center;
-
+  border-bottom: solid 3px #313d55;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .linea-ticket {
-    /* border: 3px solid red; */
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+  display: flex;
+  margin: 0px 10px;
+  font-weight: 600;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .caja-cantidad {
-    border: 2px solid #313D55;
-    display: flex;
-    justify-content: center;
-    width: 11vw;
-    align-items: center;
-    margin: 12px;
-    padding: 10px;
+  border: 1px solid #313d55;
+  display: flex;
+  color: #313d55;
+  justify-content: center;
+  width: 5vw;
+  align-items: center;
+  margin: 10px 0px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 600;
+}
+
+.caja-cantidad option:checked {
+  font-weight: 600;
 }
 
 .fa-chevron-down {
-    font-size: 18px;
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .linea-ticket p {
-    font-size: 16px;
-    color: #313D55;
-    margin: 10px;
-    text-align: center;
-    align-self: center;
+  font-size: 14px;
+  color: #313d55;
+  text-align: center;
+  align-self: center;
 }
 
 .ticket-titulo-tabla {
-    width: 10vw;
-    display: flex;
-    justify-content: center;
+  width: 10vw;
+  display: flex;
+  justify-content: center;
 }
 
 .ticket-titulo-tabla h4 {
-    color: #313D55;
-    display: flex;
-    justify-content: center;
+  color: #313d55;
+  display: flex;
+  justify-content: center;
 }
 
 .precio-ticket-p {
-    width: 12vw;
-    justify-content: center;
-}
-
-.linea-ticket:hover {
-    font-weight: bold;
-}
-
-.caja-titulo:hover, .caja-ubicacion:hover, .imagen-evento:hover, .caja-tickets:hover {
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  width: 12vw;
+  justify-content: center;
 }
 
 @keyframes cambiar-fondo {
-    0% {background-color: #FFB700;
-        border-color: #FFB700;
-    }
+  0% {
+    background-color: #ffb700;
+    border-color: #ffb700;
+  }
 
-    100% {background-color: #ff6600;
-           border-color: #ff6600;
-    }
+  100% {
+    background-color: #ff6600;
+    border-color: #ff6600;
+  }
 }
 
 /* Media quierie para tablet */
 
 @media (max-width: 768px) {
+  .tickets-imagen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+  }
 
-    .tickets-imagen {
-        display: flex;
-        flex-wrap: wrap;
-        justify-items: center;
+  .caja-titulo {
+    width: 90vw;
+  }
 
-    }
+  .caja-tickets {
+    order: 100;
+    width: 90vw;
+  }
 
-    .caja-titulo {
-        width: 90vw;
-    }
+  .form-caja {
+    width: 100%;
+  }
 
-    .caja-tickets {
-        order: 100;
-        width: 90vw;
-    }
+  .imagen-evento {
+    /* order: -100; */
+    width: 90vw;
+  }
 
-    .imagen-evento {
-        /* order: -100; */
-        width: 90vw;
-    }
+  .search-bar {
+    font-size: 18px;
+  }
 
-    .search-bar {
-        font-size: 18px;
-    }
+  .caja-titulo-ubicacion h2 {
+    font-size: 19px;
+  }
 
-    .caja-titulo-ubicacion h2 {
-        font-size: 19px;
-    }
+  .caja-titulo-ubicacion h3 {
+    font-size: 16px;
+  }
 
-    .caja-titulo-ubicacion h3 {
-        font-size: 16px;
+  .descripcion-ubicacion {
+    font-size: 10px;
+  }
 
-    }
+  .fa-location-dot,
+  .fa-calendar-days {
+    font-size: 26px;
+  }
 
-    .descripcion-ubicacion {
-        font-size: 10px;
-    }
+  .titulos-tabla h4 {
+    font-size: 14px;
+  }
 
-    .fa-location-dot,
-    .fa-calendar-days {
-        font-size: 26px;
-    }
+  .boton-comprar {
+    font-size: 12px;
+  }
 
-    .titulos-tabla h4 {
-        font-size: 14px;
-    }
+  .fa-chevron-down {
+    font-size: 14px;
+  }
 
+  .linea-ticket p {
+    font-size: 12px;
+  }
 
-    .boton-comprar {
-        font-size: 12px;
-    }
-
-
-    .fa-chevron-down {
-        font-size: 14px;
-    }
-
-    .linea-ticket p {
-        font-size: 12px;
-    }
-
-    .precio-ticket-p {
-        width: 20vw;
-        margin: 8px
-
-    }
-    
+  .precio-ticket-p {
+    width: 20vw;
+    margin: 8px;
+  }
 }
-
 
 /* Media quierie para mobile */
 @media (max-width: 480px) {
+  .caja-titulo-ubicacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+  }
 
-    .caja-titulo-ubicacion {
-        display: flex;
-        flex-wrap: wrap;
-        justify-items: center;
+  .caja-ubicacion {
+    width: 90vw;
+  }
 
-    }
+  .ticket-titulo-tabla {
+    width: 25vw;
+  }
 
-    .caja-ubicacion {
-        width: 90vw;
-    }
+  .precio-ticket-p {
+    width: 12vw;
+    margin: 8px;
+  }
 
-    .ticket-titulo-tabla {
-        width: 25vw;
-    }
+  .caja-cantidad {
+    margin: 8px;
+    width: 15vw;
+  }
 
-    .precio-ticket-p {
-        width: 12vw;
-        margin: 8px
+  .tickets-imagen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+  }
 
-    }
+  .caja-tickets {
+    order: 100;
+    width: 90vw;
+  }
 
-    .caja-cantidad {
-        margin: 8px;
-        width: 15vw;
-    }
+  .imagen-evento {
+    /* order: -100; */
+    width: 90vw;
+  }
 
-    .tickets-imagen {
-        display: flex;
-        flex-wrap: wrap;
-        justify-items: center;
+  .search-bar {
+    font-size: 14px;
+  }
 
-    }
+  .caja-titulo-ubicacion h2 {
+    font-size: 19px;
+  }
 
-    .caja-tickets {
-        order: 100;
-        width: 90vw;
-    }
+  .caja-titulo-ubicacion h3 {
+    font-size: 16px;
+  }
 
+  .descripcion-ubicacion {
+    font-size: 10px;
+  }
 
+  .fa-location-dot,
+  .fa-calendar-days {
+    font-size: 26px;
+  }
 
-    .imagen-evento {
-        /* order: -100; */
-        width: 90vw;
-    }
+  .titulos-tabla h4 {
+    font-size: 14px;
+  }
 
+  .boton-comprar {
+    font-size: 12px;
+  }
 
-    .search-bar {
-        font-size: 14px;
-    }
+  .fa-chevron-down {
+    font-size: 14px;
+  }
 
-    .caja-titulo-ubicacion h2 {
-        font-size: 19px;
-    }
-
-    .caja-titulo-ubicacion h3 {
-        font-size: 16px;
-
-    }
-
-    .descripcion-ubicacion {
-        font-size: 10px;
-    }
-
-    .fa-location-dot,
-    .fa-calendar-days {
-        font-size: 26px;
-    }
-
-    .titulos-tabla h4 {
-        font-size: 14px;
-    }
-
-
-    .boton-comprar {
-        font-size: 12px;
-    }
-
-
-    .fa-chevron-down {
-        font-size: 14px;
-    }
-
-    .linea-ticket p {
-        font-size: 12px;
-    }
-
+  .linea-ticket p {
+    font-size: 12px;
+  }
 }
 
 /* Rama Gaston */
