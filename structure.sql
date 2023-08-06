@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 06, 2023 at 05:52 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 06-08-2023 a las 17:58:15
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `prueba_eventicket`
+-- Base de datos: `prueba_eventicket`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Estructura de tabla para la tabla `categories`
 --
 
 CREATE TABLE `categories` (
@@ -33,7 +33,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `categories`
+-- Volcado de datos para la tabla `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Estructura de tabla para la tabla `products`
 --
 
 CREATE TABLE `products` (
@@ -63,7 +63,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `products`
+-- Volcado de datos para la tabla `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `date`, `location`, `addres`, `category_id`, `image`, `deleted`, `sold_out`, `user_creator_id`) VALUES
@@ -76,26 +76,24 @@ INSERT INTO `products` (`id`, `name`, `date`, `location`, `addres`, `category_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `SequelizeMeta`
+-- Estructura de tabla para la tabla `sequelizemeta`
 --
 
-CREATE TABLE `SequelizeMeta` (
+CREATE TABLE `sequelizemeta` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `SequelizeMeta`
+-- Volcado de datos para la tabla `sequelizemeta`
 --
 
-INSERT INTO `SequelizeMeta` (`name`) VALUES
-('20230730124121-agregar-columna.js'),
-('20230802235959-agregar-columna-tipo-entrada.js'),
-('20230803013715-bought.js');
+INSERT INTO `sequelizemeta` (`name`) VALUES
+('20230730124121-agregar-columna.js');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ticket_type`
+-- Estructura de tabla para la tabla `ticket_type`
 --
 
 CREATE TABLE `ticket_type` (
@@ -107,7 +105,7 @@ CREATE TABLE `ticket_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ticket_type`
+-- Volcado de datos para la tabla `ticket_type`
 --
 
 INSERT INTO `ticket_type` (`id`, `name`, `amount`, `price`, `product_id`) VALUES
@@ -123,7 +121,7 @@ INSERT INTO `ticket_type` (`id`, `name`, `amount`, `price`, `product_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -139,7 +137,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `user_type_id`, `password`, `check_password`, `notifications`, `terms_condition`) VALUES
@@ -149,41 +147,20 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `user_type_id`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_product_cart`
+-- Estructura de tabla para la tabla `user_product_cart`
 --
 
 CREATE TABLE `user_product_cart` (
   `id` int(11) NOT NULL,
   `user_id` varchar(255) NOT NULL,
   `product_id` varchar(255) NOT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `ticket_type_id` int(11) DEFAULT NULL,
-  `bought` int(11) DEFAULT NULL
+  `quantity` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user_product_cart`
---
-
-INSERT INTO `user_product_cart` (`id`, `user_id`, `product_id`, `quantity`, `ticket_type_id`, `bought`) VALUES
-(5, '2', '1', 3, NULL, NULL),
-(6, '2', '1', 3, NULL, NULL),
-(7, '2', '1', 2, NULL, NULL),
-(8, '2', '1', 6, NULL, NULL),
-(9, '2', '1', 3, NULL, NULL),
-(10, '2', '1', 2, NULL, NULL),
-(11, '2', '1', 2, NULL, NULL),
-(12, '2', '1', 4, 3, 0),
-(13, '2', '1', 2, 1, 0),
-(14, '2', '1', 3, 2, 0),
-(15, '2', '1', 3, 3, 0),
-(16, '2', '1', 1, 1, 0),
-(17, '2', '1', 4, 2, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_type`
+-- Estructura de tabla para la tabla `user_type`
 --
 
 CREATE TABLE `user_type` (
@@ -192,7 +169,7 @@ CREATE TABLE `user_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_type`
+-- Volcado de datos para la tabla `user_type`
 --
 
 INSERT INTO `user_type` (`id`, `name`) VALUES
@@ -200,89 +177,89 @@ INSERT INTO `user_type` (`id`, `name`) VALUES
 (2, 'Productor/a');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `categories`
+-- Indices de la tabla `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `products`
+-- Indices de la tabla `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `SequelizeMeta`
+-- Indices de la tabla `sequelizemeta`
 --
-ALTER TABLE `SequelizeMeta`
+ALTER TABLE `sequelizemeta`
   ADD PRIMARY KEY (`name`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indexes for table `ticket_type`
+-- Indices de la tabla `ticket_type`
 --
 ALTER TABLE `ticket_type`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `user_product_cart`
+-- Indices de la tabla `user_product_cart`
 --
 ALTER TABLE `user_product_cart`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_type`
+-- Indices de la tabla `user_type`
 --
 ALTER TABLE `user_type`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT de la tabla `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `ticket_type`
+-- AUTO_INCREMENT de la tabla `ticket_type`
 --
 ALTER TABLE `ticket_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `user_product_cart`
+-- AUTO_INCREMENT de la tabla `user_product_cart`
 --
 ALTER TABLE `user_product_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user_type`
+-- AUTO_INCREMENT de la tabla `user_type`
 --
 ALTER TABLE `user_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
