@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 30, 2023 at 07:36 PM
+-- Host: localhost
+-- Generation Time: Aug 06, 2023 at 05:52 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -76,19 +76,21 @@ INSERT INTO `products` (`id`, `name`, `date`, `location`, `addres`, `category_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sequelizemeta`
+-- Table structure for table `SequelizeMeta`
 --
 
-CREATE TABLE `sequelizemeta` (
+CREATE TABLE `SequelizeMeta` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `sequelizemeta`
+-- Dumping data for table `SequelizeMeta`
 --
 
-INSERT INTO `sequelizemeta` (`name`) VALUES
-('20230730124121-agregar-columna.js');
+INSERT INTO `SequelizeMeta` (`name`) VALUES
+('20230730124121-agregar-columna.js'),
+('20230802235959-agregar-columna-tipo-entrada.js'),
+('20230803013715-bought.js');
 
 -- --------------------------------------------------------
 
@@ -154,8 +156,29 @@ CREATE TABLE `user_product_cart` (
   `id` int(11) NOT NULL,
   `user_id` varchar(255) NOT NULL,
   `product_id` varchar(255) NOT NULL,
-  `quantity` int(11) DEFAULT NULL
+  `quantity` int(11) DEFAULT NULL,
+  `ticket_type_id` int(11) DEFAULT NULL,
+  `bought` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_product_cart`
+--
+
+INSERT INTO `user_product_cart` (`id`, `user_id`, `product_id`, `quantity`, `ticket_type_id`, `bought`) VALUES
+(5, '2', '1', 3, NULL, NULL),
+(6, '2', '1', 3, NULL, NULL),
+(7, '2', '1', 2, NULL, NULL),
+(8, '2', '1', 6, NULL, NULL),
+(9, '2', '1', 3, NULL, NULL),
+(10, '2', '1', 2, NULL, NULL),
+(11, '2', '1', 2, NULL, NULL),
+(12, '2', '1', 4, 3, 0),
+(13, '2', '1', 2, 1, 0),
+(14, '2', '1', 3, 2, 0),
+(15, '2', '1', 3, 3, 0),
+(16, '2', '1', 1, 1, 0),
+(17, '2', '1', 4, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -193,9 +216,9 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sequelizemeta`
+-- Indexes for table `SequelizeMeta`
 --
-ALTER TABLE `sequelizemeta`
+ALTER TABLE `SequelizeMeta`
   ADD PRIMARY KEY (`name`),
   ADD UNIQUE KEY `name` (`name`);
 
@@ -256,7 +279,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_product_cart`
 --
 ALTER TABLE `user_product_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `user_type`
