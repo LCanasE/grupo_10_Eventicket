@@ -17,7 +17,7 @@
   </header>
   <main>
     <div class="container-carrito">
-      <% if (searchedProduct) {%>
+      <% if (searchedProducts.length > 0) {%>
       <h1>Eventos Seleccionados</h1>
       <% } else {%>
         <h1>No hay eventos seleccionados</h1>
@@ -34,7 +34,7 @@
 
           
         </div>
-        <% if (searchedProduct) {%>
+        <% if (searchedProducts.length > 0) {%>
         <div class="seleccionar-metodo">
           <h3>Seleccione un método de pago</h3>
           <div class="metodo-de-pagos">

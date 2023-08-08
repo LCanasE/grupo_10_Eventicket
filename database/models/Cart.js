@@ -20,7 +20,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
         },
         ticket_type_id: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
+            foreignKey: true,
         },
         bought: {
             type: dataTypes.INTEGER
@@ -36,14 +37,19 @@ module.exports = (sequelize, dataTypes) => {
 
     Cart.associate = models => {
 
-        Cart.belongsToMany(models.User, {
+        Cart.belongsTo(models.User, {
             as: "cart_user",
-            through: "user_id",
+            foreignKey: "user_id",
         })
 
-        Cart.belongsToMany(models.Product, {
+        Cart.belongsTo(models.Product, {
             as: "cart_product",
-            through: "product_id",
+            foreignKey: "product_id",
+        })
+
+        Cart.belongsTo(models.Ticket, {
+            as: "cart_tickets",
+            foreignKey: "ticket_type_id",
         })
     }
     return Cart

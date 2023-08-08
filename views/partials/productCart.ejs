@@ -1,17 +1,23 @@
 <% include('../../utils/dateUtils') %>
 
-<% if(searchedProduct) {%>
-<div class="articulos">
+<% if(searchedProducts) {%>
+  <% searchedProducts.forEach(product => { %>
+    <!-- Bought chequea el estado del producto en el carrito, si es 0 significa que se agregó al carrito, pero no se compró. En cambio, 1 significa que el producto fue comprado -->
+    <% if(product.bought === 0) {%>
+  <div class="articulos">
     <div class="carrito-img">
-      <img src=<%= searchedProduct.image %>>
+      <img src=<%= product.cart_product.image %>>
     </div>
     <div class="info">
-      <h3 class="carrito-titulo"><%= searchedProduct.name %></h3>
-      <h3 class="carrito-fecha"><%= formateDate(searchedProduct.date) %></h3>
-      <h3 class="carrito-lugar"><%= searchedProduct.location %></h3>
+      <h3 class="carrito-titulo"><%= product.cart_product.name %></h3>
+      <h3 class="carrito-fecha"><%= formateDate(product.cart_product.date) %></h3>
+      <h3 class="carrito-lugar"><%= product.cart_product.location %></h3>
       <h3></h3>
-      <div class="precio">
-        <p>$ <%=searchedProduct.price%></p>
+      <div class="precio" style="display:flex; justify-content: space-around;">
+        <p style="margin: 0; padding: 5px;"><%= product.cart_tickets.name %></p>
+        <p style="margin: 0; padding: 5px;">$<%= product.cart_tickets.price * product.quantity %></p>
+        <p style="margin: 0; padding: 5px;"><%= product.quantity %></p>
+      </div>
         <article class="carrito-btn">
         <button class="flecha-arriba">
           <i class="fa-solid fa-arrow-up"></i>
@@ -22,8 +28,9 @@
         <button>
           <i class="fa-regular fa-trash-can"></i>
         </button>
-      </div>
       </article>
     </div>
   </div>
+  <% } %>
+  <% }); %>
   <% } %>

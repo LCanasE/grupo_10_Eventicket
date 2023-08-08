@@ -46,37 +46,71 @@ const productControllers = {
     },
 
     getCart: async (req, res) => {
-        let id = Number(req.query.id);
+        // let id = Number(req.query.id);
+        // console.log(req.session.user.id);
         try {
-            let products = await Product.findAll();
-            await Product.findByPk(id, {
+            let userID = req.session.user.id;
+            await Cart.findAll({
                 include: [
-                    {
-                    model: Ticket,
-                    as: "tickets"
+                    {association: 'cart_user'},
+                    {association: 'cart_product'},
+                    {association: 'cart_tickets'},
+                ],
+                where: {
+                    user_id: userID,
                 }
-                ]
-            })
-            .then((searchedProduct) => {
-                // console.log(searchedProduct.dataValues.tickets);
+            }).then(result => {
+                result.forEach(r => {
+                    console.log(r);
+                })
+                // res.send('Productos encontrados');
             res.render('cart', {
-                searchedProduct: searchedProduct ? searchedProduct.dataValues : '',
-                products,
+                // searchedProducts: searchedProducts ? searchedProducts.dataValues : '',
+                searchedProducts: result,
+                products: result,
                 title: 'Carrito'})
-            })
+            });
+            
         } catch (error) {
-            console.log(error);   
+            console.log(error);
         }
+
+
+
+
+
+
+
+
+        // try {
+        //     let products = await Product.findAll();
+        //     await Product.findByPk(id, {
+        //         include: [
+        //             {
+        //             model: Ticket,
+        //             as: "tickets"
+        //         }
+        //         ]
+        //     })
+        //     .then((searchedProduct) => {
+        //         // console.log(searchedProduct.dataValues.tickets);
+        //     res.render('cart', {
+        //         searchedProduct: searchedProduct ? searchedProduct.dataValues : '',
+        //         products,
+        //         title: 'Carrito'})
+        //     })
+        // } catch (error) {
+        //     console.log(error);   
+        // }
     
     },
 
     postCart: async (req, res) => {
         let id = Number(req.query.id);
-        // console.log(req.body);
-
+        
         let {ticketName, ticketPrice, ticketAmount, idTicket, idProduct} = req.body;
         
-        let tickets = {};
+        // let tickets = {};
         
         // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
         for (let i = 0; i < ticketName.length; i++) {
@@ -100,28 +134,20 @@ const productControllers = {
                                 ticket_type_id: ticket.ticket_type_id,
                                 bought: ticket.bought,
                             })
+                            console.log(req.body);
                         } catch (error) {
-                                console.log(error);
-                            }}
+                            console.log(error);
+                        }
+                    }
                             
                             // if(ticketAmount[i] > 0){
                             //         tickets.push([ticketName[i], ticketPrice[i], ticketAmount[i]]);
                             //     }
                 }
+                // res.render('cart', {ticketName, ticketPrice, ticketAmount, title: 'Carrito', searchedProducts: {}})
+                res.redirect('./cart')
 
-
-        // console.log(ticket);
-
-        res.render('cart', {ticketName, ticketPrice, ticketAmount, title: 'Carrito', searchedProduct: {}})
-        // console.log(ticketName);
-        // console.log(ticketPrice);
-        // console.log(ticketAmount);
-        // let ticketName = req.body.ticketName;
-        // let ticketPrice = req.body.ticketPrice;
-        // let ticketAmount = req.body.ticketAmount;
-
-        // res.send(req.body);
-        // console.log(id);
+        // res.send('Producto cargado en la base');
     },
 
     getEvents: async (req, res) => {
@@ -342,8 +368,8 @@ const productControllers = {
         newData.categoria = category_id;
 
         const { nombre, fecha, ubicacion, direccion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado } = newData;
-        console.log(fecha);
-        console.log("NEW DATA \n", newData);
+        // console.log(fecha);
+        // console.log("NEW DATA \n", newData);
         try {
             await Product.update(
                 {
