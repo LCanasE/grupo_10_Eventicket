@@ -61,7 +61,7 @@ const productControllers = {
                 }
             }).then(result => {
                 result.forEach(r => {
-                    console.log(r);
+                    // console.log(r);
                 })
                 // res.send('Productos encontrados');
             res.render('cart', {
@@ -112,7 +112,9 @@ const productControllers = {
         
         // let tickets = {};
         
-        // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
+        // Se pregunta si existe ticketName para ejecutar el bucle for. Este if basicamente controla que se pueda entrar al carrito sin necesidad de haber apretado el boton "Comprar".
+        if(ticketName){
+            // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
         for (let i = 0; i < ticketName.length; i++) {
             let ticket = {};
 
@@ -144,10 +146,39 @@ const productControllers = {
                             //         tickets.push([ticketName[i], ticketPrice[i], ticketAmount[i]]);
                             //     }
                 }
+            }
                 // res.render('cart', {ticketName, ticketPrice, ticketAmount, title: 'Carrito', searchedProducts: {}})
+                console.log(req.body);
                 res.redirect('./cart')
 
         // res.send('Producto cargado en la base');
+    },
+
+    putCart: async (req, res) => {
+        try {
+            const cartData = JSON.parse(req.body.cartData);
+            console.log(cartData);
+            await Cart.update(
+                {bought: 1},
+                {where: {
+                    user_id: req.session.user.id
+                }}).then(res.redirect('/'));
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    deleteCart: async (req, res) => {
+        console.log(req.body);
+        try {
+            await Cart.destroy({
+                where: {
+                    user_id: req.session.user.id
+                }
+            }).then(res.redirect('/'));
+        } catch (error) {
+            console.log(error);
+        }
     },
 
     getEvents: async (req, res) => {

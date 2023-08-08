@@ -701,7 +701,7 @@ footer p {
   margin: 5%;
 }
 
-.botones-container button {
+.botones-container input, .botones-container .finalizar-compra {
   font-family: "Montserrat", "sans-serif";
   padding: 2%;
   font-size: 18px;
