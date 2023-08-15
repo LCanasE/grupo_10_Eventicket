@@ -12,82 +12,138 @@
     <main class="main-registro login-register">
         <section class="registro-form">
             <h2>Creación de eventos</h2>
+            <!-- <ul id="errors"></ul> -->
             <form action="/products/createEvents" method="POST" enctype="multipart/form-data">
-                <input type="text" name="nombre" value="<%= oldData.nombre %>" placeholder="Título del Evento">
-                <% if(errors.nombre) {%>
-                    <p class="error-product"><%= errors.nombre.msg %></p>
-                <% } %>
-                <input type="datetime-local" name="fecha" id="fechaId" value="<%= oldData.fecha %>" min=<%= new Date() %>>
-                <% if(errors.fecha) {%>
-                    <p class="error-product"><%= errors.fecha.msg %></p>
-                <% } %>
-                <input type="text" placeholder="Lugar" name="ubicacion" value="<%= oldData.ubicacion %>">
-                <% if(errors.ubicacion) {%>
-                    <p class="error-product"><%= errors.ubicacion.msg %></p>
-                <% } %>
-                <input type="text" placeholder="Direccion" name="direccion" value="<%= oldData.direccion %>">
-                <% if(errors.direccion) {%>
-                    <p class="error-product"><%= errors.direccion.msg %></p>
-                <% } %>
-                
+                <div>
+                    <input type="text" id="nombre" name="nombre" value="<%= oldData.nombre %>"
+                        placeholder="Título del Evento">
+                    <% if(errors.nombre) {%>
+                        <p class="error-product">
+                            <%= errors.nombre.msg %>
+                        </p>
+                        <% } %>
+                <p class="error" style="color:red; margin: 0 25px; text-align: start;"></p>
+                </div>
+                <div>
+                    <input type="datetime-local" name="fecha" id="fechaId" value="<%= oldData.fecha %>" min=<%=new
+                        Date() %>>
+                    <% if(errors.fecha) {%>
+                        <p class="error-product">
+                            <%= errors.fecha.msg %>
+                        </p>
+                        <% } %>
+                <p class="error" style="color:red;"></p>
+                </div>
+                <div>
+                    <input type="text" placeholder="Lugar" id="lugar" name="ubicacion" value="<%= oldData.ubicacion %>">
+                    <% if(errors.ubicacion) {%>
+                        <p class="error-product">
+                            <%= errors.ubicacion.msg %>
+                        </p>
+                        <% } %>
+                <p class="error" style="color:red;"></p>
+                </div>
+                <div>
+                    <input type="text" placeholder="Direccion" id="direccion" name="direccion"
+                        value="<%= oldData.direccion %>">
+                    <% if(errors.direccion) {%>
+                        <p class="error-product">
+                            <%= errors.direccion.msg %>
+                        </p>
+                        <% } %>
+                <p class="error" style="color:red;"></p>
+                </div>
                 <div class="agregar-input-precio-evento">
-                    <label for="">Entradas</label>
-                    <input type="text" placeholder="Tipo de entrada" name="tipoEntrada" class="tipo-entrada-evento" value="<%= oldData.tipoEntrada %>">
-                    <input type="number" placeholder="$1000 (Precio)" name="precio" class="precio-crear-evento" value="<%= oldData.precio %>">
-                    <input type="number" placeholder="Cantidad (Número)" name="cantidadEntradas" class="precio-crear-evento" value="<%= oldData.cantidadEntradas %>">
+                    <label>Entradas</label>
+                    <div>
+                        <input type="text" placeholder="Tipo de entrada" id="tipo-entrada" name="tipoEntrada"
+                            class="tipo-entrada-evento" value="<%= oldData.tipoEntrada %>">
+                        <p class="error" style="color:red;"></p>
+                    </div>
+                    <div>
+                        <input type="number" placeholder="$1000 (Precio)" id="precio" name="precio"
+                            class="precio-crear-evento" value="<%= oldData.precio %>">
+                            <p class="error" style="color:red;"></p>
+                    </div>
+                    <div>
+                        <input type="number" placeholder="Cantidad (Número)" id="cantidad-entradas"
+                            name="cantidadEntradas" class="precio-crear-evento" value="<%= oldData.cantidadEntradas %>">
+                            <p class="error" style="color:red;"></p>
+                    </div>
                     <div class="errores-entradas">
-                    <% if(errors.tipoEntrada) {%>
-                        <p class="error-product"><%= errors.tipoEntrada.msg %></p>
-                    <% } %>
-                    <% if(errors.precio) {%>
-                        <p class="error-product"><%= errors.precio.msg %></p>
-                    <% } %>
-                    <% if(errors.cantidadEntradas) {%>
-                        <p class="error-product"><%= errors.cantidadEntradas.msg %></p>
-                    <% } %>
+                        <% if(errors.tipoEntrada) {%>
+                            <p class="error-product">
+                                <%= errors.tipoEntrada.msg %>
+                            </p>
+                            <% } %>
+                                <% if(errors.precio) {%>
+                                    <p class="error-product">
+                                        <%= errors.precio.msg %>
+                                    </p>
+                                    <% } %>
+                                        <% if(errors.cantidadEntradas) {%>
+                                            <p class="error-product">
+                                                <%= errors.cantidadEntradas.msg %>
+                                            </p>
+                                            <% } %>
                     </div>
                     <button class="agregar-tipo-entrada">
                         <i class="fa-solid fa-plus"></i>
-                        </button>
+                    </button>
                 </div>
                 <select id="categoriaSelect" name="categoria" class="creacion-evento-categorias">
                     <% if (!oldData.categoria) {%>
-                    <option disabled selected>Categoría</option>
-                    <% } else {%> 
-                        <option selected><%= oldData.categoria %></option>
-                    <% } %>
-                    <% let categorias = ['Deportes', 'Recitales', 'Obras de teatro', 'Stand Up', 'Conferencias'] %>
-                    <% let categoriaSeleccionada = oldData.categoria ? true : false %>
-                    <% categorias.forEach(categoria => { %>
-                        <%= oldData.categoria === categoria ? 'selected' : null %>
-                        <option><%= categoria %></option>
-                    <% }); %>
+                        <option disabled selected>Categoría</option>
+                        <% } else {%>
+                            <option selected>
+                                <%= oldData.categoria %>
+                            </option>
+                            <% } %>
+                                <% let categorias=['Deportes', 'Recitales' , 'Obras de teatro' , 'Stand Up'
+                                    , 'Conferencias' ] %>
+                                    <% let categoriaSeleccionada=oldData.categoria ? true : false %>
+                                        <% categorias.forEach(categoria=> { %>
+                                            <%= oldData.categoria===categoria ? 'selected' : null %>
+                                                <option>
+                                                    <%= categoria %>
+                                                </option>
+                                                <% }); %>
                 </select>
+                <p class="error" style="color:red;"></p>
                 <% if(errors.categoria) {%>
-                    <p class="error-product"><%= errors.categoria.msg %></p>
-                <% } %>
-                <div class="input-grupo-cargar-imagen-evento">
-                        <label for="">Imagen del Evento</label>
-                        <input type="file" name="img" id="imagenInput" class="seleccionar-imagen">
-                        <% if(errorImg.msg) {%>
-                            <p style="color: red;"><%= errorImg.msg %></p>
-                        <% } %>
-                        <% if(errorInput.msg) {%>
-                            <p style="color: red;"><%= errorInput.msg %></p>
-                        <% } %>
-                        <% if(errorExtensionImagen.msg) {%>
-                            <p style="color: red;"><%= errorExtensionImagen.msg %></p>
-                        <% } %>
-                    <input type="submit" value="Cargar evento" class="enviar-evento">
-                </div>
-                <input type="hidden" name="eliminado" value="false">
-                <input type="hidden" name="agotado" value="false">
+                    <p class="error-product">
+                        <%= errors.categoria.msg %>
+                    </p>
+                    <% } %>
+                        <div class="input-grupo-cargar-imagen-evento">
+                            <label for="">Imagen del Evento</label>
+                            <input type="file" name="img" id="imagenInput" class="seleccionar-imagen">
+                            <% if(errorImg.msg) {%>
+                                <p style="color: red;">
+                                    <%= errorImg.msg %>
+                                </p>
+                                <% } %>
+                                    <% if(errorInput.msg) {%>
+                                        <p style="color: red;">
+                                            <%= errorInput.msg %>
+                                        </p>
+                                        <% } %>
+                                            <% if(errorExtensionImagen.msg) {%>
+                                                <p style="color: red;">
+                                                    <%= errorExtensionImagen.msg %>
+                                                </p>
+                                                <% } %>
+                        <input type="submit" disabled value="Cargar evento" id="submit-button" class="enviar-evento">
+                        </div>
+                        <input type="hidden" name="eliminado" value="false">
+                        <input type="hidden" name="agotado" value="false">
             </form>
         </section>
     </main>
     <footer>
         <%- include('../partials/footer') %>
-    </footer>      
+    </footer>
+    <script src="/js/createForm.js"></script>
 </body>
 
 </html>

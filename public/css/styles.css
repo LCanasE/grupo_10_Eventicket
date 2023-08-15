@@ -901,6 +901,11 @@ footer p {
   background-color: #313d55;
 }
 
+.input-grupo-cargar-imagen-evento .enviar-evento:disabled {
+  background-color: #313d55;
+  opacity: 0.7;
+}
+
 .creacion-evento-categorias {
   background-color: #fff;
   border: solid 1px #c0c0c0;
@@ -926,9 +931,9 @@ footer p {
   width: 100%;
 }
 
-.agregar-input-precio-evento .precio-crear-evento {
+/* .agregar-input-precio-evento .precio-crear-evento {
   width: 30%;
-}
+} */
 
 .agregar-tipo-entrada {
   margin-top: 2%;
@@ -955,7 +960,7 @@ footer p {
   border: solid 1px #c0c0c0;
   font-family: "Montserrat", "sans-serif";
   font-size: 16px;
-  width: 30%;
+  /* width: 30%; */
   margin-top: 2%;
   padding: 2%;
   border-radius: 15px;
