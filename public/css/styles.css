@@ -232,6 +232,11 @@ a:visited {
   cursor: pointer;
 }
 
+#registrate:disabled{
+  background-color: #313d55;
+  opacity: 0.7;
+}
+
 #registrate-google {
   background-color: #f4f4f4;
   color: #313d55;
