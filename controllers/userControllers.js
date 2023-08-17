@@ -166,7 +166,6 @@ const userControllers = {
         },
 
         );
-        console.log('USUARIO ENCONTRADO LOGIN \n', searchedUser.dataValues.products);
         if (!searchedUser) {
             return res.redirect('/users/login?error=El email o la contraseña es inválido');
             

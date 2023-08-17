@@ -61,7 +61,7 @@
           <input type="password" placeholder="Contraseña" name="passRegForm" class="passwordRegister" />
           <p class="error"></p>
           <% if(!errors.passRegForm) {%>
-            <p class="input-info">Mínimo seis caracteres, una mayúscula, una minúscula y un número</p>
+            <p class="input-info">Mínimo ocho caracteres, una mayúscula, una minúscula y un número</p>
           <% } %>
           <% if(errors.passRegForm){%>
             <p class="error-product"><%= errors.passRegForm.msg %></p>

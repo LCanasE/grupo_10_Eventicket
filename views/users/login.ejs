@@ -15,9 +15,14 @@
       <h1 class="login-h1">Login</h1>
       <form action="/users/login" method="POST">
         <p style="margin:0; color: red; font-size: 20px;"><%= error %></p>
-        <input class="login-input-texto" type="text" name="emailLogin" placeholder="Mail" required />
-
-        <input class="login-input-texto" type="password" name="passwordLogin" placeholder="Contraseña" required /> <br />
+        <div>
+        <input class="login-input-texto" type="text" name="emailLogin" placeholder="Mail" id="mailLogin" required />
+        <p class="error" style="margin: 0 20px"></p>
+        </div>
+        <div>
+        <input class="login-input-texto" type="password" name="passwordLogin" placeholder="Contraseña" id="passwordLogin" required /> <br />
+        <p class="error" style="margin: 0"></p>
+        </div>
         <article class="registro-tyc">
           <input type="checkbox" checked name="sesionIniciada">
           <label for="">Mantener sesion iniciada</label>
@@ -38,6 +43,8 @@
   <footer>
     <%- include('../partials/footer') %>
   </footer>
+
+  <script src="/js/validateLogin.js"></script>
 </body>
 
 </html>

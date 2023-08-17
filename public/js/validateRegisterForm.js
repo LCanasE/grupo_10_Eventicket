@@ -112,10 +112,10 @@ window.onload = () => {
         const hasLowerCase = /[a-z]/.test(value);
         const hasNumber = /[0-9]/.test(value);
 
-        if(length < 6){
+        if(length <= 8){
             password.style.border = '1px solid red';
             passwordConditions.style.display = 'none';
-            e.target.nextElementSibling.innerHTML = 'La contraseña debe tener más de seis caracteres';
+            e.target.nextElementSibling.innerHTML = 'La contraseña debe tener más de ocho caracteres';
         } else if (!hasSpecialChar || !hasUpperCase || !hasLowerCase || !hasNumber){
             passwordConditions.style.display = 'block';
             passwordConditions.style.color = 'red';
