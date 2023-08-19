@@ -3,3 +3,6 @@ node_modules
 
 # Ignora la carpeta package-lock.json
 package-lock.json
+
+# Ignora el ds_store
+.DS_Store
