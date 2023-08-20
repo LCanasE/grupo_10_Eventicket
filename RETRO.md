@@ -137,3 +137,31 @@ RETROALIMENTACIÓN "Starfish"
     - Intensificar el reporte de tareas realizadas o inconvenientes encontrrados durante el trabajo para darle fluidez al mismo.
 
 ** BASE DE DATOS: Está agregada en este repositorio como "BASE DE DATOS Eventicket", del archivo se puede importar directamente en phpMyAdmin
+
+2023/08 RETRO SPRINT 6:
+
+1. KEEP DOING:
+
+    - Mantener la comunicación fluida entre los miembros del equipo.
+
+    - Reuniones para revisar entregables y resolver inconvenientes.
+
+2. LESS OF:
+
+    - Si bien hemos mejorado, se debe seguir reforzando la adecuada distribución de tareas.
+    
+    - Estar más atentos a las fallas de la retro del Sprint anterior para mejorarlas.
+
+3. MORE OF:
+
+    - Deberíamos retomar el ritmo de estudio del inicio del curso, para poder estar al día con las clases y darle avance al proyecto.
+
+    - Individualmente debemos ponernos al día con el playground y aprovechar más el tiempo de las clases.
+
+4. STOP DOING:
+
+    - A pesar de haber intentado darle agilidad a las reuniones, las pocas opciones de horario entre los integrantes, no nos han permitido disminuir la duración de las reuniones semanales.
+    
+5. START DOING:
+
+    - Intensificar el reporte de tareas realizadas o inconvenientes encontrados durante el trabajo para darle fluidez al mismo.
