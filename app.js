@@ -5,12 +5,12 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
-const { Cart } = require('./database/models');
+const { Product, Cart } = require('./database/models');
+
 
 const mainRoutes = require('./routers/mainRoutes');
 const productRoutes = require('./routers/productRoutes');
 const userRoutes = require('./routers/userRoutes');
-
 
 app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
@@ -39,7 +39,7 @@ app.use((req,res,next) => {
         const usersModel = require('./models/usersModel');
         const user = usersModel.findByEmail(req.cookies.emailLogin);
         if (user){
-            delete user.id;
+            // delete user.id;
             delete user.passRegForm;
             delete user.checkPassRegForm;
             req.session.user = user;
@@ -49,7 +49,6 @@ app.use((req,res,next) => {
 });
 
 app.use(async (req, res, next) => {
-
     res.locals.productsHeader = [];
 
     try {

@@ -54,13 +54,25 @@ const mainControllers = {
                 ]
             })
                 .then(products => {
-                    // console.log(products);
+                    if(req.session.user){
+                        return res.render('home', {
+                            user: {
+                                id: req.session.user.dataValues.id,
+                                type: req.session.user.dataValues.user_type_id},
+                            products,
+                            productos,
+                            productsBanner,
+                            title: 'Home',
+                            error: {}});
+                    } else {
                     return res.render('home', {
+                        user: {},
                         products,
                         productos,
                         productsBanner,
                         title: 'Home',
                         error: {}});
+                    }
                 })
         } catch (error) {
             console.log(error);

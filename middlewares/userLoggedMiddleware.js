@@ -25,7 +25,7 @@ const userLoggedMiddleware = async(req,res,next) => {
             delete userFromCookie.dataValues.password;
             delete userFromCookie.dataValues.check_password;
             req.session.user = userFromCookie;
-            // console.log("SESSION MIDDLEWARE", req.session.user.dataValues);
+            console.log("SESSION MIDDLEWARE", req.session.user.dataValues);
         }
     }
     

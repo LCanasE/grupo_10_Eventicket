@@ -5,6 +5,13 @@
 <% } else { %>
 <% products.forEach(product => { %>
     <article class="product">
+        <% if(user.id && user.type === 2) {%>
+        <% if(product.user_creator_id === user.id) {%>
+            <a href="/products/<%= product.id %>/editEvents" class="edit-owner">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+        <% } %>
+        <% } %>
         <a href="/products/<%= product.id %>/eventsDetails" class="product-link-detail">
             <div class="product-img">
                 <img src=<%= product.image %> alt="Error">
