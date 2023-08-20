@@ -26,8 +26,8 @@
       <li class="nav-crear nav-enlaces">Crear Evento</li></a
     >
 
-    <% if (locals.isLogged) { %>
-      <li class="nav-user">Hola! <%= locals.user.first_name %>
+    <% if (isLogged) { %>
+      <li class="nav-user">Hola! <%= user.first_name || user.name %>
       <!-- <li class="nav-inicio nav-enlaces">Hola! <%#= locals.user.nombreRegForm %></li> -->
       <ul class="nav-bar nav-user-ul">
         <section class="nav-desplegable">
@@ -35,7 +35,7 @@
           <a class="nav-enlaces" href="/"><li>Mis Eventos</a></a>
           <a class="nav-enlaces" href="/"><li>Configuración</li></a>
           <a class="nav-enlaces" href="/users/logout"><li>Salir</li></a>
-      </section>
+        </section>
       </ul>
     </li>
       

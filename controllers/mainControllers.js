@@ -57,6 +57,7 @@ const mainControllers = {
                     if(req.session.user){
                         return res.render('home', {
                             user: {
+                                name: req.session.user.dataValues.first_name,
                                 id: req.session.user.dataValues.id,
                                 type: req.session.user.dataValues.user_type_id},
                             products,
