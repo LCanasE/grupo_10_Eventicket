@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const { Cart } = require('./database/models');
 
 const mainRoutes = require('./routers/mainRoutes');
 const productRoutes = require('./routers/productRoutes');
@@ -47,6 +48,29 @@ app.use((req,res,next) => {
     next();
 });
 
+app.use(async (req, res, next) => {
+
+    res.locals.productsHeader = [];
+
+    try {
+        if(req.session.user){
+        const userID = req.session.user.id;
+        const cart = await Cart.findAll({
+            where: {
+                user_id: userID
+            }
+        });
+
+        res.locals.productsHeader = cart;
+    } else {
+        console.log('No hay usuario en sesión');
+    }
+    next();
+    } catch (error) {
+        console.log(error);
+        next();
+    }
+});
 
 // ROUTES
 app.use(mainRoutes);

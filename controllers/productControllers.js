@@ -59,16 +59,14 @@ const productControllers = {
                 where: {
                     user_id: userID,
                 }
-            }).then(result => {
-                result.forEach(r => {
-                    // console.log(r);
-                })
-                // res.send('Productos encontrados');
-            res.render('cart', {
+            })
+            .then(result => {
+                res.render('cart', {
                 // searchedProducts: searchedProducts ? searchedProducts.dataValues : '',
                 searchedProducts: result,
                 products: result,
-                title: 'Carrito'})
+                title: 'Carrito',
+            })
             });
             
         } catch (error) {

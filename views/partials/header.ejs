@@ -49,7 +49,19 @@
         <% } %>
     <a href="/users/editUser"><i class="fas fa-user" style="color: #313d55"></i></a>
 
+    <% let counter = 0; %>
+    <% productsHeader.forEach(product => {%>
+      <% if(product.bought === 0) {%>
+        <% counter++ %>
+        <% } %>
+    <% }) %>
+
     <a href="/products/cart">
+      <% if(counter !== 0) {%>
+          <div class="circle">
+            <p class="cart-items"><%= counter %></p>
+          </div>
+      <% } %>
     <i class="fa-solid fa-cart-shopping" style="color: #313d55"></i>
     </a>
   </ul>

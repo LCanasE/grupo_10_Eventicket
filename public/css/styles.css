@@ -1817,4 +1817,24 @@ footer p {
     padding: 2%;
     border-radius: 15px;
   }
+
+  .circle{
+    cursor: auto;
+    background-color: green;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cart-items{
+    font-size: 12px;
+    color: white;
+    text-align: center;
+  }
 }
