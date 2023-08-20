@@ -72,11 +72,14 @@ window.onload = () => {
             lastName.style.border = '1px solid green';
             e.target.nextElementSibling.innerHTML = ''
         }
+        checkErrors();
     })
+
+
     email.addEventListener('input', e => {
         let value = e.target.value;
-        let length = value.length;
         let isCorrect = value.includes('@') && value.includes('.');
+        let length = value.length;
 
         if(length === 0){
             console.log(value);
