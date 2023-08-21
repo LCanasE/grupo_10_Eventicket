@@ -48,28 +48,28 @@ app.use((req,res,next) => {
     next();
 });
 
-app.use(async (req, res, next) => {
-    res.locals.productsHeader = [];
+// app.use(async (req, res, next) => {
+//     res.locals.productsHeader = [];
 
-    try {
-        if(req.session.user){
-        const userID = req.session.user.id;
-        const cart = await Cart.findAll({
-            where: {
-                user_id: userID
-            }
-        });
+//     try {
+//         if(req.session.user){
+//         const userID = req.session.user.id;
+//         const cart = await Cart.findAll({
+//             where: {
+//                 user_id: userID
+//             }
+//         });
 
-        res.locals.productsHeader = cart;
-    } else {
-        console.log('No hay usuario en sesión');
-    }
-    next();
-    } catch (error) {
-        console.log(error);
-        next();
-    }
-});
+//         res.locals.productsHeader = cart;
+//     } else {
+//         console.log('No hay usuario en sesión');
+//     }
+//     next();
+//     } catch (error) {
+//         console.log(error);
+//         next();
+//     }
+// });
 
 // ROUTES
 app.use(mainRoutes);
