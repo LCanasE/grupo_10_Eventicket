@@ -1,7 +1,7 @@
 const express = require('express');
 
 // CONTROLLERS
-const apiProductController = require('../../controllers/api/apiProductController');
+const apiProductController = require('../../controllers/api/apiProductControllers');
 
 // MIDDLEWARES
 const authMiddleware = require('../../middlewares/authMiddleware');;

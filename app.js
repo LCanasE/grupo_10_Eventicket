@@ -13,6 +13,7 @@ const productRoutes = require('./routers/productRoutes');
 const userRoutes = require('./routers/userRoutes');
 const apiMainRoutes = require('./routers/api/apiMainRoutes');
 const apiProductRoutes = require('./routers/api/apiProductRoutes');
+const apiUserRoutes = require('./routers/api/apiUserRoutes');
 
 app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
@@ -79,6 +80,7 @@ app.use('/products', productRoutes);
 app.use('/users', userRoutes);
 app.use('/api', apiMainRoutes)
 app.use('/api/products', apiProductRoutes);
+app.use('/api', apiUserRoutes)
 
 app.use((req, res,) => {
     res.status(404).render('error404');
