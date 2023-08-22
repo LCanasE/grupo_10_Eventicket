@@ -11,6 +11,8 @@ const { Product, Cart } = require('./database/models');
 const mainRoutes = require('./routers/mainRoutes');
 const productRoutes = require('./routers/productRoutes');
 const userRoutes = require('./routers/userRoutes');
+const apiMainRoutes = require('./routers/api/apiMainRoutes');
+const apiProductRoutes = require('./routers/api/apiProductRoutes');
 
 app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
@@ -75,6 +77,8 @@ app.use((req,res,next) => {
 app.use(mainRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
+app.use('/api', apiMainRoutes)
+app.use('/api/products', apiProductRoutes);
 
 app.use((req, res,) => {
     res.status(404).render('error404');
