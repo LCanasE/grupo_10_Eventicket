@@ -6,14 +6,15 @@ module.exports = {
             // const productsBanner = await Product.findAll()
             const productSearched = await Product.findByPk(req.params.id, {
                 include: [ 
-                    {
-                    model: Ticket,
-                    as: "tickets",
-                    }
+                    { association: "categories" },
+                    { association: "tickets"
+                    // model: Ticket,
+                    // as: "tickets",
+                    },
                 ],
             })
             // --AVERIGUAR PARA MANEJAR EL CASO EN EL QUE NO EXISTA EL ID--
-            console.log(productSearched.tickets);
+            // console.log(productSearched.tickets);
             productSearched.tickets.sort((a, b) => a.price - b.price);
             // --    --
             res.json(
