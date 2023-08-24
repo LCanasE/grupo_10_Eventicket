@@ -91,6 +91,7 @@
       }).then((result) => {
         if (result.isConfirmed) {
           formDel.submit();
+          localStorage.setItem('products', 0);
         }
       })
     })
