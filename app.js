@@ -9,6 +9,7 @@ const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const mainRoutes = require('./routers/mainRoutes');
 const productRoutes = require('./routers/productRoutes');
 const userRoutes = require('./routers/userRoutes');
+const apiMainRoutes = require('./routers/api/apiMainRoutes');
 
 
 app.use(express.urlencoded({ extended:true }));
@@ -52,6 +53,7 @@ app.use((req,res,next) => {
 app.use(mainRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
+app.use('/api', apiMainRoutes);
 
 app.use((req, res,) => {
     res.status(404).render('error404');
