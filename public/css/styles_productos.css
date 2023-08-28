@@ -131,14 +131,16 @@
   border: solid 1px #313d55;
   background-color: #a1823d;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   border-radius: 15px;
   cursor: pointer;
-  width: 100%;
+  width: auto;
   transition: all 0.4s;
   margin-top: 15px;
   padding: 2%;
+  display: block;
+  float: right;
 }
 
 .boton-comprar:hover {
