@@ -1,5 +1,10 @@
 window.onload = () => {
-    // console.log('Prueba');
+    console.log('Prueba');
+
+    const addTicketBtn = document.querySelector('.agregar-tipo-entrada');
+    const addTicket = document.querySelector('.addTicket');
+    // const addTicketContainer = document.querySelector('.agregar-input-precio-evento');
+    // console.log(addTicketContainer);
 
     const titleInp = document.querySelector('#nombre');
     const dateInp = document.querySelector('#fechaId');
@@ -13,6 +18,11 @@ window.onload = () => {
     const submitBtn = document.querySelector('#submit-button');
     const errorsList = document.querySelector('#errors')
     const allInps = Array.from(document.querySelectorAll('input'));
+
+    addTicketBtn.addEventListener('click', e => {
+        e.preventDefault();
+        console.log(addTicket);
+    })
 
     submitBtn.addEventListener('click', e => {
         e.preventDefault();
@@ -106,7 +116,7 @@ window.onload = () => {
 
     ticketTypeInp.addEventListener('input', e => {
         const length = e.target.value.length;
-        if(length === 0){
+        if (length === 0) {
             e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
             console.log('error tipo ticket');
         } else {
@@ -117,7 +127,7 @@ window.onload = () => {
 
     price.addEventListener('input', e => {
         const length = e.target.value.length;
-        if(length === 0){
+        if (length === 0) {
             e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
             console.log('error precio');
         } else {
@@ -128,7 +138,7 @@ window.onload = () => {
 
     ticketAmount.addEventListener('input', e => {
         const length = e.target.value.length;
-        if(length === 0){
+        if (length === 0) {
             e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
             console.log('error cantidad ticket');
         } else {
@@ -139,7 +149,7 @@ window.onload = () => {
 
     category.addEventListener('input', e => {
         const length = e.target.value.length;
-        if(length === 0){
+        if (length === 0) {
             e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
             console.log('error categoria');
         } else {
@@ -150,7 +160,7 @@ window.onload = () => {
 
     imgInp.addEventListener('input', e => {
         const length = e.target.value.length;
-        if(length === 0){
+        if (length === 0) {
             e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
             console.log('error imagen');
         } else {

@@ -1540,6 +1540,13 @@ footer p {
   .banner {
     height: 220px;
   }
+
+  .addTicket{
+    display: flex;
+    width: 96%;
+    justify-content: space-around;
+    /* width: 100%; */
+  }
 }
 
 /* ------------------ DESKTOP 1200 ------------------ */
