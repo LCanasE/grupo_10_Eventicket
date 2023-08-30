@@ -52,7 +52,7 @@ const productControllers = {
             let userID = req.session.user.id;
             await Cart.findAll({
                 include: [
-                    {association: 'cart_user'},
+                    // {association: 'cart_user'},
                     {association: 'cart_product'},
                     {association: 'cart_tickets'},
                 ],
@@ -157,7 +157,7 @@ const productControllers = {
     putCart: async (req, res) => {
         try {
             const cartData = JSON.parse(req.body.cartData);
-            console.log(cartData);
+            console.log("SOY EL PUT DEL CART", cartData);
             await Cart.update(
                 {bought: 1},
                 {where: {
@@ -169,7 +169,7 @@ const productControllers = {
     },
 
     deleteCart: async (req, res) => {
-        console.log(req.body);
+        console.log("PRODUCTO ELIMINADO", req.body);
         try {
             await Cart.destroy({
                 where: {
@@ -178,6 +178,21 @@ const productControllers = {
             }).then(res.redirect('/'));
         } catch (error) {
             console.log(error);
+        }
+    },
+
+    deleteOneFromCart: async (req, res) => {
+        try {
+            await Cart.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.redirect('/products/cart');
+                
+            // console.log('HOLA PRODUCTO ENCONTRADO', findProduct);
+        } catch (error) {
+            console.log('ERROR');
         }
     },
 
