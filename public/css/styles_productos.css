@@ -72,6 +72,12 @@
   display: inline-block;
 }
 
+.caja-descripcion-evento {
+  display: inline-block;
+  width: 90%;
+  color: #fff;
+}
+
 .fa-location-dot,
 .fa-calendar-days {
   font-size: 24px;
