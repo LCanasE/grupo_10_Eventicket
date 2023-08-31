@@ -163,7 +163,7 @@ a:visited {
 }
 
 .registro-form input,
-.deleteFormButton {
+.deleteFormButton, .registro-form textarea {
   background-color: #fff;
   border: solid 1px #c0c0c0;
   font-family: "Montserrat", "sans-serif";
