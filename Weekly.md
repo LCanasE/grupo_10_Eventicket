@@ -251,5 +251,21 @@ Saludos! =)
         
     CONSIDERACIONES
 
-    - Inicio
-    - Fecha de entrega 7° sprint: 2023/08/16.
+    - Inicio Sprint-8
+    - Fecha de entrega 8° sprint: 2023/09/06.
+
+    1. ¿QUÉ SE HIZO HASTA AHORA?
+
+        - Se completó la implementación de las validaciones del front-end.
+
+        - Se terminó de ajustar algunos detalles que se fueron evidenciado a medida que se realizó la implementación.
+
+    2.  ¿IMPEDIMENTOS?
+
+        - No identificamos impedimentos esta semana.
+
+    3. ¿QUÉ SE HARÁ ESTA SEMANA?
+
+        - Implementación de los Endpoints del Sprint-8.
+
+        - Implementación del Dashboard del sitio hecho en React.

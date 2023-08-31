@@ -165,3 +165,30 @@ RETROALIMENTACIÓN "Starfish"
 5. START DOING:
 
     - Intensificar el reporte de tareas realizadas o inconvenientes encontrados durante el trabajo para darle fluidez al mismo.
+
+
+2023/08 RETRO SPRINT 7:
+
+1. KEEP DOING:
+
+    - Mantener la comunicación fluida entre los miembros del equipo.
+
+    - Reuniones para revisar entregables y resolver inconvenientes.
+
+2. LESS OF:
+
+    - Debemos disminuir la duración de las reuniones en grupo para aumentar la productividad.
+
+3. MORE OF:
+
+    - Atención a los detalles de la construcción de la página para evitar errores.
+
+    - Individualmente debemos ponernos al día con el playground y aprovechar más el tiempo de las clases.
+
+4. STOP DOING:
+
+    - No hemos identificado ninguna práctica en el momento, que debamos dejar de hacer.
+    
+5. START DOING:
+
+    - Evaluar la construcción de las diferentes partes del proyecto para darles los toques finales.
