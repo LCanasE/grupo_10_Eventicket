@@ -35,9 +35,9 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.INTEGER,
       foreignKey: true,
     },
-    /*     description: {
+    description: {
       type: dataTypes.STRING,
-    }, */
+    },
   };
 
   let config = {
