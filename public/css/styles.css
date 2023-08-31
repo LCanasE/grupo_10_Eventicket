@@ -174,13 +174,15 @@ a:visited {
   border-radius: 15px;
 }
 
-.registro-form input:focus {
+
+
+.registro-form input:focus, .registro-form textarea:focus {
   background-color: #f4f4f4;
   transition: 1s;
   outline: 0px;
 }
 
-.registro-form input:active {
+.registro-form input:active, .registro-form textarea:active {
   outline: 0px;
 }
 
@@ -907,6 +909,11 @@ footer p {
   margin: auto;
 }
 
+.seleccionar-imagen #imagenInput {
+  color: #fff;
+  background-color: #313d55;
+}
+
 .input-grupo-cargar-imagen-evento .enviar-evento {
   color: white;
   background-color: #313d55;
@@ -942,9 +949,9 @@ footer p {
   width: 100%;
 }
 
-/* .agregar-input-precio-evento .precio-crear-evento {
-  width: 30%;
-} */
+.precio-crear-evento {
+  height: 100%;
+}
 
 .agregar-tipo-entrada {
   margin-top: 2%;
@@ -1543,8 +1550,8 @@ footer p {
 
   .addTicket{
     display: flex;
-    width: 96%;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: space-between
     /* width: 100%; */
   }
 }
