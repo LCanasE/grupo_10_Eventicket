@@ -25,7 +25,7 @@ window.onload = () => {
     })
 
     submitBtn.addEventListener('click', e => {
-        e.preventDefault();
+        // e.preventDefault();
     })
 
     // Función que chequea que todos los inputs tengan un valor. La función itera sobre todos los inputs y si encuentra al menos uno que esté vacío (input.value === '') devuelve false. El objetivo de esta función es establecer un estado de true o false para que luego checkErrors verifique el array de errores solo en caso de que todos los campos estén completos, esto permite que el botón para enviar los datos del formulario se habilite unicamente en caso de que no hayan errores en ninguno de los campos.

@@ -20,6 +20,8 @@ const validations = {
             .notEmpty().withMessage('El evento debe tener un lugar'),
         body('direccion')
             .notEmpty().withMessage('El lugar debe tener una dirección'),
+        body('description')
+            .notEmpty().withMessage('El evento debe tener una descripción'),
         body('tipoEntrada')
             .notEmpty().withMessage('Obligatorio'),
         body('precio')

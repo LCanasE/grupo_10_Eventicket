@@ -230,6 +230,7 @@ const productControllers = {
     postCreateEvent: async (req, res) => {
         let validation = validationResult(req);
         let eventoNuevo = req.body;
+        console.log(req.body);
 
         if(validation.errors.length > 0){
             return res.render('createEvents', { 
@@ -282,7 +283,7 @@ const productControllers = {
                 category_id = 2;
                 break;
             case 'Obras de teatro':
-                imageRoute += 'obraTeatro';
+                imageRoute += 'obrasTeatro';
                 category_id = 3;
                 break;
             case 'Stand Up':
@@ -307,7 +308,7 @@ const productControllers = {
 
         // console.log(eventoNuevo);
 
-        const { nombre, fecha, ubicacion, direccion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado } = eventoNuevo;
+        const { nombre, fecha, ubicacion, direccion, description, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado } = eventoNuevo;
 
         try {
             
@@ -324,6 +325,7 @@ const productControllers = {
                 date: fecha,
                 location: ubicacion,
                 addres: direccion,
+                description: description,
                 category_id: categoria,
                 image: img,
                 deleted: eliminado,
@@ -389,7 +391,7 @@ const productControllers = {
                 category_id = 2;
                 break;
             case 'Obras de teatro':
-                imageRoute += 'obraTeatro';
+                imageRoute += 'obrasTeatro';
                 category_id = 3;
                 break;
             case 'Stand Up':

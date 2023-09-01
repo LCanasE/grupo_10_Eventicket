@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
                 destinationFolder += 'standUp';
                 break;
             case 'Obras de teatro':
-                destinationFolder += 'obraTeatro';
+                destinationFolder += 'obrasTeatro';
                 break;
             case 'Conferencias':
                 destinationFolder += 'conferencias';
