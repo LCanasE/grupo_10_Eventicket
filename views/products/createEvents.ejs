@@ -14,7 +14,8 @@
             <h2>Creación de eventos</h2>
             <!-- <ul id="errors"></ul> -->
             <form action="/products/createEvents" method="POST" enctype="multipart/form-data">
-                <div>
+                <div class="container-input-error">
+                    <div class="circle-inp"></div>
                     <input type="text" id="nombre" name="nombre" value="<%= oldData.nombre %>"
                         placeholder="Título del Evento">
                     <% if(errors.nombre) {%>
@@ -53,16 +54,17 @@
                         <% } %>
                             <p class="error" style="color:red;"></p>
                 </div>
-                <div>
+                <div class="container-textarea-error">
+                    <div class="circle-textarea"></div>
                     <textarea class="descripcion-evento" placeholder="Descripción del evento" name="description"
                         id="description" cols="30" rows="5" value="<%= oldData.description %>"></textarea>
                     <!-- <input type="textarea" placeholder="Descripción del evento  " id="description" name="description"
-                    value="<%= oldData.description %>"> -->
-                    <!-- <% if(errors.description) {%>
+                    value="<%#= oldData.description %>"> -->
+                    <!-- <%# if(errors.description) {%>
                     <p class="error-product">
-                        <%= errors.description.msg %>
+                        <%#= errors.description.msg %>
                     </p>
-                    <% } %> -->
+                    <%# } %> -->
                     <p class="error" style="color:red;"></p>
                 </div>
                 <div class="agregar-input-precio-evento">
