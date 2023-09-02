@@ -14,6 +14,7 @@ module.exports = {
                 addres: product.addres,
                 image: product.image,
                 category: product.categories.name,
+                description: product.description,
                 tickets: {
                     count: product.tickets.length,
                     result: product.tickets }

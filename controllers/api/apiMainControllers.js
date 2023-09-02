@@ -13,6 +13,7 @@ module.exports = {
         addres: product.addres,
         image: product.image,
         category: product.categories.name,
+        description: product.description,
       }));
       const allCategories = await Category.findAll({
         include: { association: "products" },

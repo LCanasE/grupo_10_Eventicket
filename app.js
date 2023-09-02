@@ -11,6 +11,7 @@ const productRoutes = require("./routers/productRoutes");
 const userRoutes = require("./routers/userRoutes");
 const apiMainRoutes = require("./routers/api/apiMainRoutes");
 const apiUsersRoutes = require("./routers/api/apiUsersRoutes");
+const apiProductRoutes = require('./routers/api/apiProductsRoutes');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -58,6 +59,7 @@ app.use("/products", productRoutes);
 app.use("/users", userRoutes);
 app.use("/api", apiUsersRoutes);
 app.use("/api", apiMainRoutes);
+app.use("/api", apiProductRoutes);
 
 app.use((req, res) => {
   res.status(404).render("error404");
