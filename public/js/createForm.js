@@ -65,12 +65,22 @@ window.onload = () => {
     }
 
     titleInp.addEventListener('input', (e) => {
+        let maxCharacters = 20;
+        console.log(titleInp);
         const length = e.target.value.length;
         if (length === 0) {
             e.target.nextElementSibling.innerHTML = 'El título no puede estar vacío';
         } else {
             e.target.nextElementSibling.innerHTML = ''
         }
+
+        if(length < maxCharacters){
+            console.log('CORRECTO');
+        } else {
+            console.log('INCORRECTO');
+        }
+        console.log(length);
+
         checkErrors();
     })
 
