@@ -8,7 +8,7 @@ module.exports = {
         id: user.id,
         name: `${user.first_name} ${user.last_name}`,
         email: user.email,
-        detail: `http://localhost:3000/api/users/${user.id}`,
+        detail: `http://localhost:3001/api/users/${user.id}`,
       }));
       res.json({ count: allUsers.length, users: usersFilter });
     } catch (error) {
@@ -22,7 +22,7 @@ module.exports = {
         id: user.id,
         name: `${user.first_name} ${user.last_name}`,
         email: user.email,
-        detail: `http://localhost:3000/api/users/${user.id}`,
+        detail: `http://localhost:3001/api/users/${user.id}`,
       }));
       res.json({ count: oneUser.length, users: userFilter });
     } catch (error) {
