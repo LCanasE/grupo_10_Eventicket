@@ -53,8 +53,8 @@ function ContentRowTop() {
 
 				{/*<!-- Content Row Movies-->*/}
 				<ContentRowMovies products={products} categories={categories} users={users} />
-				<ContentRowCenter product={lastProductInDb} />
-				<Chart />
+				<ContentRowCenter product={lastProductInDb} categories={categories} />
+				<Chart products={products}/>
 
 			</div>
 			{/*<!--End Content Row Top-->*/}

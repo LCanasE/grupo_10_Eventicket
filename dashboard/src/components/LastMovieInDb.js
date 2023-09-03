@@ -3,9 +3,8 @@ import imagenFondo from '../assets/images/mandalorian.jpg';
 
 function LastMovieInDb({ product }){
     let newImagePath = ''
-    if(product.length > 0){
-        console.log(product.image.split('..')[1])
-        newImagePath = `../../../..${product.image.split('..')[1]}`
+    if(product){
+        newImagePath = `../${product.image}`
         console.log(newImagePath);
     }
     return(

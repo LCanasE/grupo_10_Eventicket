@@ -11,7 +11,7 @@ function ContentRowCenter({ product, categories }){
             {/*<!-- End content row last movie in Data Base -->*/}
 
             {/*<!-- Genres in DB -->*/}
-            <GenresInDb />
+            <GenresInDb categories={categories}/>
 
         </div>
     )
