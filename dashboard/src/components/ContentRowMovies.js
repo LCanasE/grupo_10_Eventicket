@@ -32,33 +32,7 @@ let actorsQuantity = {
 
 // let cartProps = [moviesInDB, totalAwards, actorsQuantity];
 
-export default function ContentRowMovies() {
-    const endpointProducts = 'http://localhost:3001/api/products';
-    const endpointUsers = 'http://localhost:3001/api/users'
-    const [products, setProducts] = useState([]);
-    const [categories, setCategories] = useState([]);
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-
-        const fetchApiProducts = async (endpoint) => {
-            const response = await fetch(endpoint);
-            const data = await response.json();
-            setProducts(data.products);
-            setCategories(data.categories);
-            // console.log(data.products);
-        }
-        fetchApiProducts(endpointProducts);
-
-
-        const fetchApiUsers = async (endpoint) => {
-            const response = await fetch(endpoint);
-            const data = await response.json();
-            setUsers(data.users)
-        }
-        fetchApiUsers(endpointUsers);
-
-    }, []);
+export default function ContentRowMovies({ products, categories, users }) {
 
     let productsInDb = {
         title: 'Products in Data Base',
@@ -93,13 +67,6 @@ export default function ContentRowMovies() {
                         <SmallCard {...product} key={i} />
                     ))) : <p>No hay productos</p>
             }
-
-
-            {/* {cartProps.map( (movie, i) => {
-
-                return <SmallCard {...movie} key={i}/>
-            
-            })} */}
 
         </div>
     )
