@@ -1,9 +1,12 @@
 const express = require("express");
 const path = require("path");
-const app = express();
+const cors = require('cors');
 const methodOverride = require("method-override");
 const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
+
+const app = express();
+
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 
 const mainRoutes = require("./routers/mainRoutes");
@@ -25,7 +28,8 @@ app.use(
     saveUninitialized: false,
   })
 ),
-  app.use(userLoggedMiddleware);
+app.use(userLoggedMiddleware);
+app.use(cors());
 
 app.set("view engine", "ejs");
 app.set("views", [
