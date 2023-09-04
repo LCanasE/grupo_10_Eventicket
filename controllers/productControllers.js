@@ -52,7 +52,7 @@ const productControllers = {
             let userID = req.session.user.id;
             await Cart.findAll({
                 include: [
-                    {association: 'cart_user'},
+                    // {association: 'cart_user'},
                     {association: 'cart_product'},
                     {association: 'cart_tickets'},
                 ],
@@ -155,7 +155,7 @@ const productControllers = {
     putCart: async (req, res) => {
         try {
             const cartData = JSON.parse(req.body.cartData);
-            console.log(cartData);
+            console.log("SOY EL PUT DEL CART", cartData);
             await Cart.update(
                 {bought: 1},
                 {where: {
@@ -167,7 +167,7 @@ const productControllers = {
     },
 
     deleteCart: async (req, res) => {
-        console.log(req.body);
+        console.log("PRODUCTO ELIMINADO", req.body);
         try {
             await Cart.destroy({
                 where: {
@@ -176,6 +176,21 @@ const productControllers = {
             }).then(res.redirect('/'));
         } catch (error) {
             console.log(error);
+        }
+    },
+
+    deleteOneFromCart: async (req, res) => {
+        try {
+            await Cart.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.redirect('/products/cart');
+                
+            // console.log('HOLA PRODUCTO ENCONTRADO', findProduct);
+        } catch (error) {
+            console.log('ERROR');
         }
     },
 
@@ -213,6 +228,7 @@ const productControllers = {
     postCreateEvent: async (req, res) => {
         let validation = validationResult(req);
         let eventoNuevo = req.body;
+        console.log(req.body);
 
         if(validation.errors.length > 0){
             return res.render('createEvents', { 
@@ -265,7 +281,7 @@ const productControllers = {
                 category_id = 2;
                 break;
             case 'Obras de teatro':
-                imageRoute += 'obraTeatro';
+                imageRoute += 'obrasTeatro';
                 category_id = 3;
                 break;
             case 'Stand Up':
@@ -290,7 +306,7 @@ const productControllers = {
 
         // console.log(eventoNuevo);
 
-        const { nombre, fecha, ubicacion, direccion, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado } = eventoNuevo;
+        const { nombre, fecha, ubicacion, direccion, description, tipoEntrada, precio, cantidadEntradas, categoria, img, eliminado, agotado } = eventoNuevo;
 
         try {
             
@@ -307,6 +323,7 @@ const productControllers = {
                 date: fecha,
                 location: ubicacion,
                 addres: direccion,
+                description: description,
                 category_id: categoria,
                 image: img,
                 deleted: eliminado,
@@ -372,7 +389,7 @@ const productControllers = {
                 category_id = 2;
                 break;
             case 'Obras de teatro':
-                imageRoute += 'obraTeatro';
+                imageRoute += 'obrasTeatro';
                 category_id = 3;
                 break;
             case 'Stand Up':

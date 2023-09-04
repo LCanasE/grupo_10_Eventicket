@@ -14,6 +14,7 @@
       <article class="evento">
 
         <section class="caja-titulo-ubicacion">
+
           <div class="caja-titulo">
 
             <h2 class="titulo-evento">
@@ -24,13 +25,21 @@
               <%= formateDate(product.date) %>
             </h3>
 
-            <%# if (locals.isLogged && locals.user.user_type_id === 2 ) { %>
-              <!-- <a href="/products/<%#=product.id%>/editEvents">
+            <div class="caja-descripcion-evento">
+                    <p>
+                    <%= product.description %>
+                    </p>
+            </div>
+            <% if (locals.isLogged && locals.user.user_type_id === 2 ) { %>
+              <a href="/products/<%=product.id%>/editEvents">
+
+
                 <button class="btn-editar-eventos">
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-              </a> -->
-              <%# } %>
+              </a>
+              <% } %>
+              
           </div>
 
           <div class="caja-ubicacion">

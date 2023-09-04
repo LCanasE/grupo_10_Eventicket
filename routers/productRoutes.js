@@ -23,8 +23,12 @@ router.post("/cart", productControllers.postCart);
 // @PUT /products/cart
 router.put("/cart", productControllers.putCart);
 
+// @DELETE /products/cart/:id
+router.delete("/cart/:id", productControllers.deleteOneFromCart);
+
 // @DELETE /products/cart
 router.delete("/cart", productControllers.deleteCart);
+
 
 // @GET /products/events
 router.get("/events", productControllers.getEvents);
