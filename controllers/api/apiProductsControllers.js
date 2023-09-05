@@ -15,6 +15,7 @@ module.exports = {
                 image: product.image,
                 category: product.categories.name,
                 description: product.description,
+                date: product.date,
                 tickets: {
                     count: product.tickets.length,
                     result: product.tickets }

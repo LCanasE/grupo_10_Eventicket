@@ -25,7 +25,7 @@ function Chart({ products }) {
     let allProducts = []
 
     products.map((product, i) => (
-        allProducts.push(([`${product.name}, ${product.location}, ${product.addres}, ${product.category}`]))
+        allProducts.push(([`${product.name}, ${product.location}, ${product.addres}, ${product.category}, ${product.date}`]))
     ))
 
     if(allProducts){
@@ -64,6 +64,7 @@ function Chart({ products }) {
                                         name={product.name}
                                         location={product.location}
                                         addres={product.addres}
+                                        date={product.date}
                                         category={product.category}
                                         />
                                 )) : <tr>No hay nada</tr>

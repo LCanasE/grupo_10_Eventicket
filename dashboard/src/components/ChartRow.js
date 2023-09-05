@@ -8,11 +8,9 @@ function ChartRow({ name, location, addres, date, category }){
                     <td>{location}</td>
                     <td>{addres}</td>
                     <td>
-                        <ul>
-                            {/* {props.Categories.map( (category,i) => 
-                                <li key={`category ${i}`}>{category}</li>
-                            )} */}
-                        </ul>
+                        {
+                            date ? `${date.split('T')[0]} ${date.split('T')[1].split('.')[0]}` : <p>No hay fecha</p>
+                        }
                     </td>
                     <td>{category}</td>
                 </tr>

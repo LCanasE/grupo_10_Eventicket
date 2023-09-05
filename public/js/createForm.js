@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('load', () => {
     console.log('Prueba');
 
     const addTicketBtn = document.querySelector('.agregar-tipo-entrada');
@@ -258,4 +258,4 @@ window.onload = () => {
 
         checkErrors();
     })
-}
+})

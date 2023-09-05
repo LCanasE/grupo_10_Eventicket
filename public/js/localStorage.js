@@ -1,9 +1,11 @@
 // Este es un archivo que está en todos los ejs porque el objetivo es lograr que el numero del carrito cambie y aparezca en todas las vistas.
 
-window.onload = () => {
+window.addEventListener('load', () => {
+    console.log('Prueba local storage');
     // Estas dos variables funcionan para contener elementos del DOM que más adelante se usarán para controlar la ejecución de las funciones.
     const headerBtn = document.querySelector('a.nav-registro-a'); // Este elemento está en el header cuando el usuario NO está logueado.
-    const products = Array.from(document.querySelectorAll('.articulos')); // Este array de elementos está únicamente en el carrito.
+    const products = Array.from(document.querySelectorAll('.articulos-cart')); // Este array de elementos está únicamente en el carrito.
+    console.log(products);
 
     const buyBtn = document.querySelector('.finalizar-compra');
     const eraseBtn = document.querySelector('.eliminar-productos');
@@ -63,4 +65,4 @@ window.onload = () => {
         localStorage.setItem('products', 0);
         alert('Compra realizada con éxito');
     })
-}
+});

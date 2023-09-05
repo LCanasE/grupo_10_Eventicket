@@ -4,7 +4,7 @@ import imagenFondo from '../assets/images/mandalorian.jpg';
 function LastMovieInDb({ product }){
     let newImagePath = ''
     if(product){
-        newImagePath = `../${product.image}`
+        newImagePath = `../../../${product.image}`
         console.log(newImagePath);
     }
     return(
