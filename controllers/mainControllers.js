@@ -15,32 +15,32 @@ const mainControllers = {
         // }
         
         // let productosSinModificar = modelProducts.findAll();
-        let productos = modelProducts.findAll();
+        // let productos = modelProducts.findAll();
 
-        let nombreEventoBuscado = req.query.buscadorTexto;
-        let nombreCategoriaBuscado = req.query.buscadorCategoria;
-        let nombreFechaBuscada = req.query.buscadorFecha;
+        // let nombreEventoBuscado = req.query.buscadorTexto;
+        // let nombreCategoriaBuscado = req.query.buscadorCategoria;
+        // let nombreFechaBuscada = req.query.buscadorFecha;
 
-        nombreFechaBuscada = nombreFechaBuscada ? nombreFechaBuscada.toLowerCase() : '';
+        // nombreFechaBuscada = nombreFechaBuscada ? nombreFechaBuscada.toLowerCase() : '';
         
-        if(nombreEventoBuscado){
-            const nombreEventoBuscadoSinAcentos = unidecode(nombreEventoBuscado);
+        // if(nombreEventoBuscado){
+        //     const nombreEventoBuscadoSinAcentos = unidecode(nombreEventoBuscado);
 
-            productos = productos.filter(producto => {
-                const nombreProductoSinAcento = unidecode(producto.nombre);
-                return nombreProductoSinAcento.toLowerCase().includes(nombreEventoBuscadoSinAcentos.toLowerCase());
-            });
-        }
-        if(nombreCategoriaBuscado){
-            productos = productos.filter(producto => producto.categoria === nombreCategoriaBuscado);
-        }
-        if(nombreFechaBuscada){
-            productos = productos.filter(producto => producto.fecha.split(' ')[2] == nombreFechaBuscada);
-        } 
+        //     productos = productos.filter(producto => {
+        //         const nombreProductoSinAcento = unidecode(producto.nombre);
+        //         return nombreProductoSinAcento.toLowerCase().includes(nombreEventoBuscadoSinAcentos.toLowerCase());
+        //     });
+        // }
+        // if(nombreCategoriaBuscado){
+        //     productos = productos.filter(producto => producto.categoria === nombreCategoriaBuscado);
+        // }
+        // if(nombreFechaBuscada){
+        //     productos = productos.filter(producto => producto.fecha.split(' ')[2] == nombreFechaBuscada);
+        // } 
 
-        if(productos.length === 0){
-            return res.redirect('/');
-        }
+        // if(productos.length === 0){
+        //     return res.redirect('/');
+        // }
         
         try {
             
@@ -62,7 +62,7 @@ const mainControllers = {
                                 id: req.session.user.id,
                                 type: req.session.user.user_type_id},
                             products,
-                            productos,
+                            // productos,
                             productsBanner,
                             title: 'Home',
                             error: {}});
@@ -70,7 +70,7 @@ const mainControllers = {
                     return res.render('home', {
                         user: {},
                         products,
-                        productos,
+                        // productos,
                         productsBanner,
                         title: 'Home',
                         error: {}});
@@ -81,7 +81,7 @@ const mainControllers = {
         }
     },
 
-    // Esta es el controller que maneja los pedidos de la barra de búsqueda
+    // Este es el controller que maneja los pedidos de la barra de búsqueda
     search: async (req, res) => {
         // Primero se almacena en la constante from, el parametro "from" de la ruta que indica de que vista vino la petición. Esto sirve ya que la barra de búsqueda está implementada tanto en la "home" como en la vista "events".
         const from = req.params.from;

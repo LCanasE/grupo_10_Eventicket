@@ -32,6 +32,10 @@ window.addEventListener('load', () => {
         // findProducts();
         productsInLs = findProducts();
     } 
+
+    if(headerBtn){
+        localStorage.setItem('products', 0);
+    }
     // Como este código se ejecuta en todas las vistas, products (que está en la línea 6) siempre va a tener un valor 0 salvo cuando se esté en la vista del carrito. Si no no existe products. Entonces si products es mayor a 0 mandale al localStorage un nuevo valor.
     if (products.length > 0) {
         productsToLocalStorage();
