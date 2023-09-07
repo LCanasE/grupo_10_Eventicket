@@ -40,15 +40,7 @@ router.get(
   "/myEvents",
   authMiddleware,
   categoryUser,
-  productControllers.getBeProducer
-);
-
-// @GET /products/beProducer
-router.get(
-  "/beProducer",
-  authMiddleware,
-  categoryUser,
-  productControllers.getBeProducer
+  productControllers.getMyEvents
 );
 
 // @GET /products/createEvents

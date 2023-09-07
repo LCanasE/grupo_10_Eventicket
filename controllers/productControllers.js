@@ -233,6 +233,26 @@ const productControllers = {
     });
   },
 
+  getMyEvents: async (req, res) => {
+    let productos = modelProductos.findAll();
+    try {
+      await Product.findAll({
+        nest: true,
+        include: [{ association: "tickets" }, { association: "categories" }],
+      }).then((products) => {
+        // console.log(products);
+        return res.render("myEvents", {
+          products,
+          title: "Eventos",
+          productos,
+          error: {},
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   postCreateEvent: async (req, res) => {
     let validation = validationResult(req);
     let eventoNuevo = req.body;
