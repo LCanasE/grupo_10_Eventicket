@@ -5,6 +5,7 @@ const router = express.Router();
 const validations = require("../middlewares/validateRegisterMiddleware");
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
+const categoryUser = require("../middlewares/categoryUserMiddleware");
 
 // @GET /users/login
 router.get("/login", guestMiddleware, userControllers.getLogin);
@@ -22,7 +23,20 @@ router.get("/register", guestMiddleware, userControllers.getRegister);
 router.post("/register", validations, userControllers.postRegister);
 
 // @GET/users/beProducer
-router.get("/beProducer", authMiddleware, userControllers.getBeProducer);
+router.get(
+  "/myEvents",
+  authMiddleware,
+  categoryUser,
+  userControllers.getBeProducer
+);
+
+// @GET/users/beProducer
+router.get(
+  "/beProducer",
+  authMiddleware,
+  categoryUser,
+  userControllers.getBeProducer
+);
 
 // @GET /users/editUser
 router.get("/editUser", authMiddleware, userControllers.getEditUser);

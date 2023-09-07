@@ -35,8 +35,21 @@ router.delete("/cart", productControllers.deleteCart);
 // @GET /products/events
 router.get("/events", productControllers.getEvents);
 
-// @GET /products/createEvents
-router.get("/beProducer", authMiddleware, productControllers.getBeProducer);
+// @GET /products/myEvents
+router.get(
+  "/myEvents",
+  authMiddleware,
+  categoryUser,
+  productControllers.getBeProducer
+);
+
+// @GET /products/beProducer
+router.get(
+  "/beProducer",
+  authMiddleware,
+  categoryUser,
+  productControllers.getBeProducer
+);
 
 // @GET /products/createEvents
 router.get(
