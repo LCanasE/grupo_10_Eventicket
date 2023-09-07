@@ -73,8 +73,12 @@
                   <select class="caja-cantidad" name="ticketAmount">
                     <% let ticketsToShow = 0; %>
                     <% ticket.amount > 10 ? ticketsToShow = 10 : ticketsToShow = ticket.amount %>
+                    <% if(ticket.amount === 0) {%>
+                      <option value="<%= ticketsToShow %>"></option>
+                    <% } else {%>
                     <% for (let i = 0; i <= ticketsToShow ; i++) { %>
                       <option value="<%= i %>"> <%= i %>  </option>
+                      <% } %>
                       <% } %>
                   </select>
                   <input type="hidden" name="idTicket" value= <%= ticket.id %>>
