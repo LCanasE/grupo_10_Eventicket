@@ -21,8 +21,8 @@ router.get("/register", guestMiddleware, userControllers.getRegister);
 // @POST/users/register
 router.post("/register", validations, userControllers.postRegister);
 
-// @GET /users/beProducer
-router.get("/beProducer", authMiddleware, userControllers.getEditUser);
+// @GET/users/beProducer
+router.get("/beProducer", authMiddleware, userControllers.getBeProducer);
 
 // @GET /users/editUser
 router.get("/editUser", authMiddleware, userControllers.getEditUser);

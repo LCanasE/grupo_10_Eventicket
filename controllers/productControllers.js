@@ -208,7 +208,7 @@ const productControllers = {
   },
 
   getBeProducer: async (req, res) => {
-    res.render("beProducer", {
+    res.render("beUserProducer", {
       title: "Sé productor",
       errors: {},
       oldData: {},
