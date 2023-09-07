@@ -177,12 +177,15 @@ const userControllers = {
 
         // En caso de que la contraseña sea correcta, se crea una cookie siempre y cuando el usuario clickee sobre "Mantener sesión iniciada".
         if (isCorrect) {
+            console.log('ESTOY ACA');
             //Cookie para mantener la sesión iniciada
             if (!!req.body.rememberme) {
                 console.log('Cookie funcionando correctamente');
                 res.cookie('email', searchedUser.dataValues.email, {
                     maxAge: 1000 * 60 * 60 * 24 * 365 * 999
                 });
+            } else {
+                console.log('Ingresó sin cookie');
             }
             
             delete searchedUser.dataValues.id;

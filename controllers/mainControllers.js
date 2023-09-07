@@ -54,12 +54,13 @@ const mainControllers = {
                 ]
             })
                 .then(products => {
-                    if(req.session.user){
+                    if(req.session.user && req.session.user.dataValues){
+                        console.log(req.session.user);
                         return res.render('home', {
                             user: {
-                                name: req.session.user.dataValues.first_name,
-                                id: req.session.user.dataValues.id,
-                                type: req.session.user.dataValues.user_type_id},
+                                name: req.session.user.first_name,
+                                id: req.session.user.id,
+                                type: req.session.user.user_type_id},
                             products,
                             productos,
                             productsBanner,
