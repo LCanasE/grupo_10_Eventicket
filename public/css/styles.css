@@ -162,16 +162,17 @@ a:visited {
   font-weight: 900;
 }
 
-.container-input-error{
+.container-input-error {
   position: relative;
 }
 
-.container-textarea-error{
+.container-textarea-error {
   position: relative;
 }
 
 .registro-form input,
-.deleteFormButton, .registro-form textarea {
+.deleteFormButton,
+.registro-form textarea {
   background-color: #fff;
   border: solid 1px #c0c0c0;
   font-family: "Montserrat", "sans-serif";
@@ -182,7 +183,7 @@ a:visited {
   border-radius: 15px;
 }
 
-.circle-inp{
+.circle-inp {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -194,7 +195,7 @@ a:visited {
   justify-content: center;
 }
 
-.circle-textarea{
+.circle-textarea {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -206,14 +207,15 @@ a:visited {
   justify-content: center;
 }
 
-
-.registro-form input:focus, .registro-form textarea:focus {
+.registro-form input:focus,
+.registro-form textarea:focus {
   background-color: #f4f4f4;
   transition: 1s;
   outline: 0px;
 }
 
-.registro-form input:active, .registro-form textarea:active {
+.registro-form input:active,
+.registro-form textarea:active {
   outline: 0px;
 }
 
@@ -923,6 +925,25 @@ footer p {
   margin-bottom: 6vh;
 }
 
+.beProducer-btn {
+  border: solid 1px #313d55;
+  background-color: #313d55;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 96%;
+  transition: all 1s;
+  padding: 2%;
+  margin-top: 2%;
+}
+
+.beProducer-btn:hover {
+  background-color: #f4f4f4;
+  color: #313d55;
+}
+
 /* CREACIÓN DE EVENTO */
 
 .input-grupo-cargar-imagen-evento {
@@ -1164,7 +1185,7 @@ footer p {
   background-color: #313d55;
   color: #ffff;
 } */
-.edit-owner{
+.edit-owner {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -1178,11 +1199,11 @@ footer p {
   opacity: 50%;
 }
 
-.edit-owner:hover{
+.edit-owner:hover {
   opacity: 100%;
 }
 
-.edit-owner i{
+.edit-owner i {
   color: black;
 }
 
@@ -1600,10 +1621,10 @@ footer p {
     height: 220px;
   }
 
-  .addTicket{
+  .addTicket {
     display: flex;
     width: 100%;
-    justify-content: space-between
+    justify-content: space-between;
     /* width: 100%; */
   }
 }
@@ -1878,7 +1899,7 @@ footer p {
     border-radius: 15px;
   }
 
-  .circle{
+  .circle {
     cursor: auto;
     background-color: green;
     width: 25px;
@@ -1892,7 +1913,7 @@ footer p {
     align-items: center;
   }
 
-  .cart-items{
+  .cart-items {
     font-size: 12px;
     color: white;
     text-align: center;

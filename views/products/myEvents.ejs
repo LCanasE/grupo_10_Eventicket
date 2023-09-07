@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+
+  <body>
+    <header><%- include('../partials/header') %></header>
+    <main class="main-home">
+      <h2 style="text-align: center">Mis Eventos</h2>
+      <form
+        action="/search/home"
+        method="GET"
+        class="search-home"
+        name="navBar"
+      ></form>
+
+      <section class="products">
+        <!-- <h1><%#= userData.nombreRegForm %></h1> -->
+
+        <%- include('../partials/partialEvents') %>
+      </section>
+    </main>
+    <footer><%- include('../partials/footer') %></footer>
+    <script src="/js/localStorage.js"></script>
+  </body>
+</html>
