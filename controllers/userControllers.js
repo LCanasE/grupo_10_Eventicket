@@ -71,7 +71,7 @@ const userControllers = {
                     id: id
                 }
             });
-        res.redirect('/');
+        res.redirect('/products/createEvents');
     },
 
     getRegister: (req, res) =>{

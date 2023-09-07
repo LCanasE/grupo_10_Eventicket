@@ -43,7 +43,6 @@ const mainControllers = {
         // }
         
         try {
-            
             const productsBanner = await Product.findAll()
             await Product.findAll({
                 // raw:true,
@@ -51,7 +50,9 @@ const mainControllers = {
                 include: [
                     {association: "tickets"},
                     {association: "categories"}
-                ]
+                ],
+                // limit: 8,
+                // offset: 2
             })
                 .then(products => {
                     if(req.session.user && req.session.user.dataValues){

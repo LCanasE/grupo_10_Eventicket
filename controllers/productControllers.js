@@ -154,13 +154,24 @@ const productControllers = {
 
     putCart: async (req, res) => {
         try {
-            const cartData = JSON.parse(req.body.cartData);
+            const cartData = JSON.parse(req.body.cartData)
             console.log("SOY EL PUT DEL CART", cartData);
             await Cart.update(
                 {bought: 1},
                 {where: {
                     user_id: req.session.user.id
-                }}).then(res.redirect('/'));
+                }}).then(async () => {
+                    cartData.forEach(async (cart) => {
+                        console.log("ACTUALIZACION DE CANTIDAD DE ENTRADAS DISPONIBLES RESULTADO:", (cart.cart_tickets.amount - cart.quantity));
+                    await Ticket.update(
+                        {amount: (cart.cart_tickets.amount - cart.quantity)},
+                        {where: {
+                            name: cart.cart_tickets.name,
+                            product_id: cart.product_id
+                        }})  
+                    })
+                    })
+                    .then(res.redirect('/'));
         } catch (error) {
             console.log(error);
         }

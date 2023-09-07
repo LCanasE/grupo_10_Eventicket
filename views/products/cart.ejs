@@ -19,10 +19,12 @@
     <!-- <form action="/products/cart?_method=PUT" method="POST"> -->
     <div class="container-carrito">
       <% let selectedEvents=false; %>
-        <% if (searchedProducts.length> 0) { %>
+      <% let searchedProductsToBuy = [] %>
+        <% if (searchedProducts.length > 0) { %>
           <% searchedProducts.forEach(product=> { %>
-            <% if (product.bought===0) { %>
-              <% selectedEvents=true; %>
+            <% if (product.bought === 0) { %>
+              <% selectedEvents = true; %>
+              <% searchedProductsToBuy.push(product) %>
                 <% } %>
                   <% }); %>
 
@@ -36,7 +38,7 @@
                       <div class="botones-container">
                         <form action="/products/cart?_method=put" method="post">
                           <input type="hidden" id="cart-data" name="cartData"
-                            value="<%= JSON.stringify(searchedProducts) %>">
+                            value="<%= JSON.stringify(searchedProductsToBuy) %>">
                           <input type="submit" value="Finalizar compra" name="finalizarCompra" class="finalizar-compra">
                         </form>
                         <!-- </form> -->
