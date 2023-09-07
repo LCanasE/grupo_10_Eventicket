@@ -1,10 +1,10 @@
 // Rutas de usuarios
-const express = require('express');
-const userControllers = require('../controllers/userControllers');
+const express = require("express");
+const userControllers = require("../controllers/userControllers");
 const router = express.Router();
-const validations = require('../middlewares/validateRegisterMiddleware');
-const guestMiddleware = require('../middlewares/guestMiddleware');
-const authMiddleware = require('../middlewares/authMiddleware');
+const validations = require("../middlewares/validateRegisterMiddleware");
+const guestMiddleware = require("../middlewares/guestMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
 
 // @GET /users/login
 router.get("/login", guestMiddleware, userControllers.getLogin);
@@ -21,6 +21,9 @@ router.get("/register", guestMiddleware, userControllers.getRegister);
 // @POST/users/register
 router.post("/register", validations, userControllers.postRegister);
 
+// @GET /users/beProducer
+router.get("/beProducer", authMiddleware, userControllers.getEditUser);
+
 // @GET /users/editUser
 router.get("/editUser", authMiddleware, userControllers.getEditUser);
 
@@ -31,7 +34,6 @@ router.put("/editUser", authMiddleware, userControllers.putEditUser);
 router.get("/logout", userControllers.logout);
 
 // @GET /users/list
-router.get("/profile", userControllers.listUsers)
-
+router.get("/profile", userControllers.listUsers);
 
 module.exports = router;
