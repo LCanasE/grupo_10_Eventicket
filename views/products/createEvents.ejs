@@ -72,18 +72,19 @@
                     <label>Entradas</label>
                     <div class="addTicket">
                         <div>
-                            <input type="text" placeholder="Tipo de entrada" id="tipo-entrada" name="tipoEntrada"
+                            <!-- id="tipo-entrada" -->
+                            <input type="text" placeholder="Tipo de entrada" name="tipoEntrada"
                                 class="tipo-entrada-evento precio-crear-evento" value="<%= oldData.tipoEntrada %>">
                             <p class="error" style="color:red;"></p>
                         </div>
                         <div>
                             <input type="number" placeholder="$1000 (Precio)" id="precio" name="precio"
-                                class="precio-crear-evento" value="<%= oldData.precio %>">
+                                class="precio-crear-evento precio-evento" value="<%= oldData.precio %>">
                             <p class="error" style="color:red;"></p>
                         </div>
                         <div>
                             <input type="number" placeholder="Cantidad (Número)" id="cantidad-entradas"
-                                name="cantidadEntradas" class="precio-crear-evento"
+                                name="cantidadEntradas" class="precio-crear-evento cantidad-evento"
                                 value="<%= oldData.cantidadEntradas %>">
                             <p class="error" style="color:red;"></p>
                         </div>

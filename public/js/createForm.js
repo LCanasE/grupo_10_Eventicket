@@ -3,16 +3,21 @@ window.addEventListener('load', () => {
 
     const addTicketBtn = document.querySelector('.agregar-tipo-entrada');
     const addTicket = document.querySelector('.addTicket');
-    // const addTicket = document.querySelector('.agregar-input-precio-evento');
+    const addTicketDiv = document.querySelector('.agregar-input-precio-evento');
     // console.log(addTicketContainer);
 
     const titleInp = document.querySelector('#nombre');
     const dateInp = document.querySelector('#fechaId');
     const placeInp = document.querySelector('#lugar');
     const address = document.querySelector('#direccion');
-    const ticketTypeInp = document.querySelector('#tipo-entrada');
-    const price = document.querySelector('#precio');
-    const ticketAmount = document.querySelector('#cantidad-entradas');
+    let ticketTypeInp = [...document.querySelectorAll('.tipo-entrada-evento')];
+    let price = [...document.querySelectorAll('.precio-evento')];
+    let ticketAmount = [...document.querySelectorAll('.cantidad-evento')];
+    console.log(ticketTypeInp);
+    console.log(price);
+    console.log(ticketAmount);
+    // const price = document.querySelector('#precio');
+    // const ticketAmount = document.querySelector('#cantidad-entradas');
     const category = document.querySelector('#categoriaSelect');
     const imgInp = document.querySelector('#imagenInput');
     const submitBtn = document.querySelector('#submit-button');
@@ -33,8 +38,18 @@ window.addEventListener('load', () => {
 
     addTicketBtn.addEventListener('click', e => {
         e.preventDefault();
-        console.log(addTicket);
+
+        const cloneNode = addTicket.cloneNode(true);
+
+        addTicketDiv.appendChild(cloneNode);
+
+        ticketTypeInp = [...document.querySelectorAll('.tipo-entrada-evento')]
+        price = [...document.querySelectorAll('.tipo-entrada-evento')];
+        ticketAmount = [...document.querySelectorAll('.tipo-entrada-evento')];
+        console.log('TIPO DE ENTRADA', ticketTypeInp);
     })
+    // console.log('PRECIO DE ESA ENTRADA', price);
+    // console.log('CANTIDAD DE ESA ENTRADA', ticketAmount);
 
     // submitBtn.addEventListener('click', e => {
     //     e.preventDefault();
@@ -168,18 +183,28 @@ window.addEventListener('load', () => {
         checkErrors();
     })
 
-    ticketTypeInp.addEventListener('input', e => {
-        const length = e.target.value.length;
-        if (length === 0) {
-            e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
-            console.log('error tipo ticket');
-            ticketTypeInp.style.border = '1px solid red';
-        } else {
-            e.target.nextElementSibling.innerHTML = ''
-            ticketTypeInp.style.border = '1px solid green';
-        };
-        checkErrors();
-    })
+    addTicketDiv.addEventListener('input', e => {
+        const target = e.target;
+
+        // Verifica si el evento se originó en un elemento '.tipo-entrada-evento'
+        if (target.classList.contains('tipo-entrada-evento')) {
+            console.log(e);
+        }
+    });
+
+    // ticketTypeInp.addEventListener('input', e => {
+    //     console.log('TITLE INPUT');
+    //     const length = e.target.value.length;
+    //     if (length === 0) {
+    //         e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
+    //         console.log('error tipo ticket');
+    //         ticketTypeInp.style.border = '1px solid red';
+    //     } else {
+    //         e.target.nextElementSibling.innerHTML = ''
+    //         ticketTypeInp.style.border = '1px solid green';
+    //     };
+    //     checkErrors();
+    // })
 
     price.addEventListener('input', e => {
         const length = e.target.value.length;
