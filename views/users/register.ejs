@@ -12,8 +12,79 @@
   </header>
   <main class="main-registro login-register">
     <section class="registro-form">
-      <h2>Mi Perfil</h2>
-        
+      <h2>Regístrate y asiste a tus eventos favoritos</h2>
+        <form action="/users/register" method="POST">
+        <article class="registro-datos">
+          <div class="userCompleteName" style="display: flex;">
+          <div style="width:50%;">
+          <input id="registro-nombre" style="width: 90%;" class="firstNameRegister" type="text" placeholder="Nombre" name="nombreRegForm" value="<%= oldData.nombreRegForm %>"/>
+          <p class="error"></p>
+          </div>
+          <div style="width: 50%;">
+          <input id="registro-apellido" style="width: 90%;" class="lastNameRegister" type="text" placeholder="Apellido" name="apellidoRegForm" value="<%= oldData.apellidoRegForm %>"/>
+          <p class="error"></p>
+          </div>
+          </div>
+          <div class="errors-nombre-apellido">
+          <% if(errors.nombreRegForm) {%>
+            <p class="error-product"><%= errors.nombreRegForm.msg %></p>
+          <% } %>
+          <% if(errors.apellidoRegForm) {%>
+            <p class="error-product"><%= errors.apellidoRegForm.msg %></p>
+          <% } %>
+        </div>
+        </article>
+        <article id="registro-email">
+          <input type="email" placeholder="Correo electrónico" class="emailRegister" name="emailRegForm" value="<%= oldData.emailRegForm %>"/>
+          <p class="error"></p>
+          <% if(errors.emailRegForm) {%>
+            <p class="error-product"><%= errors.emailRegForm.msg %></p>
+          <% } %>
+          <% if(errors.errorMail) {%>
+            <p class="error-product"><%= errors.errorMail.msg %>. Por favor inicie sesión <a href="/users/login">aquí</a></p>
+          <% } %>
+        </article>
+
+        <article>
+          <select class="tipo-usuario" name="tipoUsuario" id="userCategory">
+            <option disabled selected>Tipo de Usuario</option>
+            <option <%= oldData.tipoUsuario === 'Espectador/a' ? 'selected' : '' %>>Espectador/a</option>
+            <option <%= oldData.tipoUsuario === 'Productor/a' ? 'selected' : '' %>>Productor/a</option>
+        </select>
+        <p class="error"></p>
+        <% if(errors.tipoUsuario){%>
+          <p class="error-product"><%= errors.tipoUsuario.msg %></p>
+          <% } %>
+        </article>
+      
+        <article class="registro-password">
+          <input type="password" placeholder="Contraseña" name="passRegForm" class="passwordRegister" />
+          <p class="error"></p>
+          <% if(!errors.passRegForm) {%>
+            <p class="input-info">Mínimo ocho caracteres, una mayúscula, una minúscula y un número</p>
+          <% } %>
+          <% if(errors.passRegForm){%>
+            <p class="error-product"><%= errors.passRegForm.msg %></p>
+            <% } %>
+          <input type="password" placeholder="Confirmar contraseña" name="checkPassRegForm" class="checkPasswordRegister"/>
+          <p class="error"></p>
+          <% if(errors.checkPassRegForm) {%>
+            <p class="error-product"><%= errors.checkPassRegForm.msg %></p>
+          <% } %>
+        </article>
+        <article class="registro-tyc">
+          <input type="checkbox" name="notificaciones"  checked />Deseo recibir la agenda de eventos próximos
+        </article>
+        <article class="registro-tyc">
+          <input type="checkbox" name="tyc" checked />Acepto los Términos y Condiciones
+        </article>
+        <article class="registro-botones">
+          <input type="submit" id="registrate" value="Regístrate" class="submitBtn" disabled/>
+          <p style="font-size: 12px; margin: 0;">¿Ya tienes cuenta? Inicia sesión <a href="/users/login">aquí</a></p>
+          <input type="submit" name="registrateGoogle" id="registrate-google"
+            value="Regístrate con tu cuenta de Google" />
+        </article>
+      </form>
     </section>
   </main>
   <footer>
