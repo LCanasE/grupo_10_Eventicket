@@ -99,8 +99,8 @@ a:visited {
 
 .menu-burger {
   font-size: 60px;
-  transition: 1s;
-  -webkit-transition: 1s;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
   width: 40px;
   right: 10vw;
   top: 2vh;
@@ -134,8 +134,8 @@ a:visited {
 }
 
 .logo-eventicket {
-  transition: 1s;
-  -webkit-transition: 1s;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
   width: 100px;
 }
 
@@ -210,7 +210,7 @@ a:visited {
 .registro-form input:focus,
 .registro-form textarea:focus {
   background-color: #f4f4f4;
-  transition: 1s;
+  transition: 0.4s;
   outline: 0px;
 }
 
@@ -284,15 +284,31 @@ a:visited {
 #registrate:hover {
   background-color: #f4f4f4;
   color: #313d55;
-  -webkit-transition: 1s;
-  transition: 0.5s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 #registrate-google:hover {
   background-color: #615f5f;
   color: #fff;
-  -webkit-transition: 1s;
-  transition: 0.5s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.mi-perfil {
+  background-color: #fff;
+  color:#000;
+  border: #ababab 1px solid;
+  border-radius: 15px;
+  width: 80%;
+  height: auto;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.datos-mi-perfil {
+  margin-top: 15px;
+  color: #222;
 }
 
 footer {
@@ -897,13 +913,13 @@ footer p {
 .login-input-texto:hover {
   background-color: #f4f4f4;
   color: #313d55;
-  -webkit-transition: 1s;
+  -webkit-transition: 0.4s;
   transition: 0.5s;
 }
 
 .login-input-texto:focus {
   background-color: #f4f4f4;
-  transition: 1s;
+  transition: 0.4s;
   outline: 0px;
 }
 
@@ -1215,8 +1231,8 @@ footer p {
   }
 
   .menu-burger {
-    transition: 1s;
-    -webkit-transition: 1s;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
     width: 50px;
     position: absolute;
     right: 5vw;
@@ -1228,8 +1244,8 @@ footer p {
   }
 
   .logo-eventicket {
-    transition: 1s;
-    -webkit-transition: 1s;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
     width: 120px;
   }
 
@@ -1446,8 +1462,8 @@ footer p {
   }
 
   .logo-eventicket {
-    transition: 1s;
-    -webkit-transition: 1s;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
     width: 150px;
   }
 

@@ -31,6 +31,26 @@ const userControllers = {
     });
   },
 
+  getMyProfile: async (req, res) => {
+    const error = req.query.error || "";
+    let email = req.session.user.email;
+    let searchedUser = await User.findOne({
+      where: {
+        email: email,
+      },
+    });
+    if (!searchedUser) {
+      return res.send("Email inválido");
+    }
+    console.log(searchedUser);
+    let nuevosDatos = req.body;
+    res.render("myProfile", {
+      title: "Mi Perfil",
+      searchedUser,
+      error: {},
+    });
+  },
+
   getEditUser: async (req, res) => {
     const error = req.query.error || "";
     let email = req.session.user.email;
