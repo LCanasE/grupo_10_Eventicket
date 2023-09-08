@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
     const textAreaDescription = document.querySelector('#description');
     const circleTextArea = document.querySelector('.circle-textarea');
     const containerInputError = document.querySelector('.container-input-error');
-    
+
     // CREACION DE ELEMENTOS
     const errorMessage = document.createElement('p');
     errorMessage.style.color = 'red';
@@ -83,7 +83,7 @@ window.addEventListener('load', () => {
         const length = e.target.value.length;
 
         errorMessage.textContent = '';
-        if (length > maxCharacters){
+        if (length > maxCharacters) {
             // console.log(maxCharacters/2);
             circleText.style.border = '1px solid red';
             circleText.style.color = 'red'
@@ -94,19 +94,19 @@ window.addEventListener('load', () => {
             console.log(e.target.nextElementSibling.textContent);
             titleInp.style.border = '1px solid red';
         }
-        else if(length > midCharacters){
+        else if (length > midCharacters) {
             circleText.style.border = '1px solid orange';
             circleText.textContent = (maxCharacters - length);
             circleText.style.color = 'orange'
             e.target.nextElementSibling.innerHTML = '';
             titleInp.style.border = '1px solid green';
-        }  else if(length <= maxCharacters){
+        } else if (length <= maxCharacters) {
             circleText.style.border = '1px solid green';
             circleText.textContent = (maxCharacters - length);
             circleText.style.color = 'green'
             e.target.nextElementSibling.innerHTML = '';
             titleInp.style.border = '1px solid green';
-        } 
+        }
 
         if (length === 0) {
             titleInp.style.border = '1px solid red';
@@ -237,37 +237,33 @@ window.addEventListener('load', () => {
         const maxLength = 255;
         const midLength = maxLength / 2;
         const length = e.target.value.length;
-        console.log(circleTextArea);
+        textAreaDescription.style.border = '1px solid green';
+        circleTextArea.style.border = '1px solid green';
+        e.target.nextElementSibling.innerHTML = '';
+        circleTextArea.style.color = 'green';
 
-        if(length > maxLength){
-            textAreaDescription.style.border = '1px solid red'
-            circleTextArea.style.border = '1px solid red';
-            e.target.nextElementSibling.innerHTML = 'La descripción no puede tener más de 255 caracteres'
-            circleTextArea.style.color = 'red';
-            circleTextArea.textContent = (maxLength - length);
-        } else if (length > midLength){
-            textAreaDescription.style.border = '1px solid green'
-            circleTextArea.style.border = '1px solid orange';
-            e.target.nextElementSibling.innerHTML = ''
-            circleTextArea.style.color = 'orange';
-            circleTextArea.textContent = (maxLength - length);
-        } else {
-            textAreaDescription.style.border = '1px solid green'
-            circleTextArea.style.border = '1px solid green';
-            e.target.nextElementSibling.innerHTML = ''
-            circleTextArea.style.color = 'green';
-            circleTextArea.textContent = (maxLength - length);
-        }
-
-        if (length === 0){
+        if (length === 0) {
+            // Si el texto está vacío
             textAreaDescription.style.border = '1px solid red';
             e.target.nextElementSibling.innerHTML = 'No puede estar vacío';
+            circleTextArea.style.border = 'none';
             circleTextArea.textContent = '';
-            circleTextArea.style.border = 'none'
+        } else if (length > maxLength) {
+            // Si la longitud supera el máximo
+            textAreaDescription.style.border = '1px solid red';
+            circleTextArea.style.border = '1px solid red';
+            e.target.nextElementSibling.innerHTML = 'La descripción no puede tener más de 255 caracteres';
+            circleTextArea.style.color = 'red';
+            circleTextArea.textContent = maxLength - length;
+        } else if (length > maxLength / 2) {
+            // Si la longitud supera la mitad del máximo
+            circleTextArea.style.border = '1px solid orange';
+            circleTextArea.style.color = 'orange';
+            circleTextArea.textContent = maxLength - length;
         } else {
-            e.target.nextElementSibling.innerHTML = ''
-            textAreaDescription.style.border = '1px solid green';
-        };
+            // En otros casos
+            circleTextArea.textContent = maxLength - length;
+        }
 
         checkErrors();
     })
