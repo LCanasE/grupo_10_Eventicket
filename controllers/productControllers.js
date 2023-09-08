@@ -21,7 +21,10 @@ const productControllers = {
           },
         ],
       }).then((product) => {
-        // console.log(product.tickets);
+          product.tickets.forEach(ticket => {
+            console.log(ticket.amount);
+          })
+        // if(product.tickets.amoun)
         product.tickets.sort((a, b) => a.price - b.price);
         // console.log(product);
         res.render("eventsDetails", {

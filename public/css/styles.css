@@ -1207,6 +1207,26 @@ footer p {
   color: black;
 }
 
+.table{
+  height: 100%;
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+}
+
+.thead{
+  font-size: 22px;
+  color: #313d55;
+  font-weight: 700;
+  border: 2px solid #313d55;
+  /* border-bottom: 2px solid #313d55; */
+}
+
+.thead th{
+  border-bottom: 5px solid #313d55;
+  width: 90%;
+}
+
 /* ------------------ PRIMER BREAKPOINT 480px ------------------ ----------------------------------------------------------*/
 @media (min-width: 480px) {
   .registro-form h2,

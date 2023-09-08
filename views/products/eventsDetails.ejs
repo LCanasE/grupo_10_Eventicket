@@ -56,36 +56,72 @@
         <section class="tickets-imagen">
           <div class="caja-tickets">
           <form class="form-caja" action="/products/cart" method="POST">
-          <!-- <form class="form-caja" action="/products/cart?id=<%#= product.id %>" method="POST"> -->
-            <div class="titulos-tabla">
-              <h4 class="ticket-titulo-tabla">Ticket</h4>
-              <h4>Valor</h4>
-              <h4>Cantidad</h4>
-            </div>
-            <div class="tickets">
-              <% product.tickets.forEach(ticket=> { %>
+            <table class="table">
+              <thead class="thead">
+              <tr>
+                  <th>Ticket</th>
+                  <th>Valor</th>
+                  <th>Cantidad</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% product.tickets.forEach(ticket=> { %>
+                  <tr>
                 <div class="linea-ticket">
-                  <p><%= ticket.name %></p>
+                  <td><%= ticket.name %> </td>
                   <input type="hidden" name="ticketName" value="<%=ticket.name%>">
-                  <p class="precio-ticket-p">$ <%= ticket.price %>
-                  </p>
+                  <td class="precio-ticket-p">$ <%= ticket.price %>
+                  </td>
                   <input type="hidden" name="ticketPrice" value=<%= ticket.price%>>
+                  <td>
+                    <% if(ticket.amount === 0) {%>
+                      <p>Agotado</p>
+                    <% } else {%>
                   <select class="caja-cantidad" name="ticketAmount">
                     <% let ticketsToShow = 0; %>
                     <% ticket.amount > 10 ? ticketsToShow = 10 : ticketsToShow = ticket.amount %>
-                    <% if(ticket.amount === 0) {%>
-                      <option value="<%= ticketsToShow %>"></option>
-                    <% } else {%>
                     <% for (let i = 0; i <= ticketsToShow ; i++) { %>
                       <option value="<%= i %>"> <%= i %>  </option>
                       <% } %>
                       <% } %>
                   </select>
+                  </td>
                   <input type="hidden" name="idTicket" value= <%= ticket.id %>>
                 </div>
-                
+                </tr>
                 <% }); %>
+              </tbody>
+            </table>
+          <!-- <form class="form-caja" action="/products/cart?id=<%#= product.id %>" method="POST"> -->
+            <!-- <div class="titulos-tabla">
+              <h4 class="ticket-titulo-tabla">Ticket</h4>
+              <h4>Valor</h4>
+              <h4>Cantidad</h4>
             </div>
+            <div class="tickets">
+              <%# product.tickets.forEach(ticket=> { %>
+                <div class="linea-ticket">
+                  <p><%#= ticket.name %></p>
+                  <input type="hidden" name="ticketName" value="<%#=ticket.name%>">
+                  <p class="precio-ticket-p">$ <%#= ticket.price %>
+                  </p>
+                  <input type="hidden" name="ticketPrice" value=<%#= ticket.price%>>
+                  <select class="caja-cantidad" name="ticketAmount">
+                    <%# let ticketsToShow = 0; %>
+                    <%# ticket.amount > 10 ? ticketsToShow = 10 : ticketsToShow = ticket.amount %>
+                    <%# if(ticket.amount === 0) {%>
+                      <option value="<%#= ticketsToShow %>"></option>
+                    <%# } else {%>
+                    <%# for (let i = 0; i <= ticketsToShow ; i++) { %>
+                      <option value="<%#= i %>"> <%#= i %>  </option>
+                      <%# } %>
+                      <%# } %>
+                  </select>
+                  <input type="hidden" name="idTicket" value= <%#= ticket.id %>>
+                </div>
+                
+                <%# }); %>
+            </div> -->
                   <input type="hidden" name="idProduct" value=<%=product.id %>>
                   <input type="submit" value="Comprar" class="boton-comprar">
               </form>

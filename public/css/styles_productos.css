@@ -105,16 +105,18 @@
 .caja-tickets {
   border: 1px solid #eee;
   width: 80%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-radius: 15px;
   margin: 10px;
   padding: 10px;
   position: relative;
+  /* justify-content: space-between; */
+  /* display: flex; */
+  /* align-items: center; */
 }
 
 .form-caja {
+  /* border: 1px solid red; */
+  height: 75%;
   width: 100%;
 }
 
@@ -181,16 +183,16 @@
 
 .caja-cantidad {
   border: 1px solid #313d55;
-  display: flex;
   color: #313d55;
-  justify-content: center;
   width: 5vw;
-  align-items: center;
-  margin: 10px 0px;
   padding: 10px;
   border-radius: 5px;
   outline: none;
   font-weight: 600;
+  /* align-items: center; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* margin: 10px 0px; */
 }
 
 .caja-cantidad option:checked {

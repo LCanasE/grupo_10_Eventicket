@@ -68,7 +68,7 @@ window.addEventListener('load', () => {
     }
 
     titleInp.addEventListener('input', (e) => {
-        let maxCharacters = 20;
+        let maxCharacters = 25;
         let midCharacters = maxCharacters / 2;
         console.log(titleInp);
         const length = e.target.value.length;
