@@ -16,6 +16,7 @@
             <form action="/products/createEvents" method="POST" enctype="multipart/form-data">
                 <div class="container-input-error">
                     <div class="circle-inp"></div>
+                    <p class="error" style="color:red; margin: 0 25px; text-align: start;"></p>                    
                     <input type="text" id="nombre" name="nombre" value="<%= oldData.nombre %>"
                         placeholder="Título del Evento">
                     <% if(errors.nombre) {%>

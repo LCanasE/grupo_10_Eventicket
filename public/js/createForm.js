@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
 
     const addTicketBtn = document.querySelector('.agregar-tipo-entrada');
     const addTicket = document.querySelector('.addTicket');
-    // const addTicketContainer = document.querySelector('.agregar-input-precio-evento');
+    // const addTicket = document.querySelector('.agregar-input-precio-evento');
     // console.log(addTicketContainer);
 
     const titleInp = document.querySelector('#nombre');
@@ -21,6 +21,15 @@ window.addEventListener('load', () => {
     const circleText = document.querySelector('.circle-inp');
     const textAreaDescription = document.querySelector('#description');
     const circleTextArea = document.querySelector('.circle-textarea');
+    const containerInputError = document.querySelector('.container-input-error');
+    
+    // CREACION DE ELEMENTOS
+    const errorMessage = document.createElement('p');
+    errorMessage.style.color = 'red';
+    errorMessage.style.textAlign = 'start';
+    errorMessage.style.margin = '0 25px';
+    errorMessage.classList.add('error');
+    containerInputError.appendChild(errorMessage);
 
     addTicketBtn.addEventListener('click', e => {
         e.preventDefault();
@@ -70,15 +79,19 @@ window.addEventListener('load', () => {
     titleInp.addEventListener('input', (e) => {
         let maxCharacters = 25;
         let midCharacters = maxCharacters / 2;
-        console.log(titleInp);
+        // console.log(titleInp);
         const length = e.target.value.length;
 
+        errorMessage.textContent = '';
         if (length > maxCharacters){
-            console.log(maxCharacters/2);
+            // console.log(maxCharacters/2);
             circleText.style.border = '1px solid red';
             circleText.style.color = 'red'
             circleText.textContent = (maxCharacters - length);
-            e.target.nextElementSibling.innerHTML = 'El título no puede tener más de 20 caracteres'
+            errorMessage.textContent = 'El título no puede tener más de 25 caracteres';
+            console.log(errorMessage);
+            // e.target.nextElementSibling.innerHTML = 'El título no puede tener más de 25 caracteres'
+            console.log(e.target.nextElementSibling.textContent);
             titleInp.style.border = '1px solid red';
         }
         else if(length > midCharacters){
