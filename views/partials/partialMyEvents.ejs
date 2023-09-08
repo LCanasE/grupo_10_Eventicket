@@ -1,0 +1,51 @@
+<% include('../../utils/dateUtils') %>
+
+<% if (error.message) { %>
+    <h3><%= error.message %></h3>
+<% } else { %>
+<% products.forEach(product => { %>
+    <% if(product.user_creator_id === user.id) {%>
+    <article class="product">
+ 
+            <a href="/products/<%= product.id %>/editEvents" class="edit-owner">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+
+        <a href="/products/<%= product.id %>/eventsDetails" class="product-link-detail">
+            <div class="product-img">
+                <img src=<%= product.image %> alt="Error">
+            </div>
+            <!-- <a href="/products/<%#=product.id%>/editEvents"> -->
+                <!-- <button class="btn-editar-eventos-home">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button> -->
+            <!-- </a> --> 
+            <div class="product-info">
+                <div class="information-product">
+                    <h2><%= product.name %></h2>
+                    <p class="date">
+                        <%= formateDate(product.date) %>
+                    </p>
+                    <p class="place"><%= product.location %></p>
+                </div>
+                <div class="price-buy">
+                    <div class="price">
+                        <p>Desde $<%= product.tickets.sort((a, b) => a.price - b.price)[0].price %></p>
+                    </div>
+                    <div class="buy">
+                        <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
+                    </div>
+                </div>
+            </div>
+            <% if (product.sold_out === 1) {%>
+            <p class="tickets-agotados">Agotado</p>
+            <% } %>
+            <% if (product.deleted === 1) {%>
+                <div class="producto-eliminado"></div>
+            <% } %>
+        </a>
+
+    </article> 
+    <% } %>
+<% }); %>
+<% } %>

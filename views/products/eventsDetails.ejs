@@ -14,7 +14,6 @@
       <article class="evento">
 
         <section class="caja-titulo-ubicacion">
-
           <div class="caja-titulo">
 
             <h2 class="titulo-evento">
@@ -25,20 +24,13 @@
               <%= formateDate(product.date) %>
             </h3>
 
-            <div class="caja-descripcion-evento">
-                    <p>
-                    <%= product.description %>
-                    </p>
-            </div>
-            <!-- Si el usuario está logueado y ademas si el usuario es de tipo Creador y ademas si el usuario de tipo creador tiene un id que coincide con la foreign key de product (user_creator_id), es decir, que él creó el producto, entonces puede editarlo -->
-            <% if (locals.isLogged && locals.user.user_type_id === 2 && product.user_creator_id === locals.user.id) { %>
+            <% if (locals.isLogged && locals.user.user_type_id === 2 ) { %>
               <a href="/products/<%=product.id%>/editEvents">
                 <button class="btn-editar-eventos">
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
               </a>
               <% } %>
-              
           </div>
 
           <div class="caja-ubicacion">
@@ -55,8 +47,7 @@
 
         <section class="tickets-imagen">
           <div class="caja-tickets">
-          <form class="form-caja" action="/products/cart" method="POST">
-          <!-- <form class="form-caja" action="/products/cart?id=<%#= product.id %>" method="POST"> -->
+          <form class="form-caja" action="/products/cart?id=<%= product.id %>" method="POST">
             <div class="titulos-tabla">
               <h4 class="ticket-titulo-tabla">Ticket</h4>
               <h4>Valor</h4>
@@ -73,12 +64,8 @@
                   <select class="caja-cantidad" name="ticketAmount">
                     <% let ticketsToShow = 0; %>
                     <% ticket.amount > 10 ? ticketsToShow = 10 : ticketsToShow = ticket.amount %>
-                    <% if(ticket.amount === 0) {%>
-                      <option value="<%= ticketsToShow %>"></option>
-                    <% } else {%>
                     <% for (let i = 0; i <= ticketsToShow ; i++) { %>
                       <option value="<%= i %>"> <%= i %>  </option>
-                      <% } %>
                       <% } %>
                   </select>
                   <input type="hidden" name="idTicket" value= <%= ticket.id %>>
@@ -113,7 +100,6 @@
       <footer>
         <%- include('../partials/footer') %>
       </footer>
-      <script src="/js/localStorage.js"></script>
 </body>
 
 </html>
