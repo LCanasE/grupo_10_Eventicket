@@ -146,6 +146,7 @@ const productControllers = {
   },
 
     putCart: async (req, res) => {
+      console.log('PUT CART');
       try {
         const cartData = JSON.parse(req.body.cartData)
         console.log("SOY EL PUT DEL CART", cartData);
@@ -426,6 +427,7 @@ const productControllers = {
   putEditEvent: async (req, res) => {
     let id = Number(req.params.id);
     let newData = req.body;
+    console.log('EDITAR DATOS', newData);
 
     let imageRoute = "../img/events/";
     let category_id;
@@ -455,7 +457,7 @@ const productControllers = {
         break;
     }
 
-    newData.fecha = dayjs(newData.fecha).format("YYYY-MM-DDTHH:mm:ss");
+    // newData.fecha = dayjs(newData.fecha).format("YYYY-MM-DDTHH:mm:ss");
     newData.img = req.file
       ? `${imageRoute}/${req.file.filename}`
       : req.body.originalImg;
