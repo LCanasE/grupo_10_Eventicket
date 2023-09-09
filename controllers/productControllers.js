@@ -343,7 +343,7 @@ const productControllers = {
       eventoNuevo.agotado = eventoNuevo.agotado === "false" ? 0 : 1;
       eventoNuevo.categoria = category_id;
 
-      // console.log(eventoNuevo);
+      console.log('EVENTO NUEVO CREADO', eventoNuevo);
 
       const {
         nombre,
