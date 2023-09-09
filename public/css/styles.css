@@ -1166,16 +1166,22 @@ footer p {
 }
 
 .owl-carousel .owl-wrapper-outer .owl-wrapper .owl-item {
-  width: 260px !important;
   display: flex;
   justify-content: center;
+}
+
+.owl-wrapper {
+  display: flex !important;
+  justify-content: center;
+  height: auto;
 }
 
 .owl-wrapper-outer{
   background-color: #313d55;
   padding: 10px;
   width: 100%;
-
+  display: flex;
+  justify-content: center;
 }
 
 .item-owl-container {
