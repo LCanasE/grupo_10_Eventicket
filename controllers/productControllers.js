@@ -97,7 +97,7 @@ const productControllers = {
 
     let { ticketName, ticketPrice, ticketAmount, idTicket, idProduct } =
       req.body;
-
+    console.log('ESTOY EN POST CART', req.body);
     // let tickets = {};
 
     // Se pregunta si existe ticketName para ejecutar el bucle for. Este if basicamente controla que se pueda entrar al carrito sin necesidad de haber apretado el boton "Comprar".
@@ -109,7 +109,7 @@ const productControllers = {
         if (ticketAmount[i] > 0) {
           ticket.product_id = Number(idProduct);
           ticket.quantity = Number(ticketAmount[i]);
-          ticket.ticket_type_id = Number(idTicket[i]);
+          ticket.ticket_type_id = Number(idTicket);
           ticket.price = Number(ticketPrice[i]);
           ticket.bought = 0;
         }
@@ -339,7 +339,7 @@ const productControllers = {
       eventoNuevo.agotado = eventoNuevo.agotado === "false" ? 0 : 1;
       eventoNuevo.categoria = category_id;
 
-      // console.log(eventoNuevo);
+      console.log('FORMULARIO CREACION EVENTO', eventoNuevo);
 
       const {
         nombre,
