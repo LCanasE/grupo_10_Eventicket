@@ -62,6 +62,7 @@ const productControllers = {
           user_id: userID,
         },
       }).then((result) => {
+        console.log(result);
         res.render("cart", {
           // searchedProducts: searchedProducts ? searchedProducts.dataValues : '',
           searchedProducts: result,
@@ -112,7 +113,7 @@ const productControllers = {
         if (ticketAmount[i] > 0) {
           ticket.product_id = Number(idProduct);
           ticket.quantity = Number(ticketAmount[i]);
-          ticket.ticket_type_id = Number(idTicket[i]);
+          ticket.ticket_type_id = Number(idTicket);
           ticket.price = Number(ticketPrice[i]);
           ticket.bought = 0;
         }
@@ -155,6 +156,7 @@ const productControllers = {
             {where: {
                 user_id: req.session.user.id
             }}).then(async () => {
+              let totalTicketsSold = []
                 cartData.forEach(async (cart) => {
                     console.log("ACTUALIZACION DE CANTIDAD DE ENTRADAS DISPONIBLES RESULTADO:", (cart.cart_tickets.amount - cart.quantity));
                 await Ticket.update(
@@ -162,9 +164,13 @@ const productControllers = {
                     {where: {
                         name: cart.cart_tickets.name,
                         product_id: cart.product_id
-                    }})  
+                    }})
+                    
+                    totalTicketsSold.push(cart.cart_tickets.amount);
+                    console.log(totalTicketsSold);
+                
                 })
-                })
+              })
                 .then(res.redirect('/'));
       } catch (error) {
         console.log(error);
