@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
     const circleTextArea = document.querySelector('.circle-textarea');
 
     addTicketBtn.addEventListener('click', e => {
-        e.preventDefault();
+        e.preventDefault(); 
         console.log(addTicket);
     })
 
