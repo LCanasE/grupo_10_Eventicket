@@ -117,6 +117,23 @@ const userControllers = {
     res.redirect('/products/createEvents');
 },
 
+deleteUser: async (req, res) => {
+  try {
+    await User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.clearCookie("email");
+    req.session.destroy();
+    res.redirect("/");
+
+    // console.log('HOLA PRODUCTO ENCONTRADO', findProduct);
+  } catch (error) {
+    console.log("ERROR");
+  }
+},
+
   getRegister: (req, res) => {
     res.render("register", { title: "Registro", oldData: {}, errors: {} });
   },

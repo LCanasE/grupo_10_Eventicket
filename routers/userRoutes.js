@@ -40,4 +40,7 @@ router.get("/logout", userControllers.logout);
 // @GET /users/list
 router.get("/profile", userControllers.listUsers);
 
+// @POST /users/:id/delete
+router.delete("/:id/delete", userControllers.deleteUser)
+
 module.exports = router;

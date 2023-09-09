@@ -452,7 +452,6 @@ const productControllers = {
         break;
     }
 
-    newData.fecha = dayjs(newData.fecha).format("YYYY-MM-DDTHH:mm:ss");
     newData.img = req.file
       ? `${imageRoute}/${req.file.filename}`
       : req.body.originalImg;
@@ -495,7 +494,8 @@ const productControllers = {
           },
         }
       );
-      await Ticket.update(
+  
+     await Ticket.update(
         {
           name: tipoEntrada,
           amount: cantidadEntradas,
@@ -507,10 +507,11 @@ const productControllers = {
             product_id: id,
           },
         }
-      );
+      ); 
     } catch (error) {
       console.log(error);
     }
+
 
     // modelProductos.updateById(id, newData);
     // console.log(newData);

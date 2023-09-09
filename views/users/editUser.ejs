@@ -54,11 +54,11 @@
                 </article>
                 <article class="registro-botones">
                     <input type="submit" id="registrate" value="Actualizar" />
-                    <form action="/users/<%= searchedUser.id %>/delete?_method=delete" method="POST" id="formDeleteUser">
-                        <button id="delUser" type="submit" class="deleteFormButton">Eliminar</button>
-                    </form>
                 </article>
             </form>
+                <form action="/users/<%= searchedUser.id %>/delete?_method=delete" method="POST" id="formDeleteUser">
+                    <button id="delUser" type="submit" class="deleteFormButton">Eliminar</button>
+                </form>
         </section>
 
         <script>

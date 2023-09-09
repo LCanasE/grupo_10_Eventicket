@@ -311,6 +311,17 @@ a:visited {
   color: #222;
 }
 
+#delUser {
+  cursor: pointer;
+  border: 1px solid #fff;
+}
+
+#delUser:hover {
+  background-color: #a13d3d;
+  color: #fff;
+  transition: 0.4s;
+}
+
 footer {
   padding: 10px;
   display: flex;
@@ -1158,6 +1169,23 @@ footer p {
   width: 260px !important;
   display: flex;
   justify-content: center;
+}
+
+.owl-wrapper-outer{
+  background-color: #313d55;
+  padding: 10px;
+  width: 100%;
+
+}
+
+.item-owl-container {
+
+  border-radius: 50%;
+}
+
+.item-owl-container:hover {
+  border: solid 1px #fff ;
+  transition: 0.3s;
 }
 
 .owl-carousel .owl-wrapper-outer .owl-wrapper .owl-item h4 {
