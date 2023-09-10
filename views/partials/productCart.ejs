@@ -5,7 +5,7 @@ searchedProducts.forEach(product => { %>
 <div class="articulos-cart">
   <div class="carrito-img"><img src="<%= product.cart_product.image %>" /></div>
   <div class="info">
-    <h3 class="carrito-titulo"><%= product.cart_product.name %></h3>
+    <a class="carrito-titulo-link" href="/products/<%= product.cart_product.id %>/eventsDetails"><h3 class="carrito-titulo"><%= product.cart_product.name %></h3></a>
     <h3 class="carrito-fecha"><%= formateDate(product.cart_product.date) %></h3>
     <h3 class="carrito-lugar"><%= product.cart_product.location %></h3>
     <div class="cart-precio">

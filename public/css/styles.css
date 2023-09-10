@@ -704,9 +704,15 @@ footer p {
   overflow: hidden;
 }
 
+.carrito-titulo-link {
+  text-decoration: none;
+  color: #313d55;
+}
+
 .carrito-titulo {
   margin: 0px 0px 10px 0px;
   font-size: 30px;
+
 }
 
 .carrito-img img {
@@ -1637,10 +1643,27 @@ background-size: cover;
     width: 100%;
   }
 
+  .carrito-btn button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .carrito-btn button input i {
+    margin: auto;
+  }
+
+  .carrito-btn form {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+
   .articulos-cart .info {
     font-size: 0.8rem;
     justify-content: space-around;
     flex-direction: column;
+    width: 100%;
   }
 
   .articulos-cart .info p {
