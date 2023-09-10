@@ -168,6 +168,8 @@ const productControllers = {
                     
                     totalTicketsSold.push(cart.cart_tickets.amount);
                     console.log(totalTicketsSold);
+
+                // const updatedTickets = await Ticket.findAll({where: {product_id: cart.id}}).then((result) => console.log("FIND ALL DE TICKETS", result))
                 
                 })
               })
