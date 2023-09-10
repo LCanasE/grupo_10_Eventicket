@@ -1171,6 +1171,12 @@ footer p {
   justify-content: center;
 }
 
+.owl-wrapper {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center;
+}
+
 .owl-wrapper-outer{
   background-color: #313d55;
   padding: 10px;
@@ -1181,6 +1187,12 @@ footer p {
 .item-owl-container {
 
   border-radius: 50%;
+  background-color: #313d55;
+}
+
+.item-owl-container img {
+position: relative;
+background-size: cover;
 }
 
 .item-owl-container:hover {
