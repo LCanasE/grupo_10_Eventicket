@@ -308,8 +308,22 @@ a:visited {
 
 .datos-mi-perfil {
   margin-top: 15px;
+  color: #313d55;
+}
+
+.eventos-mi-perfil-ul {
+  list-style-image: url('../Logo/ISOLOGO-EVENTICKET-20.svg');
+}
+
+.eventos-mi-perfil-a {
+  text-decoration: none;
+}
+
+.datos-mi-perfil-p {
+  font-weight: 600;
   color: #222;
 }
+
 
 #delUser {
   cursor: pointer;
