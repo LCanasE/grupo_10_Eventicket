@@ -90,6 +90,9 @@
 
                 <% }); %>
             </div>
+            <%if (error && typeof error !== 'undefined') { %>
+              <p style="text-align: center; color: red;"><%= error %></p>
+          <% } %>          
             <input type="hidden" name="idProduct" value=<%=product.id %>>
             <input type="submit" value="Comprar" class="boton-comprar">
           </form>
