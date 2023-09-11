@@ -1853,7 +1853,7 @@ background-size: cover;
 
   /* Estilo para el hover con animación */
   .nav-btn-sub:hover::before {
-    animation: subrayarAnimacion 0.5s forwards; /* 1 segundos de duración */
+    animation: subrayarAnimacion 0.4s forwards; /* 1 segundos de duración */
   }
 
   /* Animación para el subrayado */

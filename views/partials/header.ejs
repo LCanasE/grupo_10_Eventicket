@@ -27,7 +27,7 @@
     >
 
     <% if (isLogged) { %>
-      <li class="nav-user" id="userMenuToggle">Hola! <%= user.first_name || user.name %>
+      <li class="nav-user nav-btn-sub" id="userMenuToggle">Hola! <%= user.first_name || user.name %>
       <!-- <li class="nav-inicio nav-enlaces">Hola! <%#= locals.user.nombreRegForm %></li> -->
 
 
@@ -52,14 +52,10 @@
     <a href="/users/myProfile"><i class="fas fa-user" style="color: #313d55"></i></a>
 
     <a href="/products/cart" class="cart-img">
-          <!-- <div class="circle">
-            <p class="cart-items"><%#= counter %></p>
-          </div> -->
+
     <i class="fa-solid fa-cart-shopping" style="color: #313d55"></i>
     </a>
   </ul>
-
-  <!-- Otro HTML aquí ... -->
 
 <script>
 
@@ -72,7 +68,5 @@
     navDesplegable.classList.toggle("visible"); // Agrega o quita la clase "visible"
   });
 </script>
-
-<!-- Más HTML aquí ... -->
 
 </nav>
