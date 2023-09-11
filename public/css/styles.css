@@ -1801,6 +1801,10 @@ background-size: cover;
     border-radius: 15px;
   }
 
+  .nav-desplegable.visible {
+    display: block;
+  }
+
   .nav-user ul {
     display: inline-block;
     top: 0;
@@ -1814,11 +1818,11 @@ background-size: cover;
     z-index: 1;
   }
 
-  .nav-user ul:hover > .nav-desplegable,
+/*   .nav-user ul:hover > .nav-desplegable,
   .nav-user:hover > .nav-desplegable,
   .nav-user li:hover > .nav-desplegable {
     display: block;
-  }
+  } */
 
   .nav-bar .nav-user li {
     text-align: right;
