@@ -1805,6 +1805,10 @@ background-size: cover;
     display: block;
   }
 
+  #userMenuToggle {
+    background-color: #a13d3d;
+  }
+
   .nav-user ul {
     display: inline-block;
     top: 0;
