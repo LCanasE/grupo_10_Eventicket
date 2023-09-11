@@ -46,7 +46,7 @@ const productControllers = {
 
   getCart: async (req, res) => {
     // let id = Number(req.query.id);
-    // console.log(req.session.user.id);
+    console.log("GET CART", req.body);
     try {
       let userID = req.session.user.id;
       await Cart.findAll({
@@ -57,8 +57,10 @@ const productControllers = {
         ],
         where: {
           user_id: userID,
+          bought: 0
         },
       }).then((result) => {
+        result.forEach(r => console.log(r.cart_tickets));
         res.render("cart", {
           // searchedProducts: searchedProducts ? searchedProducts.dataValues : '',
           searchedProducts: result,
@@ -102,17 +104,27 @@ const productControllers = {
 
     // Se pregunta si existe ticketName para ejecutar el bucle for. Este if basicamente controla que se pueda entrar al carrito sin necesidad de haber apretado el boton "Comprar".
     if (ticketName) {
+      if(typeof ticketAmount === 'string'){
+        ticketAmount = [Number(ticketAmount)];
+        idTicket = [Number(idTicket)];
+        ticketPrice = [Number(ticketPrice)];
+      } else {
+        console.log(ticketAmount, 'no es un string | POST CART');
+      }
+      // console.log('IF DE TICKET NAME: ', ticketName, '\n Number ticket amount: ', ticketAmount);
       // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
-      for (let i = 0; i < ticketName.length; i++) {
+      for (let i = 0; i < ticketAmount.length; i++) {
+        // console.log('Entrando al bucle for...');
         let ticket = {};
-
         if (ticketAmount[i] > 0) {
+
           ticket.product_id = Number(idProduct);
           ticket.quantity = Number(ticketAmount[i]);
-          ticket.ticket_type_id = Number(idTicket);
+          ticket.ticket_type_id = Number(idTicket[i]);
           ticket.price = Number(ticketPrice[i]);
           ticket.bought = 0;
         }
+        console.log('POST CART | ESTO ES TICKET', ticket);
         // console.log(Object.keys(ticket).length > 0);
 
         if (Object.keys(ticket).length > 0) {
@@ -124,7 +136,7 @@ const productControllers = {
               ticket_type_id: ticket.ticket_type_id,
               bought: ticket.bought,
             });
-            console.log(req.body);
+            // console.log(req.body);
           } catch (error) {
             console.log(error);
           }
