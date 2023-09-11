@@ -124,7 +124,7 @@ const productControllers = {
 
           ticket.product_id = Number(idProduct);
           ticket.quantity = Number(ticketAmount[i]);
-          ticket.ticket_type_id = Number(idTicket);
+          ticket.ticket_type_id = Number(idTicket[i]);
           ticket.price = Number(ticketPrice[i]);
           ticket.bought = 0;
         }
