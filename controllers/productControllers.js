@@ -9,6 +9,7 @@ let modelProductos = require("../models/productsModel");
 
 const productControllers = {
   getEventsDetails: async (req, res) => {
+    let error = req.query.error || '';
     try {
       const productsBanner = await Product.findAll();
       await Product.findByPk(req.params.id, {
@@ -31,6 +32,7 @@ const productControllers = {
           product,
           title: "Detalle",
           productsBanner,
+          error
         });
       });
     } catch (error) {
@@ -64,7 +66,7 @@ const productControllers = {
         },
       }).then((result) => {
         console.log(result);
-        result.forEach(r => console.log(r.cart_tickets));
+        result.forEach(r => console.log('CONSOLE LOG IMPORTANTE' ,r.cart_tickets));
         res.render("cart", {
           // searchedProducts: searchedProducts ? searchedProducts.dataValues : '',
           searchedProducts: result,
@@ -99,12 +101,11 @@ const productControllers = {
   },
 
   postCart: async (req, res) => {
-    let id = Number(req.query.id);
+    let id = Number(req.params.id);
 
     let { ticketName, ticketPrice, ticketAmount, idTicket, idProduct } =
       req.body;
     console.log('ESTOY EN POST CART', req.body);
-    // let tickets = {};
 
     // Se pregunta si existe ticketName para ejecutar el bucle for. Este if basicamente controla que se pueda entrar al carrito sin necesidad de haber apretado el boton "Comprar".
     if (ticketName) {
@@ -115,6 +116,13 @@ const productControllers = {
       } else {
         console.log(ticketAmount, 'no es un string | POST CART');
       }
+
+      const hasSelectedTickets = ticketAmount.some(cart => Number(cart) > 0)
+      console.log(hasSelectedTickets, '| DESDE POST CART HAS SELECTED TICKETS');
+      if(!hasSelectedTickets){
+        return res.redirect(`./${idProduct}/eventsDetails?error=Ingrese la cantidad de entradas`)
+      }
+
       // console.log('IF DE TICKET NAME: ', ticketName, '\n Number ticket amount: ', ticketAmount);
       // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
       for (let i = 0; i < ticketAmount.length; i++) {
