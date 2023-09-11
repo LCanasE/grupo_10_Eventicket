@@ -37,6 +37,7 @@ window.addEventListener('load', () => {
     containerInputError.appendChild(errorMessage);
 
     addTicketBtn.addEventListener('click', e => {
+<<<<<<< HEAD
         e.preventDefault();
 
         const cloneNode = addTicket.cloneNode(true);
@@ -47,6 +48,10 @@ window.addEventListener('load', () => {
         price = [...document.querySelectorAll('.tipo-entrada-evento')];
         ticketAmount = [...document.querySelectorAll('.tipo-entrada-evento')];
         console.log('TIPO DE ENTRADA', ticketTypeInp);
+=======
+        e.preventDefault(); 
+        console.log(addTicket);
+>>>>>>> Sprint-7
     })
     // console.log('PRECIO DE ESA ENTRADA', price);
     // console.log('CANTIDAD DE ESA ENTRADA', ticketAmount);

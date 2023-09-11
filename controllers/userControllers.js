@@ -31,6 +31,26 @@ const userControllers = {
     });
   },
 
+  getMyProfile: async (req, res) => {
+    const error = req.query.error || "";
+    let email = req.session.user.email;
+    let searchedUser = await User.findOne({
+      where: {
+        email: email,
+      },
+    });
+    if (!searchedUser) {
+      return res.send("Email inválido");
+    }
+    console.log(searchedUser);
+    let nuevosDatos = req.body;
+    res.render("myProfile", {
+      title: "Mi Perfil",
+      searchedUser,
+      error: {},
+    });
+  },
+
   getEditUser: async (req, res) => {
     const error = req.query.error || "";
     let email = req.session.user.email;
@@ -95,6 +115,23 @@ const userControllers = {
             }
         });
     res.redirect('/products/createEvents');
+},
+
+deleteUser: async (req, res) => {
+  try {
+    await User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.clearCookie("email");
+    req.session.destroy();
+    res.redirect("/");
+
+    // console.log('HOLA PRODUCTO ENCONTRADO', findProduct);
+  } catch (error) {
+    console.log("ERROR");
+  }
 },
 
   getRegister: (req, res) => {

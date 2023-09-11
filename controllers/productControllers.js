@@ -49,7 +49,7 @@ const productControllers = {
 
   getCart: async (req, res) => {
     // let id = Number(req.query.id);
-    // console.log(req.session.user.id);
+    console.log("GET CART", req.body);
     try {
       let userID = req.session.user.id;
       await Cart.findAll({
@@ -60,9 +60,11 @@ const productControllers = {
         ],
         where: {
           user_id: userID,
+          bought: 0
         },
       }).then((result) => {
         console.log(result);
+        result.forEach(r => console.log(r.cart_tickets));
         res.render("cart", {
           // searchedProducts: searchedProducts ? searchedProducts.dataValues : '',
           searchedProducts: result,
@@ -101,22 +103,32 @@ const productControllers = {
 
     let { ticketName, ticketPrice, ticketAmount, idTicket, idProduct } =
       req.body;
-
+    console.log('ESTOY EN POST CART', req.body);
     // let tickets = {};
 
     // Se pregunta si existe ticketName para ejecutar el bucle for. Este if basicamente controla que se pueda entrar al carrito sin necesidad de haber apretado el boton "Comprar".
     if (ticketName) {
+      if(typeof ticketAmount === 'string'){
+        ticketAmount = [Number(ticketAmount)];
+        idTicket = [Number(idTicket)];
+        ticketPrice = [Number(ticketPrice)];
+      } else {
+        console.log(ticketAmount, 'no es un string | POST CART');
+      }
+      // console.log('IF DE TICKET NAME: ', ticketName, '\n Number ticket amount: ', ticketAmount);
       // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
-      for (let i = 0; i < ticketName.length; i++) {
+      for (let i = 0; i < ticketAmount.length; i++) {
+        // console.log('Entrando al bucle for...');
         let ticket = {};
-
         if (ticketAmount[i] > 0) {
+
           ticket.product_id = Number(idProduct);
           ticket.quantity = Number(ticketAmount[i]);
           ticket.ticket_type_id = Number(idTicket);
           ticket.price = Number(ticketPrice[i]);
           ticket.bought = 0;
         }
+        console.log('POST CART | ESTO ES TICKET', ticket);
         // console.log(Object.keys(ticket).length > 0);
 
         if (Object.keys(ticket).length > 0) {
@@ -128,7 +140,7 @@ const productControllers = {
               ticket_type_id: ticket.ticket_type_id,
               bought: ticket.bought,
             });
-            console.log(req.body);
+            // console.log(req.body);
           } catch (error) {
             console.log(error);
           }
@@ -173,7 +185,7 @@ const productControllers = {
                 
                 })
               })
-                .then(res.redirect('/'));
+              .then(res.redirect('/'));
       } catch (error) {
         console.log(error);
       }
@@ -351,7 +363,7 @@ const productControllers = {
       eventoNuevo.agotado = eventoNuevo.agotado === "false" ? 0 : 1;
       eventoNuevo.categoria = category_id;
 
-      console.log('EVENTO NUEVO CREADO', eventoNuevo);
+      console.log('FORMULARIO CREACION EVENTO', eventoNuevo);
 
       const {
         nombre,
@@ -465,7 +477,6 @@ const productControllers = {
         break;
     }
 
-    // newData.fecha = dayjs(newData.fecha).format("YYYY-MM-DDTHH:mm:ss");
     newData.img = req.file
       ? `${imageRoute}/${req.file.filename}`
       : req.body.originalImg;
@@ -508,7 +519,8 @@ const productControllers = {
           },
         }
       );
-      await Ticket.update(
+  
+     await Ticket.update(
         {
           name: tipoEntrada,
           amount: cantidadEntradas,
@@ -520,10 +532,11 @@ const productControllers = {
             product_id: id,
           },
         }
-      );
+      ); 
     } catch (error) {
       console.log(error);
     }
+
 
     // modelProductos.updateById(id, newData);
     // console.log(newData);

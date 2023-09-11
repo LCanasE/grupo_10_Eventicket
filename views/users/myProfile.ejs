@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head') %>
+
+</head>
+
+<body>
+  <header>
+    <%- include('../partials/header') %>
+  </header>
+  <main class="main-registro">
+    <section class="mi-perfil">
+      <h2 style="text-align: center">Mi Perfil</h2>
+        <h4 class="datos-mi-perfil">
+            <% if (locals.isLogged) { %>
+            <%= user.first_name %> <%= user.last_name %>
+            <% } %></h4>
+        <h4 class="datos-mi-perfil"><% if (locals.isLogged) { %>
+            <%= user.email %>
+            <% } %></h4>
+        <h4 class="datos-mi-perfil"><% if (locals.isLogged) { %>
+            <% if (user.user_type_id === 1) { %>
+            Espectador/a
+            <% } else { %>
+                Productor/a
+            <% } %>
+            <% } %></h4>
+    </section>
+  </main>
+  <footer>
+    <%- include('../partials/footer') %>
+  </footer>
+
+
+</body>
+
+</html>
