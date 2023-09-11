@@ -172,8 +172,8 @@ const productControllers = {
                         product_id: cart.product_id
                     }})  
                 })
-                })
-                .then(res.redirect('/'));
+              })
+              .then(res.redirect('/'));
       } catch (error) {
         console.log(error);
       }

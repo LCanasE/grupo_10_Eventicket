@@ -10,53 +10,53 @@
   <header>
     <%- include('../partials/header') %>
   </header>
-    <% include('../../utils/dateUtils') %>
-      <article class="evento">
+  <% include('../../utils/dateUtils') %>
+    <article class="evento">
 
-        <section class="caja-titulo-ubicacion">
+      <section class="caja-titulo-ubicacion">
 
-          <div class="caja-titulo">
+        <div class="caja-titulo">
 
-            <h2 class="titulo-evento">
-              <%= product.name %>
-                <%=product.location%>
-            </h2>
-            <h3 class="fecha-evento"><i class="fa-regular fa-calendar-days"></i>
-              <%= formateDate(product.date) %>
+          <h2 class="titulo-evento">
+            <%= product.name %>
+              <%=product.location%>
+          </h2>
+          <h3 class="fecha-evento"><i class="fa-regular fa-calendar-days"></i>
+            <%= formateDate(product.date) %>
+          </h3>
+
+          <div class="caja-descripcion-evento">
+            <p>
+              <%= product.description %>
+            </p>
+          </div>
+          <!-- Si el usuario está logueado y ademas si el usuario es de tipo Creador y ademas si el usuario de tipo creador tiene un id que coincide con la foreign key de product (user_creator_id), es decir, que él creó el producto, entonces puede editarlo -->
+          <% if (locals.isLogged && locals.user.user_type_id===2 && product.user_creator_id===locals.user.id) { %>
+            <a href="/products/<%=product.id%>/editEvents">
+              <button class="btn-editar-eventos">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+            </a>
+            <% } %>
+
+        </div>
+
+        <div class="caja-ubicacion">
+          <div class="descripcion-caja-ubicacion">
+            <h3 class="titulo-ubicacion"><i class="fa-solid fa-location-dot"></i>
+              <%=product.location%>
             </h3>
-
-            <div class="caja-descripcion-evento">
-                    <p>
-                    <%= product.description %>
-                    </p>
-            </div>
-            <!-- Si el usuario está logueado y ademas si el usuario es de tipo Creador y ademas si el usuario de tipo creador tiene un id que coincide con la foreign key de product (user_creator_id), es decir, que él creó el producto, entonces puede editarlo -->
-            <% if (locals.isLogged && locals.user.user_type_id === 2 && product.user_creator_id === locals.user.id) { %>
-              <a href="/products/<%=product.id%>/editEvents">
-                <button class="btn-editar-eventos">
-                  <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-              </a>
-              <% } %>
-              
+            <h4 class="descripcion-ubicacion">
+              <%= product.addres %>
+            </h4>
           </div>
+        </div>
+      </section>
 
-          <div class="caja-ubicacion">
-            <div class="descripcion-caja-ubicacion">
-              <h3 class="titulo-ubicacion"><i class="fa-solid fa-location-dot"></i>
-                <%=product.location%>
-              </h3>
-              <h4 class="descripcion-ubicacion">
-                <%= product.addres %>
-              </h4>
-            </div>
-          </div>
-        </section>
-
-        <section class="tickets-imagen">
-          <div class="caja-tickets">
+      <section class="tickets-imagen">
+        <div class="caja-tickets">
           <form class="form-caja" action="/products/cart" method="POST">
-          <!-- <form class="form-caja" action="/products/cart?id=<%#= product.id %>" method="POST"> -->
+            <!-- <form class="form-caja" action="/products/cart?id=<%#= product.id %>" method="POST"> -->
             <div class="titulos-tabla">
               <h4 class="ticket-titulo-tabla">Ticket</h4>
               <h4>Valor</h4>
@@ -65,55 +65,59 @@
             <div class="tickets">
               <% product.tickets.forEach(ticket=> { %>
                 <div class="linea-ticket">
-                  <p><%= ticket.name %></p>
+                  <p>
+                    <%= ticket.name %>
+                  </p>
                   <input type="hidden" name="ticketName" value="<%=ticket.name%>">
                   <p class="precio-ticket-p">$ <%= ticket.price %>
                   </p>
-                  <input type="hidden" name="ticketPrice" value=<%= ticket.price%>>
-                  <select class="caja-cantidad" name="ticketAmount">
-                    <% let ticketsToShow = 0; %>
-                    <% ticket.amount > 10 ? ticketsToShow = 10 : ticketsToShow = ticket.amount %>
-                    <% if(ticket.amount === 0) {%>
-                      <option value="<%= ticketsToShow %>"></option>
+                  <input type="hidden" name="ticketPrice" value=<%=ticket.price%>>
+                  <% if(ticket.amount===0) {%>
+                    <p>Agotado</p>
                     <% } else {%>
-                    <% for (let i = 0; i <= ticketsToShow ; i++) { %>
-                      <option value="<%= i %>"> <%= i %>  </option>
-                      <% } %>
-                      <% } %>
-                  </select>
-                  <input type="hidden" name="idTicket" value= <%= ticket.id %>>
+                      <select class="caja-cantidad" name="ticketAmount">
+                        <% let ticketsToShow=0; %>
+                          <% ticket.amount> 10 ? ticketsToShow = 10 : ticketsToShow = ticket.amount %>
+                            <% for (let i=0; i <=ticketsToShow ; i++) { %>
+                              <option value="<%= i %>">
+                                <%= i %>
+                              </option>
+                              <% } %>
+                                <% } %>
+                      </select>
+                      <input type="hidden" name="idTicket" value=<%=ticket.id %>>
                 </div>
-                
+
                 <% }); %>
             </div>
-                  <input type="hidden" name="idProduct" value=<%=product.id %>>
-                  <input type="submit" value="Comprar" class="boton-comprar">
-              </form>
-          </div>
-            
-
-
-          </div>
-
-          <div class="caja-imagen-evento">
-
-            <img src="../<%= product.image %>" alt="" class="imagen-evento">
-
-          </div>
-
-        </section>
+            <input type="hidden" name="idProduct" value=<%=product.id %>>
+            <input type="submit" value="Comprar" class="boton-comprar">
+          </form>
+        </div>
 
 
 
-      </article>
+        </div>
+
+        <div class="caja-imagen-evento">
+
+          <img src="../<%= product.image %>" alt="" class="imagen-evento">
+
+        </div>
+
+      </section>
 
 
 
-      </main>
-      <footer>
-        <%- include('../partials/footer') %>
-      </footer>
-      <script src="/js/localStorage.js"></script>
+    </article>
+
+
+
+    </main>
+    <footer>
+      <%- include('../partials/footer') %>
+    </footer>
+    <script src="/js/localStorage.js"></script>
 </body>
 
 </html>
