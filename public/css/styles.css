@@ -58,14 +58,24 @@ header {
   z-index: 1;
 }
 
-#menu {
+.menuBurger {
   display: none;
   text-align: right;
-
-  &:target {
-    display: block;
-  }
+  position: fixed;
+  top: 0;
+  left: -100%; /* Comienza fuera de la pantalla a la izquierda */
+ /* Ancho del menú */
+  height: 100%;
+  background-color: #fff;
+  transition: left 0.3s; /* Agregamos una transición a la propiedad "left" */
 }
+
+.menuBurger.visible {
+  display: block;
+  top: 35%;
+  left: 0; /* Muestra el menú moviéndolo a la izquierda */
+}
+
 
 .cerrar-mobile {
   font-size: 30px;
@@ -1550,6 +1560,10 @@ background-size: cover;
   .logo-eventicket-blanco {
     width: 110px;
     margin-right: 10%;
+  }
+
+  #mobileOp {
+    display: none;
   }
 
   /*------ESTILOS HOME------*/
