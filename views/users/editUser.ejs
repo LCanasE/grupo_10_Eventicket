@@ -34,8 +34,8 @@
                 <article>
                     <select class="tipo-usuario" name="tipoUsuario" id="">
                         <option disabled>Tipo de usuario</option>
-                        <option <%= searchedUser.tipoUsuario === "Espectador/a" ? "selected" : " " %>>Espectador/a</option>
-                        <option <%= searchedUser.tipoUsuario === "Productor/a" ? "selected" : " " %>>Productor/a</option>
+                        <option <%= searchedUser.user_type_id === 1 ? "selected" : " " %>>Espectador/a</option>
+                        <option <%= searchedUser.user_type_id === 2 ? "selected" : " " %>>Productor/a</option>
                     </select>
                     <% if(error.errorCategory) { %>
                         <p style="color:red; margin-top: 0;"><%= error.errorCategory.msg %></p>

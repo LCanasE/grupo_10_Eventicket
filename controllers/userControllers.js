@@ -62,7 +62,7 @@ const userControllers = {
     if (!searchedUser) {
       return res.send("Email inválido");
     }
-    console.log(searchedUser);
+    console.log("USUARIO: ", searchedUser);
     let nuevosDatos = req.body;
     res.render("editUser", {
       title: "Edición de usuario",
