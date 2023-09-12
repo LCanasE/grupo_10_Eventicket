@@ -39,9 +39,16 @@
           <a class="nav-enlaces" href="/products/myEvents"><li>Mis Eventos</a></a>
           <a class="nav-enlaces" href="/users/editUser"><li>Configuración</li></a>
           <a class="nav-enlaces" href="/users/logout"><li>Salir</li></a>
+          
         </section>
+        
       </ul>
+
     </li>
+    <a href="/users/myProfile"><i class="fas fa-user" style="color: #313d55"></i></a>
+
+    <a href="/products/cart" class="cart-img"><i class="fa-solid fa-cart-shopping" style="color: #313d55"></i>
+    </a>
       
       <% } else {%>
         
@@ -51,12 +58,7 @@
         <a href="/users/login"><li class="nav-login">Iniciar Sesión</li></a>
 
         <% } %>
-    <a href="/users/myProfile"><i class="fas fa-user" style="color: #313d55"></i></a>
-
-    <a href="/products/cart" class="cart-img">
-
-    <i class="fa-solid fa-cart-shopping" style="color: #313d55"></i>
-    </a>
+    
   </ul>
 
   <script>
