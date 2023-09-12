@@ -27,9 +27,13 @@
                     <input id="registro-nombre" type="text" value="<%= searchedUser.first_name %>" name="nombreRegForm" required />
                     <input id="registro-apellido" type="text" value="<%= searchedUser.last_name %>" name="apellidoRegForm" required />
                 </article>
+
                 <article id="registro-email">
                     <input type="email" value="<%= searchedUser.email %>" name="emailRegForm" required />
                 </article>
+                <% if(error.email) {%>
+                    <p style="color: red"> <%= error.email.msg %> </p>
+                <% } %>
 
                 <article>
                     <select class="tipo-usuario" name="tipoUsuario" id="">
@@ -37,21 +41,24 @@
                         <option <%= searchedUser.user_type_id === 1 ? "selected" : " " %>>Espectador/a</option>
                         <option <%= searchedUser.user_type_id === 2 ? "selected" : " " %>>Productor/a</option>
                     </select>
-                    <% if(error.errorCategory) { %>
-                        <p style="color:red; margin-top: 0;"><%= error.errorCategory.msg %></p>
-                        <% } %>
+                    <% if(category.change) {%>
+                        <p style="color: red; margin: 0;"><%= category.change.msg %></p>
+                    <% } %>
                 </article>
 
                 <article class="registro-password">
                     <p style="text-align: left; width: 95%; margin: auto;">Ingrese la contraseña para actualizar los datos</p>
                     <input type="password" placeholder="Contraseña" name="passRegForm" style="margin:0px"  required/>
                 </article>
+                <% if(error.password) {%>
+                    <p style="color:red"><%= error.password.msg %></p>
+                <% } %>
                 <article class="registro-tyc">
                     <input type="checkbox" checked name="notificaciones"/>Deseo recibir la agenda de eventos próximos
                 </article>
-                <article class="registro-tyc">
+                <!-- <article class="registro-tyc">
                     <input type="checkbox" checked required name="tyc"/>Acepto los Términos y Condiciones
-                </article>
+                </article> -->
                 <article class="registro-botones">
                     <input type="submit" id="registrate" value="Actualizar" />
                 </article>
