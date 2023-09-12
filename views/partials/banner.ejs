@@ -1,11 +1,40 @@
-<div class="banner" >
-  <% productsBanner.forEach(product=> {%>
-    <a href="/products/<%= product.id %>/eventsDetails" class="link-banner">
-    <img src="../<%= product.image %>" alt="Imagen" class="banner-item">
+<div class="banner">
+  <% productsBanner.forEach((product, index) => { %>
+    <a href="#" class="link-banner">
+      <img src="<%= product.image %>" alt="Imagen" class="banner-item" data-product-id="<%= product.id %>">
     </a>
+  <% }) %>
+</div>
+
+<script>
+  const productImages = [
+    <% productsBanner.forEach(product => { %>
+      "<%= product.image %>",
     <% }) %>
-  </div>
-    <!-- <div class="gallery-btn">
-      <button><i class="fa-solid fa-arrow-left"></i></button>
-      <button><i class="fa-solid fa-arrow-right"></i></button>
-    </div> -->
+  ];
+
+  let indexImg = 0;
+  const images = document.querySelectorAll(".banner-item");
+
+  function changeProductImage() {
+    indexImg = (indexImg + 1) % productImages.length;
+
+    images.forEach((image, index) => {
+      if (index === indexImg) {
+        image.style.display = "block";
+      } else {
+        image.style.display = "none";
+      }
+    });
+  }
+
+  images.forEach(image => {
+    image.addEventListener("click", function(event) {
+      event.preventDefault();
+      const productId = this.getAttribute("data-product-id");
+      window.location.href = `/products/${productId}/eventsDetails`;
+    });
+  });
+
+  setInterval(changeProductImage, 3000); // Cambia la imagen cada 3 segundos
+</script>
