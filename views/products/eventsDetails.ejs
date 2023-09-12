@@ -55,7 +55,7 @@
 
       <section class="tickets-imagen">
         <div class="caja-tickets">
-          <form class="form-caja" action="/products/cart" method="POST">
+          <form class="form-caja" action="/products/cart" method="POST" id="formTickets">
             <!-- <form class="form-caja" action="/products/cart?id=<%#= product.id %>" method="POST"> -->
             <div class="titulos-tabla">
               <h4 class="ticket-titulo-tabla">Ticket</h4>
@@ -63,29 +63,25 @@
               <h4>Cantidad</h4>
             </div>
             <div class="tickets">
-              <% product.tickets.forEach(ticket=> { %>
+              <% product.tickets.forEach((ticket, index)=> { %>
                 <div class="linea-ticket">
-                  <p>
-                    <%= ticket.name %>
-                  </p>
-                  <input type="hidden" name="ticketName" value="<%=ticket.name%>">
+                  <p><%= ticket.name %></p>
                   <p class="precio-ticket-p">$ <%= ticket.price %>
                   </p>
-                  <input type="hidden" name="ticketPrice" value=<%=ticket.price%>>
-                  <% if(ticket.amount===0) {%>
+                  <% if(ticket.amount === 0) {%>
                     <p>Agotado</p>
                     <% } else {%>
-                      <select class="caja-cantidad" name="ticketAmount">
-                        <% let ticketsToShow=0; %>
-                          <% ticket.amount> 10 ? ticketsToShow = 10 : ticketsToShow = ticket.amount %>
-                            <% for (let i=0; i <=ticketsToShow ; i++) { %>
-                              <option value="<%= i %>">
-                                <%= i %>
-                              </option>
+                      <select class="caja-cantidad" name="ticketAmount_<%=index%>">
+                        <% let ticketsToShow = 0; %>
+                          <% ticket.amount > 10 ? ticketsToShow = 10 : ticketsToShow = ticket.amount %>
+                            <% for (let i=0; i <= ticketsToShow ; i++) { %>
+                              <option value="<%= i %>"><%= i %></option>
                               <% } %>
                                 <% } %>
                       </select>
-                      <input type="hidden" name="idTicket" value=<%=ticket.id %>>
+                      <input type="hidden" name="ticketName_<%=index%>" value="<%=ticket.name%>">
+                      <input type="hidden" name="ticketPrice_<%=index%>" value=<%=ticket.price%>>
+                      <input type="hidden" name="idTicket_<%=index%>" value=<%=ticket.id %>>
                 </div>
 
                 <% }); %>
@@ -94,7 +90,7 @@
               <p style="text-align: center; color: red;"><%= error %></p>
           <% } %>          
             <input type="hidden" name="idProduct" value=<%=product.id %>>
-            <input type="submit" value="Comprar" class="boton-comprar">
+            <input type="button" value="Comprar" class="boton-comprar" onclick="submitForm()">
           </form>
         </div>
 
@@ -120,7 +116,43 @@
     <footer>
       <%- include('../partials/footer') %>
     </footer>
-    <script src="/js/localStorage.js"></script>
+    <!-- <script src="/js/localStorage.js"></script> -->
+    <script>
+      function submitForm(e){
+        // e.preventDefault();
+        const form = document.getElementById('formTickets');
+        const amount = [...document.querySelectorAll('.caja-cantidad')];
+        const allInfoAllTickets = [...document.querySelectorAll('.linea-ticket')]
+
+        amount.forEach(el => {
+          console.log(el.value);
+        });
+
+        let tickets = []
+
+        allInfoAllTickets.forEach(el => {
+          const amount = parseInt(el.children[2].value)
+
+          if(amount > 0){
+
+            const name = el.children[0].textContent;
+            const price = el.children[1].textContent;
+
+            const ticket = {
+              name: name,
+              price: price,
+              amount: amount
+            }
+
+            tickets.push(ticket)
+            console.log(tickets);
+          } else {
+            console.log('no es mayor a 0');
+          } ;
+        })
+        // console.log(allInfoAllTickets);
+      }
+    </script>
 </body>
 
 </html>

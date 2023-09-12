@@ -98,69 +98,72 @@ const productControllers = {
   },
 
   postCart: async (req, res) => {
-    let id = Number(req.params.id);
-
-    let { ticketName, ticketPrice, ticketAmount, idTicket, idProduct } =
-      req.body;
-    console.log('ESTOY EN POST CART', req.body);
-
-    // Se pregunta si existe ticketName para ejecutar el bucle for. Este if basicamente controla que se pueda entrar al carrito sin necesidad de haber apretado el boton "Comprar".
-    if (ticketName) {
-      if(typeof ticketAmount === 'string'){
-        ticketAmount = [Number(ticketAmount)];
-        idTicket = [Number(idTicket)];
-        ticketPrice = [Number(ticketPrice)];
-      } else {
-        console.log(ticketAmount, 'no es un string | POST CART');
-      }
-
-      const hasSelectedTickets = ticketAmount.some(cart => Number(cart) > 0)
-      console.log(hasSelectedTickets, '| DESDE POST CART HAS SELECTED TICKETS');
-      if(!hasSelectedTickets){
-        return res.redirect(`./${idProduct}/eventsDetails?error=Ingrese la cantidad de entradas`)
-      }
-
-      // console.log('IF DE TICKET NAME: ', ticketName, '\n Number ticket amount: ', ticketAmount);
-      // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
-      for (let i = 0; i < ticketAmount.length; i++) {
-        // console.log('Entrando al bucle for...');
-        let ticket = {};
-        if (ticketAmount[i] > 0) {
-
-          ticket.product_id = Number(idProduct);
-          ticket.quantity = Number(ticketAmount[i]);
-          ticket.ticket_type_id = Number(idTicket[i]);
-          ticket.price = Number(ticketPrice[i]);
-          ticket.bought = 0;
-        }
-        console.log('POST CART | ESTO ES TICKET', ticket);
-        // console.log(Object.keys(ticket).length > 0);
-
-        if (Object.keys(ticket).length > 0) {
-          try {
-            await Cart.create({
-              user_id: req.session.user.id,
-              product_id: ticket.product_id,
-              quantity: ticket.quantity,
-              ticket_type_id: ticket.ticket_type_id,
-              bought: ticket.bought,
-            });
-            // console.log(req.body);
-          } catch (error) {
-            console.log(error);
-          }
-        }
-
-        // if(ticketAmount[i] > 0){
-        //         tickets.push([ticketName[i], ticketPrice[i], ticketAmount[i]]);
-        //     }
-      }
-    }
-    // res.render('cart', {ticketName, ticketPrice, ticketAmount, title: 'Carrito', searchedProducts: {}})
     console.log(req.body);
-    res.redirect("./cart");
+    res.send('Info enviada')
 
-    // res.send('Producto cargado en la base');
+    // let id = Number(req.params.id);
+
+    // // let { ticketName, ticketPrice, ticketAmount, idTicket, idProduct } =
+    // //   req.body;
+    // console.log('ESTOY EN POST CART', req.body);
+
+    // // Se pregunta si existe ticketName para ejecutar el bucle for. Este if basicamente controla que se pueda entrar al carrito sin necesidad de haber apretado el boton "Comprar".
+    // if (ticketName) {
+    //   if(typeof ticketAmount === 'string'){
+    //     ticketAmount = [Number(ticketAmount)];
+    //     idTicket = [Number(idTicket)];
+    //     ticketPrice = [Number(ticketPrice)];
+    //   } else {
+    //     console.log(ticketAmount, 'no es un string | POST CART');
+    //   }
+
+    //   const hasSelectedTickets = ticketAmount.some(cart => Number(cart) > 0)
+    //   console.log(hasSelectedTickets, '| DESDE POST CART HAS SELECTED TICKETS');
+    //   if(!hasSelectedTickets){
+    //     return res.redirect(`./${idProduct}/eventsDetails?error=Ingrese la cantidad de entradas`)
+    //   }
+
+    //   // console.log('IF DE TICKET NAME: ', ticketName, '\n Number ticket amount: ', ticketAmount);
+    //   // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
+    //   for (let i = 0; i < ticketAmount.length; i++) {
+    //     // console.log('Entrando al bucle for...');
+    //     let ticket = {};
+    //     if (ticketAmount[i] > 0) {
+
+    //       ticket.product_id = Number(idProduct);
+    //       ticket.quantity = Number(ticketAmount[i]);
+    //       ticket.ticket_type_id = Number(idTicket[i]);
+    //       ticket.price = Number(ticketPrice[i]);
+    //       ticket.bought = 0;
+    //     }
+    //     console.log('POST CART | ESTO ES TICKET', ticket);
+    //     // console.log(Object.keys(ticket).length > 0);
+
+    //     if (Object.keys(ticket).length > 0) {
+    //       try {
+    //         await Cart.create({
+    //           user_id: req.session.user.id,
+    //           product_id: ticket.product_id,
+    //           quantity: ticket.quantity,
+    //           ticket_type_id: ticket.ticket_type_id,
+    //           bought: ticket.bought,
+    //         });
+    //         // console.log(req.body);
+    //       } catch (error) {
+    //         console.log(error);
+    //       }
+    //     }
+
+    //     // if(ticketAmount[i] > 0){
+    //     //         tickets.push([ticketName[i], ticketPrice[i], ticketAmount[i]]);
+    //     //     }
+    //   }
+    // }
+    // // res.render('cart', {ticketName, ticketPrice, ticketAmount, title: 'Carrito', searchedProducts: {}})
+    // console.log(req.body);
+    // res.redirect("./cart");
+
+    // // res.send('Producto cargado en la base');
   },
 
     putCart: async (req, res) => {
