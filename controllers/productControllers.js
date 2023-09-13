@@ -487,11 +487,12 @@ const productControllers = {
         },
         include: [{ association: "tickets" }, { association: "categories" }],
       });
+      console.log('EDIT EVENT PRODUCT: ',searchedProduct.description);
       if (!searchedProduct) {
         return res.send("No existe ese producto");
       }
       return res.render("editEvents", {
-        searchedProduct: searchedProduct.dataValues,
+        searchedProduct: searchedProduct,
         title: "Editar",
       });
     } catch (error) {
@@ -554,6 +555,7 @@ const productControllers = {
       fechaOculta,
       ubicacion,
       direccion,
+      description,
       tipoEntrada,
       precio,
       cantidadEntradas,
@@ -574,6 +576,7 @@ const productControllers = {
           date: fechaOculta,
           location: ubicacion,
           addres: direccion,
+          description: description,
           category_id: categoria,
           image: img,
           deleted: eliminado,
@@ -605,57 +608,72 @@ const productControllers = {
       }
 
       console.log("OBJETOS TICKET: ", ticketCorrect);
+      
       ticketCorrect.forEach(async (ticket, index) => {
-        try {
-          await Ticket.update({
-            name: ticket.name,
-            amount: parseInt(ticket.amount),
-            price: parseInt(ticket.price),
-            // product_id: productCreatedID,
-          }, {
-            where: {
-              id: parseInt(ticket.id),
-              product_id: id
-            }
-          });
-        } catch (error) {
-          console.log(error);
+        if (ticket.id === undefined) {
+          try {
+            await Ticket.create({
+              name: ticket.name,
+              amount: ticket.amount,
+              price: ticket.price,
+              product_id: req.params.id,
+            });
+          } catch (error) {
+            console.log(error);
+          }
+        } else {
+          try {
+            await Ticket.update({
+              name: ticket.name,
+              amount: parseInt(ticket.amount),
+              price: parseInt(ticket.price),
+              // product_id: productCreatedID,
+            }, {
+              where: {
+                id: parseInt(ticket.id),
+                product_id: id
+              }
+            });
+          } catch (error) {
+            console.log(error);
+          }
         }
       })
-    
-  } else {
-    try {
-      await Ticket.update({
-        name: tipoEntrada,
-        amount: parseInt(cantidadEntradas),
-        price: parseInt(precio),
-      }, {where: {
-        id: parseInt(idTicket),
-        product_id: id,
-      }})
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-
-
-
-
-
-      await Ticket.update(
-        {
+    } else {
+      try {
+        await Ticket.update({
           name: tipoEntrada,
-          amount: cantidadEntradas,
-          price: precio,
-          product_id: id,
-        },
-        {
+          amount: parseInt(cantidadEntradas),
+          price: parseInt(precio),
+        }, {
           where: {
+            id: parseInt(idTicket),
             product_id: id,
-          },
-        }
-      );
+          }
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+
+
+
+
+
+      // await Ticket.update(
+      //   {
+      //     name: tipoEntrada,
+      //     amount: cantidadEntradas,
+      //     price: precio,
+      //     product_id: id,
+      //   },
+      //   {
+      //     where: {
+      //       product_id: id,
+      //     },
+      //   }
+      // );
     } catch (error) {
       console.log(error);
     }

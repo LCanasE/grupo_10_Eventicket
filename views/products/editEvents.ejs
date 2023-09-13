@@ -7,85 +7,126 @@
 
 <body>
     <% include('../../utils/dateUtils') %>
-    <header>
-        <%- include('../partials/header') %>
-    </header>
-    <main class="main-registro login-register">
-        <section class="registro-form">
-            <h2>Edición de eventos</h2>
-            <form action="/products/<%= searchedProduct.id %>/editEvents?_method=PUT" method="POST" enctype="multipart/form-data">
-                <input type="text" name="nombre" value="<%= searchedProduct.name %>">
-                <input type="datetime-local" name="fecha" min=<%= new Date() %> value="<%= new Date(searchedProduct.date) %>" >
-                <input type="hidden" name="fechaOculta" min=<%= new Date() %> value="<%= searchedProduct.date %>" >
-                <!-- <input type="text" name="fecha" value="<%#= formateDate(searchedProduct.date) %>"> -->
-                <input type="text" name="ubicacion" value="<%= searchedProduct.location %>">
-                <input type="text" name="direccion" value="<%= searchedProduct.addres %>">
-                <div class="agregar-input-precio-evento">
-                    <label for="">Tipo de entrada</label>
-                    <%# if(searchedProduct.tickets.length > 1) {%>
-                        <% searchedProduct.tickets.forEach(ticket => {%>
-                    <input type="text" class="tipo-entrada-evento" style="color:black" name="tipoEntrada" value="<%= ticket.name %>">
-                    <input type="number" name="precio" value="<%= ticket.price %>" class="precio-crear-evento">
-                    <input type="number" value="<%= ticket.amount %>" name="cantidadEntradas" class="precio-crear-evento">
-                    <input type="hidden" name="idTicket" value="<%= ticket.id %>">
-                        <%}) %>
-                    <%# } %>
-                    <button class="agregar-tipo-entrada">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-                <select name="categoria" id="" class="creacion-evento-categorias">
-                    <option selected><%= searchedProduct.categories.dataValues.name %></option>
-                    <option>Deportes</option>
-                    <option>Recital</option>
-                    <option>Obra de teatro</option>
-                    <option>Stand Up</option>
-                    <option>Conferencia</option>
-                </select>
-                <div class="input-grupo-cargar-imagen-evento">
-                    <label for="">Imagen del Evento</label>
-                    <input type="hidden" name="originalImg" value="<%= searchedProduct.image %>">
-                    <input type="file" name="img" class="seleccionar-imagen">
-                    <input type="submit" value="Guardar cambios" class="enviar-evento">
-                </div>
-                <input type="hidden" name="eliminado" value="<%= searchedProduct.deleted %>">
-                <input type="hidden" name="agotado" value="<%= searchedProduct.sold_out %>">
-            </form>
-            <form action="/products/<%= searchedProduct.id %>/delete?_method=delete" method="POST" id="formDelete">
-                <button id="delProd" type="submit" class="deleteFormButton">Eliminar</button>
-            </form>
-        </section>
+        <header>
+            <%- include('../partials/header') %>
+        </header>
+        <main class="main-registro login-register">
+            <section class="registro-form">
+                <h2>Edición de eventos</h2>
+                <form action="/products/<%= searchedProduct.id %>/editEvents?_method=PUT" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="input-name-error">
+                        <div class="circle-textarea"></div>
+                        <input type="text" name="nombre" value="<%= searchedProduct.name %>">
+                        <p class="error"></p>
+                    </div>
+                    <div class="input-date-error">
+                        <input type="datetime-local" name="fecha" min=<%=new Date() %> value="<%= new
+                            Date(searchedProduct.date) %>" >
+                            <p class="error"></p>
+                            <input type="hidden" name="fechaOculta" min=<%=new Date() %> value="<%= searchedProduct.date
+                                %>" >
+                    </div>
+                    <!-- <input type="text" name="fecha" value="<%#= formateDate(searchedProduct.date) %>"> -->
+                    <div class="input-location-error">
+                        <input type="text" name="ubicacion" value="<%= searchedProduct.location %>">
+                        <p class="error"></p>
+                    </div>
+                    <div class="input-address-error">
+                        <input type="text" name="direccion" value="<%= searchedProduct.addres %>">
+                        <p class="error"></p>
+                    </div>
+                    <div class="container-textarea-error">
+                        <div class="circle-textarea"></div>
+                        <textarea class="descripcion-evento" placeholder="Descripción del evento" name="description"
+                            id="description" cols="30" rows="5"><%= searchedProduct.description %></textarea>
+                        <p class="error" style="color:red;"></p>
+                    </div>
+                    <div class="agregar-input-precio-evento" style="width: 100%;">
+                        <label for="">Tipo de entrada</label>
+                        <div class="addTickets" style="width: 100%;">
+                            <%# if(searchedProduct.tickets.length> 1) {%>
+                                <% searchedProduct.tickets.forEach(ticket=> {%>
+                                    <div class="ticket">
+                                        <div class="input-nameTicket-error" style="width: 100%;">
+                                            <input type="text" class="tipo-entrada-evento" style="color:black"
+                                                name="tipoEntrada" value="<%= ticket.name %>">
+                                            <p class="error" style="color:red;"></p>
+                                        </div>
+                                        <div class="input-priceTicket-error" style="width: 100%;">
+                                            <input type="number" name="precio" value="<%= ticket.price %>"
+                                                class="precio-crear-evento">
+                                            <p class="error" style="color:red;"></p>
+                                        </div>
+                                        <div class="input-amountTicket-error" style="width: 100%;">
+                                            <input type="number" value="<%= ticket.amount %>" name="cantidadEntradas"
+                                                class="precio-cantidad-evento">
+                                            <p class="error" style="color:red;"></p>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="idTicket" value="<%= ticket.id %>">
+                                    <%}) %>
+                        </div>
+                        <%# } %>
+                            <button class="agregar-tipo-entrada">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                    </div>
+                    <select name="categoria" id="" class="creacion-evento-categorias">
+                        <option selected>
+                            <%= searchedProduct.categories.dataValues.name %>
+                        </option>
+                        <option>Deportes</option>
+                        <option>Recital</option>
+                        <option>Obra de teatro</option>
+                        <option>Stand Up</option>
+                        <option>Conferencia</option>
+                    </select>
+                    <div class="input-grupo-cargar-imagen-evento">
+                        <label for="">Imagen del Evento</label>
+                        <input type="hidden" name="originalImg" value="<%= searchedProduct.image %>">
+                        <input type="file" name="img" class="seleccionar-imagen">
+                        <input type="submit" value="Guardar cambios" class="enviar-evento">
+                    </div>
+                    <input type="hidden" name="eliminado" value="<%= searchedProduct.deleted %>">
+                    <input type="hidden" name="agotado" value="<%= searchedProduct.sold_out %>">
+                </form>
+                <form action="/products/<%= searchedProduct.id %>/delete?_method=delete" method="POST" id="formDelete">
+                    <button id="delProd" type="submit" class="deleteFormButton">Eliminar</button>
+                </form>
+            </section>
 
-    <script>
+            <script>
 
-        const btnDel = document.getElementById('delProd');
-        const formDel = document.getElementById('formDelete');
+                const btnDel = document.getElementById('delProd');
+                const formDel = document.getElementById('formDelete');
 
-        btnDel.addEventListener('click', function(e){
-            e.preventDefault();
+                btnDel.addEventListener('click', function (e) {
+                    e.preventDefault();
 
-            Swal.fire({
-                title: '¿Estás seguro?',
-                text: "No hay vuelta atrás",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sí, quiero eliminarlo!'
-                }).then((result) => {
-                if (result.isConfirmed) {
-                    formDel.submit();
-                }
-            })
-        })
+                    Swal.fire({
+                        title: '¿Estás seguro?',
+                        text: "No hay vuelta atrás",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sí, quiero eliminarlo!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            formDel.submit();
+                        }
+                    })
+                })
 
-    </script>
+            </script>
 
-    </main>
-    <footer>
-        <%- include('../partials/footer') %>
-    </footer>
-    <script src="/js/localStorage.js"></script>
+        </main>
+        <footer>
+            <%- include('../partials/footer') %>
+        </footer>
+        <script src="/js/localStorage.js"></script>
+        <script src="/js/newTicketsUpdate.js"></script>
 </body>
 
 </html>
