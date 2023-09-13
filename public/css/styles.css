@@ -328,9 +328,18 @@ a:visited {
   text-align: center;
 }
 
+.eventos-mis-tickets-h4-desktop {
+  display: none;
+}
+
 .eventos-mi-perfil-ul {
-  list-style-type: none;
+  list-style-image: url(../Logo/ISOLOGO-EVENTICKET-20.svg);
 margin-bottom: 130px;
+}
+
+.eventos-mis-tickets-ul {
+  list-style-type: none;
+  margin-bottom: 130px;
 }
 
 .eventos-mis-tickets-a img {
@@ -370,9 +379,11 @@ margin-bottom: 130px;
 }
 
 
-.eventos-mis-tickets-li {
+.eventos-mis-tickets-div {
   background-color:#313d55;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   width: 90%;
   padding: 25px 10px;
   margin-bottom: 50px;
@@ -1872,31 +1883,72 @@ right: 0;
 
   /* MIS TICKETS */
 
+  .eventos-mis-tickets-h4-mobile {
+    display: none;
+  }
+
+  .eventos-mis-tickets-h4-desktop {
+    display: block;
+    text-align: right;
+    font-size: 20px;
+  }
+
   .eventos-mis-tickets {
     margin-top: 15px;
     color: #313d55;
-    text-align: center;
   }
   
   .eventos-mi-perfil-ul {
     list-style-type: none;
     margin-bottom: 130px;
   }
+
+  .eventos-mis-tickets-div {
+    background: none;
+    display: flex;
+    justify-content: space-around;
+    color: #313d55;
+    flex-direction: row;
+      }
+
+  .eventos-mis-tickets-a {
+    display: flex;
+    justify-content: flex-end;
+  }
   
   .eventos-mis-tickets-a img {
-    width: 20%;
+    width: 250px;
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 10px;
+    display: inline-block;
   }
 
   .eventos-mis-tickets-li {
-background: none;
-color: #313d55;
+    width: 600px;
+    text-align: right;
   }
 
   .eventos-mis-tickets-a h4 {
 color: #313d55;
+font-weight: 800;
+  }
+
+  .generar-qr-btn {
+    background-color: #313d55;
+    border-radius: 12px;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  margin-top: 25px;
+  }
+  
+  .generar-qr-btn:hover {
+    background-color: #ffffff;
+    color: #313d55;
+    transition: 0.3s;
   }
 
   /* NAV */

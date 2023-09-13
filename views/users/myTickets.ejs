@@ -15,17 +15,26 @@
                           <div class="eventos-mis-tickets">
                   <% if (user.products && user.products.length > 0) { %>
                     
-                    <ul class="eventos-mi-perfil-ul">
+                    <ul class="eventos-mis-tickets-ul">
                       <% user.products.forEach(product => { %>
                         
                         <a class="eventos-mis-tickets-a" href="/products/<%= product.id %>/eventsDetails">
+                          <div class="eventos-mis-tickets-div">
+                          <img src="<%= product.image %>" alt="<%= product.name %>">
                           <li class="eventos-mis-tickets-li">
-                            <img src="<%= product.image %>" alt="<%= product.name %>"><h4><%= product.name %> en <%= product.location %> | <%= formateDate(product.date) %></h4></a>
+                            
+                            <h4 class="eventos-mis-tickets-h4-mobile"><%= product.name %> en <%= product.location %> | <%= formateDate(product.date) %>
+                            </h4>
+                            <div class="eventos-mis-tickets-h4-desktop">
+                            <h4><%= product.name %> 
+                            </h4>
+                          <h4><%= product.location %></h4>
+                        <h4><%= formateDate(product.date) %></h4></div></a>
                             <button class="generar-qr-btn" data-product-name="<%= product.name %>" data-product-location="<%= product.location %>" data-product-image="<%= product.image %>">
                               Ver Entrada QR
                             </button>
                           </li>
-                        
+                        </div>
                         
                       <% }); %>
                       
