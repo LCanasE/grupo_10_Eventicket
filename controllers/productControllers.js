@@ -375,7 +375,7 @@ const productControllers = {
 
       eventoNuevo.img = `${imageRoute}/${req.file.filename}`;
       // eventoNuevo.fecha = `${diaEvento} de ${nombreMes} - ${horario} horas`;
-      eventoNuevo.precio = Number(eventoNuevo.precio);
+      // eventoNuevo.precio = Number(eventoNuevo.precio);
       eventoNuevo.eliminado = eventoNuevo.eliminado === "false" ? 0 : 1;
       eventoNuevo.agotado = eventoNuevo.agotado === "false" ? 0 : 1;
       eventoNuevo.categoria = category_id;
@@ -419,13 +419,58 @@ const productControllers = {
           user_creator_id: userID,
         });
         let productCreatedID = productCreated.dataValues.id;
+        
+        let newTickets = [tipoEntrada, cantidadEntradas, precio];
+        console.log("NEW TICKETS: ", newTickets);
+        if(!(newTickets[0] === "string")){
+            console.log('TIENE VARIAS ENTRADAS CARGADAS');
 
-        await Ticket.create({
-          name: tipoEntrada,
-          amount: cantidadEntradas,
-          price: precio,
-          product_id: productCreatedID,
-        });
+            let ticketCorrect = []
+
+            for (let i = 0; i < tipoEntrada.length; i++) {
+              let ticket = {
+                name: newTickets[0][i],
+                amount: newTickets[1][i],
+                price: newTickets[2][i]
+              }
+              ticketCorrect.push(ticket);
+            }
+
+            console.log("OBJETOS TICKET: ", ticketCorrect);
+            ticketCorrect.forEach(async (ticket, index) => {
+              try {
+                await Ticket.create({
+                  name: ticket.name,
+                  amount: parseInt(ticket.amount),
+                  price: parseInt(ticket.price),
+                  product_id: productCreatedID,
+                });
+              } catch (error) {
+                console.log(error);
+              }
+            })
+          
+        } else {
+          try {
+            await Ticket.create({
+              name: tipoEntrada,
+              amount: parseInt(cantidadEntradas),
+              price: parseInt(precio),
+              product_id: productCreatedID,
+            })
+          } catch (error) {
+            console.log(error);
+          }
+        }
+
+        // let ticketTransform = newTickets.map((ticket, index) => ({
+        //   name: ticket[0][index],
+        //   amount: ticket[1][index],
+        //   price: ticket[2][index]
+        // }))
+        // console.log(ticketTransform);
+
+
       } catch (error) {
         console.log(error);
       }
