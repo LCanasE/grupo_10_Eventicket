@@ -3,7 +3,7 @@ const path = require("path");
 const usersModel = require("../models/usersModel");
 const { validationResult } = require("express-validator");
 const { bcrypt, hashSync, compareSync } = require("bcryptjs");
-const { User } = require("../database/models");
+const { User, Product, Cart } = require("../database/models");
 
 
 const userControllers = {
@@ -55,6 +55,26 @@ const userControllers = {
   getMyTickets: async (req, res) => {
     const error = req.query.error || "";
     let email = req.session.user.email;
+
+    let searchProductsCreatedByUser = await Product.findAll({
+      where: {
+        user_creator_id: req.session.user.id,
+      }
+    })
+    // console.log("PRODUCTOS CREADOS POR EL USUARIO EN SESION: ", searchProductsCreatedByUser);
+
+    let searchProductsBoughtByUser = await Cart.findAll({
+      where: {
+        bought: 1,
+        user_id: req.session.user.id,
+      },
+      include: [{association: "cart_product"}]
+    })
+    searchProductsBoughtByUser.forEach(product => {
+      console.log("PRODUCTOS COMPRADOS POR EL USUARIO EN SESION: ", product.cart_product);
+    })
+    // console.log("PRODUCTOS COMPRADOS POR EL USUARIO EN SESION: ", searchProductsBoughtByUser.cart_product);
+
     let searchedUser = await User.findOne({
       where: {
         email: email,
@@ -63,11 +83,14 @@ const userControllers = {
     if (!searchedUser) {
       return res.send("Email inválido");
     }
-    console.log(searchedUser);
+    // console.log(searchedUser);
+    console.log("GET MY TICKETS: ", searchedUser);
     let nuevosDatos = req.body;
     res.render("myTickets", {
       title: "Mis Tickets",
       searchedUser,
+      searchProductsCreatedByUser,
+      searchProductsBoughtByUser,
       error: {},
     });
   },

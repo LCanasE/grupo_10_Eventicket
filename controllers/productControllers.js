@@ -38,15 +38,6 @@ const productControllers = {
     } catch (error) {
       console.log(error);
     }
-    // let id = Number(req.params.id);
-    // let productos = modelProductos.findAll();
-    // let productoBuscado = modelProductos.findById(id);
-
-    // res.render('eventsDetails', {
-    //     // productoBuscado,
-    //     productos,
-    //     // productosSinModificar,
-    //     title: 'Detalle'})
   },
 
   getCart: async (req, res) => {

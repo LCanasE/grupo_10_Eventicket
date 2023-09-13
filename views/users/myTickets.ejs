@@ -11,7 +11,35 @@
     <section class="mi-perfil">
       <h2 style="text-align: center; color: #313d55;">Mis Tickets</h2>
 
-       
+      <% if(searchProductsBoughtByUser.length > 0) {%>
+        <% searchProductsBoughtByUser.forEach(product => { %> 
+
+          <ul class="eventos-mis-tickets-ul">
+
+            <a class="eventos-mis-tickets-a" href="/products/<%= product.cart_product.id %>/eventsDetails">
+              <div class="eventos-mis-tickets-div">
+              <img src="<%= product.cart_product.image %>" alt="<%= product.cart_product.name %>">
+              <li class="eventos-mis-tickets-li">
+                
+                <h4 class="eventos-mis-tickets-h4-mobile"><%= product.cart_product.name %> en <%= product.cart_product.location %> | <%= formateDate(product.cart_product.date) %>
+                </h4>
+                <div class="eventos-mis-tickets-h4-desktop">
+                <h4><%= product.cart_product.name %> 
+                </h4>
+              <h4><%= product.location %></h4>
+            <h4><%= formateDate(product.cart_product.date) %></h4></div></a>
+                <button class="generar-qr-btn" data-product-name="<%= product.cart_product.name %>" data-product-location="<%= product.cart_product.location %>" data-product-image="<%= product.cart_product.image %>">
+                  Ver Entrada QR
+                </button>
+              </li>
+            </div>
+
+          </ul>
+          <%}) %>
+      <% } else { %>
+        <h4>Aún no tienes eventos cargados</h4>
+        <% } %>
+      
                           <div class="eventos-mis-tickets">
                   <% if (user.products && user.products.length > 0) { %>
                     
