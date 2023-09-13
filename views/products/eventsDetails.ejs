@@ -31,7 +31,9 @@
             </p>
           </div>
           <!-- Si el usuario está logueado y ademas si el usuario es de tipo Creador y ademas si el usuario de tipo creador tiene un id que coincide con la foreign key de product (user_creator_id), es decir, que él creó el producto, entonces puede editarlo -->
+          <% let userIsLogged = false; %>
           <% if (locals.isLogged && locals.user.user_type_id===2 && product.user_creator_id===locals.user.id) { %>
+            <% userIsLogged = true %>
             <a href="/products/<%=product.id%>/editEvents">
               <button class="btn-editar-eventos">
                 <i class="fa-solid fa-pen-to-square"></i>
@@ -83,7 +85,10 @@
                       <input type="hidden" name="ticketPrice" value=<%=ticket.price%>>
                       <input type="hidden" name="idTicket" value=<%=ticket.id %>>
                 </div>
-
+                <%# if(userIsLogged) {%>
+                <!-- <form action="/products/<%#= ticket.id %>/eventDetails" method="post"></form>
+                  <input type="button" value="Delete"> -->
+                <%# } %>
                 <% }); %>
             </div> 
             <%if (error && typeof error !== 'undefined') { %>
