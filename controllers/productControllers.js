@@ -63,7 +63,7 @@ const productControllers = {
         },
       }).then((result) => {
         console.log(result);
-        result.forEach(r => console.log('CONSOLE LOG IMPORTANTE' ,r.cart_tickets));
+        result.forEach(r => console.log('CONSOLE LOG IMPORTANTE', r.cart_tickets));
         res.render("cart", {
           // searchedProducts: searchedProducts ? searchedProducts.dataValues : '',
           searchedProducts: result,
@@ -166,30 +166,34 @@ const productControllers = {
     // // res.send('Producto cargado en la base');
   },
 
-    putCart: async (req, res) => {
-      try {
-        const cartData = JSON.parse(req.body.cartData)
-        console.log("SOY EL PUT DEL CART", cartData);
-        await Cart.update(
-            {bought: 1},
-            {where: {
-                user_id: req.session.user.id
-            }}).then(async () => {
-                cartData.forEach(async (cart) => {
-                    console.log("ACTUALIZACION DE CANTIDAD DE ENTRADAS DISPONIBLES RESULTADO:", (cart.cart_tickets.amount - cart.quantity));
-                await Ticket.update(
-                    {amount: (cart.cart_tickets.amount - cart.quantity)},
-                    {where: {
-                        name: cart.cart_tickets.name,
-                        product_id: cart.product_id
-                    }})  
-                })
+  putCart: async (req, res) => {
+    try {
+      const cartData = JSON.parse(req.body.cartData)
+      console.log("SOY EL PUT DEL CART", cartData);
+      await Cart.update(
+        { bought: 1 },
+        {
+          where: {
+            user_id: req.session.user.id
+          }
+        }).then(async () => {
+          cartData.forEach(async (cart) => {
+            console.log("ACTUALIZACION DE CANTIDAD DE ENTRADAS DISPONIBLES RESULTADO:", (cart.cart_tickets.amount - cart.quantity));
+            await Ticket.update(
+              { amount: (cart.cart_tickets.amount - cart.quantity) },
+              {
+                where: {
+                  name: cart.cart_tickets.name,
+                  product_id: cart.product_id
+                }
               })
-              .then(res.redirect('/'));
-      } catch (error) {
-        console.log(error);
-      }
-    },
+          })
+        })
+        .then(res.redirect('/'));
+    } catch (error) {
+      console.log(error);
+    }
+  },
 
   deleteCart: async (req, res) => {
     console.log("PRODUCTO ELIMINADO", req.body);
@@ -220,6 +224,7 @@ const productControllers = {
   },
 
   getEvents: async (req, res) => {
+    console.log("USUARIO EN SESION", req.session.user);
     let productos = modelProductos.findAll();
     try {
       await Product.findAll({
@@ -227,12 +232,21 @@ const productControllers = {
         include: [{ association: "tickets" }, { association: "categories" }],
       }).then((products) => {
         // console.log(products);
-        return res.render("events", {
-          products,
-          title: "Eventos",
-          productos,
-          error: {},
-        });
+        if (!req.session.user) {
+          return res.render("events", {
+            products,
+            title: "Eventos",
+            productos,
+            error: {},
+            user: {},
+          });
+        } else {
+          return res.render("events", {
+            products,
+            title: 'Eventos',
+            error: {},
+          })
+        }
       });
     } catch (error) {
       console.log(error);
@@ -518,8 +532,8 @@ const productControllers = {
           },
         }
       );
-  
-     await Ticket.update(
+
+      await Ticket.update(
         {
           name: tipoEntrada,
           amount: cantidadEntradas,
@@ -531,7 +545,7 @@ const productControllers = {
             product_id: id,
           },
         }
-      ); 
+      );
     } catch (error) {
       console.log(error);
     }
