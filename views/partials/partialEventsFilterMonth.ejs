@@ -1,16 +1,33 @@
 <% include('../../utils/dateUtils') %>
 <% let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];  %>
 <% let indice = new Date().getMonth() %>
+<% let eventosEsteMes = products.filter(product => formateDate(product.date).split(' ')[2] === meses[indice]); %>
 
-<div class="owl-carousel owl-theme owl-wrapper-outer">
-
-    <% products.forEach(product => { %>
-        <% if(formateDate(product.date).split(' ')[2] === meses[indice]) {%>
+<% if(eventosEsteMes.length > 0) {%>
+    <% const texto='Eventos del mes' %>
+    <h2 style="text-align: center">
+        <%= texto.toUpperCase() %>
+    </h2>
+    <div class="owl-carousel owl-theme owl-wrapper-outer">
+        <% eventosEsteMes.forEach(product => { %>
         <div class="item item-owl-container">
             <a href="/products/<%= product.id %>/eventsDetails">
             <img src="<%= product.image %>" width="100%">
             </a>
         </div>
-        <% } %>
-    <%}) %>
-</div>
+        <% }) %>
+    </div>
+<% } %>
+
+<!-- <div class="owl-carousel owl-theme owl-wrapper-outer">
+
+    <%# products.forEach(product => { %>
+        <%# if(formateDate(product.date).split(' ')[2] === meses[indice]) {%>
+        <div class="item item-owl-container">
+            <a href="/products/<%#= product.id %>/eventsDetails">
+            <img src="<%#= product.image %>" width="100%">
+            </a>
+        </div>
+        <%# } %>
+    <%#}) %>
+</div> -->
