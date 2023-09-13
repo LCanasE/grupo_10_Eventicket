@@ -5,6 +5,7 @@ const { validationResult } = require("express-validator");
 const { bcrypt, hashSync, compareSync } = require("bcryptjs");
 const { User } = require("../database/models");
 
+
 const userControllers = {
   getLogin: (req, res) => {
     const error = req.query.error || "";
@@ -57,7 +58,7 @@ const userControllers = {
     let searchedUser = await User.findOne({
       where: {
         email: email,
-      },
+      }, 
     });
     if (!searchedUser) {
       return res.send("Email inválido");
@@ -70,6 +71,7 @@ const userControllers = {
       error: {},
     });
   },
+
 
   getEditUser: async (req, res) => {
     const error = req.query.error || "";

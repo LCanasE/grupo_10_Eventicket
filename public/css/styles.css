@@ -1277,25 +1277,6 @@ right: 0;
   display: flex;
 }
 
-/* .btn-editar-eventos-home{
-  border: 1px solid gray;
-  outline: none;
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
-  font-size: 20px;
-  background-color: white;
-  right: 0;
-  cursor: pointer;
-  margin: 5px;
-  transition: all 0.5s ease-in-out;
-}
-
-.btn-editar-eventos-home:hover{
-  background-color: #313d55;
-  color: #ffff;
-} */
 .edit-owner {
   position: absolute;
   width: 40px;
@@ -1999,7 +1980,7 @@ font-weight: 800;
     position: absolute;
     background-color: #fff;
     width: 170px;
-    height: 250px;
+    height: 300px;
     left: -10px;
     border-radius: 15px;
   }
@@ -2022,11 +2003,6 @@ font-weight: 800;
     z-index: 1;
   }
 
-/*   .nav-user ul:hover > .nav-desplegable,
-  .nav-user:hover > .nav-desplegable,
-  .nav-user li:hover > .nav-desplegable {
-    display: block;
-  } */
 
   .nav-bar .nav-user li {
     text-align: right;
