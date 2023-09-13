@@ -12,27 +12,26 @@
       <h2 style="text-align: center; color: #313d55;">Mis Tickets</h2>
 
        
-            <h4 class="datos-mi-perfil">Tickets Comprados</h4>
-              <div class="eventos-mis-tickets">
+                          <div class="eventos-mis-tickets">
                   <% if (user.products && user.products.length > 0) { %>
                     
                     <ul class="eventos-mi-perfil-ul">
                       <% user.products.forEach(product => { %>
                         
-                        <a class="eventos-mi-perfil-a" href="/products/<%= product.id %>/eventsDetails">
+                        <a class="eventos-mis-tickets-a" href="/products/<%= product.id %>/eventsDetails">
                           <li class="eventos-mis-tickets-li">
-                            <img src="<%= product.image %>" alt="<%= product.name %>"><h4 style="color: #313d55;"><%= product.name %> en <%= product.location %> | <%= formateDate(product.date) %></h4>
-                            
+                            <img src="<%= product.image %>" alt="<%= product.name %>"><h4><%= product.name %> en <%= product.location %> | <%= formateDate(product.date) %></h4></a>
+                            <button class="generar-qr-btn" data-product-name="<%= product.name %>" data-product-location="<%= product.location %>" data-product-image="<%= product.image %>">
+                              Ver Entrada QR
+                            </button>
                           </li>
-                        </a>
-                        <button class="generar-qr-btn" data-product-name="<%= product.name %>" data-product-location="<%= product.location %>" data-product-image="<%= product.image %>">
-                          Ver Entrada QR
-                        </button>
+                        
+                        
                       <% }); %>
                       
                        </ul>
                       <% } else { %>
-                         <h4 style="color: #313d55;">Aún no tienes eventos creados.</h4>
+                         <h4 style="color: #313d55;">Aún no tienes eventos comprados.</h4>
                         <% } %>
                   </div>          
               </div>
@@ -63,11 +62,10 @@
       Swal.fire({
         title: `${productName} en ${productLocation}`,
         html: qrCodeContainer,
-/*         showCancelButton: true, */
         confirmButtonText: "Aceptar",
+        })
       });
     });
-  });
 </script>
 
 

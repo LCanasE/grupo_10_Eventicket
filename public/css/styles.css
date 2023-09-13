@@ -325,28 +325,84 @@ a:visited {
 .eventos-mis-tickets {
   margin-top: 15px;
   color: #313d55;
-  background-color: #a13d3d;
+  text-align: center;
 }
 
 .eventos-mi-perfil-ul {
-  list-style-image: url('../Logo/ISOLOGO-EVENTICKET-20.svg');
+  list-style-type: none;
+margin-bottom: 130px;
 }
 
-.eventos-mis-tickets-li img {
-  width: 100px;
+.eventos-mis-tickets-a img {
+  display: inline-block;
+  width: 90%;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 10px;
 }
 
-.eventos-mis-tickets-li {
-  padding: 10px;
-  width: 100%;
-  background-color: #615f5f;
+/* ESTILOS DEL MODAL DE MIS TICKETS */
+
+.swal2-html-container {
+  margin: auto !important;
+}
+
+.swal2-title {
+  font-family: "Montserrat", "sans-serif";
+  color: #313d55;
+  margin-bottom: 10px;
+}
+
+.swal2-confirm {
+  background-color: #313d55 !important;
+  border-radius: 12px !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 5px 10px !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+.swal2-confirm:hover {
+  background-color: #ffffff !important;
+  color: #313d55 !important;
+  transition: 0.3s !important;
 }
 
 
-.eventos-mi-perfil-a {
+.eventos-mis-tickets-li {
+  background-color:#313d55;
+  text-align: center;
+  width: 90%;
+  padding: 25px 10px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+}
+
+.eventos-mis-tickets-a h4 {
+  color: #fff;
+  font-weight: 300;
+}
+
+
+.generar-qr-btn {
+  background-color: #ffffff;
+  border-radius: 12px;
+  color: #313d55;
+  font-weight: 600;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+
+}
+
+.generar-qr-btn:hover {
+  background-color: #313d55;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.eventos-mi-perfil-a, .eventos-mis-tickets-a {
   text-decoration: none;
 }
 
@@ -1812,6 +1868,35 @@ right: 0;
     width: 100% !important;
     display: flex !important;
     justify-content: center;
+  }
+
+  /* MIS TICKETS */
+
+  .eventos-mis-tickets {
+    margin-top: 15px;
+    color: #313d55;
+    text-align: center;
+  }
+  
+  .eventos-mi-perfil-ul {
+    list-style-type: none;
+    margin-bottom: 130px;
+  }
+  
+  .eventos-mis-tickets-a img {
+    width: 20%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .eventos-mis-tickets-li {
+background: none;
+color: #313d55;
+  }
+
+  .eventos-mis-tickets-a h4 {
+color: #313d55;
   }
 
   /* NAV */
