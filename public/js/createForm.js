@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-    
+
     console.log('Prueba');
 
     const addTicketBtn = document.querySelector('.agregar-tipo-entrada');
@@ -55,7 +55,7 @@ window.addEventListener('load', () => {
     })
     containerInputError.appendChild(errorMessage);
 
-        category.addEventListener('change', e => {
+    category.addEventListener('change', e => {
         const length = e.target.value.length;
         if (length === 0) {
             e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
@@ -68,43 +68,43 @@ window.addEventListener('load', () => {
         checkErrors();
     })
 
-        // Función que chequea que todos los inputs tengan un valor. La función itera sobre todos los inputs y si encuentra al menos uno que esté vacío (input.value === '') devuelve false. El objetivo de esta función es establecer un estado de true o false para que luego checkErrors verifique el array de errores solo en caso de que todos los campos estén completos, esto permite que el botón para enviar los datos del formulario se habilite unicamente en caso de que no hayan errores en ninguno de los campos.
-        const haveValue = () => {
-            let allHaveValue = true;
-            allInps.forEach(input => {
-                if (input.value === '') {
-                    // console.log('NO TIENEN VALOR');
-                    allHaveValue = false
-                }
-            })
-            return allHaveValue;
-        }
-        const checkErrors = () => {
-            let errorsHTML = Array.from(document.querySelectorAll('.error'));
-            let errors = []
-    
-            errorsHTML.forEach(error => {
-                if (error.innerHTML !== '') {
-                    errors.push(error.innerHTML);
-                    console.log(error.innerHTML);
-                }
-            });
-            console.log('HAVE VALUE', haveValue());
-            if (haveValue()) {
-                if (errors.length > 0) {
-                    console.log('errores');
-                    submitBtn.disabled = true;
-                } else {
-                    submitBtn.disabled = false;
-                    console.log(submitBtn);
-                }
+    // Función que chequea que todos los inputs tengan un valor. La función itera sobre todos los inputs y si encuentra al menos uno que esté vacío (input.value === '') devuelve false. El objetivo de esta función es establecer un estado de true o false para que luego checkErrors verifique el array de errores solo en caso de que todos los campos estén completos, esto permite que el botón para enviar los datos del formulario se habilite unicamente en caso de que no hayan errores en ninguno de los campos.
+    const haveValue = () => {
+        let allHaveValue = true;
+        allInps.forEach(input => {
+            if (input.value === '') {
+                // console.log('NO TIENEN VALOR');
+                allHaveValue = false
             }
-            allInps.forEach(input => {
-                console.log(input.value);
-            })
-            console.log(errors);
-        };
-    
+        })
+        return allHaveValue;
+    }
+    const checkErrors = () => {
+        let errorsHTML = Array.from(document.querySelectorAll('.error'));
+        let errors = []
+
+        errorsHTML.forEach(error => {
+            if (error.innerHTML !== '') {
+                errors.push(error.innerHTML);
+                console.log(error.innerHTML);
+            }
+        });
+        console.log('HAVE VALUE', haveValue());
+        if (haveValue()) {
+            if (errors.length > 0) {
+                console.log('errores');
+                submitBtn.disabled = true;
+            } else {
+                submitBtn.disabled = false;
+                console.log(submitBtn);
+            }
+        }
+        allInps.forEach(input => {
+            console.log(input.value);
+        })
+        console.log(errors);
+    };
+
 
     addTicketBtn.addEventListener('click', e => {
         e.preventDefault();
@@ -122,9 +122,12 @@ window.addEventListener('load', () => {
         // console.log('CANTIDAD', ticketAmount);
 
         ticketTypeInp.forEach(ticket => {
+
             ticket.addEventListener('input', e => {
+                
+                console.log(e.target.value);
                 let length = e.target.value.length;
-                if(length === 0){
+                if (length === 0) {
                     ticket.style.border = '1px solid red';
                     ticket.style.color = 'black';
                     e.target.nextElementSibling.textContent = 'No puede estar vacío';
@@ -141,7 +144,7 @@ window.addEventListener('load', () => {
         price.forEach(ticket => {
             ticket.addEventListener('input', e => {
                 let length = e.target.value.length;
-                if(length === 0){
+                if (length === 0) {
                     ticket.style.border = '1px solid red';
                     ticket.style.color = 'black';
                     e.target.nextElementSibling.textContent = 'No puede estar vacío';
@@ -158,7 +161,7 @@ window.addEventListener('load', () => {
         ticketAmount.forEach(ticket => {
             ticket.addEventListener('input', e => {
                 let length = e.target.value.length;
-                if(length === 0){
+                if (length === 0) {
                     ticket.style.border = '1px solid red';
                     ticket.style.color = 'black';
                     e.target.nextElementSibling.textContent = 'No puede estar vacío';
@@ -174,7 +177,7 @@ window.addEventListener('load', () => {
     })
 
     textAreaDescription.addEventListener('input', e => {
-                
+
         const maxLength = 255;
         const midLength = maxLength / 2;
         const length = e.target.value.length;
@@ -213,7 +216,7 @@ window.addEventListener('load', () => {
             let length = e.target.value.length;
             // console.log(length);
             // console.log(e.target.nextElementSibling);
-            if(length === 0){
+            if (length === 0) {
                 e.target.nextElementSibling.style.margin = '1px'
                 e.target.nextElementSibling.textContent = 'No puede estar vacío'
                 ticketType.style.border = '1px solid red'
@@ -230,7 +233,7 @@ window.addEventListener('load', () => {
             let length = e.target.value.length;
             // console.log(length);
             // console.log(e.target.nextElementSibling);
-            if(length === 0){
+            if (length === 0) {
                 e.target.nextElementSibling.style.margin = '1px'
                 e.target.nextElementSibling.textContent = 'No puede estar vacío'
                 ticket.style.border = '1px solid red'
@@ -240,12 +243,12 @@ window.addEventListener('load', () => {
                 ticket.style.border = '1px solid green'
             }
             // console.log(e.target.value);
-        })        
+        })
     })
     ticketAmount.forEach(ticket => {
         ticket.addEventListener('input', e => {
             let length = e.target.value.length;
-            if(length === 0){
+            if (length === 0) {
                 e.target.nextElementSibling.style.margin = '1px'
                 e.target.nextElementSibling.textContent = 'No puede estar vacío'
                 ticket.style.border = '1px solid red'
@@ -399,9 +402,9 @@ window.addEventListener('load', () => {
         checkErrors();
     })
 
-    
+
     textAreaDescription.addEventListener('input', e => {
-        
+
         const maxLength = 255;
         const midLength = maxLength / 2;
         const length = e.target.value.length;
