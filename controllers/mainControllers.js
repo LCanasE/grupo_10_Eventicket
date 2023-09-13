@@ -144,15 +144,30 @@ const mainControllers = {
             .then(products => {
                 // Aquí se retoma el from de la primera línea del controlador. El objetivo es que se renderice la vista en la que está el usuario. Si from es "home", entonces cuando realice una búsqueda se renderizará la home. Si from es "events", entonces cuando realice una búsqueda se renderizará events. Cada estructura if pregunta si products está vacío y en tal renderiza la vista con el mensaje de error. Si no, muestra lo que se encontró.
                 if (from === 'home') {
-                    if (products.length === 0) {
-                        return res.render('home', { products, title: 'Eventicket', productsBanner, productos, error: {message: "No se encontraron productos"}, user: {} });
+                    // console.log("USUARIO EN SESION: ", req.session.user.first_name);
+                    if(!req.session.user){
+                        if (products.length === 0) {
+                            return res.render('home', { products, title: 'Eventicket', productsBanner, productos, error: {message: "No se encontraron productos"}, user: {} });
+                        }
+                        return res.render('home', { products, title: 'Eventicket', productsBanner, productos, error: {}, user:{}  });
+                    } else {
+                        if (products.length === 0) {
+                            return res.render('home', { products, title: 'Eventicket', productsBanner, productos, error: {message: "No se encontraron productos"} });
+                        }
+                        return res.render('home', { products, title: 'Eventicket', productsBanner, productos, error: {}  });
                     }
-                    return res.render('home', { products, title: 'Eventicket', productsBanner, productos, error: {}, user: {} });
                 } else if (from === 'events') {
-                    if (products.length === 0) {
-                        return res.render('events', { products, title: 'Eventicket', productsBanner, productos, error: {message: "No se encontraron productos"}, user: {} });
+                    if(!req.session.user){
+                        if (products.length === 0) {
+                            return res.render('events', { products, title: 'Eventicket', productsBanner, productos, error: {message: "No se encontraron productos"}, user: {} });
+                        }
+                        return res.render('events', { products, title: 'Eventicket', productsBanner, productos, error: {}, user:{} });
+                    } else {
+                        if (products.length === 0) {
+                            return res.render('events', { products, title: 'Eventicket', productsBanner, productos, error: {message: "No se encontraron productos"} });
+                        }
+                        return res.render('events', { products, title: 'Eventicket', productsBanner, productos, error: {} });
                     }
-                    return res.render('events', { products, title: 'Eventicket', productsBanner, productos, error: {}, user: {} });
             }
         })
         } catch (error) {

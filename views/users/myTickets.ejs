@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <header>
+    <%- include('../partials/header') %>
+  </header>
+  <main class="main-registro">
+    <section class="mi-perfil">
+      <h2 style="text-align: center; color: #313d55;">Mis Tickets</h2>
+
+       
+                          <div class="eventos-mis-tickets">
+                  <% if (user.products && user.products.length > 0) { %>
+                    
+                    <ul class="eventos-mis-tickets-ul">
+                      <% user.products.forEach(product => { %>
+                        
+                        <a class="eventos-mis-tickets-a" href="/products/<%= product.id %>/eventsDetails">
+                          <div class="eventos-mis-tickets-div">
+                          <img src="<%= product.image %>" alt="<%= product.name %>">
+                          <li class="eventos-mis-tickets-li">
+                            
+                            <h4 class="eventos-mis-tickets-h4-mobile"><%= product.name %> en <%= product.location %> | <%= formateDate(product.date) %>
+                            </h4>
+                            <div class="eventos-mis-tickets-h4-desktop">
+                            <h4><%= product.name %> 
+                            </h4>
+                          <h4><%= product.location %></h4>
+                        <h4><%= formateDate(product.date) %></h4></div></a>
+                            <button class="generar-qr-btn" data-product-name="<%= product.name %>" data-product-location="<%= product.location %>" data-product-image="<%= product.image %>">
+                              Ver Entrada QR
+                            </button>
+                          </li>
+                        </div>
+                        
+                      <% }); %>
+                      
+                       </ul>
+                      <% } else { %>
+                         <h4 style="color: #313d55;">Aún no tienes eventos comprados.</h4>
+                        <% } %>
+                  </div>          
+              </div>
+    </section>
+  </main>
+  <footer>
+    <%- include('../partials/footer') %>
+  </footer>
+
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+<script>
+  const generarQRButtons = document.querySelectorAll(".generar-qr-btn");
+
+  generarQRButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const productName = this.getAttribute("data-product-name");
+      const productLocation = this.getAttribute("data-product-location");
+      const productImage = this.getAttribute("data-product-image")
+      // Crear una cadena con la información del producto
+      const productInfo = `${productName} en ${productLocation}`;
+
+      // Generar el código QR y agregarlo a un elemento HTML
+      const qrCodeContainer = document.createElement("div");
+      new QRCode(qrCodeContainer, productInfo);
+
+      // Mostrar el código QR en un cuadro de diálogo o modal
+      Swal.fire({
+        title: `${productName} en ${productLocation}`,
+        html: qrCodeContainer,
+        confirmButtonText: "Aceptar",
+        })
+      });
+    });
+</script>
+
+
+</body>
+
+</html>

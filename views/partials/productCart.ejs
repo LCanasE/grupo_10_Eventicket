@@ -5,24 +5,26 @@ searchedProducts.forEach(product => { %>
 <div class="articulos-cart">
   <div class="carrito-img"><img src="<%= product.cart_product.image %>" /></div>
   <div class="info">
-    <h3 class="carrito-titulo"><%= product.cart_product.name %></h3>
+    <a class="carrito-titulo-link" href="/products/<%= product.cart_product.id %>/eventsDetails"><h3 class="carrito-titulo"><%= product.cart_product.name %></h3></a>
     <h3 class="carrito-fecha"><%= formateDate(product.cart_product.date) %></h3>
     <h3 class="carrito-lugar"><%= product.cart_product.location %></h3>
     <div class="cart-precio">
-      <p style="margin: 0; padding: 5px"><%= product.cart_tickets.name %></p>
+      <p style="margin: 0; padding: 5px">Entrada: <b><%= product.cart_tickets.name %></b></p>
+      
+      <p style="margin: 0; padding: 5px">Cantidad: <b><%= product.quantity %></b></p>
       <p style="margin: 0; padding: 5px">
-        $<%= product.cart_tickets.price * product.quantity %>
-      </p>
-      <p style="margin: 0; padding: 5px"><%= product.quantity %></p>
+        Total <b>$<%= product.cart_tickets.price * product.quantity %></b>
+       </p>
+      <article class="carrito-btn">
+        <form action="/products/cart/<%=product.id %>?_method=delete" method="POST" id="product-delete" class="productDelete">
+          <button type="submit" class="btn-eliminar-product-cart">
+            <input type="hidden" value="<%= product.id %>" name="id">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+      </form>
+      </article>
     </div>
-    <article class="carrito-btn">
-      <form action="/products/cart/<%=product.id %>?_method=delete" method="POST" id="product-delete" class="productDelete">
-        <button type="submit" class="btn-eliminar-product-cart">
-          <input type="hidden" value="<%= product.id %>" name="id">
-          <i class="fa-regular fa-trash-can"></i>
-        </button>
-    </form>
-    </article>
+    
   </div>
 </div>
 <% } %> <% }); %> <% } %>

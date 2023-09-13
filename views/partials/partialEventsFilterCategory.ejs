@@ -11,22 +11,21 @@
 <% if(error.message) {%>
     <h3><%= error.message %></h3>
 <% } else {%>
+    
         <% categorias.forEach(categoria=> {
             if (products.some(product => product.categories.name === categoria.name)) {
             %>
+            
             <h2 style="text-align: center">
                 <%= categoria.title %>
             </h2>
+            
             <section class="products">
                 <% products.forEach(product=> {
                     if (product.categories.name === categoria.name) {
                     %>
                     <article class="product">
-                        <% if (product.user_creator_id === user.id){ %>
-                            <a href="/products/<%= product.id %>/editEvents" class="edit-owner">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </a>
-                        <% } %>
+                        
                         <a href="/products/<%= product.id %>/eventsDetails" class="product-link-detail">
                             <div class="product-img">
                                 <img src="<%= product.image %>" alt="Error">

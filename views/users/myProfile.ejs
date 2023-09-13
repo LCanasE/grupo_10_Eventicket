@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <%- include('../partials/head') %>
-
 </head>
-
 <body>
   <header>
     <%- include('../partials/header') %>
   </header>
   <main class="main-registro">
     <section class="mi-perfil">
-      <h2 style="text-align: center">Mi Perfil</h2>
+      <h2 style="text-align: center; color: #313d55;">Mi Perfil</h2>
+
         <h4 class="datos-mi-perfil">
-            <% if (locals.isLogged) { %>
-            <%= user.first_name %> <%= user.last_name %>
-            <% } %></h4>
-        <h4 class="datos-mi-perfil"><% if (locals.isLogged) { %>
-            <%= user.email %>
-            <% } %></h4>
-        <h4 class="datos-mi-perfil"><% if (locals.isLogged) { %>
-            <% if (user.user_type_id === 1) { %>
-            Espectador/a
-            <% } else { %>
-                Productor/a
-            <% } %>
-            <% } %></h4>
+            Nombre completo:
+            </h4> <p class="datos-mi-perfil-p"><% if (locals.isLogged) { %> <%= user.first_name %> <%= user.last_name %><% } %></p>
+        <h4 class="datos-mi-perfil">
+            Email de registro:</h4> <p class="datos-mi-perfil-p"><% if (locals.isLogged) { %><%= user.email %>
+              <% } %></p> 
+        <h4 class="datos-mi-perfil">Tipo de usuario: </h4>
+        <p class="datos-mi-perfil-p"><% if (locals.isLogged) { %>
+          <% if (user.user_type_id === 1) { %>
+          Espectador/a
+          <% } else { %>
+              Productor/a
+          <% } %>
+          <% } %></p>
+
+            <h4 class="datos-mi-perfil">Eventos creados:</h4>
+              <div class="eventos-mi-perfil">
+                  <% if (user.products && user.products.length > 0) { %>
+                    <ul class="eventos-mi-perfil-ul">
+                        <% user.products.forEach(product => { %>
+                      <a class="eventos-mi-perfil-a" href="/products/<%= product.id %>/eventsDetails"><li class="eventos-mi-perfil-li">
+                         <h4 style="color: #313d55;"><%= product.name %> en <%= product.location %> | <%= formateDate(product.date) %></h4>
+                      </li></a>
+                           <% }); %>
+                       </ul>
+                      <% } else { %>
+                         <h4 style="color: #313d55;">Aún no tienes eventos creados.</h4>
+                        <% } %>
+                  </div>          
+              </div>
     </section>
   </main>
   <footer>

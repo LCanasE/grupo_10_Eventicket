@@ -41,12 +41,13 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: #ffff;
+  z-index: 3;
 }
 
 .nav-bar {
   position: fixed;
-  width: 80%;
-  height: 100vh;
+  width: 60%;
+  height: 100%;
   /*   display: none; */
   background-color: #313d55;
   top: 75px;
@@ -58,14 +59,25 @@ header {
   z-index: 1;
 }
 
-#menu {
+.menuBurger {
   display: none;
   text-align: right;
-
-  &:target {
-    display: block;
-  }
+  position: fixed;
+  top: 0;
+  left: -100%; /* Comienza fuera de la pantalla a la izquierda */
+ /* Ancho del menú */
+  height: 100%;
+  background-color: #fff;
+  transition: left 0.3s; /* Agregamos una transición a la propiedad "left" */
 }
+
+.menuBurger.visible {
+  display: block;
+  top: 50%;
+  left: 0; /* Muestra el menú moviéndolo a la izquierda */
+  z-index: 2;
+}
+
 
 .cerrar-mobile {
   font-size: 30px;
@@ -148,7 +160,6 @@ a:visited {
   display: inline-block;
   text-align: center;
   width: 90vw;
-  /* border: solid 1px #313d55; */
   padding: 20px;
   padding-bottom: 30px;
   border-radius: 15px;
@@ -308,8 +319,109 @@ a:visited {
 
 .datos-mi-perfil {
   margin-top: 15px;
+  color: #313d55;
+}
+
+.eventos-mis-tickets {
+  margin-top: 15px;
+  color: #313d55;
+  text-align: center;
+}
+
+.eventos-mis-tickets-h4-desktop {
+  display: none;
+}
+
+.eventos-mi-perfil-ul {
+  list-style-image: url(../Logo/ISOLOGO-EVENTICKET-20.svg);
+margin-bottom: 130px;
+}
+
+.eventos-mis-tickets-ul {
+  list-style-type: none;
+  margin-bottom: 130px;
+}
+
+.eventos-mis-tickets-a img {
+  display: inline-block;
+  width: 90%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ESTILOS DEL MODAL DE MIS TICKETS */
+
+.swal2-html-container {
+  margin: auto !important;
+}
+
+.swal2-title {
+  font-family: "Montserrat", "sans-serif";
+  color: #313d55;
+  margin-bottom: 10px;
+}
+
+.swal2-confirm {
+  background-color: #313d55 !important;
+  border-radius: 12px !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 5px 10px !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+.swal2-confirm:hover {
+  background-color: #ffffff !important;
+  color: #313d55 !important;
+  transition: 0.3s !important;
+}
+
+
+.eventos-mis-tickets-div {
+  background-color:#313d55;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  padding: 25px 10px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+}
+
+.eventos-mis-tickets-a h4 {
+  color: #fff;
+  font-weight: 300;
+}
+
+
+.generar-qr-btn {
+  background-color: #ffffff;
+  border-radius: 12px;
+  color: #313d55;
+  font-weight: 600;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+
+}
+
+.generar-qr-btn:hover {
+  background-color: #313d55;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.eventos-mi-perfil-a, .eventos-mis-tickets-a {
+  text-decoration: none;
+}
+
+.datos-mi-perfil-p {
+  font-weight: 600;
   color: #222;
 }
+
 
 #delUser {
   cursor: pointer;
@@ -323,16 +435,16 @@ a:visited {
 }
 
 footer {
+  position: fixed;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #313d55;
-  /*   border: 1px solid black; */
-  /*   margin-top: 6vh; */
   width: 100%;
   bottom: 0px;
   height: 100px;
+  z-index: 3;
 }
 
 .redes {
@@ -345,12 +457,6 @@ footer {
   font-size: 22px;
 }
 
-/* .fa-facebook, .fa-instagram, .fa-twitter{
-  font-size: 2.5vw;
-  border: solid 2px red;
-  padding: 20px;
-  font-size: 20px;
-} */
 
 footer p {
   display: none;
@@ -360,19 +466,14 @@ footer p {
   width: 90px;
 }
 
-/* .fa-instagram,
-.fa-twitter,
-.fa-facebook {
-  width: 20px;
-} */
 
 /* ESTILOS HOME.HTML */
 
 .products {
   display: flex;
-  /* justify-content: space-around; */
   align-items: center;
   flex-direction: column;
+  margin-bottom: 130px;
 }
 
 .product-link-detail {
@@ -694,23 +795,31 @@ footer p {
   text-align: center;
 }
 
+
+
 .articulos-cart {
+  height: 240px;
   width: 100%;
   display: flex;
   background-color: #ffff;
   margin: 10px 0;
   border-radius: 12px;
-  height: 200px;
   overflow: hidden;
+}
+
+.carrito-titulo-link {
+  text-decoration: none;
+  color: #313d55;
 }
 
 .carrito-titulo {
   margin: 0px 0px 10px 0px;
-  font-size: 30px;
+  font-size: 1.5rem;
 }
 
 .carrito-img img {
-  height: 200px;
+  height: 100%;
+  width: 200px;
   object-fit: cover;
 }
 
@@ -726,8 +835,10 @@ footer p {
 
 .cart-precio {
   margin: 10px 0px 5px 0px;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .articulos-cart .info {
@@ -738,19 +849,21 @@ footer p {
   flex-direction: column;
 }
 
+#product-delete {
+width: 60px;
+right: 0;
+}
+
 .btn-eliminar-product-cart {
   border: solid 1px #313d55;
   background-color: #a13d3d;
   color: #fff;
+  border-radius: 5px;
   font-size: 20px;
-  font-weight: 500;
-  border-radius: 15px;
   cursor: pointer;
-  width: 60px;
+  width: 50px;
   transition: all 0.4s;
-  padding: 1.5%;
-  display: block;
-  margin-bottom: 10px;
+  padding: 1%;
 }
 
 .btn-eliminar-product-cart:hover {
@@ -766,6 +879,7 @@ footer p {
   justify-content: space-around;
   width: 90%;
   margin: 5%;
+  margin-bottom: 150px;
 }
 
 .botones-container input,
@@ -1143,65 +1257,12 @@ footer p {
   height: 150px;
 }
 
-/* .owl-carousel {
-  border: 1px solid red;
-} */
 
-.item {
-  background-color: red;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 5px;
-  transition: all 1s ease-in-out;
-}
 
-.item:hover a {
-  background-color: black;
-  box-shadow: 2px 10px 1px 1px black;
-  /* border: 10px solid black; */
-}
 
-.owl-carousel .owl-wrapper-outer .owl-wrapper .owl-item {
-  display: flex;
-  justify-content: center;
-}
 
-.owl-wrapper {
-  display: flex !important;
-  justify-content: center;
-  height: auto;
-}
 
-.owl-wrapper-outer{
-  background-color: #313d55;
-  padding: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
 
-.item-owl-container {
-
-  border-radius: 50%;
-}
-
-.item-owl-container:hover {
-  border: solid 1px #fff ;
-  transition: 0.3s;
-}
-
-.owl-carousel .owl-wrapper-outer .owl-wrapper .owl-item h4 {
-  border: 1px solid black;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .error-product {
   width: 95%;
@@ -1216,25 +1277,6 @@ footer p {
   display: flex;
 }
 
-/* .btn-editar-eventos-home{
-  border: 1px solid gray;
-  outline: none;
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
-  font-size: 20px;
-  background-color: white;
-  right: 0;
-  cursor: pointer;
-  margin: 5px;
-  transition: all 0.5s ease-in-out;
-}
-
-.btn-editar-eventos-home:hover{
-  background-color: #313d55;
-  color: #ffff;
-} */
 .edit-owner {
   position: absolute;
   width: 40px;
@@ -1457,9 +1499,10 @@ footer p {
     margin: auto;
   }
 
-  /* .container-carrito {
-    width: 95%;
-  } */
+.container-carrito {
+  margin-bottom: 50px;
+}
+
 
   .redes {
     width: 20%;
@@ -1535,17 +1578,22 @@ footer p {
     width: 15%;
   }
 
-  /* .fa-facebook, .fa-instagram, .fa-twitter{
-    border: solid 2px red;
-    padding: 30px;
-    font-size: 30px;
-  } */
+  .cart-precio {
+    margin: 10px 0px 5px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
 
   .logo-eventicket-blanco {
     width: 110px;
     margin-right: 10%;
   }
 
+
+  
+  
   /*------ESTILOS HOME------*/
   .search-home {
     margin: 2% auto;
@@ -1565,6 +1613,7 @@ footer p {
   .products {
     width: 85%;
     margin: auto;
+    margin-bottom: 130px;
     font-size: 16px;
     justify-content: flex-start;
   }
@@ -1647,14 +1696,32 @@ footer p {
   width: 80%;
  } */
 
-  .carrito-btn {
+
+  .carrito-btn button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .carrito-btn button input i {
+    margin: auto;
+  }
+
+  .carrito-btn form {
+    display: flex;
+    justify-content: flex-end;
     width: 100%;
+  }
+
+  .articulos-cart {
+    height: 200px;
   }
 
   .articulos-cart .info {
     font-size: 0.8rem;
+    padding: 10px;
     justify-content: space-around;
     flex-direction: column;
+    width: 100%;
   }
 
   .articulos-cart .info p {
@@ -1711,7 +1778,9 @@ footer p {
   main {
     padding-bottom: 6vh;
   }
-
+  #mobileOp {
+    display: none;
+  }
   .cerrar-mobile {
     display: none;
   }
@@ -1728,7 +1797,165 @@ footer p {
     display: block;
   }
 
+  .carrito-titulo {
+    font-size: 2.7em;
+  }
+
+  .cart-precio {
+    margin: 10px 0px 5px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  /* OWL ES EL CARRUSEL DE EVENTOS */
+
+  .owl-wrapper-outer{
+    background-color: #313d55;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .item {
+    background-color: red;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: all 1s ease-in-out;
+    aspect-ratio: 1 / 1;
+  }
+  
+  .item:hover a {
+    background-color: black;
+    box-shadow: 2px 10px 1px 1px black;
+    /* border: 10px solid black; */
+  }
+
+  .item-owl-container {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1 !important;
+    background-color: #313d55;
+  }
+
+
+  
+  .item-owl-container img {
+  position: relative;
+  background-size: cover;
+  aspect-ratio: 1 / 1;
+  }
+
+  .item .item-owl-container {
+    border-radius: 50%;
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+  
+  .item-owl-container:hover {
+    border: solid 1px #fff ;
+    transition: 0.3s;
+  }
+  
+  .owl-carousel .owl-wrapper-outer .owl-wrapper .owl-item h4 {
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .owl-carousel .owl-wrapper-outer .owl-wrapper .owl-item {
+    width: 260px !important;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .owl-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center;
+  }
+
+  /* MIS TICKETS */
+
+  .eventos-mis-tickets-h4-mobile {
+    display: none;
+  }
+
+  .eventos-mis-tickets-h4-desktop {
+    display: block;
+    text-align: right;
+    font-size: 20px;
+  }
+
+  .eventos-mis-tickets {
+    margin-top: 15px;
+    color: #313d55;
+  }
+  
+  .eventos-mi-perfil-ul {
+    list-style-type: none;
+    margin-bottom: 130px;
+  }
+
+  .eventos-mis-tickets-div {
+    background: none;
+    display: flex;
+    justify-content: space-around;
+    color: #313d55;
+    flex-direction: row;
+      }
+
+  .eventos-mis-tickets-a {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .eventos-mis-tickets-a img {
+    width: 250px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 10px;
+    display: inline-block;
+  }
+
+  .eventos-mis-tickets-li {
+    width: 600px;
+    text-align: right;
+  }
+
+  .eventos-mis-tickets-a h4 {
+color: #313d55;
+font-weight: 800;
+  }
+
+  .generar-qr-btn {
+    background-color: #313d55;
+    border-radius: 12px;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  margin-top: 25px;
+  }
+  
+  .generar-qr-btn:hover {
+    background-color: #ffffff;
+    color: #313d55;
+    transition: 0.3s;
+  }
+
+  /* NAV */
+
   .nav-bar {
+    width: 80%;
     position: absolute;
     left: 16vw;
     height: 100px;
@@ -1773,10 +2000,15 @@ footer p {
     position: absolute;
     background-color: #fff;
     width: 170px;
-    height: 250px;
+    height: 300px;
     left: -10px;
     border-radius: 15px;
   }
+
+  .nav-desplegable.visible {
+    display: block;
+  }
+
 
   .nav-user ul {
     display: inline-block;
@@ -1791,11 +2023,6 @@ footer p {
     z-index: 1;
   }
 
-  .nav-user ul:hover > .nav-desplegable,
-  .nav-user:hover > .nav-desplegable,
-  .nav-user li:hover > .nav-desplegable {
-    display: block;
-  }
 
   .nav-bar .nav-user li {
     text-align: right;
@@ -1826,7 +2053,7 @@ footer p {
 
   /* Estilo para el hover con animación */
   .nav-btn-sub:hover::before {
-    animation: subrayarAnimacion 0.5s forwards; /* 1 segundos de duración */
+    animation: subrayarAnimacion 0.4s forwards; /* 1 segundos de duración */
   }
 
   /* Animación para el subrayado */
@@ -1902,6 +2129,7 @@ footer p {
 
   .articulos-cart .info {
     font-size: 0.8rem;
+    padding: 10px;
     justify-content: space-around;
     flex-direction: column;
   }
@@ -1930,6 +2158,7 @@ footer p {
     padding-left: 6vw;
     padding-right: 6vw;
     bottom: 0px;
+    position: relative;
   }
 
   /* CREACION EVENTOS */

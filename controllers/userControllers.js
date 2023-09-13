@@ -5,6 +5,7 @@ const { validationResult } = require("express-validator");
 const { bcrypt, hashSync, compareSync } = require("bcryptjs");
 const { User } = require("../database/models");
 
+
 const userControllers = {
   getLogin: (req, res) => {
     const error = req.query.error || "";
@@ -50,6 +51,27 @@ const userControllers = {
       error: {},
     });
   },
+
+  getMyTickets: async (req, res) => {
+    const error = req.query.error || "";
+    let email = req.session.user.email;
+    let searchedUser = await User.findOne({
+      where: {
+        email: email,
+      }, 
+    });
+    if (!searchedUser) {
+      return res.send("Email inválido");
+    }
+    console.log(searchedUser);
+    let nuevosDatos = req.body;
+    res.render("myTickets", {
+      title: "Mis Tickets",
+      searchedUser,
+      error: {},
+    });
+  },
+
 
   getEditUser: async (req, res) => {
     let { emailError, passwordError, category } = req.query || "";
