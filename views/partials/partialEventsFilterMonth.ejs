@@ -2,7 +2,7 @@
 <% let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];  %>
 <% let indice = new Date().getMonth() %>
 
-<div class="owl-carousel owl-theme">
+<div class="owl-carousel owl-theme owl-wrapper-outer">
 
     <% products.forEach(product => { %>
         <% if(formateDate(product.date).split(' ')[2] === meses[indice]) {%>
@@ -14,40 +14,3 @@
         <% } %>
     <%}) %>
 </div>
-
-
-
-
-<!-- <%# productos.forEach(producto => { %>
-    <%# if(producto.fecha.split(' ')[2] === meses[indice]) {%>
-        <article class='product'>
-            <a href="/products/<%#= producto.id %>/eventsDetails" class="product-link-detail">
-                <div class="product-img">
-                    <img src=<%#= producto.img %> alt="Error">
-                </div>
-                <div class="product-info">
-                    <div class="information-product">
-                        <h2><%#= producto.nombre %></h2>
-                        <p class="date"><%#= producto.fecha %></p>
-                        <p class="place"><%#= producto.ubicacion %></p>
-                    </div>
-                    <div class="price-buy">
-                        <div class="price">
-                            <p>Desde $<%#= producto.precio %></p>
-                        </div>
-                        <div class="buy">
-                            <button><i class="fa-sharp fa-solid fa-ticket"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <%# if (producto.agotado !== false) {%>
-                <p class="tickets-agotados">Agotado</p>
-                <%# } %>
-                <%# if (producto.eliminado === true) {%>
-                    <div class="producto-eliminado"></div>
-                <%# } %>
-            </a>
-        </article> 
-    <%# } %>    
-<%# }); %> -->
-

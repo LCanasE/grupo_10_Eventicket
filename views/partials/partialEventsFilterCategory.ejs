@@ -11,12 +11,15 @@
 <% if(error.message) {%>
     <h3><%= error.message %></h3>
 <% } else {%>
+    
         <% categorias.forEach(categoria=> {
             if (products.some(product => product.categories.name === categoria.name)) {
             %>
+            
             <h2 style="text-align: center">
                 <%= categoria.title %>
             </h2>
+            
             <section class="products">
                 <% products.forEach(product=> {
                     if (product.categories.name === categoria.name) {

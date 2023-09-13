@@ -22,8 +22,11 @@ router.get("/register", guestMiddleware, userControllers.getRegister);
 // @POST/users/register
 router.post("/register", validations, userControllers.postRegister);
 
-// @GET/users/beProducer
+// @GET/users/myProfile
 router.get("/myProfile", authMiddleware, userControllers.getMyProfile);
+
+// @GET/users/myTickets
+router.get("/myTickets", authMiddleware, userControllers.getMyTickets);
 
 // @GET/users/beProducer
 router.get("/beProducer", authMiddleware, userControllers.getBeProducer);

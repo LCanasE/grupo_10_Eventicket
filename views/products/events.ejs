@@ -24,20 +24,9 @@
         <h2 style="text-align: center">
             <%= texto.toUpperCase() %>
         </h2>
-        <!-- <div class="owl-carousel owl-theme">
-            <%# productos.forEach(producto => { %>
-                <div class="item item-owl-container">
-                    <a href="/products/<%#= producto.id %>/eventsDetails">
-                    <img src="<%#= producto.img %>" width="100%">
-                    </a>
-                </div>
-            <%#}) %>
-        </div> -->
 
         <%- include('../partials/partialEventsFilterMonth') %>
-                <!-- <section class="products">
 
-                </section> -->
                 <%- include('../partials/partialEventsFilterCategory') %>
 
     </main>
@@ -57,18 +46,7 @@
                 loop: true,
                 margin: 5,
                 autoPlay: true,
-                autoPlayTimeout: 1000, // Ajusta el tiempo de espera entre diapositivas
-                // responsive: {
-                //     0: {
-                //         items: 1
-                //     },
-                //     600: {
-                //         items: 4
-                //     },
-                //     1000: {
-                //         items: 5
-                //     }
-                // }
+                autoPlayTimeout: 1500, // Ajusta el tiempo de espera entre diapositivas
             });
         });
     </script>

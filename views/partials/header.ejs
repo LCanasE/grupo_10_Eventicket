@@ -11,8 +11,8 @@
   <i class="fa-solid fa-bars menu-burger" style="color: #313d55"></i>
 </a>
 <nav>
-  <ul id=menu  class="nav-bar menuBurger">
-    <a class="linkeado-burger" href="javascript: history.go(-1)"><i class="fa-solid fa-xmark cerrar-mobile" style="color: #ffffff;"></i>
+  <ul id="menu" class="nav-bar menuBurger">
+    <a class="linkeado-burger" ><i class="fa-solid fa-xmark cerrar-mobile" style="color: #ffffff;"></i>
     <a class="nav-inicio nav-enlaces nav-btn-sub" href="/"
       ><li class="nav-inicio nav-enlaces">Inicio</li></a
     >
@@ -33,9 +33,10 @@
       <ul class="nav-bar nav-user-ul">
         <section class="nav-desplegable">
           <a class="nav-enlaces" id="mobileOp" href="/"><li>Inicio</li></a>
+          <a class="nav-enlaces" href="/users/myProfile"><li>Mi Perfil</li></a>
+          <a class="nav-enlaces" id="mobileOp" href="/products/cart"><li>Carrito</li></a>
           <a class="nav-enlaces" id="mobileOp" href="/products/events"><li>Eventos</li></a>
           <a class="nav-enlaces" id="mobileOp" href="/products/createEvents"><li>Crear Evento</li></a>
-          <a class="nav-enlaces" href="/users/myProfile"><li>Mi Perfil</li></a>
           <a class="nav-enlaces" href="/products/myEvents"><li>Mis Eventos</a></a>
           <a class="nav-enlaces" href="/users/editUser"><li>Configuración</li></a>
           <a class="nav-enlaces" href="/users/logout"><li>Salir</li></a>
@@ -62,18 +63,19 @@
   </ul>
 
   <script>
-    const userMenuToggle = document.getElementById("userMenuToggle");
-    const menuToggle = document.getElementById("menuBurger");
-    const navDesplegable = document.querySelector(".nav-desplegable");
-  
-    userMenuToggle.addEventListener("click", function (event) {
-      navDesplegable.classList.toggle("visible");
-    });
-  
-    menuToggle.addEventListener("click", function (event) {
-      const menu = document.getElementById("menu");
-      menu.classList.toggle("visible");
-    });
+   const userMenuToggle = document.getElementById("userMenuToggle");
+const menuToggle = document.getElementById("menuBurger");
+const navDesplegable = document.querySelector(".nav-desplegable");
+
+userMenuToggle.addEventListener("click", function (event) {
+  navDesplegable.classList.toggle("visible");
+});
+
+menuToggle.addEventListener("click", function (event) {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("visible");
+});
+
   </script>
 
 </nav>

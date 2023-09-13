@@ -88,6 +88,7 @@
 .tickets-imagen {
   /* border: 3px solid black; */
   display: flex;
+
   /* height: 50vh; */
   width: 100%;
   justify-content: space-around;
@@ -184,7 +185,6 @@
   display: flex;
   color: #313d55;
   justify-content: center;
-  width: 5vw;
   align-items: center;
   margin: 10px 0px;
   padding: 10px;
@@ -245,6 +245,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-items: center;
+    margin-bottom: 150px;
   }
 
   .caja-titulo {
@@ -277,9 +278,6 @@
     font-size: 16px;
   }
 
-  .descripcion-ubicacion {
-    font-size: 10px;
-  }
 
   .fa-location-dot,
   .fa-calendar-days {
@@ -306,6 +304,14 @@
     width: 20vw;
     margin: 8px;
   }
+
+  .caja-titulo-ubicacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    flex-direction: column;
+  }
+
 }
 
 /* Media quierie para mobile */
@@ -314,6 +320,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-items: center;
+    flex-direction: column;
   }
 
   .caja-ubicacion {
@@ -331,13 +338,14 @@
 
   .caja-cantidad {
     margin: 8px;
-    width: 15vw;
+    width: 60px;
   }
 
   .tickets-imagen {
     display: flex;
     flex-wrap: wrap;
     justify-items: center;
+    margin-bottom: 100px;
   }
 
   .caja-tickets {
@@ -362,9 +370,6 @@
     font-size: 16px;
   }
 
-  .descripcion-ubicacion {
-    font-size: 10px;
-  }
 
   .fa-location-dot,
   .fa-calendar-days {

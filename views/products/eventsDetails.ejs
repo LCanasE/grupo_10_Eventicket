@@ -31,13 +31,7 @@
                     </p>
             </div>
             <!-- Si el usuario está logueado y ademas si el usuario es de tipo Creador y ademas si el usuario de tipo creador tiene un id que coincide con la foreign key de product (user_creator_id), es decir, que él creó el producto, entonces puede editarlo -->
-            <% if (locals.isLogged && locals.user.user_type_id === 2 && product.user_creator_id === locals.user.id) { %>
-              <a href="/products/<%=product.id%>/editEvents">
-                <button class="btn-editar-eventos">
-                  <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-              </a>
-              <% } %>
+
               
           </div>
 
@@ -51,6 +45,15 @@
               </h4>
             </div>
           </div>
+
+          <% if (locals.isLogged && locals.user.user_type_id === 2 && product.user_creator_id === locals.user.id) { %>
+            <a href="/products/<%=product.id%>/editEvents">
+              <button class="btn-editar-eventos">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+            </a>
+            <% } %>
+
         </section>
 
         <section class="tickets-imagen">

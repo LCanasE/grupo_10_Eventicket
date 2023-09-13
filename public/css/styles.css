@@ -41,12 +41,13 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: #ffff;
+  z-index: 3;
 }
 
 .nav-bar {
   position: fixed;
-  width: 80%;
-  height: 100vh;
+  width: 60%;
+  height: 100%;
   /*   display: none; */
   background-color: #313d55;
   top: 75px;
@@ -72,8 +73,9 @@ header {
 
 .menuBurger.visible {
   display: block;
-  top: 35%;
+  top: 50%;
   left: 0; /* Muestra el menú moviéndolo a la izquierda */
+  z-index: 2;
 }
 
 
@@ -158,7 +160,6 @@ a:visited {
   display: inline-block;
   text-align: center;
   width: 90vw;
-  /* border: solid 1px #313d55; */
   padding: 20px;
   padding-bottom: 30px;
   border-radius: 15px;
@@ -321,9 +322,29 @@ a:visited {
   color: #313d55;
 }
 
+.eventos-mis-tickets {
+  margin-top: 15px;
+  color: #313d55;
+  background-color: #a13d3d;
+}
+
 .eventos-mi-perfil-ul {
   list-style-image: url('../Logo/ISOLOGO-EVENTICKET-20.svg');
 }
+
+.eventos-mis-tickets-li img {
+  width: 100px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.eventos-mis-tickets-li {
+  padding: 10px;
+  width: 100%;
+  background-color: #615f5f;
+}
+
 
 .eventos-mi-perfil-a {
   text-decoration: none;
@@ -347,16 +368,16 @@ a:visited {
 }
 
 footer {
+  position: fixed;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #313d55;
-  /*   border: 1px solid black; */
-  /*   margin-top: 6vh; */
   width: 100%;
   bottom: 0px;
   height: 100px;
+  z-index: 3;
 }
 
 .redes {
@@ -369,12 +390,6 @@ footer {
   font-size: 22px;
 }
 
-/* .fa-facebook, .fa-instagram, .fa-twitter{
-  font-size: 2.5vw;
-  border: solid 2px red;
-  padding: 20px;
-  font-size: 20px;
-} */
 
 footer p {
   display: none;
@@ -384,19 +399,14 @@ footer p {
   width: 90px;
 }
 
-/* .fa-instagram,
-.fa-twitter,
-.fa-facebook {
-  width: 20px;
-} */
 
 /* ESTILOS HOME.HTML */
 
 .products {
   display: flex;
-  /* justify-content: space-around; */
   align-items: center;
   flex-direction: column;
+  margin-bottom: 130px;
 }
 
 .product-link-detail {
@@ -718,13 +728,15 @@ footer p {
   text-align: center;
 }
 
+
+
 .articulos-cart {
+  height: 240px;
   width: 100%;
   display: flex;
   background-color: #ffff;
   margin: 10px 0;
   border-radius: 12px;
-  height: 200px;
   overflow: hidden;
 }
 
@@ -735,12 +747,12 @@ footer p {
 
 .carrito-titulo {
   margin: 0px 0px 10px 0px;
-  font-size: 30px;
-
+  font-size: 1.5rem;
 }
 
 .carrito-img img {
-  height: 200px;
+  height: 100%;
+  width: 200px;
   object-fit: cover;
 }
 
@@ -756,8 +768,10 @@ footer p {
 
 .cart-precio {
   margin: 10px 0px 5px 0px;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .articulos-cart .info {
@@ -768,19 +782,21 @@ footer p {
   flex-direction: column;
 }
 
+#product-delete {
+width: 60px;
+right: 0;
+}
+
 .btn-eliminar-product-cart {
   border: solid 1px #313d55;
   background-color: #a13d3d;
   color: #fff;
+  border-radius: 5px;
   font-size: 20px;
-  font-weight: 500;
-  border-radius: 15px;
   cursor: pointer;
-  width: 60px;
+  width: 50px;
   transition: all 0.4s;
-  padding: 1.5%;
-  display: block;
-  margin-bottom: 10px;
+  padding: 1%;
 }
 
 .btn-eliminar-product-cart:hover {
@@ -796,6 +812,7 @@ footer p {
   justify-content: space-around;
   width: 90%;
   margin: 5%;
+  margin-bottom: 150px;
 }
 
 .botones-container input,
@@ -1173,71 +1190,12 @@ footer p {
   height: 150px;
 }
 
-/* .owl-carousel {
-  border: 1px solid red;
-} */
 
-.item {
-  background-color: red;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 5px;
-  transition: all 1s ease-in-out;
-}
 
-.item:hover a {
-  background-color: black;
-  box-shadow: 2px 10px 1px 1px black;
-  /* border: 10px solid black; */
-}
 
-.owl-carousel .owl-wrapper-outer .owl-wrapper .owl-item {
-  width: 260px !important;
-  display: flex;
-  justify-content: center;
-}
 
-.owl-wrapper {
-  width: 100% !important;
-  display: flex !important;
-  justify-content: center;
-}
 
-.owl-wrapper-outer{
-  background-color: #313d55;
-  padding: 10px;
-  width: 100%;
 
-}
-
-.item-owl-container {
-
-  border-radius: 50%;
-  background-color: #313d55;
-}
-
-.item-owl-container img {
-position: relative;
-background-size: cover;
-}
-
-.item-owl-container:hover {
-  border: solid 1px #fff ;
-  transition: 0.3s;
-}
-
-.owl-carousel .owl-wrapper-outer .owl-wrapper .owl-item h4 {
-  border: 1px solid black;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .error-product {
   width: 95%;
@@ -1473,9 +1431,10 @@ background-size: cover;
     margin: auto;
   }
 
-  /* .container-carrito {
-    width: 95%;
-  } */
+.container-carrito {
+  margin-bottom: 50px;
+}
+
 
   .redes {
     width: 20%;
@@ -1551,21 +1510,22 @@ background-size: cover;
     width: 15%;
   }
 
-  /* .fa-facebook, .fa-instagram, .fa-twitter{
-    border: solid 2px red;
-    padding: 30px;
-    font-size: 30px;
-  } */
+  .cart-precio {
+    margin: 10px 0px 5px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
 
   .logo-eventicket-blanco {
     width: 110px;
     margin-right: 10%;
   }
 
-  #mobileOp {
-    display: none;
-  }
 
+  
+  
   /*------ESTILOS HOME------*/
   .search-home {
     margin: 2% auto;
@@ -1585,6 +1545,7 @@ background-size: cover;
   .products {
     width: 85%;
     margin: auto;
+    margin-bottom: 130px;
     font-size: 16px;
     justify-content: flex-start;
   }
@@ -1667,9 +1628,6 @@ background-size: cover;
   width: 80%;
  } */
 
-  .carrito-btn {
-    width: 100%;
-  }
 
   .carrito-btn button {
     width: 50px;
@@ -1686,9 +1644,13 @@ background-size: cover;
     width: 100%;
   }
 
+  .articulos-cart {
+    height: 200px;
+  }
 
   .articulos-cart .info {
     font-size: 0.8rem;
+    padding: 10px;
     justify-content: space-around;
     flex-direction: column;
     width: 100%;
@@ -1748,7 +1710,9 @@ background-size: cover;
   main {
     padding-bottom: 6vh;
   }
-
+  #mobileOp {
+    display: none;
+  }
   .cerrar-mobile {
     display: none;
   }
@@ -1765,7 +1729,95 @@ background-size: cover;
     display: block;
   }
 
+  .carrito-titulo {
+    font-size: 2.7em;
+  }
+
+  .cart-precio {
+    margin: 10px 0px 5px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  /* OWL ES EL CARRUSEL DE EVENTOS */
+
+  .owl-wrapper-outer{
+    background-color: #313d55;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .item {
+    background-color: red;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: all 1s ease-in-out;
+    aspect-ratio: 1 / 1;
+  }
+  
+  .item:hover a {
+    background-color: black;
+    box-shadow: 2px 10px 1px 1px black;
+    /* border: 10px solid black; */
+  }
+
+  .item-owl-container {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1 !important;
+    background-color: #313d55;
+  }
+
+
+  
+  .item-owl-container img {
+  position: relative;
+  background-size: cover;
+  aspect-ratio: 1 / 1;
+  }
+
+  .item .item-owl-container {
+    border-radius: 50%;
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+  
+  .item-owl-container:hover {
+    border: solid 1px #fff ;
+    transition: 0.3s;
+  }
+  
+  .owl-carousel .owl-wrapper-outer .owl-wrapper .owl-item h4 {
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .owl-carousel .owl-wrapper-outer .owl-wrapper .owl-item {
+    width: 260px !important;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .owl-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center;
+  }
+
+  /* NAV */
+
   .nav-bar {
+    width: 80%;
     position: absolute;
     left: 16vw;
     height: 100px;
@@ -1944,6 +1996,7 @@ background-size: cover;
 
   .articulos-cart .info {
     font-size: 0.8rem;
+    padding: 10px;
     justify-content: space-around;
     flex-direction: column;
   }
@@ -1972,6 +2025,7 @@ background-size: cover;
     padding-left: 6vw;
     padding-right: 6vw;
     bottom: 0px;
+    position: relative;
   }
 
   /* CREACION EVENTOS */
