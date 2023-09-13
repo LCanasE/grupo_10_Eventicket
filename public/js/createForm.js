@@ -1,4 +1,5 @@
 window.addEventListener('load', () => {
+    
     console.log('Prueba');
 
     const addTicketBtn = document.querySelector('.agregar-tipo-entrada');
@@ -13,20 +14,25 @@ window.addEventListener('load', () => {
     let ticketTypeInp = [...document.querySelectorAll('.tipo-entrada-evento')];
     let price = [...document.querySelectorAll('.precio-evento')];
     let ticketAmount = [...document.querySelectorAll('.cantidad-evento')];
-    console.log(ticketTypeInp);
-    console.log(price);
-    console.log(ticketAmount);
+    // console.log(ticketTypeInp);
+    // console.log(price);
+    // console.log(ticketAmount);
     // const price = document.querySelector('#precio');
     // const ticketAmount = document.querySelector('#cantidad-entradas');
     const category = document.querySelector('#categoriaSelect');
+    console.log(category);
     const imgInp = document.querySelector('#imagenInput');
     const submitBtn = document.querySelector('#submit-button');
     const errorsList = document.querySelector('#errors')
     const allInps = Array.from(document.querySelectorAll('input'));
+    console.log(allInps);
     const circleText = document.querySelector('.circle-inp');
     const textAreaDescription = document.querySelector('#description');
     const circleTextArea = document.querySelector('.circle-textarea');
+    // console.log(textAreaDescription);
     const containerInputError = document.querySelector('.container-input-error');
+    const selectElement = document.querySelector('.creacion-evento-categorias');
+    console.log(selectElement);
 
     // CREACION DE ELEMENTOS
     const errorMessage = document.createElement('p');
@@ -34,7 +40,71 @@ window.addEventListener('load', () => {
     errorMessage.style.textAlign = 'start';
     errorMessage.style.margin = '0 25px';
     errorMessage.classList.add('error');
+
+    imgInp.addEventListener('input', e => {
+        const length = e.target.value.length;
+        if (length === 0) {
+            e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
+            console.log('error imagen');
+            imgInp.style.border = '1px solid red';
+        } else {
+            e.target.nextElementSibling.innerHTML = '';
+            imgInp.style.border = '1px solid green';
+        };
+        checkErrors();
+    })
     containerInputError.appendChild(errorMessage);
+
+        category.addEventListener('change', e => {
+        const length = e.target.value.length;
+        if (length === 0) {
+            e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
+            console.log('error categoria');
+            category.style.border = '1px solid red';
+        } else {
+            e.target.nextElementSibling.innerHTML = '';
+            category.style.border = '1px solid green';
+        };
+        checkErrors();
+    })
+
+        // Función que chequea que todos los inputs tengan un valor. La función itera sobre todos los inputs y si encuentra al menos uno que esté vacío (input.value === '') devuelve false. El objetivo de esta función es establecer un estado de true o false para que luego checkErrors verifique el array de errores solo en caso de que todos los campos estén completos, esto permite que el botón para enviar los datos del formulario se habilite unicamente en caso de que no hayan errores en ninguno de los campos.
+        const haveValue = () => {
+            let allHaveValue = true;
+            allInps.forEach(input => {
+                if (input.value === '') {
+                    // console.log('NO TIENEN VALOR');
+                    allHaveValue = false
+                }
+            })
+            return allHaveValue;
+        }
+        const checkErrors = () => {
+            let errorsHTML = Array.from(document.querySelectorAll('.error'));
+            let errors = []
+    
+            errorsHTML.forEach(error => {
+                if (error.innerHTML !== '') {
+                    errors.push(error.innerHTML);
+                    console.log(error.innerHTML);
+                }
+            });
+            console.log('HAVE VALUE', haveValue());
+            if (haveValue()) {
+                if (errors.length > 0) {
+                    console.log('errores');
+                    submitBtn.disabled = true;
+                } else {
+                    submitBtn.disabled = false;
+                    console.log(submitBtn);
+                }
+            }
+            allInps.forEach(input => {
+                console.log(input.value);
+            })
+            console.log(errors);
+        };
+    
 
     addTicketBtn.addEventListener('click', e => {
         e.preventDefault();
@@ -42,54 +112,151 @@ window.addEventListener('load', () => {
         const cloneNode = addTicket.cloneNode(true);
 
         addTicketDiv.appendChild(cloneNode);
+        cloneNode.style.marginBottom = '25px';
 
         ticketTypeInp = [...document.querySelectorAll('.tipo-entrada-evento')]
-        price = [...document.querySelectorAll('.tipo-entrada-evento')];
-        ticketAmount = [...document.querySelectorAll('.tipo-entrada-evento')];
-        console.log('TIPO DE ENTRADA', ticketTypeInp);
+        price = [...document.querySelectorAll('.precio-evento')];
+        ticketAmount = [...document.querySelectorAll('.cantidad-evento')];
+        // console.log('TIPO DE ENTRADA', ticketTypeInp);
+        // console.log('PRECIO', price);
+        // console.log('CANTIDAD', ticketAmount);
+
+        ticketTypeInp.forEach(ticket => {
+            ticket.addEventListener('input', e => {
+                let length = e.target.value.length;
+                if(length === 0){
+                    ticket.style.border = '1px solid red';
+                    ticket.style.color = 'black';
+                    e.target.nextElementSibling.textContent = 'No puede estar vacío';
+                    e.target.nextElementSibling.style.margin = '2px';
+                } else {
+                    ticket.style.border = '1px solid green';
+                    ticket.style.color = 'black';
+                    e.target.nextElementSibling.textContent = ''
+                }
+                checkErrors();
+            })
+        })
+
+        price.forEach(ticket => {
+            ticket.addEventListener('input', e => {
+                let length = e.target.value.length;
+                if(length === 0){
+                    ticket.style.border = '1px solid red';
+                    ticket.style.color = 'black';
+                    e.target.nextElementSibling.textContent = 'No puede estar vacío';
+                    e.target.nextElementSibling.style.margin = '2px';
+                } else {
+                    ticket.style.border = '1px solid green';
+                    ticket.style.color = 'black';
+                    e.target.nextElementSibling.textContent = ''
+                }
+                checkErrors();
+            })
+        })
+
+        ticketAmount.forEach(ticket => {
+            ticket.addEventListener('input', e => {
+                let length = e.target.value.length;
+                if(length === 0){
+                    ticket.style.border = '1px solid red';
+                    ticket.style.color = 'black';
+                    e.target.nextElementSibling.textContent = 'No puede estar vacío';
+                    e.target.nextElementSibling.style.margin = '2px';
+                } else {
+                    ticket.style.border = '1px solid green';
+                    ticket.style.color = 'black';
+                    e.target.nextElementSibling.textContent = ''
+                }
+                checkErrors();
+            })
+        })
     })
-    // console.log('PRECIO DE ESA ENTRADA', price);
-    // console.log('CANTIDAD DE ESA ENTRADA', ticketAmount);
 
-    // submitBtn.addEventListener('click', e => {
-    //     e.preventDefault();
-    // })
+    textAreaDescription.addEventListener('input', e => {
+                
+        const maxLength = 255;
+        const midLength = maxLength / 2;
+        const length = e.target.value.length;
+        textAreaDescription.style.border = '1px solid green';
+        circleTextArea.style.border = '1px solid green';
+        e.target.nextElementSibling.innerHTML = '';
+        circleTextArea.style.color = 'green';
 
-    // Función que chequea que todos los inputs tengan un valor. La función itera sobre todos los inputs y si encuentra al menos uno que esté vacío (input.value === '') devuelve false. El objetivo de esta función es establecer un estado de true o false para que luego checkErrors verifique el array de errores solo en caso de que todos los campos estén completos, esto permite que el botón para enviar los datos del formulario se habilite unicamente en caso de que no hayan errores en ninguno de los campos.
-    const haveValue = () => {
-        let allHaveValue = true;
-        allInps.forEach(input => {
-            if (input.value === '') {
-                allHaveValue = false
-            }
-        })
-        return allHaveValue;
-    }
-
-    const checkErrors = () => {
-        let errorsHTML = Array.from(document.querySelectorAll('.error'));
-        let errors = []
-
-        errorsHTML.forEach(error => {
-            if (error.innerHTML !== '') {
-                errors.push(error.innerHTML);
-                console.log(error.innerHTML);
-            }
-        });
-
-        if (haveValue()) {
-            if (errors.length > 0) {
-                submitBtn.disabled = true;
-            } else {
-                submitBtn.disabled = false;
-                console.log(submitBtn);
-            }
+        if (length === 0) {
+            // Si el texto está vacío
+            textAreaDescription.style.border = '1px solid red';
+            e.target.nextElementSibling.innerHTML = 'No puede estar vacío';
+            circleTextArea.style.border = 'none';
+            circleTextArea.textContent = '';
+        } else if (length > maxLength) {
+            // Si la longitud supera el máximo
+            textAreaDescription.style.border = '1px solid red';
+            circleTextArea.style.border = '1px solid red';
+            e.target.nextElementSibling.innerHTML = 'La descripción no puede tener más de 255 caracteres';
+            circleTextArea.style.color = 'red';
+            circleTextArea.textContent = maxLength - length;
+        } else if (length > maxLength / 2) {
+            // Si la longitud supera la mitad del máximo
+            circleTextArea.style.border = '1px solid orange';
+            circleTextArea.style.color = 'orange';
+            circleTextArea.textContent = maxLength - length;
+        } else {
+            // En otros casos
+            circleTextArea.textContent = maxLength - length;
         }
-        allInps.forEach(input => {
-            console.log(input.value);
+        checkErrors();
+    })
+
+    ticketTypeInp.forEach(ticketType => {
+        ticketType.addEventListener('input', e => {
+            let length = e.target.value.length;
+            // console.log(length);
+            // console.log(e.target.nextElementSibling);
+            if(length === 0){
+                e.target.nextElementSibling.style.margin = '1px'
+                e.target.nextElementSibling.textContent = 'No puede estar vacío'
+                ticketType.style.border = '1px solid red'
+            } else {
+                e.target.nextElementSibling.style.margin = '1px'
+                e.target.nextElementSibling.textContent = ''
+                ticketType.style.border = '1px solid green'
+            }
         })
-        console.log(errors);
-    }
+    })
+
+    price.forEach(ticket => {
+        ticket.addEventListener('input', e => {
+            let length = e.target.value.length;
+            // console.log(length);
+            // console.log(e.target.nextElementSibling);
+            if(length === 0){
+                e.target.nextElementSibling.style.margin = '1px'
+                e.target.nextElementSibling.textContent = 'No puede estar vacío'
+                ticket.style.border = '1px solid red'
+            } else {
+                e.target.nextElementSibling.style.margin = '1px'
+                e.target.nextElementSibling.textContent = ''
+                ticket.style.border = '1px solid green'
+            }
+            // console.log(e.target.value);
+        })        
+    })
+    ticketAmount.forEach(ticket => {
+        ticket.addEventListener('input', e => {
+            let length = e.target.value.length;
+            if(length === 0){
+                e.target.nextElementSibling.style.margin = '1px'
+                e.target.nextElementSibling.textContent = 'No puede estar vacío'
+                ticket.style.border = '1px solid red'
+            } else {
+                e.target.nextElementSibling.style.margin = '1px'
+                e.target.nextElementSibling.textContent = ''
+                ticket.style.border = '1px solid green'
+            }
+            // console.log(e.target.value);
+        })
+    })
 
     titleInp.addEventListener('input', (e) => {
         let maxCharacters = 25;
@@ -232,33 +399,9 @@ window.addEventListener('load', () => {
         checkErrors();
     })
 
-    category.addEventListener('input', e => {
-        const length = e.target.value.length;
-        if (length === 0) {
-            e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
-            console.log('error categoria');
-            category.style.border = '1px solid red';
-        } else {
-            e.target.nextElementSibling.innerHTML = '';
-            category.style.border = '1px solid green';
-        };
-        checkErrors();
-    })
-
-    imgInp.addEventListener('input', e => {
-        const length = e.target.value.length;
-        if (length === 0) {
-            e.target.nextElementSibling.innerHTML = 'No puede estar vacío'
-            console.log('error imagen');
-            imgInp.style.border = '1px solid red';
-        } else {
-            e.target.nextElementSibling.innerHTML = '';
-            imgInp.style.border = '1px solid green';
-        };
-        checkErrors();
-    })
-
+    
     textAreaDescription.addEventListener('input', e => {
+        
         const maxLength = 255;
         const midLength = maxLength / 2;
         const length = e.target.value.length;

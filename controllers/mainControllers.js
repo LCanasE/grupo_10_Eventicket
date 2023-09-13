@@ -150,9 +150,9 @@ const mainControllers = {
                     return res.render('home', { products, title: 'Eventicket', productsBanner, productos, error: {} });
                 } else if (from === 'events') {
                     if (products.length === 0) {
-                        return res.render('events', { products, title: 'Eventicket', productsBanner, productos, error: {message: "No se encontraron productos"} });
+                        return res.render('events', { products, title: 'Eventicket', productsBanner, productos, error: {message: "No se encontraron productos"}, user: {} });
                     }
-                    return res.render('events', { products, title: 'Eventicket', productsBanner, productos, error: {} });
+                    return res.render('events', { products, title: 'Eventicket', productsBanner, productos, error: {}, user: {} });
             }
         })
         } catch (error) {
