@@ -66,7 +66,7 @@ const productControllers = {
         },
       }).then((result) => {
         console.log(result);
-        result.forEach(r => console.log('CONSOLE LOG IMPORTANTE' ,r.cart_tickets));
+        result.forEach(r => console.log('CONSOLE LOG IMPORTANTE', r.cart_tickets));
         res.render("cart", {
           // searchedProducts: searchedProducts ? searchedProducts.dataValues : '',
           searchedProducts: result,
@@ -101,103 +101,102 @@ const productControllers = {
   },
 
   postCart: async (req, res) => {
-    let id = Number(req.params.id);
-
-    let { ticketName, ticketPrice, ticketAmount, idTicket, idProduct } =
-      req.body;
-    console.log('ESTOY EN POST CART', req.body);
-
-    // Se pregunta si existe ticketName para ejecutar el bucle for. Este if basicamente controla que se pueda entrar al carrito sin necesidad de haber apretado el boton "Comprar".
-    if (ticketName) {
-      if(typeof ticketAmount === 'string'){
-        ticketAmount = [Number(ticketAmount)];
-        idTicket = [Number(idTicket)];
-        ticketPrice = [Number(ticketPrice)];
-      } else {
-        console.log(ticketAmount, 'no es un string | POST CART');
-      }
-
-      const hasSelectedTickets = ticketAmount.some(cart => Number(cart) > 0)
-      console.log(hasSelectedTickets, '| DESDE POST CART HAS SELECTED TICKETS');
-      if(!hasSelectedTickets){
-        return res.redirect(`./${idProduct}/eventsDetails?error=Ingrese la cantidad de entradas`)
-      }
-
-      // console.log('IF DE TICKET NAME: ', ticketName, '\n Number ticket amount: ', ticketAmount);
-      // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
-      for (let i = 0; i < ticketAmount.length; i++) {
-        // console.log('Entrando al bucle for...');
-        let ticket = {};
-        if (ticketAmount[i] > 0) {
-
-          ticket.product_id = Number(idProduct);
-          ticket.quantity = Number(ticketAmount[i]);
-          ticket.ticket_type_id = Number(idTicket[i]);
-          ticket.price = Number(ticketPrice[i]);
-          ticket.bought = 0;
-        }
-        console.log('POST CART | ESTO ES TICKET', ticket);
-        // console.log(Object.keys(ticket).length > 0);
-
-        if (Object.keys(ticket).length > 0) {
-          try {
-            await Cart.create({
-              user_id: req.session.user.id,
-              product_id: ticket.product_id,
-              quantity: ticket.quantity,
-              ticket_type_id: ticket.ticket_type_id,
-              bought: ticket.bought,
-            });
-            // console.log(req.body);
-          } catch (error) {
-            console.log(error);
-          }
-        }
-
-        // if(ticketAmount[i] > 0){
-        //         tickets.push([ticketName[i], ticketPrice[i], ticketAmount[i]]);
-        //     }
-      }
-    }
-    // res.render('cart', {ticketName, ticketPrice, ticketAmount, title: 'Carrito', searchedProducts: {}})
     console.log(req.body);
-    res.redirect("./cart");
+    res.send('Info enviada')
 
-    // res.send('Producto cargado en la base');
+    // let id = Number(req.params.id);
+
+    // // let { ticketName, ticketPrice, ticketAmount, idTicket, idProduct } =
+    // //   req.body;
+    // console.log('ESTOY EN POST CART', req.body);
+
+    // // Se pregunta si existe ticketName para ejecutar el bucle for. Este if basicamente controla que se pueda entrar al carrito sin necesidad de haber apretado el boton "Comprar".
+    // if (ticketName) {
+    //   if(typeof ticketAmount === 'string'){
+    //     ticketAmount = [Number(ticketAmount)];
+    //     idTicket = [Number(idTicket)];
+    //     ticketPrice = [Number(ticketPrice)];
+    //   } else {
+    //     console.log(ticketAmount, 'no es un string | POST CART');
+    //   }
+
+    //   const hasSelectedTickets = ticketAmount.some(cart => Number(cart) > 0)
+    //   console.log(hasSelectedTickets, '| DESDE POST CART HAS SELECTED TICKETS');
+    //   if(!hasSelectedTickets){
+    //     return res.redirect(`./${idProduct}/eventsDetails?error=Ingrese la cantidad de entradas`)
+    //   }
+
+    //   // console.log('IF DE TICKET NAME: ', ticketName, '\n Number ticket amount: ', ticketAmount);
+    //   // Bucle for para recorrer los tipos de tickets que llegaron por el body. Arma un array con el nombre del tipo de ticket, el precio y la cantidad que se pushea a el array vacio tickets. Es decir, tickets va a ir acumulando arrays por tipo de ticket.
+    //   for (let i = 0; i < ticketAmount.length; i++) {
+    //     // console.log('Entrando al bucle for...');
+    //     let ticket = {};
+    //     if (ticketAmount[i] > 0) {
+
+    //       ticket.product_id = Number(idProduct);
+    //       ticket.quantity = Number(ticketAmount[i]);
+    //       ticket.ticket_type_id = Number(idTicket[i]);
+    //       ticket.price = Number(ticketPrice[i]);
+    //       ticket.bought = 0;
+    //     }
+    //     console.log('POST CART | ESTO ES TICKET', ticket);
+    //     // console.log(Object.keys(ticket).length > 0);
+
+    //     if (Object.keys(ticket).length > 0) {
+    //       try {
+    //         await Cart.create({
+    //           user_id: req.session.user.id,
+    //           product_id: ticket.product_id,
+    //           quantity: ticket.quantity,
+    //           ticket_type_id: ticket.ticket_type_id,
+    //           bought: ticket.bought,
+    //         });
+    //         // console.log(req.body);
+    //       } catch (error) {
+    //         console.log(error);
+    //       }
+    //     }
+
+    //     // if(ticketAmount[i] > 0){
+    //     //         tickets.push([ticketName[i], ticketPrice[i], ticketAmount[i]]);
+    //     //     }
+    //   }
+    // }
+    // // res.render('cart', {ticketName, ticketPrice, ticketAmount, title: 'Carrito', searchedProducts: {}})
+    // console.log(req.body);
+    // res.redirect("./cart");
+
+    // // res.send('Producto cargado en la base');
   },
 
-    putCart: async (req, res) => {
-      console.log('PUT CART');
-      try {
-        const cartData = JSON.parse(req.body.cartData)
-        console.log("SOY EL PUT DEL CART", cartData);
-        await Cart.update(
-            {bought: 1},
-            {where: {
-                user_id: req.session.user.id
-            }}).then(async () => {
-              let totalTicketsSold = []
-                cartData.forEach(async (cart) => {
-                    console.log("ACTUALIZACION DE CANTIDAD DE ENTRADAS DISPONIBLES RESULTADO:", (cart.cart_tickets.amount - cart.quantity));
-                await Ticket.update(
-                    {amount: (cart.cart_tickets.amount - cart.quantity)},
-                    {where: {
-                        name: cart.cart_tickets.name,
-                        product_id: cart.product_id
-                    }})
-                    
-                    totalTicketsSold.push(cart.cart_tickets.amount);
-                    console.log(totalTicketsSold);
-
-                // const updatedTickets = await Ticket.findAll({where: {product_id: cart.id}}).then((result) => console.log("FIND ALL DE TICKETS", result))
-                
-                })
+  putCart: async (req, res) => {
+    try {
+      const cartData = JSON.parse(req.body.cartData)
+      console.log("SOY EL PUT DEL CART", cartData);
+      await Cart.update(
+        { bought: 1 },
+        {
+          where: {
+            user_id: req.session.user.id
+          }
+        }).then(async () => {
+          cartData.forEach(async (cart) => {
+            console.log("ACTUALIZACION DE CANTIDAD DE ENTRADAS DISPONIBLES RESULTADO:", (cart.cart_tickets.amount - cart.quantity));
+            await Ticket.update(
+              { amount: (cart.cart_tickets.amount - cart.quantity) },
+              {
+                where: {
+                  name: cart.cart_tickets.name,
+                  product_id: cart.product_id
+                }
               })
-              .then(res.redirect('/'));
-      } catch (error) {
-        console.log(error);
-      }
-    },
+          })
+        })
+        .then(res.redirect('/'));
+    } catch (error) {
+      console.log(error);
+    }
+  },
 
   deleteCart: async (req, res) => {
     console.log("PRODUCTO ELIMINADO", req.body);
@@ -228,6 +227,7 @@ const productControllers = {
   },
 
   getEvents: async (req, res) => {
+    console.log("USUARIO EN SESION", req.session.user);
     let productos = modelProductos.findAll();
     try {
       await Product.findAll({
@@ -235,12 +235,21 @@ const productControllers = {
         include: [{ association: "tickets" }, { association: "categories" }],
       }).then((products) => {
         // console.log(products);
-        return res.render("events", {
-          products,
-          title: "Eventos",
-          productos,
-          error: {},
-        });
+        if (!req.session.user) {
+          return res.render("events", {
+            products,
+            title: "Eventos",
+            productos,
+            error: {},
+            user: {},
+          });
+        } else {
+          return res.render("events", {
+            products,
+            title: 'Eventos',
+            error: {},
+          })
+        }
       });
     } catch (error) {
       console.log(error);
@@ -527,8 +536,8 @@ const productControllers = {
           },
         }
       );
-  
-     await Ticket.update(
+
+      await Ticket.update(
         {
           name: tipoEntrada,
           amount: cantidadEntradas,
@@ -540,7 +549,7 @@ const productControllers = {
             product_id: id,
           },
         }
-      ); 
+      );
     } catch (error) {
       console.log(error);
     }

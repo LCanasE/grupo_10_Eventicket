@@ -52,7 +52,7 @@ const userControllers = {
   },
 
   getEditUser: async (req, res) => {
-    const error = req.query.error || "";
+    let { emailError, passwordError, category } = req.query || "";
     let email = req.session.user.email;
     let searchedUser = await User.findOne({
       where: {
@@ -62,24 +62,37 @@ const userControllers = {
     if (!searchedUser) {
       return res.send("Email inválido");
     }
-    console.log(searchedUser);
+    console.log("USUARIO: ", searchedUser);
     let nuevosDatos = req.body;
     res.render("editUser", {
       title: "Edición de usuario",
       searchedUser,
-      error: {},
+      error: {
+        password: {
+          msg: passwordError
+        },
+        email: {
+          msg: emailError
+        }
+      },
+      category: {
+        change: {
+          msg: category,
+        }
+      }
     });
   },
 
   putEditUser: async (req, res) => {
-    let email = req.session.user.email
+    console.log("PUT EDIT USER", req.body);
+    let email = req.body.emailRegForm
     let searchedUser = await User.findOne({
         where: {
             email: email
         }
     });
     if (!searchedUser) {
-        return res.send('Email inválido');
+        return res.redirect('/users/editUser?emailError=Email inválido');
     }
     let id = searchedUser.id;
     let newData = req.body;
@@ -96,7 +109,7 @@ const userControllers = {
         newData.notificaciones === "on" ? newData.notificaciones = true : newData.notificaciones = false;
         newData.tipoUsuario === "Espectador/a" ? newData.tipoUsuario = 1 : newData.tipoUsuario = 2;
     } else {
-        return res.redirect('/users/editUser?error=La contraseña no coincide');
+        return res.redirect('/users/editUser?passwordError=La contraseña no coincide');
     }
     const { nombreRegForm, apellidoRegForm, emailRegForm, tipoUsuario, passRegForm, checkPassRegForm, notificaciones, tyc } = newData
     User.update(
@@ -108,7 +121,8 @@ const userControllers = {
             password: passRegForm,
             check_password: checkPassRegForm,
             notifications: notificaciones,
-            terms_condition: tyc},
+            // terms_condition: tyc
+          },
         {
             where: {
                 id: id
