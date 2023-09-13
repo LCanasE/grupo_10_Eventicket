@@ -63,7 +63,7 @@
               <h4>Cantidad</h4>
             </div>
             <div class="tickets">
-              <% product.tickets.forEach((ticket, index)=> { %>
+              <% product.tickets.forEach((ticket)=> { %>
                 <div class="linea-ticket">
                   <p><%= ticket.name %></p>
                   <p class="precio-ticket-p">$ <%= ticket.price %>
@@ -71,7 +71,7 @@
                   <% if(ticket.amount === 0) {%>
                     <p>Agotado</p>
                     <% } else {%>
-                      <select class="caja-cantidad" name="ticketAmount_<%=index%>">
+                      <select class="caja-cantidad" name="ticketAmount">
                         <% let ticketsToShow = 0; %>
                           <% ticket.amount > 10 ? ticketsToShow = 10 : ticketsToShow = ticket.amount %>
                             <% for (let i=0; i <= ticketsToShow ; i++) { %>
@@ -79,18 +79,19 @@
                               <% } %>
                                 <% } %>
                       </select>
-                      <input type="hidden" name="ticketName_<%=index%>" value="<%=ticket.name%>">
-                      <input type="hidden" name="ticketPrice_<%=index%>" value=<%=ticket.price%>>
-                      <input type="hidden" name="idTicket_<%=index%>" value=<%=ticket.id %>>
+                      <input type="hidden" name="ticketName" value="<%=ticket.name%>">
+                      <input type="hidden" name="ticketPrice" value=<%=ticket.price%>>
+                      <input type="hidden" name="idTicket" value=<%=ticket.id %>>
                 </div>
 
-                <%# }); %>
-            </div> -->
+                <% }); %>
+            </div> 
             <%if (error && typeof error !== 'undefined') { %>
               <p style="text-align: center; color: red;"><%= error %></p>
           <% } %>          
             <input type="hidden" name="idProduct" value=<%=product.id %>>
-            <input type="button" value="Comprar" class="boton-comprar" onclick="submitForm()">
+            <!-- <input type="submit" value="Comprar" class="boton-comprar" onclick="submitForm()"> -->
+            <input type="submit" value="Comprar" class="boton-comprar">
           </form>
         </div>
 
@@ -117,7 +118,7 @@
       <%- include('../partials/footer') %>
     </footer>
     <!-- <script src="/js/localStorage.js"></script> -->
-    <script>
+    <!-- <script>
       function submitForm(e){
         // e.preventDefault();
         const form = document.getElementById('formTickets');
@@ -152,7 +153,7 @@
         })
         // console.log(allInfoAllTickets);
       }
-    </script>
+    </script> -->
 </body>
 
 </html>
