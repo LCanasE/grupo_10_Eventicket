@@ -510,7 +510,8 @@ const productControllers = {
     let id = Number(req.params.id);
     let newData = req.body;
     console.log('EDITAR DATOS', newData);
-
+    console.log('EDITAR DATOS', id);
+    console.log(new Date(newData.fechaOculta))
     let imageRoute = "../img/events/";
     let category_id;
     switch (req.body.categoria) {
@@ -538,24 +539,25 @@ const productControllers = {
         imageRoute = "../img/events";
         break;
     }
-
+    
     newData.img = req.file
       ? `${imageRoute}/${req.file.filename}`
       : req.body.originalImg;
-    newData.precio = Number(newData.precio);
-    newData.cantidadEntradas = Number(newData.cantidadEntradas);
+    // newData.precio = Number(newData.precio);
+    // newData.cantidadEntradas = Number(newData.cantidadEntradas);
     newData.eliminado = Number(newData.eliminado);
     newData.agotado = Number(newData.agotado);
     newData.categoria = category_id;
 
     const {
       nombre,
-      fecha,
+      fechaOculta,
       ubicacion,
       direccion,
       tipoEntrada,
       precio,
       cantidadEntradas,
+      idTicket,
       categoria,
       img,
       eliminado,
@@ -563,11 +565,13 @@ const productControllers = {
     } = newData;
     // console.log(fecha);
     // console.log("NEW DATA \n", newData);
+    // newData.nombre = JSON.stringify(nombre);
+
     try {
       await Product.update(
         {
           name: nombre,
-          date: fecha,
+          date: fechaOculta,
           location: ubicacion,
           addres: direccion,
           category_id: categoria,
@@ -581,6 +585,63 @@ const productControllers = {
           },
         }
       );
+
+
+    let newTickets = [tipoEntrada, cantidadEntradas, precio, idTicket];
+
+    if(!(newTickets[0] === "string")){
+      console.log('TIENE VARIAS ENTRADAS CARGADAS');
+
+      let ticketCorrect = []
+
+      for (let i = 0; i < tipoEntrada.length; i++) {
+        let ticket = {
+          name: newTickets[0][i],
+          amount: newTickets[1][i],
+          price: newTickets[2][i],
+          id: newTickets[3][i]
+        }
+        ticketCorrect.push(ticket);
+      }
+
+      console.log("OBJETOS TICKET: ", ticketCorrect);
+      ticketCorrect.forEach(async (ticket, index) => {
+        try {
+          await Ticket.update({
+            name: ticket.name,
+            amount: parseInt(ticket.amount),
+            price: parseInt(ticket.price),
+            // product_id: productCreatedID,
+          }, {
+            where: {
+              id: parseInt(ticket.id),
+              product_id: id
+            }
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      })
+    
+  } else {
+    try {
+      await Ticket.update({
+        name: tipoEntrada,
+        amount: parseInt(cantidadEntradas),
+        price: parseInt(precio),
+      }, {where: {
+        id: parseInt(idTicket),
+        product_id: id,
+      }})
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+
+
+
 
       await Ticket.update(
         {

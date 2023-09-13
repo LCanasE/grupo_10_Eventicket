@@ -84,13 +84,10 @@ const userControllers = {
   },
 
   putEditUser: async (req, res) => {
-    console.log("PUT EDIT USER", req.body);
+    console.log("PUT EDIT USER ESTOY ACA: ", req.body);
+    console.log("ID DEL USUARIO EN SESION: ", req.session.user.id);
     let email = req.body.emailRegForm
-    let searchedUser = await User.findOne({
-        where: {
-            email: email
-        }
-    });
+    let searchedUser = await User.findByPk(req.session.user.id);
     if (!searchedUser) {
         return res.redirect('/users/editUser?emailError=Email inválido');
     }

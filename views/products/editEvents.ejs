@@ -15,15 +15,21 @@
             <h2>Edición de eventos</h2>
             <form action="/products/<%= searchedProduct.id %>/editEvents?_method=PUT" method="POST" enctype="multipart/form-data">
                 <input type="text" name="nombre" value="<%= searchedProduct.name %>">
-                <input type="datetime-local" name="fecha" min=<%= new Date() %> value="<%= searchedProduct.date %>" >
+                <input type="datetime-local" name="fecha" min=<%= new Date() %> value="<%= new Date(searchedProduct.date) %>" >
+                <input type="hidden" name="fechaOculta" min=<%= new Date() %> value="<%= searchedProduct.date %>" >
                 <!-- <input type="text" name="fecha" value="<%#= formateDate(searchedProduct.date) %>"> -->
                 <input type="text" name="ubicacion" value="<%= searchedProduct.location %>">
                 <input type="text" name="direccion" value="<%= searchedProduct.addres %>">
                 <div class="agregar-input-precio-evento">
                     <label for="">Tipo de entrada</label>
-                    <input type="text" class="tipo-entrada-evento" style="color:black" name="tipoEntrada" value="<%= searchedProduct.tickets[0].dataValues.name %>">
-                    <input type="number" name="precio" value="<%= searchedProduct.tickets[0].dataValues.price %>" class="precio-crear-evento">
-                    <input type="number" value="<%= searchedProduct.tickets[0].dataValues.amount %>" name="cantidadEntradas" class="precio-crear-evento">
+                    <%# if(searchedProduct.tickets.length > 1) {%>
+                        <% searchedProduct.tickets.forEach(ticket => {%>
+                    <input type="text" class="tipo-entrada-evento" style="color:black" name="tipoEntrada" value="<%= ticket.name %>">
+                    <input type="number" name="precio" value="<%= ticket.price %>" class="precio-crear-evento">
+                    <input type="number" value="<%= ticket.amount %>" name="cantidadEntradas" class="precio-crear-evento">
+                    <input type="hidden" name="idTicket" value="<%= ticket.id %>">
+                        <%}) %>
+                    <%# } %>
                     <button class="agregar-tipo-entrada">
                         <i class="fa-solid fa-plus"></i>
                     </button>
